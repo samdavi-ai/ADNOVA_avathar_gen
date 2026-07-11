@@ -1,28 +1,37 @@
 """
-ADNOVA Customer Persona Board Generator — FastAPI Backend
+ADNOVA Brand Persona Studio — FastAPI Backend
 
-Takes brand JSON data → builds mega-prompt from cc.txt template → 
-calls Gemini 2.0 Flash image generation → returns premium persona board image.
+An enterprise AI Creative Director and Validation Platform that:
+1. Validates Brand Research JSONs (Cross Validation & Inference Loop)
+2. Automatically infers optimal Representative details (removes manual controls)
+3. Prompts & generates Transparent Avatar and Background Scene separately
+4. Local PIL composition of layers with occlusion, perspectives, and shadows
+5. Preserves validation audits, prompts, and separate assets to disk
 """
 
 import os
-import base64
-import json
-import traceback
+import io
 import uuid
+import json
+import base64
+import logging
+import traceback
+import concurrent.futures
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional, Any
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from pydantic import BaseModel
-from typing import Optional
+from pydantic import BaseModel, Field
 from dotenv import load_dotenv
+from PIL import Image, ImageFilter
+import numpy as np
 
-# Load env from project root
+# Load environment variables
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-app = FastAPI(title="ADNOVA Persona Board Generator")
+app = FastAPI(title="ADNOVA Brand Persona Studio Backend")
 
 app.add_middleware(
     CORSMiddleware,
@@ -34,888 +43,291 @@ app.add_middleware(
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
-    print("WARNING: GEMINI_API_KEY not found in .env file")
+    print("WARNING: GEMINI_API_KEY not found in environment")
 
-# Directory to persist generated persona boards
 GENERATED_DIR = Path(__file__).parent / "generated"
 GENERATED_DIR.mkdir(exist_ok=True)
 
-
 # ──────────────────────────────────────────────────────────────
-PROMPT_TEMPLATE = """MASTER PROMPT — ENTERPRISE CUSTOMER PERSONA BOARD GENERATION
+# SYSTEM INSTRUCTIONS & SCENE LIBRARY (100+ Templates)
+# ──────────────────────────────────────────────────────────────
 
-ROLE & MISSION
-You are a world-class Creative Director, Brand Strategist, UI/UX Designer, Editorial Designer, Commercial Photographer, Fashion Art Director, and Infographic Specialist.
-Transform the structured brand research below into a premium visual customer persona board suitable for Fortune 500 marketing teams.
-The final output must look like a professionally designed Adobe Illustrator / Figma / Behance presentation. Never make the output resemble generic AI-generated artwork.
+SCENE_LIBRARY = []
+locations = [
+    "London townhouse", "New York loft", "Tokyo apartment", "Scandinavian cabin",
+    "Parisian salon", "Dubai penthouse", "Milan apartment", "Berlin studio",
+    "Sydney beach house", "Toronto condo", "Zurich chalet", "Kyoto tea house",
+    "Barcelona flat", "Singapore high-rise", "Mumbai terrace"
+]
 
-========================================================
-INPUT DATA
-========================================================
-Brand Name: {brand_name}
-Industry: {industry}
-Brand Positioning: {brand_positioning}
-Primary Product: {primary_product}
-Secondary Products: {secondary_products}
-Value Proposition: {value_proposition}
-Offer Summary: {offer_summary}
-Communication Style: {communication_style}
-Tone: {tone}
-Voice: {voice}
-CTA: {cta}
-Brand Colors: {brand_colors}
-Fonts: {fonts}
-Visual Style: {visual_style}
-Country: {country}
-Markets: {markets}
+environments = [
+    "living room with minimal light oak furniture and linen curtains",
+    "cozy study room with bookshelves and soft warm lighting",
+    "bright kitchen with marble countertops and green plants",
+    "spacious workspace with industrial exposed brick walls",
+    "luxury minimalist bathroom vanity with high-end brass accents",
+    "contemporary sunlit office overlook with floor-to-ceiling windows",
+    "chic residential balcony showing city skyline at sunset",
+    "outdoor terrace patio with tropical plants and comfortable seating",
+    "understated retail showroom with warm wooden textures",
+    "private studio setting with soft fashion-editorial gallery lighting"
+]
 
-========================================================
-TARGET CUSTOMER
-========================================================
-Persona Name: {persona_name}
-Avatar Label: {avatar_label}
-Summary: {summary}
-Age: {age}
-Gender: {gender}
-Income Level: {income}
-Pain Points: {pain_points}
-Psychographics: {psychographics}
-Buying Motivations: {buying_motivations}
-Preferred Platforms: {platforms}
-Product Fit: {product_fit}
-Ad Angles: {recommended_ad_angles}
-Voice Style: {recommended_voice_style}
-Music Style: {recommended_music_style}
-
-========================================================
-CREATIVE INTELLIGENCE
-========================================================
-Creative Pattern Summary: {creative_summary}
-Hook Styles: {hook_styles}
-Ad Directions: {recommended_directions}
-
-========================================================
-GLOBAL MARKET & CULTURAL AUTHENTICITY ENGINE
-========================================================
-Analyze the primary target country ({country}) and target markets ({markets}). Every generated customer avatar must authentically represent the target market, regional context, and cultural nuances described in the research:
-- REGIONAL AUTHENTICITY: Match local fashion, climate-appropriate clothing, typical lifestyle, regional architecture, work environments, recreation, and shopping habits.
-- DIVERSE HUMAN REPRESENTATION: Represent people who are highly plausible for the target audience. Facial features, hair characteristics, skin tones, and clothing must be guided by the audience and setting, avoiding stereotypes or assuming a single appearance for a country.
-- CLIMATE ADAPTATION: Adapt wardrobe and environment to the target market's climate (e.g., layers/coats for cold regions, breathable/lightweight fabrics for hot climates, tropical vegetation, desert natural light, etc.).
-- LOCAL ENVIRONMENT: Ensure backgrounds reflect realistic surroundings (cafes, offices, homes, city parks, streetscapes) that match the region rather than generic stock backgrounds.
-- FASHION & LIFESTYLE: Clothing must fit the climate, culture, industry, age group, and brand personality. Show everyday activities naturally (commuting, working, relaxing, family).
-- PRODUCT CONTEXT: If products are displayed, show them integrated naturally into daily life, not staged.
-
-========================================================
-COMPOSITION & LAYOUT
-========================================================
-Canvas: 1080 x 1350 (Portrait orientation).
-Do NOT redesign the layout from scratch. Keep the existing dashboard layout, but elevate its alignment, spacing, padding, and visual rhythm.
-- SPLIT LAYOUT: Left side (45% width) displays a large, highly realistic customer portrait. Right side (55% width) displays perfectly aligned information cards.
-- GRID & MARGINS: Maintain equal spacing between all sections. Perfect the grid system with large margins and generous whitespace/breathing room.
-- VISUAL BALANCE & HIERARCHY: Guide the eye logically: Portrait -> Persona -> Demographics -> Psychographics -> Pain Points -> Motivations -> Platforms -> Quote -> Footer.
-
-========================================================
-PORTRAIT & REALISM
-========================================================
-Generate one highly realistic customer. Keep the person representing the persona naturally (not a fashion model or generic stock photo pose).
-- REALISM: Natural skin pores, visible skin texture, realistic wrinkles, expressive eyes, and individual hair strands.
-- EXPRESSIONS: Candid expressions, natural friendly smiles, authentic body language, and relaxed posture.
-- AVOID: No beauty filters, no over-smoothed plastic skin, no CGI or gaming engine appearance, no artificial symmetry, and no duplicate/malformed limbs.
-- CAMERA & LIGHTING: Commercial advertising photography style. Capture with warm natural daylight, soft ambient shadows, and shallow depth of field (e.g., Canon EOS R5, 85mm lens).
-
-========================================================
-PRODUCT CATEGORY REPRESENTATION
-========================================================
-Always match the brand's primary category:
-- FOOTWEAR: Shoes should be slightly visible and realistic.
-- COSMETICS: Subtle makeup products should naturally appear.
-- TECHNOLOGY: A laptop or digital device should naturally appear in the scene.
-- HEALTHCARE: A bright clinical or wellness environment.
-- FINANCE / ENTERPRISE: A modern, sleek workspace or boardroom.
-
-========================================================
-INFORMATION CARDS
-========================================================
-Generate premium, rounded cards with a clean modern dashboard aesthetic.
-- PADDING & BALANCE: Perfect padding and consistent spacing inside and between cards. Equal card heights where possible.
-- VISUAL STYLE: Subtle glassmorphism and soft ambient shadows. Use elegant dividers and balanced negative space.
-- MONOCHROME ICONS: Include modern, clean outline icons with consistent stroke widths. No emojis, no cartoon icons.
-
-========================================================
-TYPOGRAPHY & TEXT ACCURACY (CRITICAL)
-========================================================
-Use premium editorial typography similar to Apple, Stripe, Linear, Notion, Airbnb, and Framer.
-- TEXT ACCURACY: Every word must be spelled correctly. Avoid fake English, gibberish text, overlapping text, or distorted letters. Text must be perfectly crisp and legible.
-- CARD HEADINGS: Card headings must exactly match these labels:
-  - DEMOGRAPHICS
-  - PSYCHOGRAPHICS
-  - PAIN POINTS
-  - BUYING MOTIVATIONS
-  - BRAND VOICE
-  - PREFERRED PLATFORMS
-  - LIFESTYLE SNAPSHOT
-  - VALUES
-  - QUOTE
-  - PRODUCT FIT
-  - RECOMMENDED AD ANGLES
-- Each card must contain ONLY the relevant data from the corresponding section.
-
-========================================================
-COLOR SYSTEM
-========================================================
-Strictly use the brand colors supplied:
-- Primary Brand Color: {primary_brand_color}
-- Secondary Brand Color: {secondary_brand_color}
-- Background: Soft white / neutral light gray.
-- Cards: Light gray/white with subtle gradients if appropriate.
-- Accent: Primary/Secondary brand color.
-- Icons: Muted gray/accent brand color.
-- Text: Dark charcoal for maximum readability.
-- Maintain premium color harmony; avoid oversaturation.
-
-========================================================
-QUALITY & OUTPUT STANDARDS
-========================================================
-- ULTRA REALISTIC: 8K resolution, photorealistic commercial advertising quality.
-- PERFECT ANATOMY: Perfect hands, fingers, eyes, face, and body proportions.
-- NO ARTIFACTS: No blur, no watermarks, no logo distortions, and no AI generation anomalies.
-- FINAL IMPRESSION: Experienced creative directors and UI/UX designers should believe this was manually designed in Figma, Illustrator, and Photoshop.
-
-========================================================
-FINAL GOAL
-========================================================
-Create an award-winning premium customer persona board that visually communicates the target customer, brand identity, buying motivations, psychology, and lifestyle in a single elegant presentation. Every element must feel intentional, balanced, and professionally art-directed.
-"""
+# Generate exactly 100 templates
+for idx in range(100):
+    loc = locations[idx % len(locations)]
+    env = environments[idx % len(environments)]
+    
+    if idx % 8 == 0:
+        industries = ["footwear"]
+    elif idx % 8 == 1:
+        industries = ["fashion"]
+    elif idx % 8 == 2:
+        industries = ["skincare", "cosmetics"]
+    elif idx % 8 == 3:
+        industries = ["technology", "saas"]
+    elif idx % 8 == 4:
+        industries = ["automotive"]
+    elif idx % 8 == 5:
+        industries = ["healthcare", "wellness"]
+    elif idx % 8 == 6:
+        industries = ["finance", "corporate"]
+    else:
+        industries = ["hospitality", "luxury", "retail"]
+        
+    styles = ["modern"]
+    if idx % 3 == 0:
+        styles.append("minimalist")
+    elif idx % 3 == 1:
+        styles.append("scandinavian")
+    else:
+        styles.append("industrial")
+        
+    desc = (
+        f"A photorealistic, commercially styled background of a {loc} {env}. "
+        f"Designed with clean empty space in the center, soft balanced lighting, "
+        f"and no people or products in the scene."
+    )
+    
+    SCENE_LIBRARY.append({
+        "id": f"sc_template_{idx+1:03d}",
+        "description": desc,
+        "industries": industries,
+        "styles": styles
+    })
 
 
 # ──────────────────────────────────────────────────────────────
-# CREATIVE DIRECTOR PROMPT
+# STRUCTURED LLM VALIDATION & INFERENCE ENGINE MODELS
 # ──────────────────────────────────────────────────────────────
 
-CREATIVE_DIRECTOR_PROMPT = """========================================================
-ENTERPRISE CREATIVE DIRECTOR ENGINE
-========================================================
-
-ROLE
-
-You are the Creative Director of a world-class branding agency.
-
-Your responsibility is NOT to generate the final image.
-
-Your responsibility is to create a unique creative direction for every brand before image generation.
-
-Never reuse the same design language twice.
-
-Every generated persona board should feel like it belongs to a different Fortune 500 company.
-
-Think like the creative directors behind Apple, Nike, Airbnb, Stripe, Adobe, Google, Gymshark, Glossier, Patagonia, Lululemon and Notion.
-
-========================================================
-CREATIVE PHILOSOPHY
-========================================================
-
-Never generate template-based designs.
-
-Never repeat:
-
-• layout
-• composition
-• photography
-• environment
-• card arrangement
-• portrait framing
-• lighting
-• color treatment
-• icon placement
-• visual rhythm
-
-Each generation must feel custom designed.
-
-========================================================
-BRAND ANALYSIS
-========================================================
-
-Before making any design decision, analyze:
-
-Industry
-
-Products
-
-Target audience
-
-Brand personality
-
-Brand tone
-
-Communication style
-
-Geography
-
-Lifestyle
-
-Customer motivations
-
-Visual identity
-
-Use these insights to determine the creative direction.
-
-Never ignore the supplied research.
-
-========================================================
-INDUSTRY CREATIVE MAPPING
-========================================================
-
-ACTIVEWEAR
-
-Design inspiration:
-
-Nike
-
-Gymshark
-
-Lululemon
-
-Alo Yoga
-
-Pangaia
-
-Photography:
-
-Athletic lifestyle
-
-Outdoor fitness
-
-Morning workout
-
-Running
-
-Stretching
-
-Modern gym
-
-Environment:
-
-Dubai Marina
-
-Running track
-
-Luxury gym
-
-Outdoor training
-
-Minimal apartment
-
-Yoga studio
-
-Clothing:
-
-Performance apparel
-
-Sports watch
-
-Running shoes
-
-Gym accessories
-
---------------------------------------------------------
-
-FOOTWEAR
-
-Design inspiration:
-
-Allbirds
-
-Nike
-
-Adidas
-
-On Running
-
-Patagonia
-
-Photography:
-
-Walking
-
-Coffee shop
-
-Urban exploration
-
-Nature
-
-Minimal apartment
-
-Environment:
-
-Modern city
-
-Park
-
-Scandinavian home
-
-Natural materials
-
---------------------------------------------------------
-
-COSMETICS
-
-Design inspiration:
-
-Glossier
-
-Rare Beauty
-
-Sephora
-
-Charlotte Tilbury
-
-Dior Beauty
-
-Photography:
-
-Beauty editorial
-
-Mirror
-
-Vanity
-
-Luxury skincare
-
-Environment:
-
-Beauty studio
-
-Luxury bathroom
-
-Minimal vanity
-
-Soft pink lighting
-
---------------------------------------------------------
-
-TECHNOLOGY
-
-Design inspiration:
-
-Apple
-
-Stripe
-
-Linear
-
-Notion
-
-Arc
-
-Photography:
-
-Modern workspace
-
-Creative office
-
-Startup
-
-Glass architecture
-
-Environment:
-
-Minimal office
-
-Developer workspace
-
-Premium desk
-
---------------------------------------------------------
-
-FINANCE
-
-Design inspiration:
-
-Bloomberg
-
-McKinsey
-
-Deloitte
-
-Goldman Sachs
-
-Photography:
-
-Executive
-
-Business
-
-Professional
-
-Environment:
-
-Boardroom
-
-Office
-
-Financial district
-
---------------------------------------------------------
-
-HEALTHCARE
-
-Design inspiration:
-
-Mayo Clinic
-
-Cleveland Clinic
-
-Johns Hopkins
-
-Photography:
-
-Professional
-
-Trustworthy
-
-Human
-
-Environment:
-
-Clinic
-
-Hospital
-
-Wellness
-
-========================================================
-DESIGN DNA
-========================================================
-
-Generate a unique Design DNA for every project.
-
-Example combinations:
-
-Minimal Scandinavian
-
-Luxury Editorial
-
-Swiss Design
-
-Apple Human Interface
-
-Modern Dashboard
-
-Pinterest Editorial
-
-Magazine Layout
-
-Enterprise SaaS
-
-Glassmorphism
-
-Luxury White Space
-
-Do not reuse the same combination repeatedly.
-
-========================================================
-CREATIVE SEED
-========================================================
-
-Generate a unique creative seed consisting of:
-
-Layout Concept
-
-Photography Style
-
-Camera Lens
-
-Camera Angle
-
-Lighting Style
-
-Color Mood
-
-Background Style
-
-Environment
-
-Portrait Style
-
-Pose
-
-Card Style
-
-Shadow Style
-
-Typography Mood
-
-Editorial Style
-
-Visual Story
-
-Brand Inspiration
-
-The seed must be different for every generation while remaining appropriate for the supplied brand.
-
-========================================================
-CONTROLLED RANDOMIZATION
-========================================================
-
-Use controlled diversity.
-
-Never choose random styles that conflict with the industry.
-
-Example:
-
-Footwear should never receive beauty photography.
-
-Healthcare should never receive nightclub lighting.
-
-Finance should never receive fitness layouts.
-
-Technology should never receive cosmetics styling.
-
-Randomization must always remain brand-aware.
-
-========================================================
-GENERATION MEMORY
-========================================================
-
-Assume previous persona boards already exist.
-
-Avoid repeating:
-
-Same layout
-
-Same portrait crop
-
-Same furniture
-
-Same environment
-
-Same camera
-
-Same lighting
-
-Same pose
-
-Same card arrangement
-
-Same photography
-
-Generate a noticeably different visual experience.
-
-========================================================
-VISUAL STORYTELLING
-========================================================
-
-Every persona board should communicate a story.
-
-The viewer should immediately understand:
-
-Who this customer is
-
-How they live
-
-Why they buy
-
-What the brand represents
-
-Without reading every card.
-
-========================================================
-QUALITY CONTROL
-========================================================
-
-Before passing the creative direction to the image generator verify:
-
-✓ Industry matches photography
-
-✓ Environment matches brand
-
-✓ Clothing matches products
-
-✓ Layout is unique
-
-✓ Pose is different from previous generations
-
-✓ Lighting is appropriate
-
-✓ Colors reflect brand identity
-
-✓ Visual storytelling is clear
-
-✓ Design DNA is unique
-
-✓ Creative seed is unique
-
-If any section feels repetitive or generic, redesign the creative direction before generating the final image.
-
-========================================================
-FINAL OBJECTIVE
-========================================================
-
-Every generated persona board should feel like it was custom designed by a different award-winning creative director.
-
-No two brands should ever look like they came from the same template.
-
-Each board should have its own unique photography, layout, storytelling, atmosphere, and visual identity while remaining completely faithful to the supplied structured research."""
+class ValidatedBrand(BaseModel):
+    brandName: str = Field(description="Validated name of the brand")
+    industry: str = Field(description="Normalized industry of the brand")
+    primaryProduct: str = Field(description="Primary product catalog entry")
+    secondaryProducts: list[str] = Field(default_factory=list, description="Secondary products catalog list")
+    country: str = Field(description="Target country geography")
+    markets: list[str] = Field(default_factory=list, description="Primary target markets list")
+    brandColors: list[str] = Field(default_factory=list, description="Validated brand hex color codes")
+    visualStyle: str = Field(description="Brand visual aesthetic preference")
+    communicationStyle: str = Field(description="Normalized communications style")
+    tone: str = Field(description="Tone of brand message")
+
+class ValidatedPersona(BaseModel):
+    name: str = Field(description="Name of the customer profile")
+    age: str = Field(description="Validated age range, corrected if original contains anomalies")
+    gender: str = Field(description="Raw audience target gender (e.g. All Genders, Female, Male)")
+    summary: str = Field(description="Compact summary of lifestyle")
+    painPoints: list[str] = Field(default_factory=list, description="Key client pain points")
+    buyingMotivations: list[str] = Field(default_factory=list, description="Key buying triggers")
+    platforms: list[str] = Field(default_factory=list, description="Target platform channels")
+
+class InferredRepresentative(BaseModel):
+    age: str = Field(description="Specific age or narrow age group resolved for model portrait")
+    gender: str = Field(description="Specific representative gender resolved for campaign portrait (e.g. female, male)")
+    ethnicity: str = Field(description="Resolved representative ethnicity based on target geographies")
+    skinTone: str = Field(description="Specific skin tone of representative model")
+    hair: str = Field(description="Hair color and style for model")
+    expression: str = Field(description="Facial expression of representative model")
+    wardrobe: str = Field(description="Wardrobe colors and materials based on brandColors and industry requirements")
+    accessories: str = Field(description="Accessories resolved for the representative model")
+    pose: str = Field(description="Pose instructions for the model")
+    camera: str = Field(description="Camera and lens specification")
+    lighting: str = Field(description="Lighting style and direction")
+    background: str = Field(description="Description of the surrounding environment")
+
+class ValidationDiff(BaseModel):
+    field: str = Field(description="Field name validated")
+    raw_value: str = Field(description="Original unvalidated value from JSON")
+    validated_value: str = Field(description="Validated or corrected value")
+    reasoning: str = Field(description="Detailed reason for change or validation decision")
+
+class ConfidenceReport(BaseModel):
+    score: int = Field(description="Representative inference confidence score (0-100)")
+    reasoning: str = Field(description="Strategic justification for representative mapping")
+
+class ValidationInferenceResult(BaseModel):
+    validated_brand: ValidatedBrand
+    validated_persona: ValidatedPersona
+    representative: InferredRepresentative
+    validation_report: list[ValidationDiff]
+    confidence_report: ConfidenceReport
 
 
 # ──────────────────────────────────────────────────────────────
-# DATA EXTRACTION HELPERS
+# PROMPT COMPOSITION HELPERS
 # ──────────────────────────────────────────────────────────────
 
-def safe_join(items, separator=", "):
-    """Safely join a list of items into a string."""
-    if not items:
-        return ""
-    if isinstance(items, str):
-        return items
-    return separator.join(str(i) for i in items)
+def select_best_scene(industry: str, visual_style: str) -> str:
+    """Score and randomly match the best background template from scene library."""
+    scored_templates = []
+    ind_lower = industry.lower()
+    style_lower = visual_style.lower()
+    
+    import random
+    
+    for item in SCENE_LIBRARY:
+        score = 0
+        # Match industry
+        if any(ind in ind_lower for ind in item["industries"]):
+            score += 10
+        # Match visual style
+        if any(sty in style_lower for sty in item["styles"]):
+            score += 5
+            
+        # Add random score noise to prevent background repetition (Quality requirement)
+        random_factor = random.uniform(0.0, 4.0)
+        scored_templates.append((score + random_factor, item["description"]))
+        
+    scored_templates.sort(key=lambda x: x[0], reverse=True)
+    return scored_templates[0][1]
 
 
-def safe_bullet(items):
-    """Convert a list to bullet-point format."""
-    if not items:
-        return "None specified"
-    if isinstance(items, str):
-        return f"• {items}"
-    return "\n".join(f"• {item}" for item in items)
-
-
-def extract_brand_fields(data: dict) -> dict:
-    """Extract all brand identity template variables from the JSON."""
-    bi = data.get("brandIdentity", {})
-    geo = bi.get("geography", {})
-
-    return {
-        "brand_name": bi.get("brandName", "Unknown Brand"),
-        "industry": bi.get("industry", "General"),
-        "brand_positioning": bi.get("brandPositioningSummary", "Premium brand"),
-        "primary_product": bi.get("productInfo", {}).get("primary", bi.get("productCategories", {}).get("primary", "")),
-        "secondary_products": safe_join(bi.get("productInfo", {}).get("secondary", bi.get("productCategories", {}).get("secondary", []))) or "None",
-        "value_proposition": bi.get("valueProposition", ""),
-        "offer_summary": bi.get("offerSummary", ""),
-        "communication_style": bi.get("communicationStyle", "Professional"),
-        "tone": bi.get("tone", "Professional"),
-        "voice": bi.get("voice", ""),
-        "cta": bi.get("ctaPreference", "Learn More"),
-        "brand_colors": safe_join(bi.get("brandColors", [])),
-        "fonts": safe_join(bi.get("fonts", [])) or "Modern sans-serif",
-        "visual_style": bi.get("visualStyle", "Modern and clean"),
-        "country": geo.get("country", "Global"),
-        "markets": safe_join(geo.get("primaryMarkets", [])),
-    }
-
-
-def extract_persona_fields(persona: dict) -> dict:
-    """Extract persona-specific template variables."""
-    return {
-        "persona_name": persona.get("name", "Ideal Customer"),
-        "avatar_label": persona.get("avatarLabel", "Primary"),
-        "summary": persona.get("summary", ""),
-        "age": str(persona.get("age", "25-45")),
-        "gender": persona.get("gender", "All genders"),
-        "income": persona.get("incomeLevel", "Middle"),
-        "pain_points": safe_bullet(persona.get("painPoints", [])),
-        "psychographics": safe_bullet(persona.get("psychographics", [])),
-        "buying_motivations": safe_bullet(persona.get("buyingMotivations", [])),
-        "platforms": safe_join(persona.get("platformPreference", persona.get("preferredChannels", []))),
-        "product_fit": persona.get("productFit", ""),
-        "recommended_ad_angles": safe_bullet(persona.get("recommendedAdAngles", [])),
-        "recommended_voice_style": persona.get("recommendedVoiceStyle", "Professional and engaging"),
-        "recommended_music_style": persona.get("recommendedMusicStyle", "Modern ambient"),
-    }
-
-
-def extract_creative_fields(data: dict) -> dict:
-    """Extract creative intelligence template variables."""
-    cr = data.get("competitorResearch", {}).get("creativeIntelligence", {})
-    return {
-        "creative_summary": cr.get("creativeIntelligenceSummary", cr.get("patternSummary", "")),
-        "hook_styles": safe_bullet(cr.get("hookStyles", [])),
-        "recommended_directions": safe_bullet(cr.get("recommendedAdDirections", [])),
-    }
-
-
-def extract_brand_colors_for_prompt(data: dict) -> dict:
-    """Extract primary and secondary brand colors for the color system section."""
-    colors = data.get("brandIdentity", {}).get("brandColors", [])
-    primary = "#333333"
-    secondary = "#666666"
-
-    # Find the first two distinct non-white, non-transparent hex colors
-    for c in colors:
-        c_lower = c.strip().lower()
-        # Skip white and very light colors
-        if c_lower in ("#ffffff", "#fff", "rgba(255,255,255,0.95)", "white"):
-            continue
-        # Skip transparent
-        if "transparent" in c_lower:
-            continue
-        # Extract hex from the color
-        if c_lower.startswith("#") and len(c_lower) >= 4:
-            if primary == "#333333":
-                primary = c.strip()
-            elif secondary == "#666666":
-                secondary = c.strip()
-                break
-        elif c_lower.startswith("rgb"):
-            # Try to convert rgb to hex
-            import re
-            nums = re.findall(r'\d+', c)
-            if len(nums) >= 3:
-                r, g, b = int(nums[0]), int(nums[1]), int(nums[2])
-                # Skip very light/near-white
-                if r > 240 and g > 240 and b > 240:
-                    continue
-                hex_color = f"#{r:02x}{g:02x}{b:02x}"
-                if primary == "#333333":
-                    primary = hex_color
-                elif secondary == "#666666":
-                    secondary = hex_color
-                    break
-
-    return {
-        "primary_brand_color": primary,
-        "secondary_brand_color": secondary,
-    }
-
-
-def build_avatar_prompt(data: dict, creative_brief: dict, persona_index: int = 0) -> str:
-    """Build the prompt for the customer avatar generator using cc.txt rules."""
-    brand = extract_brand_fields(data)
-    personas = data.get("idealClientProfiles", [])
-
-    if not personas:
-        raise ValueError("No ideal client profiles found in the JSON data")
-
-    if persona_index >= len(personas):
-        persona_index = 0
-
-    persona = extract_persona_fields(personas[persona_index])
-    creative = extract_creative_fields(data)
-    colors = extract_brand_colors_for_prompt(data)
-
-    # Load enhancement.txt
+def build_avatar_prompt_spec(rep: InferredRepresentative, brand_colors: list[str]) -> str:
+    """Build the photorealistic avatar prompt incorporating enhancement.txt guidelines."""
+    # Try reading enhancement.txt
     enhancement_path = Path(__file__).parent.parent / "enhancement.txt"
     enhancement_content = ""
     if enhancement_path.exists():
         try:
             enhancement_content = enhancement_path.read_text(encoding="utf-8")
-        except Exception as e:
-            print(f"Error reading enhancement.txt: {e}")
-    
+        except Exception:
+            pass
+            
     if not enhancement_content:
-        enhancement_content = "ENTERPRISE AVATAR ASSET EXTRACTION ENGINE\nROLE: Generate customer avatar."
-
-    # Strip top diagram if present
-    if "ENTERPRISE AVATAR ASSET EXTRACTION ENGINE" in enhancement_content:
-        enhancement_content = enhancement_content[enhancement_content.index("ENTERPRISE AVATAR ASSET EXTRACTION ENGINE"):]
-
-    # Extract brief details or default
-    pose = creative_brief.get("pose", "Standing naturally")
-    clothing = creative_brief.get("climate_wardrobe_direction", f"Aesthetic clothing matching {brand['industry']}")
-    cultural = creative_brief.get("local_cultural_context", f"Believable representation for {brand['country']}")
-    lighting = creative_brief.get("lighting_style", "Warm natural daylight")
-    color_mood = creative_brief.get("color_mood", "Balanced natural tones")
-
+        enhancement_content = (
+            "ENTERPRISE AVATAR ASSET EXTRACTION ENGINE\n"
+            "ROLE: Generate ONLY one person. No background. Center the subject. No scenery."
+        )
+        
     dossier = (
         f"\n\n========================================================\n"
-        f"CURRENT GENERATION SPECIFICATION (ASSET 1 : CUSTOMER AVATAR)\n"
+        f"CURRENT SPECIFICATION (ASSET 1 : PORTRAIT AVATAR ONLY)\n"
         f"========================================================\n"
-        f"YOUR TASK: Generate ONLY the customer avatar. No background. Person only.\n\n"
-        f"Brand Identity:\n"
-        f"- Name: {brand['brand_name']}\n"
-        f"- Industry: {brand['industry']}\n"
-        f"- Primary Product: {brand['primary_product']}\n"
-        f"- Target Country: {brand['country']}\n"
-        f"- Primary Markets: {brand['markets']}\n"
-        f"- Brand Accent Colors: {colors['primary_brand_color']}, {colors['secondary_brand_color']}\n"
-        f"- Visual Style: {brand['visual_style']}\n\n"
-        f"Target Persona:\n"
-        f"- Name: {persona['persona_name']}\n"
-        f"- Age: {persona['age']}\n"
-        f"- Gender: {persona['gender']}\n"
-        f"- Income level: {persona['income']}\n"
-        f"- Summary: {persona['summary']}\n"
-        f"- Psychographics: {persona['psychographics']}\n"
-        f"- Buying Motivations: {persona['buying_motivations']}\n"
-        f"- Pain Points: {persona['pain_points']}\n\n"
-        f"Creative Director Visual Directives for Avatar:\n"
-        f"- Pose: {pose}\n"
-        f"- Clothing/Wardrobe: {clothing}\n"
-        f"- Local/Cultural Appearance: {cultural}\n"
-        f"- Expression: Friendly, professional, and authentic\n"
-        f"- Lighting Direction: {lighting}\n"
-        f"- Color Grading & Accents: {color_mood} (apply brand colors {colors['primary_brand_color']} and {colors['secondary_brand_color']} to clothing/accessories)\n"
+        f"Subject Details:\n"
+        f"- Portrait: Photorealistic {rep.ethnicity} {rep.gender}, age {rep.age}\n"
+        f"- Skin Tone & Features: {rep.skinTone}, {rep.hair}\n"
+        f"- Facial Expression: {rep.expression}\n"
+        f"- Pose: {rep.pose}\n"
+        f"- Clothing: {rep.wardrobe} matching accent colors {', '.join(brand_colors[:2])}\n"
+        f"- Accessories: {rep.accessories}\n"
+        f"- Camera & Lighting: {rep.camera}, {rep.lighting}\n"
+        f"BACKGROUND INSTRUCTION: Pure flat uniform solid white #FFFFFF background. "
+        f"No shadows outside subject. Easy for automatic background extraction."
     )
     return enhancement_content + dossier
 
 
-def build_background_prompt(data: dict, creative_brief: dict, persona_index: int = 0) -> str:
-    """Build the prompt for the background environment generator using cc.txt rules."""
-    brand = extract_brand_fields(data)
-    personas = data.get("idealClientProfiles", [])
-
-    if not personas:
-        raise ValueError("No ideal client profiles found in the JSON data")
-
-    if persona_index >= len(personas):
-        persona_index = 0
-
-    persona = extract_persona_fields(personas[persona_index])
-    colors = extract_brand_colors_for_prompt(data)
-
-    # Load cc.txt
+def build_background_prompt_spec(rep: InferredRepresentative, scene_desc: str, brand_colors: list[str]) -> str:
+    """Build the background scene prompt incorporating cc.txt guidelines."""
     cc_path = Path(__file__).parent.parent / "cc.txt"
     cc_content = ""
     if cc_path.exists():
         try:
             cc_content = cc_path.read_text(encoding="utf-8")
-        except Exception as e:
-            print(f"Error reading cc.txt: {e}")
-    
+        except Exception:
+            pass
+            
     if not cc_content:
-        cc_content = "ENTERPRISE ASSET GENERATION ENGINE\nROLE: Generate background environment."
-
-    # Strip top diagram if present
-    if "ENTERPRISE ASSET GENERATION ENGINE" in cc_content:
-        cc_content = cc_content[cc_content.index("ENTERPRISE ASSET GENERATION ENGINE"):]
-
-    # Extract brief details or default
-    environment = creative_brief.get("environment", f"Stylish clean scene for {brand['industry']}")
-    bg_style = creative_brief.get("background_style", "Aesthetic minimal setting")
-    lighting = creative_brief.get("lighting_style", "Warm natural daylight")
-    color_mood = creative_brief.get("color_mood", "Balanced natural tones")
-    cultural = creative_brief.get("local_cultural_context", f"Authentic setting in {brand['country']}")
-
+        cc_content = (
+            "ENTERPRISE ASSET GENERATION ENGINE\n"
+            "ROLE: Generate ONLY the background environment. Empty center. No people."
+        )
+        
     dossier = (
         f"\n\n========================================================\n"
-        f"CURRENT GENERATION SPECIFICATION (ASSET 2 : BACKGROUND ENVIRONMENT)\n"
+        f"CURRENT SPECIFICATION (ASSET 2 : ENVIRONMENT BACKGROUND SCENE)\n"
         f"========================================================\n"
-        f"YOUR TASK: Generate ONLY the environment background. No people, no face, no avatar.\n\n"
-        f"Brand Identity:\n"
-        f"- Name: {brand['brand_name']}\n"
-        f"- Industry: {brand['industry']}\n"
-        f"- Target Country: {brand['country']}\n"
-        f"- Primary Markets: {brand['markets']}\n"
-        f"- Brand Accent Colors: {colors['primary_brand_color']}, {colors['secondary_brand_color']}\n"
-        f"- Visual Style: {brand['visual_style']}\n\n"
-        f"Persona Environment Context (The person who belongs here):\n"
-        f"- Name: {persona['persona_name']}\n"
-        f"- Age: {persona['age']}\n"
-        f"- Gender: {persona['gender']}\n"
-        f"- Lifestyle summary: {persona['summary']}\n\n"
-        f"Creative Director Visual Directives for Background:\n"
-        f"- Environment/Setting: {environment}\n"
-        f"- Background Style: {bg_style}\n"
-        f"- Architecture/Location details: {cultural} matching {brand['country']}\n"
-        f"- Lighting & Shadow Direction: {lighting} (MUST match the avatar's lighting direction)\n"
-        f"- Color Grading & Accents: {color_mood} (apply brand colors {colors['primary_brand_color']} and {colors['secondary_brand_color']} into furniture, accents, lighting highlights, and materials)\n"
+        f"Scene Details:\n"
+        f"- Environment: {scene_desc} ({rep.background})\n"
+        f"- Lighting & Harmony: {rep.lighting} (MUST match the avatar's lighting direction)\n"
+        f"- Color Accents: Incorporate colors {', '.join(brand_colors[:2])} into background accents.\n"
+        f"SUBJECT INSTRUCTION: Generate ONLY the background environment. No people, no avatars, no faces. "
+        f"Keep the center clear and open for portrait compositing."
     )
     return cc_content + dossier
 
 
 # ──────────────────────────────────────────────────────────────
-# API ENDPOINTS
+# PILLOW COMPOSITION ENGINE
+# ──────────────────────────────────────────────────────────────
+
+def remove_background_and_composite(avatar_bytes: bytes, background_bytes: bytes) -> bytes:
+    """Key out flat white background from the avatar and composite onto background with dropshadows."""
+    try:
+        avatar = Image.open(io.BytesIO(avatar_bytes)).convert("RGBA")
+        background = Image.open(io.BytesIO(background_bytes)).convert("RGBA")
+        
+        # Chromakey / flat background extraction
+        data = np.array(avatar)
+        r, g, b, a = data.T
+        
+        # Pixels very close to white/light gray (thresholding)
+        white_mask = (r > 240) & (g > 240) & (b > 240)
+        data[..., 3] = np.where(white_mask.T, 0, a.T)
+        
+        avatar_transparent = Image.fromarray(data)
+        
+        # Resize and align to Split Layout (left display area)
+        bg_w, bg_h = background.size
+        av_w, av_h = avatar_transparent.size
+        
+        scale_factor = (bg_h * 0.85) / av_h
+        new_w = int(av_w * scale_factor)
+        new_h = int(av_h * scale_factor)
+        
+        avatar_resized = avatar_transparent.resize((new_w, new_h), Image.Resampling.LANCZOS)
+        
+        # Left side split offset layout (x pos around 5% of width)
+        x_pos = int(bg_w * 0.05)
+        y_pos = int((bg_h - new_h) / 2)
+        
+        # Ambient occlusion / soft drop shadow overlay
+        shadow = Image.new("RGBA", avatar_resized.size, (0, 0, 0, 0))
+        alpha = avatar_resized.split()[3]
+        shadow_mask = alpha.point(lambda p: 255 if p > 0 else 0)
+        
+        # Draw soft shadow mask
+        shadow.paste((0, 0, 0, 80), (0, 0), mask=shadow_mask)
+        shadow_blurred = shadow.filter(ImageFilter.GaussianBlur(radius=12))
+        
+        # Paste shadow and avatar onto background layer
+        composite = background.copy()
+        composite.alpha_composite(shadow_blurred, (x_pos + 12, y_pos + 12))
+        composite.alpha_composite(avatar_resized, (x_pos, y_pos))
+        
+        output = io.BytesIO()
+        composite.convert("RGB").save(output, format="JPEG", quality=95)
+        return output.getvalue()
+        
+    except Exception as exc:
+        print(f"PIL Compositing failed: {exc}")
+        traceback.print_exc()
+        return avatar_bytes # Fallback directly to original if compositing fails
+
+
+# ──────────────────────────────────────────────────────────────
+# API ROUTER & SERVICES
 # ──────────────────────────────────────────────────────────────
 
 class GenerateRequest(BaseModel):
@@ -925,270 +337,296 @@ class GenerateRequest(BaseModel):
 
 @app.post("/api/generate-persona-board")
 async def generate_persona_board(req: GenerateRequest):
-    """Generate modular customer persona assets using Gemini."""
+    """Redesigned validation, inference, and multi-asset image compositing endpoint."""
     if not GEMINI_API_KEY:
-        raise HTTPException(status_code=500, detail="GEMINI_API_KEY not configured. Please set it in .env file.")
-
+        raise HTTPException(
+            status_code=500,
+            detail="GEMINI_API_KEY not configured. Please set it in .env file."
+        )
+        
     try:
         from google import genai
         from google.genai import types
-        import concurrent.futures
-        import json
-
+        
         client = genai.Client(api_key=GEMINI_API_KEY)
-
-        # STAGE 1: CREATIVE DIRECTOR (Text LLM)
-        brand_info = extract_brand_fields(req.brandData)
+        
+        # 1. Run Validation & Representative Inference Loop
+        bi = req.brandData.get("brandIdentity", {})
         personas = req.brandData.get("idealClientProfiles", [])
-        persona_info = {}
-        if personas and req.personaIndex < len(personas):
-            persona_info = extract_persona_fields(personas[req.personaIndex])
-
-        creative_director_input = (
-            f"{CREATIVE_DIRECTOR_PROMPT}\n\n"
-            f"========================================================\n"
-            f"BRAND & TARGET CUSTOMER DOSSIER\n"
-            f"========================================================\n"
-            f"Brand Name: {brand_info['brand_name']}\n"
-            f"Brand Industry: {brand_info['industry']}\n"
-            f"Primary Product: {brand_info['primary_product']}\n"
-            f"Secondary Products: {brand_info['secondary_products']}\n"
-            f"Brand Positioning: {brand_info['brand_positioning']}\n"
-            f"Target Geography: {brand_info['country']}\n"
-            f"Target Markets: {brand_info['markets']}\n"
-            f"Visual Style Preference: {brand_info['visual_style']}\n\n"
-            f"Persona Name: {persona_info.get('persona_name', 'Unknown')}\n"
-            f"Persona Age: {persona_info.get('age', 'Unknown')}\n"
-            f"Persona Gender: {persona_info.get('gender', 'Unknown')}\n"
-            f"Persona Summary: {persona_info.get('summary', '')}\n"
-            f"Persona Pain Points: {persona_info.get('pain_points', '')}\n"
-            f"Persona Buying Motivations: {persona_info.get('buying_motivations', '')}\n\n"
-            f"OUTPUT A JSON OBJECT with the following keys exactly:\n"
-            f"- layout\n"
-            f"- photography_style\n"
-            f"- camera_lens\n"
-            f"- camera_angle\n"
-            f"- lighting_style\n"
-            f"- color_mood\n"
-            f"- background_style\n"
-            f"- environment\n"
-            f"- portrait_style\n"
-            f"- pose\n"
-            f"- card_style\n"
-            f"- shadow_style\n"
-            f"- typography_mood\n"
-            f"- editorial_style\n"
-            f"- visual_story\n"
-            f"- brand_inspiration\n"
-            f"- local_cultural_context\n"
-            f"- climate_wardrobe_direction\n"
-            f"Ensure values are highly descriptive phrases (e.g., 'Luxury vanity with soft pink lighting' for environment)."
+        if not personas:
+            raise HTTPException(status_code=400, detail="No idealClientProfiles found in JSON.")
+            
+        persona = personas[req.personaIndex] if req.personaIndex < len(personas) else personas[0]
+        
+        system_instruction = (
+            "You are the Lead Brand Strategist, Creative Director, and AI Research Scientist.\n"
+            "Analyze the Brand JSON and Persona. Your mission is to Cross-Validate inputs, correct "
+            "demographic anomalies, and automatically resolve an optimal Representative photo model.\n"
+            "RULES:\n"
+            "- Cross-Validate: age profiles and taglines. If age is '88-96' but the lifestyle is sporty/modern, "
+            "resolve a realistic visual age (e.g. '28-38') and log this in the validation report.\n"
+            "- Target Audience Preservation: Keep raw target audience values unchanged (e.g. if raw gender "
+            "is 'All genders', validated gender remains 'All genders'), but infer a specific binary gender "
+            "('female' or 'male') for the photo model.\n"
+            "- Deduce representative properties: age, gender, ethnicity, skin tone, hair, expression, "
+            "pose, camera, lighting, wardrobe matching the brandColors palette, and background scene.\n"
+            "- Provide confidence score and detailed logical justification."
         )
-
-        print("-> Calling Creative Director (Stage 1)...")
-        cd_response = client.models.generate_content(
+        
+        validation_prompt = (
+            f"Brand Identity:\n{json.dumps(bi, indent=2)}\n\n"
+            f"Target Persona:\n{json.dumps(persona, indent=2)}\n\n"
+            "Return the validation report and resolved representative mapping."
+        )
+        
+        print("-> Running Validation and Inference Engine...")
+        validation_res = client.models.generate_content(
             model="gemini-2.5-flash",
-            contents=creative_director_input,
+            contents=validation_prompt,
             config=types.GenerateContentConfig(
+                system_instruction=system_instruction,
                 response_mime_type="application/json",
-                temperature=0.7,
+                response_schema=ValidationInferenceResult,
+                temperature=0.1,
             )
         )
         
-        try:
-            creative_brief = json.loads(cd_response.text)
-            print("-> Creative Brief Generated:", list(creative_brief.keys()))
-        except Exception as e:
-            print("-> Failed to parse Creative Brief:", e)
-            creative_brief = {}
-
-        # STAGE 2: MULTI-ASSET GENERATION
-        # Build individual prompts
-        avatar_prompt = build_avatar_prompt(req.brandData, creative_brief, req.personaIndex)
-        background_prompt = build_background_prompt(req.brandData, creative_brief, req.personaIndex)
-
-        print(f"\n{'='*60}")
-        print(f"Generating modular assets for persona index: {req.personaIndex}")
-        print(f"Avatar prompt length: {len(avatar_prompt)} characters")
-        print(f"Background prompt length: {len(background_prompt)} characters")
-        print(f"{'='*60}\n")
-
-        # Worker function for parallel image generation
-        def generate_asset_image(prompt_text, asset_name):
-            print(f"-> Call Gemini for {asset_name} image...")
+        val_data = json.loads(validation_res.text)
+        print("-> Validation & Inference successfully completed.")
+        
+        # Extract validated elements
+        validated_brand = val_data.get("validated_brand", {})
+        validated_persona = val_data.get("validated_persona", {})
+        rep = val_data.get("representative", {})
+        validation_report = val_data.get("validation_report", [])
+        confidence_report = val_data.get("confidence_report", {})
+        
+        # Convert rep dict back to model structure for prompting
+        rep_model = InferredRepresentative(**rep)
+        brand_colors = validated_brand.get("brandColors") or ["#333333", "#666666"]
+        
+        # 2. Select scene template from Scene Library
+        scene_desc = select_best_scene(validated_brand.get("industry", "fashion"), validated_brand.get("visualStyle", "modern"))
+        
+        # 3. Compose Prompts
+        avatar_prompt = build_avatar_prompt_spec(rep_model, brand_colors)
+        background_prompt = build_background_prompt_spec(rep_model, scene_desc, brand_colors)
+        
+        negative_prompt = (
+            "No double exposure, No background bleed, No projected textures, No hallway overlays, "
+            "No LED panels, No camera equipment, No tripods, No floating products, No distorted anatomy, "
+            "No duplicate limbs, No malformed hands, No ghosting, No surreal textures, No watermark, No text"
+        )
+        
+        heygen_prompt = (
+            f"Photorealistic {rep_model.ethnicity} {rep_model.gender} presenter with {rep_model.skinTone}, "
+            f"wearing {rep_model.wardrobe}, showing candid visual expression representing {validated_brand.get('brandName')}. "
+            f"Camera details: {rep_model.camera}."
+        )
+        
+        # 4. Generate Images (Avatar & Background)
+        def generate_image_asset(prompt_text, asset_name):
+            print(f"-> Calling Gemini for {asset_name} generation...")
             res = client.models.generate_content(
                 model="gemini-3-pro-image",
-                contents=prompt_text,
+                contents=prompt_text + f"\nNegative Prompt: {negative_prompt}",
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE"],
                 )
             )
-            # Find and return image bytes
             if res.candidates and res.candidates[0].content and res.candidates[0].content.parts:
                 for part in res.candidates[0].content.parts:
                     if part.inline_data is not None:
                         return part.inline_data.data
             return None
-
+            
         avatar_bytes = None
         background_bytes = None
-
-        persona_raw = personas[req.personaIndex] if personas and req.personaIndex < len(personas) else {}
-
-        # 1. Try to load predefined avatar from JSON
-        for img_key in ["api_image", "json-api-image", "json_api_image", "avatar_image", "image", "avatar", "avatarUrl", "imageUrl"]:
-            if img_key in persona_raw:
-                val = persona_raw[img_key]
+        
+        # Check predefined images in uploaded dossier first to bypass generation if available (for test flows)
+        persona_raw = personas[req.personaIndex] if req.personaIndex < len(personas) else {}
+        for key in ["api_image", "json-api-image", "json_api_image", "avatar_image", "image", "avatar", "avatarUrl", "imageUrl"]:
+            if key in persona_raw:
+                val = persona_raw[key]
                 if isinstance(val, str) and val.strip():
                     val = val.strip()
                     if val.startswith("data:image"):
                         try:
-                            header, encoded = val.split(",", 1)
-                            import base64
-                            avatar_bytes = base64.b64decode(encoded)
-                            print(f"-> Loaded avatar image from base64 data URL in key '{img_key}'")
+                            avatar_bytes = base64.b64decode(val.split(",", 1)[1])
                             break
-                        except Exception as e:
-                            print(f"Failed to decode base64 avatar: {e}")
+                        except Exception:
+                            pass
                     elif val.startswith(("http://", "https://")):
                         try:
                             import httpx
-                            print(f"-> Fetching avatar image from URL in key '{img_key}': {val}")
-                            r = httpx.get(val, timeout=30.0)
+                            r = httpx.get(val, timeout=20.0)
                             if r.status_code == 200:
                                 avatar_bytes = r.content
                                 break
-                        except Exception as e:
-                            print(f"Failed to fetch avatar from URL: {e}")
-                    else:
-                        try:
-                            import os
-                            if os.path.exists(val):
-                                avatar_bytes = Path(val).read_bytes()
-                                print(f"-> Loaded avatar image from local path in key '{img_key}': {val}")
-                                break
-                        except Exception as e:
-                            print(f"Failed to read local avatar file: {e}")
-
-        # 2. Try to load predefined background from JSON
-        for bg_key in ["background_image", "background", "backgroundUrl", "background_url"]:
-            if bg_key in persona_raw:
-                val = persona_raw[bg_key]
+                        except Exception:
+                            pass
+                            
+        for key in ["background_image", "background", "backgroundUrl", "background_url"]:
+            if key in persona_raw:
+                val = persona_raw[key]
                 if isinstance(val, str) and val.strip():
                     val = val.strip()
                     if val.startswith("data:image"):
                         try:
-                            header, encoded = val.split(",", 1)
-                            import base64
-                            background_bytes = base64.b64decode(encoded)
-                            print(f"-> Loaded background image from base64 data URL in key '{bg_key}'")
+                            background_bytes = base64.b64decode(val.split(",", 1)[1])
                             break
-                        except Exception as e:
-                            print(f"Failed to decode base64 background: {e}")
+                        except Exception:
+                            pass
                     elif val.startswith(("http://", "https://")):
                         try:
                             import httpx
-                            print(f"-> Fetching background image from URL in key '{bg_key}': {val}")
-                            r = httpx.get(val, timeout=30.0)
+                            r = httpx.get(val, timeout=20.0)
                             if r.status_code == 200:
                                 background_bytes = r.content
                                 break
-                        except Exception as e:
-                            print(f"Failed to fetch background from URL: {e}")
-                    else:
-                        try:
-                            import os
-                            if os.path.exists(val):
-                                background_bytes = Path(val).read_bytes()
-                                print(f"-> Loaded background image from local path in key '{bg_key}': {val}")
-                                break
-                        except Exception as e:
-                            print(f"Failed to read local background file: {e}")
+                        except Exception:
+                            pass
 
-        # 3. Fallback to Gemini Image Generation if not provided in JSON
-        if not avatar_bytes or not background_bytes:
-            # Prepare prompts for whichever is missing
+        # Call Gemini Image models concurrently if not predefined
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
             avatar_future = None
             background_future = None
             
-            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-                if not avatar_bytes:
-                    avatar_future = executor.submit(generate_asset_image, avatar_prompt, "Avatar")
-                if not background_bytes:
-                    background_future = executor.submit(generate_asset_image, background_prompt, "Background")
-
-                if avatar_future:
-                    try:
-                        avatar_bytes = avatar_future.result()
-                    except Exception as e:
-                        print(f"❌ Avatar generation failed: {e}")
-
-                if background_future:
-                    try:
-                        background_bytes = background_future.result()
-                    except Exception as e:
-                        print(f"❌ Background generation failed: {e}")
-
-        # Check critical asset
+            if not avatar_bytes:
+                avatar_future = executor.submit(generate_image_asset, avatar_prompt, "Avatar")
+            if not background_bytes:
+                background_future = executor.submit(generate_image_asset, background_prompt, "Background")
+                
+            if avatar_future:
+                try:
+                    avatar_bytes = avatar_future.result()
+                except Exception as exc:
+                    print(f"Avatar generation task failed: {exc}")
+            if background_future:
+                try:
+                    background_bytes = background_future.result()
+                except Exception as exc:
+                    print(f"Background generation task failed: {exc}")
+                    
         if not avatar_bytes:
-            raise HTTPException(status_code=500, detail="Gemini failed to generate the customer avatar asset.")
-
-        # Persist to disk
+            raise HTTPException(status_code=500, detail="Gemini failed to generate visual avatar asset.")
+            
+        if not background_bytes:
+            # Fallback placeholder background (plain gray)
+            bg_img = Image.new("RGBA", (1080, 1350), (245, 245, 245, 255))
+            bg_bytes = io.BytesIO()
+            bg_img.save(bg_bytes, format="PNG")
+            background_bytes = bg_bytes.getvalue()
+            
+        # 5. Composite Layers using PIL
+        composite_bytes = remove_background_and_composite(avatar_bytes, background_bytes)
+        
+        # 6. Save strategic outputs & validation logs to history archive (Acceptance Criteria)
         entry_id = uuid.uuid4().hex[:12]
-        avatar_path = GENERATED_DIR / f"{entry_id}_avatar.png"
-        avatar_path.write_bytes(avatar_bytes)
+        
+        (GENERATED_DIR / f"{entry_id}_validated_brand.json").write_text(json.dumps(validated_brand, indent=2))
+        (GENERATED_DIR / f"{entry_id}_validated_persona.json").write_text(json.dumps(validated_persona, indent=2))
+        (GENERATED_DIR / f"{entry_id}_representative.json").write_text(json.dumps(rep, indent=2))
+        (GENERATED_DIR / f"{entry_id}_validation_report.json").write_text(json.dumps(validation_report, indent=2))
+        (GENERATED_DIR / f"{entry_id}_confidence_report.json").write_text(json.dumps(confidence_report, indent=2))
+        
+        (GENERATED_DIR / f"{entry_id}_avatar_prompt.txt").write_text(avatar_prompt)
+        (GENERATED_DIR / f"{entry_id}_background_prompt.txt").write_text(background_prompt)
+        (GENERATED_DIR / f"{entry_id}_negative_prompt.txt").write_text(negative_prompt)
+        (GENERATED_DIR / f"{entry_id}_heygen_prompt.txt").write_text(heygen_prompt)
+        
+        (GENERATED_DIR / f"{entry_id}_avatar.png").write_bytes(avatar_bytes)
+        (GENERATED_DIR / f"{entry_id}_background.png").write_bytes(background_bytes)
+        (GENERATED_DIR / f"{entry_id}_composite.png").write_bytes(composite_bytes)
+        
+        # Map validation report and creative brief for frontend compatibility
+        frontend_validation_report = []
+        for item in validation_report:
+            status_val = "corrected" if item.get("raw_value") != item.get("validated_value") else "validated"
+            frontend_validation_report.append({
+                "field": item.get("field"),
+                "status": status_val,
+                "raw": item.get("raw_value"),
+                "validated": item.get("validated_value"),
+                "reason": item.get("reasoning"),
+                "confidence": confidence_report.get("score", 90),
+            })
+            
+        # Add entry for Representative Selection if inferred
+        frontend_validation_report.append({
+            "field": "Representative Selection",
+            "status": "resolved",
+            "raw": persona.get("gender", "All genders"),
+            "validated": rep.get("gender"),
+            "reason": confidence_report.get("reasoning"),
+            "representative": f"{rep.get('ethnicity')} {rep.get('gender')}, age {rep.get('age')}",
+            "confidence": confidence_report.get("score", 90)
+        })
 
-        if background_bytes:
-            background_path = GENERATED_DIR / f"{entry_id}_background.png"
-            background_path.write_bytes(background_bytes)
-
-        # Build complete reconstruction metadata JSON
-        bi = req.brandData.get("brandIdentity", {})
-        personas = req.brandData.get("idealClientProfiles", [])
-        persona = personas[req.personaIndex] if req.personaIndex < len(personas) else {}
-
-        meta = {
-            "id": entry_id,
-            "brandName": bi.get("brandName", "Unknown"),
-            "industry": bi.get("industry", ""),
-            "personaName": persona.get("name", "Persona"),
-            "personaLabel": persona.get("avatarLabel", ""),
-            "age": str(persona.get("age", "")),
-            "gender": persona.get("gender", ""),
-            "mimeType": "image/png",
-            "avatarFileName": f"{entry_id}_avatar.png",
-            "backgroundFileName": f"{entry_id}_background.png" if background_bytes else None,
-            "hasBackground": bool(background_bytes),
-            "sizeBytes": len(avatar_bytes) + (len(background_bytes) if background_bytes else 0),
-            "createdAt": datetime.now(timezone.utc).isoformat(),
-            # Save raw data for dynamic frontend HTML/CSS board reconstruction
-            "brandData": req.brandData,
-            "personaIndex": req.personaIndex,
-            "creativeBrief": creative_brief,
+        creative_brief_mapped = {
+            "climate_wardrobe_direction": rep.get("wardrobe"),
+            "background_style": rep.get("background"),
+            "lighting_style": rep.get("lighting"),
+            "avatar_prompt": avatar_prompt,
+            "background_prompt": background_prompt,
+            "negative_prompt": negative_prompt,
+            "heygen_prompt": heygen_prompt
         }
 
-        meta_path = GENERATED_DIR / f"{entry_id}.json"
-        meta_path.write_text(json.dumps(meta, indent=2))
-        print(f"💾 Saved modular history files for ID: {entry_id}")
-
+        # Complete history metadata record
+        meta = {
+            "id": entry_id,
+            "brandName": validated_brand.get("brandName", "Unknown"),
+            "industry": validated_brand.get("industry", ""),
+            "personaName": validated_persona.get("name", "Persona"),
+            "age": str(validated_persona.get("age", "")),
+            "gender": validated_persona.get("gender", ""),
+            "createdAt": datetime.now(timezone.utc).isoformat(),
+            "validated_brand": validated_brand,
+            "validated_persona": validated_persona,
+            "representative": rep,
+            "validation_report": validation_report,
+            "validationReport": frontend_validation_report,
+            "confidence_report": confidence_report,
+            "hasBackground": True,
+            "avatar_prompt": avatar_prompt,
+            "background_prompt": background_prompt,
+            "negative_prompt": negative_prompt,
+            "heygen_prompt": heygen_prompt,
+            "creativeBrief": creative_brief_mapped,
+            "avatarFileName": f"{entry_id}_avatar.png",
+            "backgroundFileName": f"{entry_id}_background.png",
+            "compositeFileName": f"{entry_id}_composite.png"
+        }
+        (GENERATED_DIR / f"{entry_id}.json").write_text(json.dumps(meta, indent=2))
+        
         avatar_b64 = base64.b64encode(avatar_bytes).decode("utf-8")
-        background_b64 = base64.b64encode(background_bytes).decode("utf-8") if background_bytes else None
-
+        background_b64 = base64.b64encode(background_bytes).decode("utf-8")
+        composite_b64 = base64.b64encode(composite_bytes).decode("utf-8")
+        
         return {
             "avatar": avatar_b64,
             "background": background_b64,
-            "hasBackground": bool(background_bytes),
+            "final_composite": composite_b64,
             "historyId": entry_id,
-            "brandData": req.brandData,
-            "personaIndex": req.personaIndex,
-            "creativeBrief": creative_brief,
+            "validated_brand": validated_brand,
+            "validated_persona": validated_persona,
+            "representative": rep,
+            "validation_report": validation_report,
+            "validationReport": frontend_validation_report,
+            "confidence_report": confidence_report,
+            "avatar_prompt": avatar_prompt,
+            "background_prompt": background_prompt,
+            "negative_prompt": negative_prompt,
+            "heygen_prompt": heygen_prompt,
+            "creativeBrief": creative_brief_mapped
         }
-
+        
     except HTTPException:
         raise
-    except Exception as e:
+    except Exception as exc:
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=f"Generation failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Generation pipeline failed: {str(exc)}")
 
 
 # ──────────────────────────────────────────────────────────────
@@ -1200,62 +638,55 @@ async def list_history():
     """Return all previously generated persona boards, newest first."""
     items = []
     for meta_file in GENERATED_DIR.glob("*.json"):
+        if meta_file.name.endswith(("_validated_brand.json", "_validated_persona.json", "_representative.json", "_validation_report.json", "_confidence_report.json")):
+            continue
         try:
             meta = json.loads(meta_file.read_text())
             items.append(meta)
         except Exception:
             continue
-    # Sort newest first
     items.sort(key=lambda x: x.get("createdAt", ""), reverse=True)
     return {"items": items}
 
 
 @app.get("/api/history/{entry_id}/image")
-async def get_history_image(entry_id: str, type: str = "avatar"):
-    """Serve individual generated assets (avatar, background)."""
-    filename = f"{entry_id}_{type}.png"
-    img_path = GENERATED_DIR / filename
+async def get_history_image(entry_id: str, type: str = "board"):
+    """Serve individual generated or composited assets."""
+    # Map legacy board requested by UI to composite.png
+    suffix = "_composite.png" if type in ("board", "composite") else f"_{type}.png"
+    img_path = GENERATED_DIR / f"{entry_id}{suffix}"
     
     if img_path.exists():
         return FileResponse(img_path, media_type="image/png", filename=img_path.name)
         
-    # Check fallback for older format
-    if type == "board" or type == "avatar":
-        for ext in ["png", "jpg", "jpeg", "webp"]:
-            old_path = GENERATED_DIR / f"{entry_id}.{ext}"
-            if old_path.exists():
-                return FileResponse(old_path, media_type=f"image/{ext}", filename=old_path.name)
-                
-    raise HTTPException(status_code=404, detail=f"Image type '{type}' not found for entry {entry_id}")
+    # Check older/fallback formats
+    fallback_path = GENERATED_DIR / f"{entry_id}_avatar.png"
+    if fallback_path.exists():
+        return FileResponse(fallback_path, media_type="image/png", filename=fallback_path.name)
+        
+    raise HTTPException(status_code=404, detail="Requested asset image not found.")
 
 
 @app.delete("/api/history/{entry_id}")
 async def delete_history_entry(entry_id: str):
-    """Delete a previously generated persona board."""
+    """Delete all database logs and image assets associated with an entry."""
     meta_path = GENERATED_DIR / f"{entry_id}.json"
     if not meta_path.exists():
         raise HTTPException(status_code=404, detail="Entry not found")
-
-    # Delete all possible files
-    for ext in ["png", "jpg", "jpeg", "webp"]:
-        # New formats
-        for suffix in ["_avatar", "_background"]:
-            img_path = GENERATED_DIR / f"{entry_id}{suffix}.{ext}"
-            if img_path.exists():
-                img_path.unlink()
-        # Old format
-        old_path = GENERATED_DIR / f"{entry_id}.{ext}"
-        if old_path.exists():
-            old_path.unlink()
-
-    # Delete metadata
-    meta_path.unlink()
+        
+    # Remove files flatly matching the entry ID prefix
+    for item in GENERATED_DIR.glob(f"{entry_id}*"):
+        try:
+            item.unlink()
+        except Exception:
+            pass
+            
     return {"status": "deleted", "id": entry_id}
 
 
 @app.get("/api/health")
 async def health_check():
-    """Health check endpoint."""
+    """Health check status endpoint."""
     return {
         "status": "ok",
         "api_key_configured": bool(GEMINI_API_KEY),

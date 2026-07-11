@@ -133,7 +133,6 @@ export default function App() {
         body: JSON.stringify({
           brandData,
           personaIndex: selectedPersona,
-          representativeGender: (personas[selectedPersona]?.gender || '').toLowerCase().includes('all') ? selectedGenderRep : undefined
         }),
       });
 
@@ -587,63 +586,7 @@ export default function App() {
             </div>
 
             {/* Representative Gender Selection for Unisex/All Genders profiles */}
-            {personas[selectedPersona] && 
-             (personas[selectedPersona].gender || '').toLowerCase().includes('all') && 
-             !(
-               personas[selectedPersona].api_image ||
-               personas[selectedPersona]['json-api-image'] ||
-               personas[selectedPersona].json_api_image ||
-               personas[selectedPersona].avatar_image ||
-               personas[selectedPersona].image ||
-               personas[selectedPersona].avatar ||
-               personas[selectedPersona].avatarUrl ||
-               personas[selectedPersona].imageUrl
-             ) && (
-              <div className="glass-card" style={{ padding: '16px', marginBottom: '24px', background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '12px' }}>
-                <div style={{ fontSize: '11px', fontWeight: '700', marginBottom: '8px', color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Representative Avatar Selection
-                </div>
-                <div style={{ fontSize: '12px', opacity: 0.7, marginBottom: '14px', lineHeight: '1.4' }}>
-                  This target audience accepts <strong>All Genders</strong>. Select the representative demographic to use for synthetic avatar visual generation:
-                </div>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <button 
-                    onClick={() => setSelectedGenderRep('Female')}
-                    style={{
-                      flex: 1,
-                      padding: '10px',
-                      borderRadius: '8px',
-                      background: selectedGenderRep === 'Female' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-                      border: selectedGenderRep === 'Female' ? '1px solid #818cf8' : '1px solid rgba(255, 255, 255, 0.05)',
-                      color: selectedGenderRep === 'Female' ? '#a5b4fc' : 'var(--text-primary)',
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s'
-                    }}
-                  >
-                    👩 Female Representative
-                  </button>
-                  <button 
-                    onClick={() => setSelectedGenderRep('Male')}
-                    style={{
-                      flex: 1,
-                      padding: '10px',
-                      borderRadius: '8px',
-                      background: selectedGenderRep === 'Male' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-                      border: selectedGenderRep === 'Male' ? '1px solid #818cf8' : '1px solid rgba(255, 255, 255, 0.05)',
-                      color: selectedGenderRep === 'Male' ? '#a5b4fc' : 'var(--text-primary)',
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s'
-                    }}
-                  >
-                    👨 Male Representative
-                  </button>
-                </div>
-              </div>
-            )}
+            {/* Representative selection removed for fully autonomous backend validation & inference */}
 
             {/* Generate button */}
             <div className="generate-section">
@@ -799,6 +742,12 @@ export default function App() {
                   >
                     <Download size={14} /> Scene Background
                   </button>
+                  <button
+                    className={`preview-tab-btn ${previewTab === 'final_composite' ? 'active' : ''}`}
+                    onClick={() => setPreviewTab('final_composite')}
+                  >
+                    <Image size={14} /> Composite Image
+                  </button>
                 </div>
 
                 {/* Tab Previews */}
@@ -858,6 +807,20 @@ export default function App() {
                     )}
                   </div>
                 )}
+
+                {previewTab === 'final_composite' && (
+                  <div className="glass-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0', borderRadius: '12px', minHeight: '500px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+                    {generatedImage.final_composite ? (
+                      <img 
+                        src={`data:image/png;base64,${generatedImage.final_composite}`} 
+                        alt="Final Composite Image" 
+                        style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'contain' }}
+                      />
+                    ) : (
+                      <div style={{ opacity: 0.5, padding: '40px' }}>No composite image generated</div>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* RIGHT COLUMN: Validated Persona, Reasoning, Confidence, Prompts, Downloads */}
@@ -880,6 +843,43 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+                {/* AI Representative Card */}
+                {generatedImage.representative && (
+                  <div className="glass-card side-panel-card" style={{ border: '1px solid rgba(99, 102, 241, 0.25)', background: 'rgba(99, 102, 241, 0.03)', padding: '16px' }}>
+                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#818cf8', margin: '0 0 12px 0', fontSize: '13px' }}>
+                      <Users size={14} /> AI Representative Inferred
+                    </h4>
+                    <div style={{ fontSize: '11px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                        <div><span style={{ opacity: 0.5 }}>Gender:</span> <strong style={{ marginLeft: '4px', textTransform: 'capitalize' }}>{generatedImage.representative.gender}</strong></div>
+                        <div><span style={{ opacity: 0.5 }}>Age:</span> <strong style={{ marginLeft: '4px' }}>{generatedImage.representative.age}</strong></div>
+                        <div><span style={{ opacity: 0.5 }}>Ethnicity:</span> <strong style={{ marginLeft: '4px' }}>{generatedImage.representative.ethnicity}</strong></div>
+                        <div><span style={{ opacity: 0.5 }}>Skin Tone:</span> <strong style={{ marginLeft: '4px' }}>{generatedImage.representative.skinTone}</strong></div>
+                      </div>
+                      <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '8px' }}>
+                        <span style={{ opacity: 0.5 }}>Hair:</span> <span style={{ marginLeft: '4px', fontWeight: '500' }}>{generatedImage.representative.hair}</span>
+                      </div>
+                      <div>
+                        <span style={{ opacity: 0.5 }}>Wardrobe:</span> <span style={{ marginLeft: '4px', fontWeight: '500' }}>{generatedImage.representative.wardrobe}</span>
+                      </div>
+                      <div>
+                        <span style={{ opacity: 0.5 }}>Expression:</span> <span style={{ marginLeft: '4px', fontWeight: '500' }}>{generatedImage.representative.expression}</span>
+                      </div>
+                      {generatedImage.confidence_report && (
+                        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '8px', marginTop: '4px' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                            <span style={{ opacity: 0.5 }}>Confidence Score:</span>
+                            <strong style={{ color: '#818cf8' }}>{generatedImage.confidence_report.score}%</strong>
+                          </div>
+                          <p style={{ margin: 0, opacity: 0.8, fontSize: '11px', lineHeight: '1.4' }}>
+                            {generatedImage.confidence_report.reasoning}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {/* Validation Report Card */}
                 {generatedImage.validationReport && (
                   <div className="glass-card side-panel-card" style={{ border: '1px solid rgba(245, 158, 11, 0.25)', background: 'rgba(245, 158, 11, 0.03)', padding: '16px' }}>
@@ -988,6 +988,9 @@ export default function App() {
                     </button>
                     <button className="btn-action" onClick={() => downloadAsset(generatedImage.background, `${brandName}_background.png`)} style={{ fontSize: '11px', padding: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
                       <Download size={12} /> Scene PNG
+                    </button>
+                    <button className="btn-action" onClick={() => downloadAsset(generatedImage.final_composite, `${brandName}_composite.png`)} style={{ gridColumn: 'span 2', fontSize: '11px', padding: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                      <Download size={12} /> Composite PNG
                     </button>
                   </div>
                   <button className="btn-action" onClick={handleRegenerate} style={{ width: '100%', justifyContent: 'center' }}>
@@ -1177,6 +1180,12 @@ export default function App() {
                   >
                     <Download size={14} /> Scene Background
                   </button>
+                  <button
+                    className={`preview-tab-btn ${previewTab === 'final_composite' ? 'active' : ''}`}
+                    onClick={() => setPreviewTab('final_composite')}
+                  >
+                    <Image size={14} /> Composite Image
+                  </button>
                 </div>
 
                 {/* Tab Previews */}
@@ -1242,6 +1251,20 @@ export default function App() {
                     )}
                   </div>
                 )}
+
+                {previewTab === 'final_composite' && (
+                  <div className="glass-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0', borderRadius: '12px', minHeight: '500px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+                    {viewingHistoryItem.compositeFileName || viewingHistoryItem.final_composite ? (
+                      <img 
+                        src={viewingHistoryItem.final_composite ? `data:image/png;base64,${viewingHistoryItem.final_composite}` : `/api/history/${viewingHistoryItem.id}/image?type=composite`} 
+                        alt="Final Composite Image" 
+                        style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'contain' }}
+                      />
+                    ) : (
+                      <div style={{ opacity: 0.5, padding: '40px' }}>No composite image generated for this board</div>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* RIGHT COLUMN: Validated Persona details, Validation Report, Board Info, Downloads */}
@@ -1267,6 +1290,43 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+
+                {/* AI Representative Card */}
+                {viewingHistoryItem.representative && (
+                  <div className="glass-card side-panel-card" style={{ border: '1px solid rgba(99, 102, 241, 0.25)', background: 'rgba(99, 102, 241, 0.03)', padding: '16px' }}>
+                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#818cf8', margin: '0 0 12px 0', fontSize: '13px' }}>
+                      <Users size={14} /> AI Representative Inferred
+                    </h4>
+                    <div style={{ fontSize: '11px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                        <div><span style={{ opacity: 0.5 }}>Gender:</span> <strong style={{ marginLeft: '4px', textTransform: 'capitalize' }}>{viewingHistoryItem.representative.gender}</strong></div>
+                        <div><span style={{ opacity: 0.5 }}>Age:</span> <strong style={{ marginLeft: '4px' }}>{viewingHistoryItem.representative.age}</strong></div>
+                        <div><span style={{ opacity: 0.5 }}>Ethnicity:</span> <strong style={{ marginLeft: '4px' }}>{viewingHistoryItem.representative.ethnicity}</strong></div>
+                        <div><span style={{ opacity: 0.5 }}>Skin Tone:</span> <strong style={{ marginLeft: '4px' }}>{viewingHistoryItem.representative.skinTone}</strong></div>
+                      </div>
+                      <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '8px' }}>
+                        <span style={{ opacity: 0.5 }}>Hair:</span> <span style={{ marginLeft: '4px', fontWeight: '500' }}>{viewingHistoryItem.representative.hair}</span>
+                      </div>
+                      <div>
+                        <span style={{ opacity: 0.5 }}>Wardrobe:</span> <span style={{ marginLeft: '4px', fontWeight: '500' }}>{viewingHistoryItem.representative.wardrobe}</span>
+                      </div>
+                      <div>
+                        <span style={{ opacity: 0.5 }}>Expression:</span> <span style={{ marginLeft: '4px', fontWeight: '500' }}>{viewingHistoryItem.representative.expression}</span>
+                      </div>
+                      {viewingHistoryItem.confidence_report && (
+                        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '8px', marginTop: '4px' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                            <span style={{ opacity: 0.5 }}>Confidence Score:</span>
+                            <strong style={{ color: '#818cf8' }}>{viewingHistoryItem.confidence_report.score}%</strong>
+                          </div>
+                          <p style={{ margin: 0, opacity: 0.8, fontSize: '11px', lineHeight: '1.4' }}>
+                            {viewingHistoryItem.confidence_report.reasoning}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* Validation Report */}
                 {viewingHistoryItem.validationReport && (
@@ -1369,6 +1429,9 @@ export default function App() {
                         <Download size={12} /> Scene PNG
                       </button>
                     )}
+                    <button className="btn-action" onClick={() => downloadAsset(`/api/history/${viewingHistoryItem.id}/image?type=composite`, `${viewingHistoryItem.brandName}_composite.png`)} style={{ gridColumn: 'span 2', fontSize: '11px', padding: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                      <Download size={12} /> Composite PNG
+                    </button>
                   </div>
                   
                   <button className="btn-action danger-btn" onClick={(e) => deleteHistoryItem(viewingHistoryItem, e)} style={{ width: '100%', justifyContent: 'center', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.3)', height: '36px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: '500' }}>
