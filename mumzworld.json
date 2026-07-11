@@ -1,0 +1,529 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Mumzworld",
+    "brandPositioningSummary": "Mumzworld is a leading online store for newborn and child essentials, positioned as a one-stop parenting shop. The brand serves mothers aged 25-44, particularly those on a budget, across the Middle East and worldwide. Mumzworld aims to simplify every part of motherhood, offering peace of mind",
+    "productInfo": {
+      "primary": "Baby / kids ecommerce products",
+      "secondary": [
+        "Diapers",
+        "Feeding",
+        "Gear",
+        "Toys",
+        "Outdoor",
+        "Bath",
+        "Safety",
+        "Clothes",
+        "Nursery",
+        "Mumz",
+        "Books",
+        "Bedroom",
+        "Fashion",
+        "School",
+        "Home",
+        "Pharmacy",
+        "Party"
+      ],
+      "source": "both"
+    },
+    "industry": "ecommerce",
+    "geography": {
+      "country": "United Arab Emirates",
+      "primaryMarkets": [
+        "United Arab Emirates",
+        "Middle East",
+        "worldwide",
+        "UAE"
+      ]
+    },
+    "targetAudience": {
+      "summary": "Mothers",
+      "demographics": {
+        "age": "25-44",
+        "gender": "",
+        "incomeLevel": "Budget"
+      },
+      "psychographics": [
+        "simplify every part of motherhood",
+        "peace of mind"
+      ]
+    },
+    "customerPainPoints": [
+      "something is definitely not living up to the baby product scenario in Duba, UAE and the whole Middle East region"
+    ],
+    "messagingPillars": [
+      "Authentic Products",
+      "24/7 Live Customer Support",
+      "Fast Delivery",
+      "Experience seamless shopping",
+      "Flexible payment methods"
+    ],
+    "valueProposition": "Your one-stop parenting shop",
+    "offerSummary": "",
+    "ctaPreference": "Sign Up",
+    "communicationStyle": "Professional, Premium",
+    "tone": "Professional",
+    "voice": "Title: Your one-stop parenting shop",
+    "brandColors": [
+      "#ffffff",
+      "#673ab7",
+      "#cecece",
+      "#c30045",
+      "#cccccc",
+      "#1b4e8b",
+      "#003d6e",
+      "#43454c"
+    ],
+    "fonts": [],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Baby / kids ecommerce products",
+      "pregnant mumz products",
+      "infant activity gear",
+      "baby food & formula",
+      "baby bottle feeding sets",
+      "breast feeding products",
+      "baby diapers",
+      "baby wipes",
+      "baby diaper bags",
+      "baby furniture",
+      "smart appliances",
+      "baby bathtubs",
+      "baby monitors",
+      "high chairs & boosters",
+      "baby strollers & prams",
+      "car seats & boosters",
+      "educational toys for kids",
+      "baby toys & preschool toys",
+      "indoor play & activity sets"
+    ],
+    "productCategories": {
+      "primary": "Baby Products",
+      "secondary": [
+        "Diapers",
+        "Feeding",
+        "Gear",
+        "Toys",
+        "Outdoor",
+        "Bath",
+        "Safety",
+        "Clothes",
+        "Nursery",
+        "Mumz",
+        "Books",
+        "Bedroom",
+        "Fashion",
+        "School",
+        "Home",
+        "Pharmacy",
+        "Party"
+      ]
+    },
+    "inferredFields": [],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 1,
+      "overall": 1
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Mothercare",
+        "website": "https://www.mothercare.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Firstcry",
+        "website": "https://www.firstcry.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Mamasandpapas",
+        "website": "https://www.mamasandpapas.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Toysrusmena",
+        "website": "https://www.toysrusmena.com/en-ae/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Babysouk",
+        "website": "https://babysouk.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Mothercare",
+        "website": "https://www.mothercare.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Firstcry",
+        "website": "https://www.firstcry.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Mamasandpapas",
+        "website": "https://www.mamasandpapas.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Toysrusmena",
+        "website": "https://www.toysrusmena.com/en-ae/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Babysouk",
+        "website": "https://babysouk.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for ecommerce (Baby / kids ecommerce products).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors primarily utilize Instagram for promotional ad formats. Recurring patterns in ad titles include offer-led openers, product restock announcements, and comparison-based content. Additionally, ads feature emotional storytelling, direct discounts with product benefits, and informational or educational content for parents.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Develop short, engaging videos or carousels that highlight specific product categories with clear promotional offers, emphasizing how these items simplify daily parenting tasks.",
+        "Create informational content, such as 'quick tips for new parents' or 'product spotlight: making life easier,' subtly integrating Mumzworld products as practical solutions.",
+        "Produce emotionally resonant ads showcasing heartwarming family moments, focusing on the love and care involved in choosing baby essentials, and connecting these feelings to Mumzworld's offerings."
+      ],
+      "creativeIntelligenceSummary": "Competitors effectively use Instagram to deliver promotional content, employing a diverse range of hook styles from direct offers and product availability updates to emotional narratives and educational advice. A successful strategy involves balancing direct sales messaging with value-added content that addresses parental needs and emotions. Emphasizing product benefits, ease of use, and safety for babies is a consistent theme across various ad approaches.",
+      "hookStyles": [
+        "Offer-led opener",
+        "Comparison-based hook",
+        "Product restock/bestseller announcement",
+        "Emotional/relational storytelling",
+        "Informational/educational hook"
+      ],
+      "adFormats": [
+        "Promotional"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Mothercare",
+      "adTitle": "Dubai Outlet Mall vs. Dubai Outlet Village: The Ultimate Comparison! Don\u2019t go shopping until you watch this! \ud83e\uddd0 \ud83d\udecd\ufe0f\n\nIf you\u2019re looking for the best deals in Dubai, you need to know which outlet fits you",
+      "adLink": "https://www.facebook.com/ads/library/?id=1844326662901596",
+      "views": "",
+      "duration": "",
+      "hook": "Dubai Outlet Mall vs. Dubai Outlet Village: The Ultimate Comparison! Don\u2019t go shopping until you watch this! \ud83e\uddd0 \ud83d\udecd\ufe0f\n\nIf you\u2019re looking for the best deals in Dubai, you need to know which outlet fits you",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Mothercare ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1844326662901596",
+      "previewImageUrl": "https://scontent.fnag4-4.fna.fbcdn.net/v/t39.30808-1/649760390_122118082101148213_695497944671064359_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=022mx-6Ho5UQ7kNvwEVRUt3&_nc_oc=AdpPI9NzCApu1LhOb3UOTk92aM5PfKYoQCr7ZZUsrfNPx2IcwHkgUWcQZOD-S7wpdQo&_nc_zt=24&_nc_ht=scontent.fnag4-4.fna&_nc_gid=ZRCeL6XZgtOWUBTIPlkcXg&_nc_ss=7e289&oh=00_AQAPyI00RoaWJhuu3ynyc3Sx_hNFj_fHseqMoOLrvHkVCw&oe=6A548873",
+      "previewVideoUrl": "https://video.fnag4-5.fna.fbcdn.net/o1/v/t2/f2/m367/AQM_Q-Rq1It_3Pq0t40KjyyeHJgo4-Sb9qDGIr0kgflOdcomSgQoyRZ9eds55ZqiTi2EWGNhdvPRvmPatGS9qb20pku5BEU5ukhVELrAAg.mp4?_nc_cat=100&_nc_oc=AdqnlW74vS0pHvgiIH9jSnZzH3ytJDRi_UhwoR89N84DdE4e73mCU5UkLxclFvPVvzg&_nc_sid=ef5aa3&_nc_ht=video.fnag4-5.fna.fbcdn.net&_nc_ohc=-pbJpYCJa0kQ7kNvwG_ha_Q&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjoxODE0NDUzMTkxMzQ2NDY0OCwiYXNzZXRfYWdlX2RheXMiOjEzMCwidmlfdXNlY2FzZV9pZCI6MTA4MjcsImR1cmF0aW9uX3MiOjI5LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=ZRCeL6XZgtOWUBTIPlkcXg&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQC4zMHt6w47U9-Zy-Gztf51nlW6k92lxueBQLwsUAoT7g&oe=6A549D66",
+      "displayReady": true,
+      "relevanceScore": 0.7
+    },
+    {
+      "competitorName": "Firstcry",
+      "adTitle": "Did you see that pack? \ud83d\ude0d\n\nYes, the bestselling Bonfino Premium Pants featured in the video are officially restocked! And because good things come in pairs, Babyhug Diapers are back in stock too! \ud83e\udd29\u2728\n\nH",
+      "adLink": "https://www.instagram.com/p/DafaVgPNanr/",
+      "views": "",
+      "duration": "",
+      "hook": "Did you see that pack? \ud83d\ude0d\n\nYes, the bestselling Bonfino Premium Pants featured in the video are officially restocked! And because good things come in pairs, Babyhug Diapers are back in stock too! \ud83e\udd29\u2728\n\nH",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Firstcry ran an ad on",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/735801639_18167854183449347_6320595860839698973_n.jpg?stp=dst-jpg_e35_p1080x1080_sh2.08_tt6&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gGKRohLA11XHyW_0rpRKOdjtkySVvjqoNa34dUamF19psUiKDSJi33SpTNNYjImGlg&_nc_ohc=Yh2OUVrs84EQ7kNvwFdMDvK&_nc_gid=S-kXalxFqcN3thTwgLdt7Q&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQAolNGctvKicn8QBFIvzjzNrclSq55O4-unlxmH7wTvZQ&oe=6A5491BA&_nc_sid=c6f216",
+      "previewVideoUrl": "https://scontent-lga3-1.cdninstagram.com/o1/v/t2/f2/m86/AQPHX8saYkKRNwcP8_46DrMKWu6mP6b7Bwe7ENayYBdYAG7H6kferPs6llA7Gubrj6stUUrDnVAM-rXQpCqRgHj_j0UyMbyKwEAQz1A.mp4?_nc_cat=111&_nc_sid=5e9851&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=lR7EZ1eylh8Q7kNvwEOHhea&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNTQwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6ODcyNjQxNzg1OTA4NTgzLCJhc3NldF9hZ2VfZGF5cyI6MSwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=b1d47e0935f09fb4&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8zNzREQzUzRjg3QTM1Q0U5MkE1NDg1MjIzNDI3N0ZBNl92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzQxNEFBOUI2QTlEMUZDNDIxODc4Q0Y1NEJFRTkzQzlCX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbOtdL6t-qMAxUCKAJDMywXQADMzMzMzM0YEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&_nc_gid=w6PaQW7zuoGIm5cRyDPv7w&_nc_ss=72a8c&_nc_zt=28&oh=00_AQA-v10-1mJ8TMHPV7_ezgxK1kq-bNoNdB7zC5YcWvymGg&oe=6A509314",
+      "displayReady": true,
+      "relevanceScore": 0.85
+    },
+    {
+      "competitorName": "Mamasandpapas",
+      "adTitle": "Outfits chosen with my father-in-law\u2019s love \ud83d\udc76\ud83d\udc9b Every piece is filled with love \ud83e\udef6#H&MKids #ZaraBaby #Carter\u2019s #GAPKids #NextBaby #NikeKids #AdidasKids #OldNavyKids #MamasAndPapas #BabyGap #PrimarkKids",
+      "adLink": "https://www.facebook.com/ads/library/?id=663401459863453",
+      "views": "",
+      "duration": "",
+      "hook": "Outfits chosen with my father-in-law\u2019s love \ud83d\udc76\ud83d\udc9b Every piece is filled with love \ud83e\udef6#H&MKids #ZaraBaby #Carter\u2019s #GAPKids #NextBaby #NikeKids #AdidasKids #OldNavyKids #MamasAndPapas #BabyGap #PrimarkKids",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "An ad discovered for Mamasandp",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "663401459863453",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.82787-19/561019143_18085818298905396_5658670433061424765_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=100&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDI0LkMzIn0%3D&_nc_ohc=BYFgAv0xi5YQ7kNvwEMdYjG&_nc_oc=AdorI0niLUMhI0HKvXAM4p2-Wx9HGdTtmwyT1ur9HzR04Bvdm3DK_eSFwL2nrLNdkms&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=ID-wBxqG9RKtawRF74OxxA&_nc_ss=7e289&oh=00_AQA9FTruA4UQHd4c1CJOgeQU7LSv5T2hrYLOHJ-wAokC2Q&oe=6A54B5B0",
+      "previewVideoUrl": "https://video.fnag4-5.fna.fbcdn.net/o1/v/t2/f2/m86/AQPg6L1C2jCiorO5-LcjiB9lWtHioQE9mNQuQ6bwqBQfz8yF3EZVUPvB1u92g0QtzetUb3wz4bBgrNKGLRXPL2FnCXzhC7nN8XuQ3SY.mp4?_nc_cat=105&_nc_oc=AdqNfICN794vSWkdeowAqZLs_lULUZl0e8uHEKpK3bxQCCk63balK7gBr26cQLyjtIg&_nc_sid=b66105&_nc_ht=video.fnag4-5.fna.fbcdn.net&_nc_ohc=JG5a7f2fnl8Q7kNvwGHjDwd&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLmRhc2hfYmFzZWxpbmVfM192MSIsInhwdl9hc3NldF9pZCI6MTMxMTMwMzMwNzQwNTc1OCwiYXNzZXRfYWdlX2RheXMiOjI2OSwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjgsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=cf39162637fa5489&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9DRTRDOERFRTExM0RCODFDM0NCQ0JCMjFBM0JFRUY4NF92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYR2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8yODE2NTczMjk4NjgyNDgwXzgwMjAwODQ1MzY0NDk2MTg5MzcubXA0FQICyAESACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJvympf3yp9QEFQIoAkMzLBdAISHKwIMSbxgSZGFzaF9iYXNlbGluZV8zX3YxEQB1AGXmnQEA&_nc_gid=ID-wBxqG9RKtawRF74OxxA&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAHfB4ysOj7L6uRAorJl0WpPloBDlXhRq1sr0FcKdxuvQ&oe=6A50B0F6",
+      "displayReady": true,
+      "relevanceScore": 0.95
+    },
+    {
+      "competitorName": "Toysrusmena",
+      "adTitle": "Instagram post",
+      "adLink": "https://www.instagram.com/toysrusmena/",
+      "views": "",
+      "duration": "",
+      "hook": "Instagram post",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Toysrusmena has an",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Babysouk",
+      "adTitle": "Get up to 25% off on baby bath tubs from Shnuggle . Select from a wide range of innovative products designed to make life easier for parents and safer for babies\n \n\nClick the picture & SHOP NOW! Offer",
+      "adLink": "https://www.instagram.com/p/CejH_yUhTPQ/",
+      "views": "",
+      "duration": "",
+      "hook": "Get up to 25% off on baby bath tubs from Shnuggle . Select from a wide range of innovative products designed to make life easier for parents and safer for babies\n \n\nClick the picture & SHOP NOW! Offer",
+      "cta": "",
+      "adType": "Promotional",
+      "platform": "instagram",
+      "summary": "Babysouk ran an Instagram ad",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-ord5-3.cdninstagram.com/v/t51.82787-15/620993613_18054173291689435_3549021024878324516_n.jpg?stp=dst-jpg_e15_fr_s1080x1080_tt6&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2gFEIzot9gDPH2xTjm9TrOaYsC5QWkjERaull1zaidfgvkdZTODSpLEaBdmSMQhexQ4&_nc_ohc=GRV43_Mej2gQ7kNvwFOURYp&_nc_gid=aLj3ddH59nw4bDnVVrhTCw&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQC9ye5NZCCJ-g9sAH0n_ep11ylz5Ocj5y5PjSaeWOx_7Q&oe=6A548DED&_nc_sid=c6f216",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.85
+    },
+    {
+      "competitorName": "Mothercare",
+      "adTitle": "1. Sometimes one small OPD procedure can help your body naturally move towards labour\nA cervical sweep may reduce the need for medical induction in selected mothers. #Normal Delivery #PregnancyCare #L",
+      "adLink": "https://www.facebook.com/ads/library/?id=1365861252037909",
+      "views": "",
+      "duration": "",
+      "hook": "1. Sometimes one small OPD procedure can help your body naturally move towards labour\nA cervical sweep may reduce the need for medical induction in selected mothers. #Normal Delivery #PregnancyCare #L",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Mothercare ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1365861252037909",
+      "previewImageUrl": "https://scontent.fnag4-1.fna.fbcdn.net/v/t39.30808-1/651006042_122100360309100024_5250149160352862871_n.png?stp=dst-png_s148x148&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=MR7PcaxLCpkQ7kNvwFQ8c1Q&_nc_oc=Adqz7ZqsxoiqcepH5eoGVk4IguHnENoWaAtkL49mjc_K-PLvJygLq23mcvXlLYuQ5Rg&_nc_zt=24&_nc_ht=scontent.fnag4-1.fna&_nc_gid=NYYhakAYjcZVrxPbBypUYw&_nc_ss=7e289&oh=00_AQBNoMW-bw4ylusGP_RNpDsO6_cg-4XfmfPjtffvpLQUZw&oe=6A54AC19",
+      "previewVideoUrl": "https://video.fnag4-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQNxHVFhiGvzWS2qpn_-BiSBCNJP9h-dLUbbwQ3GzkOnOvT8RFZ7FLbO1--SuxReOWmFQyR4VtPGafvkgSgBXsAhv5nuDqRBWZZ_vrFt3g.mp4?_nc_cat=111&_nc_oc=AdqAlBby207Ole7WEgryAIvvPjDzPcagPOlGkmVUvEQLH-TzfWEzk01yqTw73YFY8as&_nc_sid=ef5aa3&_nc_ht=video.fnag4-2.fna.fbcdn.net&_nc_ohc=KaiICXUE3UAQ7kNvwEaDtIT&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAwNjEyNzYwNTA5Nzk2OCwiYXNzZXRfYWdlX2RheXMiOjQ5LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NDMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=NYYhakAYjcZVrxPbBypUYw&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAPCo0a2g58dqcr3LvwG7HUy-y-fYYKHZ0P0Dr5JIRzsQ&oe=6A548D5F",
+      "displayReady": true,
+      "relevanceScore": 0.6
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "The Modern Mum",
+      "avatarLabel": "Primary",
+      "summary": "This avatar represents mothers aged 25-44, with a budget income, who are looking to simplify every part of motherhood and achieve peace of mind. They are experiencing pain points related to the availability and quality of baby products in the Middle East.",
+      "age": "25-44",
+      "gender": "",
+      "incomeLevel": "Budget",
+      "painPoints": [
+        "something is definitely not living up to the baby product scenario in Duba, UAE and the whole Middle East region"
+      ],
+      "psychographics": [
+        "simplify every part of motherhood",
+        "peace of mind"
+      ],
+      "buyingMotivations": [],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Baby / kids ecommerce products",
+      "recommendedAdAngles": [
+        "Discover authentic baby products with fast delivery to solve the Middle East's product gap.",
+        "Simplify motherhood and gain peace of mind with seamless shopping at your one-stop parenting shop.",
+        "Enjoy unparalleled support and flexible payments for all your parenting needs."
+      ],
+      "recommendedAvatarStyle": "Product Demonstrator",
+      "recommendedVoiceStyle": "A professional, reassuring, and helpful voice, maintaining a clear and moderate pace to convey trust and expertise as a one-stop parenting shop.",
+      "recommendedMusicStyle": "Gentle, uplifting, and modern background music that evokes a sense of calm and reliability, fitting a professional e-commerce brand for parents.",
+      "resolvedAvatarProperties": {
+        "ethnicity": "Middle Eastern",
+        "skinTone": "warm tan skin tone",
+        "clothingColor": "shades of off-white and purple/violet (matching the brand palette)",
+        "backgroundScene": "set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting"
+      },
+      "heygenPrompt": "Photorealistic simplify every part of motherhood peace of mind 25-44 Middle Eastern person with warm tan skin tone, friendly presenter demonstrating a product, hands-on, representing Mumzworld, styled for Baby / kids ecommerce products, wearing stylish clothing in shades of off-white and purple/violet (matching the brand palette), This avatar represents mothers aged 25-44, with a budget income, who are looking to simplify every part of motherhood and achieve peace of m, professional brand tone, modern ecommerce, Your one-stop parenting shop, appealing to shoppers in United Arab Emirates, Middle East, worldwide, set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "Speak to mothers aged 25-44 with a budget income in a professional tone. Emphasize simplifying every part of motherhood and providing peace of mind. Address the current gap in quality baby products in the Middle East by highlighting authentic products, 24/7 live customer support, and fast delivery. Showcase the seamless shopping experience and flexible payment methods. Position Mumzworld as their trusted one-stop parenting shop.",
+  "researchId": "6a4ecbfb189efd069de1a54b",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 5,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "services",
+      "about",
+      "legal",
+      "contact",
+      "privacy",
+      "products"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 17009,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

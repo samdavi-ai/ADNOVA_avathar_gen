@@ -1,0 +1,531 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Glossier",
+    "brandPositioningSummary": "Glossier offers a beauty/skincare collection, positioning itself as the exclusive",
+    "productInfo": {
+      "primary": "Beauty / skincare collection",
+      "secondary": [],
+      "source": "user"
+    },
+    "industry": "skincare",
+    "geography": {
+      "country": "india",
+      "primaryMarkets": [
+        "United Kingdom"
+      ]
+    },
+    "targetAudience": {
+      "summary": ":\u00a0We disclose personal data if we believe that your actions are inconsistent with our user agreements or policies, if we believe that you have violated the law, or if we believe it is necessary to protect the rights, property, and safety of Glossier, our customers, the public, or others",
+      "demographics": {
+        "age": "25-44",
+        "gender": "Male",
+        "incomeLevel": "Luxury"
+      },
+      "psychographics": [
+        "Health & Fitness",
+        "Travel enthusiast",
+        "Tech-savvy",
+        "Family-oriented",
+        "Fashion-forward",
+        "Business-minded"
+      ]
+    },
+    "customerPainPoints": [
+      "Text the keyword HELP to our shortcode to receive customer care contact information",
+      "If you are experiencing any problems, please contact us using the information in Section\u00a019",
+      "You should contact the site administrator for those External Sites if you have any concerns regarding such links or any content located on such External Sites",
+      "Targeted Advertising and Analytics",
+      "Web beacons (also known as \u201cpixel tags\u201d or \u201cclear GIFs\u201d) are electronic images that we use on our websites and in our emails to help deliver cookies, count visits, and understand usage and campaign ef",
+      "Target ads to you on third-party platforms and websites (for more information and to opt out, please see the"
+    ],
+    "messagingPillars": [
+      "Shop The New Beauty Essentials Exclusively At Glossier.com. Good Routines Start Here. Get the Makeup And Skincare Products Inspired By Real People And Their Routines.",
+      "Search our site",
+      "Welcome to Glossier",
+      "Explore Glossier",
+      "How can we help?",
+      "About Glossier"
+    ],
+    "valueProposition": "Shop The New Beauty Essentials Exclusively At Glossier.com. Good Routines Start Here. Get the Makeup And Skincare Products Inspired By Real People And Their Routines.",
+    "offerSummary": "free shipping, trial",
+    "ctaPreference": "Learn More",
+    "communicationStyle": "Professional, Playful",
+    "tone": "Professional",
+    "voice": "Share your Glossier You story",
+    "brandColors": [
+      "#000000",
+      "#ffffff",
+      "#9d2235",
+      "#c8102e",
+      "#ef426f",
+      "#e3785e",
+      "#f09491",
+      "#8d3f2b"
+    ],
+    "fonts": [],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Beauty / skincare collection",
+      "Glossier You Soie"
+    ],
+    "productCategories": {
+      "primary": "Beauty / skincare collection",
+      "secondary": []
+    },
+    "inferredFields": [],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 0,
+      "overall": 0.83
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Summer Fridays",
+        "website": "https://summerfridays.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Saiehello",
+        "website": "https://saiehello.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Milkmakeup",
+        "website": "https://milkmakeup.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Rarebeauty",
+        "website": "https://www.rarebeauty.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Byoma",
+        "website": "https://www.byoma.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Glowrecipe",
+        "website": "https://www.glowrecipe.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Summer Fridays",
+        "website": "https://summerfridays.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Saiehello",
+        "website": "https://saiehello.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Milkmakeup",
+        "website": "https://milkmakeup.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Rarebeauty",
+        "website": "https://www.rarebeauty.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Byoma",
+        "website": "https://www.byoma.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Glowrecipe",
+        "website": "https://www.glowrecipe.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "The Ordinary",
+        "website": "https://theordinary.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for skincare (Beauty / skincare collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors primarily utilize Instagram for their ad campaigns, focusing on formats such as Product Demos, Lifestyle content, and Founder Stories. A common hook style observed is the 'Routine / GRWM opener,' alongside ads that introduce new products with benefit-led descriptions or feature influencer endorsements. Many ads highlight specific product ingredients, benefits, or suggest product combinations for various looks.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Develop short-form video content demonstrating the application and immediate benefits of a specific Glossier product, using a 'Routine / GRWM opener' to engage viewers.",
+        "Create lifestyle ads that integrate Glossier products into diverse daily routines, emphasizing effortless results and natural beauty, with a focus on product benefits.",
+        "Produce a 'Founder Story' ad featuring a Glossier expert or founder discussing the inspiration and unique formulation behind a key product, framed as an exclusive insight or masterclass.",
+        "Design ads that showcase creative ways to combine Glossier products for different looks or occasions, using 'Product combination/styling suggestions' as a central theme."
+      ],
+      "creativeIntelligenceSummary": "Instagram is the dominant platform for competitor advertising in the skincare industry. Effective ad strategies include showcasing products through demonstrations, integrating them into lifestyle content, and leveraging founder or expert narratives. Hooks that introduce routines, highlight product benefits, or feature endorsements are frequently used to capture audience attention. New product launches and specific ingredient callouts are also common themes.",
+      "hookStyles": [
+        "Routine / GRWM opener",
+        "Benefit-led product introduction",
+        "Influencer testimonial/endorsement",
+        "Product combination/styling suggestions",
+        "Expert/clinic product recommendations",
+        "Event/masterclass experience sharing"
+      ],
+      "adFormats": [
+        "Product Demo",
+        "Lifestyle",
+        "Founder Story"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Summer Fridays",
+      "adTitle": "Lip care made for wherever summer takes you \u26f5\n\nLip Butter Balm nourishes with a plant-based lipid complex and hydrates with hyaluronic acid \u2014 now in a sweet Strawberry Soft Serve flavor.\n\nComing soon",
+      "adLink": "https://www.instagram.com/p/DaQZYTXlHEb/",
+      "views": "",
+      "duration": "",
+      "hook": "Lip care made for wherever summer takes you \u26f5\n\nLip Butter Balm nourishes with a plant-based lipid complex and hydrates with hyaluronic acid \u2014 now in a sweet Strawberry Soft Serve flavor.\n\nComing soon",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Summer Fridays is promoting its Lip Butter Balm",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-lax3-1.cdninstagram.com/v/t51.82787-15/731761148_18453504961188293_1264436805432393268_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MzkzMTc1NDAwNjUyNzM3NTk0Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=pxcdQVJIcr8Q7kNvwHxlCvL&_nc_oc=AdrrcJRnW3AENCHFsxe56hQrHn8fAu658FO0ZPD_XRh5WVKzKLtWDQS2MUlP8N7JDwI&_nc_zt=23&_nc_ht=scontent-lax3-1.cdninstagram.com&_nc_gid=RtzD0XqBsAyzfF2Bsq0dig&_nc_ss=7ca8c&oh=00_AQBv-mqv7iO_YhcciNQs3jkHddz25vZS6-q4mNdOpFueKQ&oe=6A549550",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.7
+    },
+    {
+      "competitorName": "Saiehello",
+      "adTitle": "Intentional tools. Effortless results. \n\nLuxe quality and straightforward design, these brushes are created to help you apply makeup more seamlessly. Artisanally crafted with cruelty-free bristles and",
+      "adLink": "https://www.instagram.com/p/DaQQ7DalhXe/",
+      "views": "",
+      "duration": "",
+      "hook": "Intentional tools. Effortless results. \n\nLuxe quality and straightforward design, these brushes are created to help you apply makeup more seamlessly. Artisanally crafted with cruelty-free bristles and",
+      "cta": "",
+      "adType": "Product Demo",
+      "platform": "instagram",
+      "summary": "Saiehello ran an ad on",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-xxc1-1.cdninstagram.com/v/t51.82787-15/731111416_18158375758481385_933119212463545100_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MzkzMTcxNjQ3OTQ3NDQ2OTUyNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzI3Ny5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=-gM9fVB0s3YQ7kNvwFmZEo2&_nc_oc=AdpekqZRchLS12WTJsgWVJEd68uLO9OuabaSzfULs4K1pmsa2we56q-nnMFX7WHC6kU&_nc_zt=23&_nc_ht=scontent-xxc1-1.cdninstagram.com&_nc_gid=pRIgTU7RtDECcVFpZJ2GKg&_nc_ss=72a8c&oh=00_AQBSsIzBmoesL6fcjvjA6fzjNvuEcZOE_lCi6s7a0UsZwg&oe=6A549548",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.7
+    },
+    {
+      "competitorName": "Milkmakeup",
+      "adTitle": "Y\u2019all have seen me share @milkmakeup Hydro Grip line time and time again because SHE WORKS. They have added a new forever staple in my routine - the Hydro Grip Gel Concealer!!\n\nI\u2019ve nailed down the ea",
+      "adLink": "https://www.facebook.com/ads/library/?id=2607857129629931",
+      "views": "",
+      "duration": "",
+      "hook": "Y\u2019all have seen me share @milkmakeup Hydro Grip line time and time again because SHE WORKS. They have added a new forever staple in my routine - the Hydro Grip Gel Concealer!!\n\nI\u2019ve nailed down the ea",
+      "cta": "",
+      "adType": "Lifestyle",
+      "platform": "instagram",
+      "summary": "This Instagram ad for Milk",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "2607857129629931",
+      "previewImageUrl": "https://scontent.fnag4-3.fna.fbcdn.net/v/t39.30808-1/480442703_968630492036822_6795604732554177436_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=D_rSWk9lQHsQ7kNvwGGZOXq&_nc_oc=AdoUrfzWb-LQUbOBGtaGQLAj9wOo4So45nZrpGp9iEpJpPyeV0-a4oQ6W6xKMOX0cOE&_nc_zt=24&_nc_ht=scontent.fnag4-3.fna&_nc_gid=EbRFgWPu9SdPpw8O3PM6FQ&_nc_ss=7e289&oh=00_AQDNfUzLb-8fTce-u9nZNOOQqaZZ8JdK5qMSmGwZYFe5SA&oe=6A54BCD1",
+      "previewVideoUrl": "https://video.fnag4-5.fna.fbcdn.net/o1/v/t2/f2/m367/AQMQ4Vy973kQMRH52reRBvuOhEJGKDHIMaWzugtLCFXafzr82HvgV-4TQ9Voq4EWKsRGsyDjagXXjMB-ASKNRf3F61ejsoQYdBX_LZ_EZg.mp4?_nc_cat=104&_nc_oc=AdodjN97HpDHQopnBlqa9hGAN1Ypa8z75Kv6Tn2Smex0imCzGgMCjmthvTCbUcGN_vc&_nc_sid=ef5aa3&_nc_ht=video.fnag4-5.fna.fbcdn.net&_nc_ohc=z7XWZ5EDZ0oQ7kNvwER6l8v&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjoxNzk0OTk3NDUyMzExMjUwNSwiYXNzZXRfYWdlX2RheXMiOjExOCwidmlfdXNlY2FzZV9pZCI6MTA4MjcsImR1cmF0aW9uX3MiOjk4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=EbRFgWPu9SdPpw8O3PM6FQ&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQCWJcRbe7DBMac_qz9WlGh6Qb8wYddiyO1g6B729UbWzQ&oe=6A54B842",
+      "displayReady": true,
+      "relevanceScore": 0.9
+    },
+    {
+      "competitorName": "Rarebeauty",
+      "adTitle": "Lip combos to try for your Soft Pinch pout this summer. \n\nGet NEW Soft Pinch Lip Oil Stick and NEW shades of Kind Words Matte Lip Liner now online @sephora @ultabeauty and rarebeauty.com",
+      "adLink": "https://www.instagram.com/p/DaibUY9lP_l/",
+      "views": "",
+      "duration": "",
+      "hook": "Lip combos to try for your Soft Pinch pout this summer. \n\nGet NEW Soft Pinch Lip Oil Stick and NEW shades of Kind Words Matte Lip Liner now online @sephora @ultabeauty and rarebeauty.com",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Rarebeauty ran an Instagram ad",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-mia3-2.cdninstagram.com/v/t51.82787-15/735157331_18486203263098631_8566596616263292185_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=1&ig_cache_key=MzkzNjgyODk0ODEyNjI3NTA5OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=_GHzvFR1MAkQ7kNvwG2dw3E&_nc_oc=AdqROLr2cyoi11wWuHtuHA7jCer2a3XHDU9LIGr34lBMz7B7vZk2R2WmRw-DFVRG7x4&_nc_zt=23&_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_gid=ThFG29ubKwdaWbbjFVvbQw&_nc_ss=72689&oh=00_AQDIygzqwB5mT749BkpnENYYZ_GK77gJvYNFo9A8W14kCg&oe=6A549BC5",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.7
+    },
+    {
+      "competitorName": "Byoma",
+      "adTitle": "In clinic product favourites of the month:\n@curel_japanese_skincare @alliesofskin @byoma @stormsbodymelt @sachiskin @beautyofjoseon_official\n\n\ud83d\udccc  Tan&Co, W1W 8BQ\n#skincare #jutsutrend #animetrend",
+      "adLink": "https://www.facebook.com/ads/library/?id=1028404482884097",
+      "views": "",
+      "duration": "",
+      "hook": "In clinic product favourites of the month:\n@curel_japanese_skincare @alliesofskin @byoma @stormsbodymelt @sachiskin @beautyofjoseon_official\n\n\ud83d\udccc  Tan&Co, W1W 8BQ\n#skincare #jutsutrend #animetrend",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "This Instagram ad from By",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1028404482884097",
+      "previewImageUrl": "https://scontent.fnag4-4.fna.fbcdn.net/v/t39.30808-1/441065450_10160979213150033_3572851076692725487_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=Q2_RI37xXIgQ7kNvwGAy6Ji&_nc_oc=AdrtWfwrj-8NMHM-cFO-T8_h88RyA_HGonLkeqJiKVPJKO7yUJFYMxFwJ9s-5NuLBjo&_nc_zt=24&_nc_ht=scontent.fnag4-4.fna&_nc_gid=7bgJM03J2Aqj1g-iFna0BA&_nc_ss=7e289&oh=00_AQAmPXuB8m2JefIS6rwT4xzMwat5sfpFaL571WdCuvwZBg&oe=6A54AAF7",
+      "previewVideoUrl": "https://video.fnag4-5.fna.fbcdn.net/o1/v/t2/f2/m367/AQPo5KgVPX4vr88rHZcvBneC-vQ0_nVyENW7LiorYIDLRAPM_lZcCDeGrse-16oA5EkA53IlpsA--EgIuwaKY8xMe31Myo_0TtwkGxKyBQ.mp4?_nc_cat=106&_nc_oc=AdoS3TxnFePbKHTpF7oi_iDFSj18bpq1F2JdXUWCIBvh-sT4sYTg84JfsIJ0PCOFiu8&_nc_sid=ef5aa3&_nc_ht=video.fnag4-5.fna.fbcdn.net&_nc_ohc=y8zYzr7QEq8Q7kNvwH2s9st&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjoxNzk1NDI5MDY0NDE3ODIxOCwiYXNzZXRfYWdlX2RheXMiOjIwLCJ2aV91c2VjYXNlX2lkIjoxMDA5OSwiZHVyYXRpb25fcyI6MTAsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=7bgJM03J2Aqj1g-iFna0BA&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAUrSASjFwODo_UV_LxNkLHGNOEfyZaKmxi1qmhQnktIQ&oe=6A54A380",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Glowrecipe",
+      "adTitle": "Yesterday I went back to school at MECCAVERSITY for a Masterclass with @glowrecipe with co-founder @christine_glow\n\nThis is my kind of study. Talking skincare, trying out products and connecting with",
+      "adLink": "https://www.facebook.com/ads/library/?id=982534341060570",
+      "views": "",
+      "duration": "",
+      "hook": "Yesterday I went back to school at MECCAVERSITY for a Masterclass with @glowrecipe with co-founder @christine_glow\n\nThis is my kind of study. Talking skincare, trying out products and connecting with",
+      "cta": "",
+      "adType": "Founder Story",
+      "platform": "instagram",
+      "summary": "Glowrecipe ran an",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "982534341060570",
+      "previewImageUrl": "https://scontent.fnag4-1.fna.fbcdn.net/v/t39.30808-1/292556897_418635046927759_852922140256859634_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=ofLQoh6bL9kQ7kNvwHJY7A0&_nc_oc=AdqAr9yKCZmrqVuQhgMdaZlOGySjiv2JMf3L3A_ULBx4rOV0WX0nT1JkTOm9oM4hFXQ&_nc_zt=24&_nc_ht=scontent.fnag4-1.fna&_nc_gid=mIIeL-VqFZmLIeHZlOOa1A&_nc_ss=7e289&oh=00_AQA8-VF7FpCFP1DeBdErYtpH7vy8LeEoREBVi6somjaX1g&oe=6A5493C6",
+      "previewVideoUrl": "https://video.fnag4-4.fna.fbcdn.net/o1/v/t2/f2/m367/AQM2zZV4rS1B2JgzNM83sRNxNP5sT9AnWXr3gKvnBAD4FPY-ZVJJnv7qgKjayDVO6Yy3ee6nBsLmzCdQmsHpWSxatOPv98KdlOJyA6Tnog.mp4?_nc_cat=109&_nc_oc=Adq1pascMJBkqA76874NRMq_G3iWXEnNeCzKW5dS2DswNUFfNWNx_iuR2vz7k_b92Jk&_nc_sid=ef5aa3&_nc_ht=video.fnag4-4.fna.fbcdn.net&_nc_ohc=4ZK6gonlrdwQ7kNvwE0r5l3&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjoxNTE5NzkyNDU2NTk2NzgxLCJhc3NldF9hZ2VfZGF5cyI6NDgsInZpX3VzZWNhc2VfaWQiOjEwODI3LCJkdXJhdGlvbl9zIjoxNywidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=mIIeL-VqFZmLIeHZlOOa1A&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQCWL7_xS0A2L-ajZSbzH9IKSk97j_XkyErC4n4qRXkXMA&oe=6A548E41",
+      "displayReady": true,
+      "relevanceScore": 1
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "Modern Skincare Enthusiast",
+      "avatarLabel": "Primary",
+      "summary": "This persona is a male aged 25-44 with a luxury income level, residing in the United Kingdom. He is tech-savvy, fashion-forward, and business-minded, with interests in health & fitness and travel. He seeks new beauty essentials and products inspired by real people for his routines.",
+      "age": "25-44",
+      "gender": "Male",
+      "incomeLevel": "Luxury",
+      "painPoints": [],
+      "psychographics": [
+        "Health & Fitness",
+        "Travel enthusiast",
+        "Tech-savvy",
+        "Family-oriented",
+        "Fashion-forward",
+        "Business-minded"
+      ],
+      "buyingMotivations": [],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Beauty / skincare collection",
+      "recommendedAdAngles": [
+        "Discover new beauty essentials exclusively at Glossier.com.",
+        "Start your good routines with makeup and skincare products.",
+        "Explore products inspired by real people and their routines."
+      ],
+      "recommendedAvatarStyle": "UGC Creator",
+      "recommendedVoiceStyle": "Professional, inviting, and encouraging.",
+      "recommendedMusicStyle": "Modern, clean, and sophisticated.",
+      "resolvedAvatarProperties": {
+        "ethnicity": "diverse representative",
+        "skinTone": "natural warm skin tone",
+        "clothingColor": "shades of charcoal/black and off-white (matching the brand palette)",
+        "backgroundScene": "set in a clean modern bathroom of a stylish modern London flat interior with cozy, high-end styling, soft natural vanity lighting"
+      },
+      "heygenPrompt": "Photorealistic sophisticated health & fitness travel enthusiast 25-44 diverse representative man with natural warm skin tone, authentic UGC-style content creator, casual and relatable, representing Glossier, styled for Beauty / skincare collection, wearing stylish clothing in shades of charcoal/black and off-white (matching the brand palette), This persona is a male aged 25-44 with a luxury income level, residing in the United Kingdom. He is tech-savvy, fashion-forward, and busines, professional brand tone, modern ecommerce, Shop The New Beauty Essentials Exclusively At Glossier.com. Good Routines Start Here. Get the Makeup, appealing to shoppers in United Kingdom, set in a clean modern bathroom of a stylish modern London flat interior with cozy, high-end styling, soft natural vanity lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "Speak to the audience in a professional tone, inviting them to explore new beauty essentials exclusively at Glossier.com. Emphasize that good routines start here, offering makeup and skincare products inspired by real people and their routines. Encourage them to share their own Glossier You story.",
+  "researchId": "6a4ed008189efd069de1a54d",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 7,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "about",
+      "services",
+      "legal",
+      "contact",
+      "privacy",
+      "products"
+    ],
+    "structuredProductCount": 1,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 17851,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

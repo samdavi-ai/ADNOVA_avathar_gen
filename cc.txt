@@ -1,0 +1,16 @@
+The current implementation incorrectly replaces "All genders" with "Male" in both the UI and avatar generation.
+
+Refactor the demographic pipeline so that "Target Audience" and "Representative" are separate concepts.
+
+Rules:
+- Never overwrite the raw audience gender.
+- If the JSON specifies "All genders", the UI must display "All genders".
+- Only resolve a representative gender when generating an avatar.
+- Use product category and campaign objective to choose a representative.
+- If there is no evidence favoring one gender, allow the user to choose or generate multiple representative options.
+- Keep a validation log showing:
+  - Raw demographic value
+  - Validated demographic value
+  - Representative selection (if applicable)
+  - Reasoning and confidence.
+- Never use representative gender as a replacement for audience gender.

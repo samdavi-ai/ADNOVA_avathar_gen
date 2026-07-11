@@ -1,0 +1,534 @@
+{
+  "id": "ef46aac4feff",
+  "brandName": "Allbirds",
+  "industry": "footwear",
+  "personaName": "Eco-Conscious Comfort Seeker",
+  "personaLabel": "Primary",
+  "age": "88-96",
+  "gender": "All genders",
+  "mimeType": "image/png",
+  "avatarFileName": "ef46aac4feff_avatar.png",
+  "backgroundFileName": null,
+  "hasBackground": false,
+  "sizeBytes": 5282350,
+  "createdAt": "2026-07-11T08:23:17.307151+00:00",
+  "brandData": {
+    "brandIdentity": {
+      "dataMode": "extract_with_grounded_summaries",
+      "summaryMode": "grounded_llm",
+      "brandName": "Allbirds",
+      "brandPositioningSummary": "Allbirds provides a footwear / lifestyle collection, positioning itself as the creator of",
+      "productInfo": {
+        "primary": "Footwear / lifestyle collection",
+        "secondary": [],
+        "source": "user"
+      },
+      "industry": "footwear",
+      "geography": {
+        "country": "United Kingdom",
+        "primaryMarkets": [
+          "United Kingdom",
+          "United States"
+        ]
+      },
+      "targetAudience": {
+        "summary": "In general, we process personal information for our legitimate purposes of running our business; complying with applicable laws; and protecting our websites, our business, our customers, and any individuals who use our website, our services, or transact business with us",
+        "demographics": {
+          "age": "88-96",
+          "gender": "All genders",
+          "incomeLevel": "Budget"
+        },
+        "psychographics": [
+          "Eco-conscious",
+          "Travel enthusiast",
+          "Family-oriented",
+          "Fashion-forward",
+          "Business-minded",
+          "Minimalist"
+        ]
+      },
+      "customerPainPoints": [
+        "From materials to transport, we\u2019re working to reduce our carbon footprint to near zero",
+        "com/pages/help) ===",
+        "Title: Help Page",
+        "How Can We Help",
+        "Email us at help@allbirds",
+        "Allbirds will process personal information alone or in the aggregate with information obtained from other sources, in order to help us improve our existing products and Services or develop new product"
+      ],
+      "messagingPillars": [
+        "The world\u2019s most comfortable shoes, made with natural materials like merino wool, eucalyptus tree fiber, and sugar cane, Allbirds has created the comfiest shoes on the planet.",
+        "Men's Shoes",
+        "Customer Favorites",
+        "Apparel & Accessories",
+        "Women's Shoes",
+        "Popular Picks"
+      ],
+      "valueProposition": "The world\u2019s most comfortable shoes, made with natural materials like merino wool, eucalyptus tree fiber, and sugar cane, Allbirds has created the comfiest shoes on the planet.",
+      "offerSummary": "free shipping, introducing",
+      "ctaPreference": "Learn More",
+      "communicationStyle": "Effortless",
+      "tone": "Effortless",
+      "voice": "From materials to transport, we\u2019re working to reduce our carbon footprint to near zero",
+      "brandColors": [
+        "#ffffff",
+        "rgba(255,255,255,0.95)",
+        "rgb(224,226,220)",
+        "#212121",
+        "rgb(36,39,41)",
+        "#0563c1",
+        "rgba(0,0,0,0.15)",
+        "rgb(139,138,143)"
+      ],
+      "fonts": [],
+      "visualStyle": "modern ecommerce",
+      "keyProducts": [
+        "Footwear / lifestyle collection"
+      ],
+      "productCategories": {
+        "primary": "Footwear / lifestyle collection",
+        "secondary": []
+      },
+      "inferredFields": [],
+      "confidence": {
+        "industry": 1,
+        "audience": 1,
+        "products": 1,
+        "geography": 1,
+        "overall": 1
+      }
+    },
+    "competitorResearch": {
+      "topCompetitors": [
+        {
+          "name": "Rothys",
+          "website": "https://rothys.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "Cariuma",
+          "website": "https://cariuma.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "Everlane",
+          "website": "https://www.everlane.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "Greats",
+          "website": "https://www.greats.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "On",
+          "website": "https://www.on.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        }
+      ],
+      "allCompetitors": [
+        {
+          "name": "Rothys",
+          "website": "https://rothys.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "Cariuma",
+          "website": "https://cariuma.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "Everlane",
+          "website": "https://www.everlane.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "Greats",
+          "website": "https://www.greats.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        },
+        {
+          "name": "On",
+          "website": "https://www.on.com",
+          "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for footwear (Footwear / lifestyle collection).",
+          "type": "direct",
+          "relevanceScore": 1,
+          "matchFactors": {
+            "productMatch": 1,
+            "audienceMatch": 0,
+            "geographyMatch": 0,
+            "positioningMatch": 0
+          },
+          "dataSource": "peer_brand_fallback"
+        }
+      ],
+      "creativeIntelligence": {
+        "patternSummary": "Competitors frequently utilize Facebook and Instagram for their advertising efforts. A prominent pattern involves the use of detailed ad titles that function as comprehensive product reviews, highlighting the versatility, comfort, and specific material benefits of their footwear. One competitor explicitly employs a \"Before/after transformation\" hook style, while others hint at broader industry trends like material innovation.",
+        "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+        "recommendedAdDirections": [
+          "Create ad content that deeply explores the unique comfort and support features of the product, using descriptive language about the user experience throughout the day.",
+          "Develop ad narratives showcasing the product's versatility across different settings and outfits, emphasizing its ability to adapt to various lifestyle needs.",
+          "Focus on the innovative materials or construction of the product, explaining how these contribute to specific benefits like durability, breathability, or sustainability.",
+          "Utilize a testimonial-style format where users describe their personal transformation or improved daily experience after using the product."
+        ],
+        "creativeIntelligenceSummary": "Competitors in the footwear industry effectively engage audiences on Facebook and Instagram by employing detailed, descriptive ad copy. This content often takes the form of a user testimonial or in-depth product review, focusing on how the footwear provides comfort, support, and versatility in daily life. A key insight is the value of articulating specific material advantages and demonstrating the product's adaptability to various scenarios, alongside exploring themes of industry innovation.",
+        "hookStyles": [
+          "Before/after transformation",
+          "Detailed product review/testimonial",
+          "Questioning industry norms/material innovation"
+        ],
+        "adFormats": [],
+        "visualStylePatterns": []
+      }
+    },
+    "topPerformingAds": [
+      {
+        "competitorName": "Rothys",
+        "adTitle": "If I had to pick one pair of dress sneakers that can truly do it all, it\u2019s the Luca Suede Terra Low. Out of everything I tested, this was the chameleon: polished enough to pair with tailoring, but laid-back enough to wear with jeans or chinos on the weekend. The suede upper gives it a polished yet textural edge that makes it read more elevated than your average leather sneaker. You don\u2019t get a removable insole here, but the built-in footbed is plush and supportive. The break-in period took a couple wears, but after that I was ready for a full day on my feet.\nBreathability isn\u2019t its strong suit like the Rothy\u2019s knit, but the padded leather interior earns points for keeping your feet cushioned. I wore them through meetings around the city and a long dinner afterward, and not once did my feet feel fatigued. The sole isn\u2019t about springiness; it\u2019s about stability and support. It has that grounded, planted feel that absorbs pavement without making the shoe feel bulky or clunky.",
+        "adLink": "https://www.facebook.com/ads/library/?id=26868383309506843",
+        "views": "",
+        "duration": "",
+        "hook": "If I had to pick one pair of dress sneakers that can truly do it all, it\u2019s the Luca Suede Terra Low. Out of everything I tested, this was the chameleon: polished enough to pair with tailoring, but lai",
+        "cta": "",
+        "adType": "",
+        "platform": "facebook",
+        "summary": "This Facebook ad from a competitor, discovered",
+        "adLinkVerified": true,
+        "adLinkSource": "meta_ad_library",
+        "dataSource": "meta_ad_library",
+        "metaAdArchiveId": "26868383309506843",
+        "previewImageUrl": "https://scontent.fnag4-3.fna.fbcdn.net/v/t39.30808-1/574932798_122156767004818646_5783732168759176993_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=AQVr_k4AKuQQ7kNvwHfOpTv&_nc_oc=Adoi9etHdYdHZdBbRVG8ahgPAxTD_AgQ9UEDlTI6GQFBGl7QBlqbyYCDUqw48aktZmU&_nc_zt=24&_nc_ht=scontent.fnag4-3.fna&_nc_gid=qrnBZp6EXuEfNQUzzfx2FQ&_nc_ss=7e289&oh=00_AQA08zwrnv50OsoSALWm7OANjv1mPASVitQE_sMG6YTMQg&oe=6A549636",
+        "previewVideoUrl": "",
+        "displayReady": true,
+        "relevanceScore": 0.55
+      },
+      {
+        "competitorName": "Cariuma",
+        "adTitle": "Sneakers are everywhere now\u2026 but what\u2019s interesting is how the industry is slowly but surely trying to rethink what they\u2019re actually made of.\n\nSome of the big sports brands like Nike and @adidas are e",
+        "adLink": "https://www.facebook.com/ads/library/?id=1520636612817684",
+        "views": "",
+        "duration": "",
+        "hook": "Sneakers are everywhere now\u2026 but what\u2019s interesting is how the industry is slowly but surely trying to rethink what they\u2019re actually made of.\n\nSome of the big sports brands like Nike and @adidas are e",
+        "cta": "",
+        "adType": "",
+        "platform": "instagram",
+        "summary": "Cariuma ran an ad on Instagram",
+        "adLinkVerified": true,
+        "adLinkSource": "meta_ad_library",
+        "dataSource": "meta_ad_library",
+        "metaAdArchiveId": "1520636612817684",
+        "previewImageUrl": "https://scontent.fnag4-2.fna.fbcdn.net/v/t39.30808-1/376632039_10160177494068889_7403578194084919365_n.jpg?stp=cp6_dst-jpg_p148x148_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=l1bVdvwtqh0Q7kNvwGxyzAB&_nc_oc=Ados1FGgUsq2w-us4SelAk7bPDGM2AqwCa0g41zDBWhGHtJen3M9qXhefnON-fNFeTs&_nc_zt=24&_nc_ht=scontent.fnag4-2.fna&_nc_gid=e7rrqOMHjAZg-zS5zQGYKA&_nc_ss=7e289&oh=00_AQAZQejdrm_GpEYGjfcGVV9oi479T4im9zSICWvAJ4yipg&oe=6A54A979",
+        "previewVideoUrl": "https://video.fnag4-1.fna.fbcdn.net/o1/v/t2/f2/m412/AQNJlxNrrZwQ17UgbJpBqv26WZQE6G6qcQPLQ8obMI7ZcTm3BOsOghyGJA2nqcN5Kjcly3L104ww17BVlr7NilS3LUv9PkFdshQ2r-aUSA.mp4?_nc_cat=101&_nc_oc=Adqei6Z42JKlMR1eui8wNWChnSbbQ4Y7SOl3ihHjDKM9U6Lo0UYQ78eIXDHUPcRYsN0&_nc_sid=ef5aa3&_nc_ht=video.fnag4-1.fna.fbcdn.net&_nc_ohc=NcgI57Xo7o4Q7kNvwGMJV4b&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTI3NDE3MjU3NDY2ODQwMywiYXNzZXRfYWdlX2RheXMiOjEwNiwidmlfdXNlY2FzZV9pZCI6MTAxMzksImR1cmF0aW9uX3MiOjg1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=e7rrqOMHjAZg-zS5zQGYKA&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAi0fQBj9HWRfpysi8Xfja9zCEhzH-wJZCx9aS8v37_iw&oe=6A54BD19",
+        "displayReady": true,
+        "relevanceScore": 0.9
+      },
+      {
+        "competitorName": "Everlane",
+        "adTitle": "MAILBOX GARDEN CLUB | Everlane Flower Co",
+        "adLink": "https://www.facebook.com/ads/library/?id=1556251259286026",
+        "views": "",
+        "duration": "",
+        "hook": "MAILBOX GARDEN CLUB | Everlane Flower Co",
+        "cta": "",
+        "adType": "",
+        "platform": "instagram",
+        "summary": "Everlane is running an ad titled \"",
+        "adLinkVerified": true,
+        "adLinkSource": "meta_ad_library",
+        "dataSource": "meta_ad_library",
+        "metaAdArchiveId": "1556251259286026",
+        "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.82787-19/727772816_18085630214173460_1675724043310686650_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=110&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=jt_tsufyZVYQ7kNvwFo_QMb&_nc_oc=Adqe_ORcuS1LrMnXG8CxlWzxU5ULZ5y8pF2BXHy424baDuf3EjQQlRmyL6yyyNYMk9M&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=3pBXkLYEp_C-oJ7Bt-SakA&_nc_ss=7e289&oh=00_AQAkRlTRsLCDRmv3u_6tDYohQGzSv-nTvqJ2nerJzGBVNg&oe=6A54A93A",
+        "previewVideoUrl": "",
+        "displayReady": true,
+        "relevanceScore": 0.55
+      },
+      {
+        "competitorName": "Greats",
+        "adTitle": "Legends of the World Cup",
+        "adLink": "https://www.facebook.com/ads/library/?id=1672488854029451",
+        "views": "",
+        "duration": "",
+        "hook": "Legends of the World Cup",
+        "cta": "",
+        "adType": "",
+        "platform": "instagram",
+        "summary": "Greats ran an ad titled \"",
+        "adLinkVerified": true,
+        "adLinkSource": "meta_ad_library",
+        "dataSource": "meta_ad_library",
+        "metaAdArchiveId": "1672488854029451",
+        "previewImageUrl": "https://scontent.fnag4-1.fna.fbcdn.net/v/t39.30808-1/326355323_3084708535008959_5731642423739109648_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=4htUs_Ay9AoQ7kNvwGRERtq&_nc_oc=AdqqENs7OZUtX6mSyoeozXu_VBXgD6aLNmw-Goxk0BVXb7rZWnQQAGZuXe59oA9UodE&_nc_zt=24&_nc_ht=scontent.fnag4-1.fna&_nc_gid=xe-qNvEcYQMocB1T4ALsiQ&_nc_ss=7e289&oh=00_AQCLYLyh9ckyDayTBFX3V8ObS5Kaejr1lGm4HjipYyzXig&oe=6A54A8EF",
+        "previewVideoUrl": "",
+        "displayReady": true,
+        "relevanceScore": 0.55
+      },
+      {
+        "competitorName": "On",
+        "adTitle": "Boost Your Metabolism With Your Morning Coffee",
+        "adLink": "https://www.facebook.com/ads/library/?id=2821571868194082",
+        "views": "",
+        "duration": "",
+        "hook": "Boost Your Metabolism With Your Morning Coffee",
+        "cta": "",
+        "adType": "",
+        "platform": "instagram",
+        "summary": "On has an Instagram ad titled",
+        "adLinkVerified": true,
+        "adLinkSource": "meta_ad_library",
+        "dataSource": "meta_ad_library",
+        "metaAdArchiveId": "2821571868194082",
+        "previewImageUrl": "https://scontent.fnag4-5.fna.fbcdn.net/v/t39.30808-1/646227969_122100493695259281_5376685272486729214_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=7UVJSsQydmQQ7kNvwEov29u&_nc_oc=AdpQGs50L8ZCDxwdzdaBcsF2j8hdrinRMjNUyAMpcGF_hlBMhvMF6YvXKxVAT67P-j4&_nc_zt=24&_nc_ht=scontent.fnag4-5.fna&_nc_gid=3ATZO4okLvgX-hmz7jyj4g&_nc_ss=7f289&oh=00_AQDIJPYP7RNxAE0-KZLjnF5hSfgGEB3z2qPPGHIh8xdqZw&oe=6A54BE8F",
+        "previewVideoUrl": "",
+        "displayReady": true,
+        "relevanceScore": 0.55
+      },
+      {
+        "competitorName": "Rothys",
+        "adTitle": "If I had to pick one pair of dress sneakers that can truly do it all, it\u2019s the Luca Suede Terra Low. Out of everything I tested, this was the chameleon: polished enough to pair with tailoring, but laid-back enough to wear with jeans or chinos on the weekend. The suede upper gives it a polished yet textural edge that makes it read more elevated than your average leather sneaker. You don\u2019t get a removable insole here, but the built-in footbed is plush and supportive. The break-in period took a couple wears, but after that I was ready for a full day on my feet.\nBreathability isn\u2019t its strong suit like the Rothy\u2019s knit, but the padded leather interior earns points for keeping your feet cushioned. I wore them through meetings around the city and a long dinner afterward, and not once did my feet feel fatigued. The sole isn\u2019t about springiness; it\u2019s about stability and support. It has that grounded, planted feel that absorbs pavement without making the shoe feel bulky or clunky.",
+        "adLink": "https://www.facebook.com/ads/library/?id=2033109250928007",
+        "views": "",
+        "duration": "",
+        "hook": "If I had to pick one pair of dress sneakers that can truly do it all, it\u2019s the Luca Suede Terra Low. Out of everything I tested, this was the chameleon: polished enough to pair with tailoring, but lai",
+        "cta": "",
+        "adType": "",
+        "platform": "facebook",
+        "summary": "This ad, discovered on Facebook, describes",
+        "adLinkVerified": true,
+        "adLinkSource": "meta_ad_library",
+        "dataSource": "meta_ad_library",
+        "metaAdArchiveId": "2033109250928007",
+        "previewImageUrl": "https://scontent.fnag4-3.fna.fbcdn.net/v/t39.30808-1/574932798_122156767004818646_5783732168759176993_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=AQVr_k4AKuQQ7kNvwHfOpTv&_nc_oc=Adoi9etHdYdHZdBbRVG8ahgPAxTD_AgQ9UEDlTI6GQFBGl7QBlqbyYCDUqw48aktZmU&_nc_zt=24&_nc_ht=scontent.fnag4-3.fna&_nc_gid=Uvo0fNMOHw63GMeBGkvveg&_nc_ss=7e289&oh=00_AQDKYXUhZ0blitB9BirAlYEwUfzQAVtO3ciO7G0STk1KdQ&oe=6A549636",
+        "previewVideoUrl": "",
+        "displayReady": true,
+        "relevanceScore": 0.55
+      }
+    ],
+    "idealClientProfiles": [
+      {
+        "name": "Eco-Conscious Comfort Seeker",
+        "avatarLabel": "Primary",
+        "summary": "This individual prioritizes comfort and natural materials in their footwear choices. They are eco-conscious and appreciate brands that actively work to reduce their environmental impact. Their lifestyle is often minimalist and fashion-forward, seeking products that align with these values.",
+        "age": "88-96",
+        "gender": "All genders",
+        "incomeLevel": "Budget",
+        "painPoints": [
+          "From materials to transport, we\u2019re working to reduce our carbon footprint to near zero"
+        ],
+        "psychographics": [
+          "Eco-conscious",
+          "Travel enthusiast",
+          "Family-oriented",
+          "Fashion-forward",
+          "Business-minded",
+          "Minimalist"
+        ],
+        "buyingMotivations": [
+          "Comfort from natural materials",
+          "Sustainable and eco-friendly production",
+          "Effortless and fashion-forward style",
+          "Durability for travel and daily wear"
+        ],
+        "preferredChannels": [
+          "instagram",
+          "facebook",
+          "youtube_shorts",
+          "tiktok"
+        ],
+        "platformPreference": [
+          "instagram",
+          "facebook",
+          "youtube_shorts",
+          "tiktok"
+        ],
+        "productFit": "Allbirds' footwear and lifestyle collection, made with natural materials, offers the world's most comfortable shoes, perfectly fitting this avatar's desire for comfort, sustainability, and effortless style.",
+        "recommendedAdAngles": [
+          "Highlight the unparalleled comfort and natural materials: 'Experience the world's comfiest shoes, crafted with merino wool and eucalyptus tree fiber for natural comfort.'",
+          "Emphasize the brand's commitment to sustainability: 'Walk lighter with Allbirds: our mission to reduce carbon footprint from materials to transport aligns with your eco-conscious values.'",
+          "Showcase the effortless style for a minimalist and fashion-forward lifestyle: 'Discover effortless style and natural comfort, perfect for your minimalist and fashion-forward journey.'"
+        ],
+        "recommendedAvatarStyle": "Product Demonstrator",
+        "recommendedVoiceStyle": "Effortless, calm, and informative, reflecting the brand's commitment to natural materials and carbon footprint reduction.",
+        "recommendedMusicStyle": "Light, natural, and understated acoustic or ambient sounds to complement the effortless tone and eco-conscious theme.",
+        "resolvedAvatarProperties": {
+          "ethnicity": "diverse representative",
+          "skinTone": "natural warm skin tone",
+          "clothingColor": "shades of off-white (matching the brand palette)",
+          "backgroundScene": "set against a stylish modern London flat interior with cozy, high-end styling, with soft professional lighting"
+        },
+        "heygenPrompt": "Photorealistic eco-conscious travel enthusiast 88-96 diverse representative person with natural warm skin tone, friendly presenter demonstrating a product, hands-on, representing Allbirds, styled for Allbirds' footwear and lifestyle collection, made with natural materials, offers the world's most comfortable shoes, perfectly fitting this avatar's desire for comfort, sustainability, and effortless style., wearing stylish clothing in shades of off-white (matching the brand palette), This individual prioritizes comfort and natural materials in their footwear choices. They are eco-conscious and appreciate brands that activ, effortless brand tone, modern ecommerce, The world\u2019s most comfortable shoes, made with natural materials like merino wool, eucalyptus tree fi, appealing to shoppers in United Kingdom, United States, set against a stylish modern London flat interior with cozy, high-end styling, with soft professional lighting, natural lighting, looking directly at camera, vertical video "
+      }
+    ],
+    "audienceMessagingGuide": "Speak to this audience by highlighting the world's most comfortable shoes, crafted from natural materials like merino wool, eucalyptus tree fiber, and sugar cane. Emphasize the brand's effortless tone and its commitment to reducing its carbon footprint from materials to transport. Focus on the unique combination of comfort, natural composition, and environmental responsibility that Allbirds offers.",
+    "researchId": "6a4ed246189efd069de1a54e",
+    "status": "completed",
+    "researchPhaseStatus": {
+      "brand": "completed",
+      "competitors": "completed",
+      "personas": "completed",
+      "ads": "completed"
+    },
+    "adDiscoveryStatus": {
+      "status": "completed",
+      "validatedCount": 6,
+      "competitorCount": 5,
+      "message": null
+    },
+    "dataMode": "extract_with_grounded_summaries",
+    "scrapeStatus": {
+      "website": "success",
+      "scraperMode": "basic",
+      "pagesScraped": [
+        "homepage",
+        "blog",
+        "contact",
+        "about",
+        "products",
+        "legal",
+        "privacy"
+      ],
+      "structuredProductCount": 0,
+      "social": {
+        "platforms": [
+          "facebook",
+          "instagram"
+        ],
+        "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+      },
+      "competitorSearch": "success",
+      "competitorSearchNote": null,
+      "websiteContentLength": 17395,
+      "websiteContentNote": null,
+      "adDiscovery": {
+        "priority": [
+          "facebook",
+          "instagram",
+          "youtube"
+        ],
+        "sources": [
+          "meta_page_id",
+          "meta_ad_library",
+          "instaloader",
+          "competitor_website_links"
+        ],
+        "metaAdLibraryConfigured": true,
+        "metaAdLibraryStatus": {
+          "ok": true,
+          "errorCode": null,
+          "errorMessage": "",
+          "tokenExpired": false
+        },
+        "instagramSessionConfigured": true,
+        "youtubeFallbackEnabled": false,
+        "notes": [
+          "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+        ]
+      }
+    }
+  },
+  "personaIndex": 0,
+  "creativeBrief": {
+    "layout": "Balanced split dashboard with focus on customer demographic details and lifestyle.",
+    "photography_style": "Professional commercial advertising photography featuring a natural all genders subject.",
+    "camera_lens": "85mm prime lens for flattering portrait compression",
+    "camera_angle": "Eye-level candid shot",
+    "lighting_style": "Soft natural window light with subtle rim lighting",
+    "color_mood": "Clean and premium with accents of #ffffff and rgba(255,255,255,0.95)",
+    "background_style": "Minimalist modern interior with clean lines and soft bokeh",
+    "environment": "A modern setting matching the footwear category",
+    "portrait_style": "Authentic, high-detail editorial portrait",
+    "pose": "Warm, confident smile looking slightly off-camera",
+    "card_style": "Glassmorphism with rounded corners and subtle border highlight",
+    "shadow_style": "Soft, ambient occlusion drop shadows",
+    "typography_mood": "Clean sans-serif with strong hierarchy (Apple/Stripe aesthetic)",
+    "editorial_style": "Premium minimalist design showcase",
+    "visual_story": "Capturing the daily routine of a modern consumer in their natural environment.",
+    "brand_inspiration": "Inspired by the core positioning: Allbirds provides a footwear / lifestyle collection, positioning itself as the creator of.",
+    "local_cultural_context": "Authentic representation tailored for United Kingdom market.",
+    "climate_wardrobe_direction": "Stylish, category-appropriate attire for a 88-96-year-old."
+  },
+  "heygenAvatarId": "4678b5c0f17948e38051849685d5611f",
+  "heygenAvatarName": "Eco-Conscious Comfort Seeker",
+  "videoId": null,
+  "videoStatus": "none",
+  "videoUrl": null
+}

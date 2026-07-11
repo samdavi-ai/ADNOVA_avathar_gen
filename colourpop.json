@@ -1,0 +1,709 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "ColourPop",
+    "brandPositioningSummary": "ColourPop offers a beauty and cosmetics collection, providing excellent value through special deals",
+    "productInfo": {
+      "primary": "Beauty / cosmetics collection",
+      "secondary": [
+        "Eyeliner",
+        "Eyeshadow",
+        "Mascara",
+        "Brow Makeup",
+        "Lipstick",
+        "Lip Stains",
+        "Lip Gloss",
+        "Lip Oil",
+        "Lip Liner",
+        "Lip Care",
+        "Palettes",
+        "Value Sets",
+        "Eye Sets",
+        "Lip Sets",
+        "Face Sets",
+        "Skincare Sets"
+      ],
+      "source": "both"
+    },
+    "industry": "cosmetics",
+    "geography": {
+      "country": "United States",
+      "primaryMarkets": [
+        "Afghanistan",
+        "Albania",
+        "Algeria",
+        "Andorra",
+        "Angola",
+        "Anguilla",
+        "Argentina",
+        "Armenia",
+        "Aruba",
+        "Australia",
+        "Austria",
+        "Azerbaijan",
+        "Bahamas",
+        "Bahrain",
+        "Bangladesh",
+        "Barbados",
+        "Belarus",
+        "Belgium",
+        "Belize",
+        "Benin",
+        "Bermuda",
+        "Bhutan",
+        "Bolivia",
+        "Bosnia & Herzegovina",
+        "Botswana",
+        "Brazil",
+        "British Virgin Islands",
+        "Brunei",
+        "Bulgaria",
+        "Burkina Faso",
+        "Burundi",
+        "Cambodia",
+        "Cameroon",
+        "Canada",
+        "Central African Republic",
+        "Chile",
+        "China",
+        "Colombia",
+        "Comoros",
+        "Cook Islands",
+        "Costa Rica",
+        "Croatia",
+        "Cura\u00e7ao",
+        "Cyprus",
+        "Czechia",
+        "Denmark",
+        "Dominican Republic",
+        "Ecuador",
+        "Egypt",
+        "El Salvador",
+        "Equatorial Guinea",
+        "Eritrea",
+        "Estonia",
+        "Eswatini",
+        "Ethiopia",
+        "Falkland Islands",
+        "Faroe Islands",
+        "Fiji",
+        "Finland",
+        "France",
+        "Gabon",
+        "Gambia",
+        "Georgia",
+        "Germany",
+        "Ghana",
+        "Gibraltar",
+        "Greece",
+        "Greenland",
+        "Guernsey",
+        "Guinea",
+        "Hong Kong SAR",
+        "Hungary",
+        "Iceland",
+        "India",
+        "Indonesia",
+        "Ireland",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Jersey",
+        "Jordan",
+        "Kazakhstan",
+        "Kenya",
+        "Kiribati",
+        "Kuwait",
+        "Kyrgyzstan",
+        "Laos",
+        "Latvia",
+        "Lebanon",
+        "Lesotho",
+        "Liberia",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macao SAR",
+        "Madagascar",
+        "Malawi",
+        "Malaysia",
+        "Maldives",
+        "Mali",
+        "Malta",
+        "Mauritania",
+        "Mexico",
+        "Moldova",
+        "Mongolia",
+        "Montenegro",
+        "Montserrat",
+        "Morocco",
+        "Mozambique",
+        "Myanmar (Burma)",
+        "Namibia",
+        "Nauru",
+        "Nepal",
+        "Netherlands",
+        "New Zealand",
+        "Niger",
+        "Nigeria",
+        "North Macedonia",
+        "Norway",
+        "Oman",
+        "Pakistan",
+        "Panama",
+        "Papua New Guinea",
+        "Paraguay",
+        "Peru",
+        "Philippines",
+        "Pitcairn Islands",
+        "Poland",
+        "Portugal",
+        "Qatar",
+        "Romania",
+        "Russia",
+        "Rwanda",
+        "Samoa",
+        "San Marino",
+        "S\u00e3o Tom\u00e9 & Pr\u00edncipe",
+        "Saudi Arabia",
+        "Senegal",
+        "Serbia",
+        "Seychelles",
+        "Sierra Leone",
+        "Singapore",
+        "Sint Maarten",
+        "Slovakia",
+        "Slovenia",
+        "South Africa",
+        "South Korea",
+        "Spain",
+        "Sri Lanka",
+        "St. Helena",
+        "St. Kitts & Nevis",
+        "St. Lucia",
+        "St. Martin",
+        "St. Pierre & Miquelon",
+        "St. Vincent & Grenadines",
+        "Sweden",
+        "Switzerland",
+        "Taiwan",
+        "Tanzania",
+        "Thailand",
+        "Togo",
+        "Tonga",
+        "Tunisia",
+        "Turks & Caicos Islands",
+        "Tuvalu",
+        "Uganda",
+        "Ukraine",
+        "United Arab Emirates",
+        "United Kingdom",
+        "United States",
+        "Uruguay",
+        "Vanuatu",
+        "Vatican City",
+        "Venezuela",
+        "Wallis & Futuna",
+        "Western Sahara",
+        "Zambia",
+        "Zimbabwe"
+      ]
+    },
+    "targetAudience": {
+      "summary": "You agree to provide current, complete and accurate purchase and account information for all purchases made at our store",
+      "demographics": {
+        "age": "24-48",
+        "gender": "Female",
+        "incomeLevel": "Budget"
+      },
+      "psychographics": [
+        "Eco-conscious",
+        "Family-oriented",
+        "Business-minded"
+      ]
+    },
+    "customerPainPoints": [
+      "Some cookies are necessary to operate a website, while others can be functional, analytical, or used for targeted advertising (as discussed in more detail below)",
+      "In addition to analytical purposes, this information helps us diagnose problems with our server, administer the Site, and display the content according to your preferences",
+      "If you have questions or concerns about the Internet and privacy for your child, we encourage you to check out the FTC Guidelines for protecting your child\u2019s privacy online",
+      "Our products are \"priced to play\" - we exist to help make it easy and fun for people to try new products, colors, textures and looks",
+      "Please help us keep our page a safe space for all by keeping the comment section thoughtful and kind"
+    ],
+    "messagingPillars": [
+      "Free U.S. shipping on orders over $35",
+      "Free international shipping on orders over $60 USD"
+    ],
+    "valueProposition": "ColourPop offers cosmetic products that provide excellent value, often highlighted through special deals, value sets, and complimentary gifts.",
+    "offerSummary": "25% off",
+    "ctaPreference": "Sign Up",
+    "communicationStyle": "Luxury",
+    "tone": "Luxury",
+    "voice": "The answer is probably on our FAQ page",
+    "brandColors": [
+      "#000000",
+      "#ffffff",
+      "#272d45",
+      "#676986",
+      "rgba(39,45,69,.2)",
+      "#ffbdde",
+      "#f4f4f6",
+      "rgba(0,0,0,.5)"
+    ],
+    "fonts": [],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Beauty / cosmetics collection",
+      "Hyper Shine Glossy Lipstick",
+      "Hyper Shine Glossy LipStick Trios",
+      "Bronze Stix",
+      "Hannah Montana X ColourPop Collection",
+      "Pink Dreams Collection",
+      "Fade Into Hue Rainbow Powder Palette",
+      "Sparkling Peach Eyeshadow Palette & Jelly Much Set",
+      "Extra Jelly Jelly Much Eyeshadow Stick Full Collection",
+      "9-Pan Palette Eyeshadow Palette",
+      "Best of Both Worlds Eyeshadow Palette",
+      "Jelly Much Eyeshadow Stick",
+      "Chrome Creme Gel Liner",
+      "So Juicy Plumping Gloss Balm"
+    ],
+    "productCategories": {
+      "primary": "Cosmetics",
+      "secondary": [
+        "Eyeliner",
+        "Eyeshadow",
+        "Mascara",
+        "Brow Makeup",
+        "Lipstick",
+        "Lip Stains",
+        "Lip Gloss",
+        "Lip Oil",
+        "Lip Liner",
+        "Lip Care",
+        "Palettes",
+        "Value Sets",
+        "Eye Sets",
+        "Lip Sets",
+        "Face Sets",
+        "Skincare Sets"
+      ]
+    },
+    "inferredFields": [
+      "valueProposition"
+    ],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 1,
+      "overall": 1
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Elfcosmetics",
+        "website": "https://www.elfcosmetics.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Revolutionbeauty",
+        "website": "https://www.revolutionbeauty.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Wetnwildbeauty",
+        "website": "https://www.wetnwildbeauty.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Essencemakeup",
+        "website": "https://essencemakeup.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Morphe",
+        "website": "https://www.morphe.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Elfcosmetics",
+        "website": "https://www.elfcosmetics.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Revolutionbeauty",
+        "website": "https://www.revolutionbeauty.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Wetnwildbeauty",
+        "website": "https://www.wetnwildbeauty.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Essencemakeup",
+        "website": "https://essencemakeup.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Morphe",
+        "website": "https://www.morphe.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors frequently use routine-based and 'Get Ready With Me' (GRWM) content, often with 'POV' style hooks, to engage audiences on Instagram and Facebook. The 'Lifestyle' ad format is prevalent, showcasing product application within daily routines or highlighting new collections and specific product features like vibrant colors. Ads also announce new collections and emphasize product features.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Create short-form video content demonstrating an everyday makeup routine using ColourPop products, starting with a 'Get Ready With Me' style opener.",
+        "Develop 'POV' style ads that address a common makeup application tip or highlight a specific ColourPop product benefit, encouraging viewers to try it.",
+        "Announce new ColourPop collections or product launches with an engaging 'Say hello to...' hook, showcasing the unique aspects of the new items.",
+        "Feature individual ColourPop products by highlighting a standout characteristic, such as a unique color or finish, using a direct and confident statement."
+      ],
+      "creativeIntelligenceSummary": "Competitors in the cosmetics industry frequently utilize routine-based content and 'POV' hooks to engage audiences on Instagram and Facebook. The 'Lifestyle' ad format is common, often featuring product application within a daily routine or highlighting new collections and specific product features like color. This approach emphasizes relatable usage and product discovery for the target audience.",
+      "hookStyles": [
+        "Routine / GRWM opener",
+        "POV",
+        "Everyday makeup routine",
+        "Get ready with me (GRWM) scenario",
+        "New collection announcement",
+        "Product feature highlight (color)"
+      ],
+      "adFormats": [
+        "Lifestyle"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Elfcosmetics",
+      "adTitle": "POV: This is your sign to stop skipping lip liner!\nJust a soft, feminine moment featuring my newest lip combo.\n\nI\u2019ve been loving the e.l.f. Strawberry Shortcake Glow Reviver Melting Lip Balm @elfcosme",
+      "adLink": "https://www.facebook.com/ads/library/?id=1711965756686647",
+      "views": "",
+      "duration": "",
+      "hook": "POV: This is your sign to stop skipping lip liner!\nJust a soft, feminine moment featuring my newest lip combo.\n\nI\u2019ve been loving the e.l.f. Strawberry Shortcake Glow Reviver Melting Lip Balm @elfcosme",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Elfcosmetics ran an",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1711965756686647",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.75761-19/504341877_18406842877106206_989834196350528532_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=101&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Lt2YihGcAs4Q7kNvwGSLUYM&_nc_oc=AdqN2Ik5XVeAfmrrgcGYtGD9jiMmMUmk6AJLgPLP29mCrWZ7JgmGBIJL673cPWrmvqo&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=-n6qM3tqnnNJXD6vhdDn1w&_nc_ss=7e289&oh=00_AQB17FEBCELWulVs_C7BVl76PDR6a1AFaZ8VtZH6tIpkAw&oe=6A54B9E8",
+      "previewVideoUrl": "https://video.fnag4-3.fna.fbcdn.net/o1/v/t2/f2/m367/AQOATb_e9Sxu0pXdzrvFu-kfO-jcsB8ZTQ_mDNKLpOyPPUcEuAIqMTQfzAyGi_F-Cm888Wpt4ji9RlUTkUKlzMR0Qi91E2vrvHPUwbinOg.mp4?_nc_cat=109&_nc_oc=Adp6ckv-fVTzsilAAVxS8u6s-BfCRQgy8iEnU7ME7MGMweOLWbAAsGufPnK8Cp7-Gt0&_nc_sid=ef5aa3&_nc_ht=video.fnag4-3.fna.fbcdn.net&_nc_ohc=dWHyNMBpoLcQ7kNvwHYF7ID&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjo5OTg5MTMzODYxMTA4MDYsImFzc2V0X2FnZV9kYXlzIjoxLCJ2aV91c2VjYXNlX2lkIjoxMDA5OSwiZHVyYXRpb25fcyI6MTMsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=-n6qM3tqnnNJXD6vhdDn1w&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQBT9VgPXP5HuCFiSi93LtTI4ABFYF1U5JBHtth40gGkgg&oe=6A54A645",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Revolutionbeauty",
+      "adTitle": "Say hello to the new Makeup Revolution | S.W.Smiley collection, bringing joyful colour and mood-boosting vibes straight to your makeup bag! \u2728\n\nAcross both Revolution Beauty and Revolution Skin, this c",
+      "adLink": "https://www.facebook.com/ads/library/?id=1417570343100879",
+      "views": "",
+      "duration": "",
+      "hook": "Say hello to the new Makeup Revolution | S.W.Smiley collection, bringing joyful colour and mood-boosting vibes straight to your makeup bag! \u2728\n\nAcross both Revolution Beauty and Revolution Skin, this c",
+      "cta": "",
+      "adType": "",
+      "platform": "facebook",
+      "summary": "Revolutionbeauty is running an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1417570343100879",
+      "previewImageUrl": "https://scontent.fnag4-4.fna.fbcdn.net/v/t39.30808-1/289659575_10159994284487162_2527119108155688521_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=c09WMPswRuoQ7kNvwFQ_Rrb&_nc_oc=Adp35tUCrn93xQK8kjah6ySARd4b7x2eSCNrisHt0Cro2tZ5UibalPrGvKcdfRUBFe4&_nc_zt=24&_nc_ht=scontent.fnag4-4.fna&_nc_gid=eDmI96cQKqiyWpwBhonDFQ&_nc_ss=7f289&oh=00_AQDKn5WdZwInR_9XPkQryJKHmXAwHWzgqwkbFDNroMXAVQ&oe=6A5493B9",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.95
+    },
+    {
+      "competitorName": "Wetnwildbeauty",
+      "adTitle": "my everyday makeup routine \ud80c\udd89\u00b0\u2740\ud83e\udd80\u0fd4*\n\nproducts: \n\npower grip primer by @elfcosmetics \n\nvanish airbrush concealer by @hourglasscosmetics \n\nsublime perfection setting powder by @patmcgrathreal \n\nmegaGlo ma",
+      "adLink": "https://www.facebook.com/ads/library/?id=1275475507998312",
+      "views": "",
+      "duration": "",
+      "hook": "my everyday makeup routine \ud80c\udd89\u00b0\u2740\ud83e\udd80\u0fd4*\n\nproducts: \n\npower grip primer by @elfcosmetics \n\nvanish airbrush concealer by @hourglasscosmetics \n\nsublime perfection setting powder by @patmcgrathreal \n\nmegaGlo ma",
+      "cta": "",
+      "adType": "Lifestyle",
+      "platform": "instagram",
+      "summary": "Wetnwildbeauty ran",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1275475507998312",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.82787-19/731037745_17896350549498844_6861937893904072062_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=110&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy45MzMuQzMifQ%3D%3D&_nc_ohc=umPVWDNoEdMQ7kNvwFfC_Zr&_nc_oc=AdoqcFp3xbxheRlvvlIo8eSuO1o3_iqmNE7wjsUrcpuuPwkOF0zn0UPgmK0L_myQ7CQ&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=dlEweWV4VvAY4yBbJTT2-A&_nc_ss=7e289&oh=00_AQDbr4xdUVsz02HlR7g5Ai4ElM-20HTJr9AGBTfqNuXTGg&oe=6A54AE28",
+      "previewVideoUrl": "https://video.fnag4-1.fna.fbcdn.net/o1/v/t2/f2/m412/AQPpk3pT2t5Il66v7O-_JTQnHkg-8_WPnnjkGrgMYNLnVrahJiLG8i8dqx0anUG4mofZTD1inMFjTOitgq4JOEKD6G3qWbQNh8lUcFY2tA.mp4?_nc_cat=107&_nc_oc=AdrrpT7Ke4hZ2_yUE38fMexzkw-uGmdrTXVvHe2EBB2vUe4guVi2HjoAZu3wJ_bIKIU&_nc_sid=ef5aa3&_nc_ht=video.fnag4-1.fna.fbcdn.net&_nc_ohc=n2VG6E8_8HkQ7kNvwEJDTSe&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTY2NzQ2Mjg4MjA0Nzc5OCwiYXNzZXRfYWdlX2RheXMiOjEsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjozNiwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=dlEweWV4VvAY4yBbJTT2-A&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAgR7N7MOsdskG5BU7NIEXj8urC7RaSfxcorAnNy24EcQ&oe=6A549FFB",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Essencemakeup",
+      "adTitle": "Lets get ready to go nowhere \ud83d\udc69\u200d\ud83d\udcbb\n\n@loreal.canada @lorealparis Plump eyebrow Ebony\n@maccosmeticscanada lip liner spice\n@yslbeauty Beige Trench\n@diorbeauty @diorbeautylovers sheer nude beige Lip gloss\n@",
+      "adLink": "https://www.facebook.com/ads/library/?id=1315421174066540",
+      "views": "",
+      "duration": "",
+      "hook": "Lets get ready to go nowhere \ud83d\udc69\u200d\ud83d\udcbb\n\n@loreal.canada @lorealparis Plump eyebrow Ebony\n@maccosmeticscanada lip liner spice\n@yslbeauty Beige Trench\n@diorbeauty @diorbeautylovers sheer nude beige Lip gloss\n@",
+      "cta": "",
+      "adType": "Lifestyle",
+      "platform": "instagram",
+      "summary": "Essencemakeup ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1315421174066540",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.82787-19/712803342_18315830782276923_315642426077463122_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=100&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=nDXLQNuL2VcQ7kNvwGPQeIa&_nc_oc=Adqz7RNmlKm_ls--X6dc-uTI-cnfchR4TXImcm0s4uazxL4wErpPWvVm1f9kXStjd8Q&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=O4y62OlLKfmlK4z3uKr21g&_nc_ss=7e289&oh=00_AQCYnGhI1UJpp1wfG8P6egYu77u0FQwn6VK0XQc9N0D3qw&oe=6A54B05E",
+      "previewVideoUrl": "https://video.fnag4-5.fna.fbcdn.net/o1/v/t2/f2/m412/AQOU9iXk5PUr39iKVyPiSXoe4dqxXKuJgkMh3dqse8uqt2KsbgOREm8vlzP7bQQbmPfgxmqLvE2kjzQUilNLEIGxFsHwT1TDUqP8KsvxOA.mp4?_nc_cat=105&_nc_oc=AdryTxrpVWvZJ4rZDVcbJ0y72jabWpZUdaBuGghovNgQfLy2Hzgass4FW3EgfbKFBUk&_nc_sid=ef5aa3&_nc_ht=video.fnag4-5.fna.fbcdn.net&_nc_ohc=VkxuMsGftU0Q7kNvwGyONBR&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6OTkzMTY5NTE5ODY0NzA5LCJhc3NldF9hZ2VfZGF5cyI6NDcsInZpX3VzZWNhc2VfaWQiOjEwMTIyLCJkdXJhdGlvbl9zIjo1OSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=O4y62OlLKfmlK4z3uKr21g&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQCAXZRNG0I4aP2-UMHXWtw3FRH01uyLIT4O-IeJIh-0Dw&oe=6A54C389",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Morphe",
+      "adTitle": "morphe \u201826\n.\n.\n.\n{luxury pret, women\u2019s fashion, luxury, couture, behind the scenes, handmade clothes, silk dresses, exclusive made to order catalogue}",
+      "adLink": "https://www.facebook.com/ads/library/?id=2211012446406836",
+      "views": "",
+      "duration": "",
+      "hook": "morphe \u201826\n.\n.\n.\n{luxury pret, women\u2019s fashion, luxury, couture, behind the scenes, handmade clothes, silk dresses, exclusive made to order catalogue}",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Morphe ran an",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "2211012446406836",
+      "previewImageUrl": "https://scontent.fnag4-2.fna.fbcdn.net/v/t39.30808-1/675240268_122094406274354744_1534760342107717701_n.jpg?stp=cp6_dst-jpg_s148x148_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=D0vTeo3O60YQ7kNvwGJSLWX&_nc_oc=Adow-0yBhxvnF8BAhePU9Iamv7Fr1EB7jxr-4KtwxkfHdsSQPeHDkbss24wLAwOUe8k&_nc_zt=24&_nc_ht=scontent.fnag4-2.fna&_nc_gid=8U9VCrYCYoPcfq_v-QY1tw&_nc_ss=7e289&oh=00_AQBzE3GHtbC2WQJxT6cB2pcvg-AmddGh4pyiSnafS4MEBQ&oe=6A54A6D5",
+      "previewVideoUrl": "https://video.fnag4-5.fna.fbcdn.net/o1/v/t2/f2/m367/AQMZxNCEHiF7eqBM94OQrZ2Jh0wd4z3gdqa54tspm80z1a88jPJ2GspAN4xanxSbnPTMp6HST8As6jrD8s1OGuH75spPFXhcCI8SlO11PQ.mp4?_nc_cat=105&_nc_oc=Ado0W-4YmUJoYr6R4J8MX8Mvj-STmAJzg18O1qlAjgFpqktTMtwEHBe3cJ8Sy0v8M48&_nc_sid=ef5aa3&_nc_ht=video.fnag4-5.fna.fbcdn.net&_nc_ohc=j6-1xqaSxtAQ7kNvwG-VXcK&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjoyMjk3NDI3NzI0MTE1MDg4LCJhc3NldF9hZ2VfZGF5cyI6MjUsInZpX3VzZWNhc2VfaWQiOjEwMDk5LCJkdXJhdGlvbl9zIjoxNywidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=8U9VCrYCYoPcfq_v-QY1tw&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQABXOBzDVskbhEwhhpBrqQD7DdWksTPAuAVO7m4H1RkvQ&oe=6A54AFF9",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    },
+    {
+      "competitorName": "Elfcosmetics",
+      "adTitle": "Orange never looked this good. \ud83e\udde1\u2728\n\nBrands: @nyxcosmetics @catrice.cosmetics @sheglam_official @pinkupcosmetics @lorealparis @mobeautybymoheart @elfcosmetics @pinkupcosmetics @physiciansformula @ultram",
+      "adLink": "https://www.facebook.com/ads/library/?id=875293388510337",
+      "views": "",
+      "duration": "",
+      "hook": "Orange never looked this good. \ud83e\udde1\u2728\n\nBrands: @nyxcosmetics @catrice.cosmetics @sheglam_official @pinkupcosmetics @lorealparis @mobeautybymoheart @elfcosmetics @pinkupcosmetics @physiciansformula @ultram",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Elfcosmetics ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "875293388510337",
+      "previewImageUrl": "https://scontent.fnag4-2.fna.fbcdn.net/v/t39.30808-1/619932699_1186751393613769_2085374575496135898_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=dpLHyek04g0Q7kNvwGqIEzE&_nc_oc=AdoIJdcfNZszNhBp5R2SVBvy72wzM5MnGBbdaNY1pvfCgoaJIsDGL7d6m5q1MNQ_zcI&_nc_zt=24&_nc_ht=scontent.fnag4-2.fna&_nc_gid=XeHzyiVQoEPAYqIDQ6P3gA&_nc_ss=7e289&oh=00_AQCN34Gz-AlWgpbAwTRGICjpMeT8dArIDJy-Qc2A2v4c1w&oe=6A548EFC",
+      "previewVideoUrl": "https://video.fnag4-2.fna.fbcdn.net/o1/v/t2/f2/m367/AQOWY08ZIdozMQsG8uzirhuvDU6jjXbtoIfJE0qqAphX-YcAeU0rvE166i9HaYaPcIKZK7rRerxgLbGKfyfq2e4wnQOr_jl621pyPOgKbw.mp4?_nc_cat=102&_nc_oc=Adrpae8XyaTuJovG8C9nuIvrrZ0UPcyjBIxghhpK79OjZ9PlWz652C1s_qLkvG9ym1Q&_nc_sid=ef5aa3&_nc_ht=video.fnag4-2.fna.fbcdn.net&_nc_ohc=HoPUYRkEIIgQ7kNvwE4dNl8&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnByb2dyZXNzaXZlX2gyNjQtYmFzaWMtZ2VuMl8zNjBwIiwieHB2X2Fzc2V0X2lkIjo4ODA3MjczMjE3NDQyMDAsImFzc2V0X2FnZV9kYXlzIjoxMCwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjY1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=XeHzyiVQoEPAYqIDQ6P3gA&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAJHU0ddpFwGOgIf3AVmvoR_LGmf3Rrmsx7KEn6i86_6A&oe=6A54B340",
+      "displayReady": true,
+      "relevanceScore": 1
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "Primary ideal client",
+      "avatarLabel": "Primary",
+      "summary": "You agree to provide current, complete and accurate purchase and account information for all purchases made at our store Interested in Beauty / cosmetics collection",
+      "age": "24-48",
+      "gender": "Female",
+      "incomeLevel": "Budget",
+      "painPoints": [
+        "Some cookies are necessary to operate a website, while others can be functional, analytical, or used for targeted advertising (as discussed in more detail below)",
+        "In addition to analytical purposes, this information helps us diagnose problems with our server, administer the Site, and display the content according to your preferences",
+        "If you have questions or concerns about the Internet and privacy for your child, we encourage you to check out the FTC Guidelines for protecting your child\u2019s privacy online",
+        "Our products are \"priced to play\" - we exist to help make it easy and fun for people to try new products, colors, textures and looks"
+      ],
+      "psychographics": [
+        "Eco-conscious",
+        "Family-oriented",
+        "Business-minded"
+      ],
+      "buyingMotivations": [
+        "Free U.S. shipping on orders over $35",
+        "Free international shipping on orders over $60 USD"
+      ],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Beauty / cosmetics collection",
+      "recommendedAdAngles": [
+        "Solve Some cookies are necessary to operate a website, while other",
+        "Lead with: Free U.S. shipping on orders over $35",
+        "Show Beauty / cosmetics collection results in a short routine"
+      ],
+      "recommendedAvatarStyle": "Premium Presenter",
+      "recommendedVoiceStyle": "Luxury, The answer is probably on our FAQ page, medium pace",
+      "recommendedMusicStyle": "Soft ambient, minimal, premium feel",
+      "resolvedAvatarProperties": {
+        "ethnicity": "diverse representative",
+        "skinTone": "natural warm skin tone",
+        "clothingColor": "shades of charcoal/black and off-white (matching the brand palette)",
+        "backgroundScene": "set against a sunlit modern loft apartment in New York or office space with minimalist design, with soft professional lighting"
+      },
+      "heygenPrompt": "Photorealistic eco-conscious family-oriented 24-48 diverse representative woman with natural warm skin tone, elegant premium brand spokesperson, poised and refined, representing ColourPop, styled for Beauty / cosmetics collection, wearing stylish clothing in shades of charcoal/black and off-white (matching the brand palette), You agree to provide current, complete and accurate purchase and account information for all purchases made at our store Interested in Beaut, luxury brand tone, modern ecommerce, ColourPop offers cosmetic products that provide excellent value, often highlighted through special d, appealing to shoppers in Afghanistan, Albania, Algeria, set against a sunlit modern loft apartment in New York or office space with minimalist design, with soft professional lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "Speak to You agree to provide current, complete and accurate purchase and account information for all purchases made at our store Interested in Beauty / cosmetics collection. Emphasize Free U.S. shipping on orders over $35. Address pain: Some cookies are necessary to operate a website, while others can be functional, analytical, or used for targeted advertising (as discussed in more detail below).",
+  "researchId": "6a4ed6b8189efd069de1a550",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 5,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "contact",
+      "products",
+      "legal",
+      "about",
+      "privacy"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 15996,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

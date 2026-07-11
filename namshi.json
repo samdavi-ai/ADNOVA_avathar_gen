@@ -1,0 +1,507 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Namshi",
+    "brandPositioningSummary": "Namshi is a fashion marketplace that helps fashion-forward customers get looks for less",
+    "productInfo": {
+      "primary": "Fashion marketplace",
+      "secondary": [],
+      "source": "user"
+    },
+    "industry": "fashion",
+    "geography": {
+      "country": "United Arab Emirates",
+      "primaryMarkets": [
+        "United States",
+        "United Kingdom",
+        "United Arab Emirates",
+        "India",
+        "Australia",
+        "Canada"
+      ]
+    },
+    "targetAudience": {
+      "summary": "Fashion marketplace. Health & Fitness, Travel enthusiast, Fashion-forward",
+      "demographics": {
+        "age": "",
+        "gender": "",
+        "incomeLevel": ""
+      },
+      "psychographics": [
+        "Health & Fitness",
+        "Travel enthusiast",
+        "Fashion-forward"
+      ]
+    },
+    "customerPainPoints": [
+      "High prices for fashion",
+      "Limited access to new brands",
+      "Difficulty styling outfits"
+    ],
+    "messagingPillars": [
+      "Get in, we\u2019re going shopping \ud83d\uded2",
+      "Different day, different vibe, same obsession.",
+      "A new brand just landed",
+      "Get these looks for less"
+    ],
+    "valueProposition": "Namshi offers customers the opportunity to get fashion looks for less with cashback.",
+    "offerSummary": "",
+    "ctaPreference": "Sign Up",
+    "communicationStyle": "",
+    "tone": "",
+    "voice": "\u2728 Your week, styled by @mymannerism \ud83d\ude4c\ud83c\udffb",
+    "brandColors": [],
+    "fonts": [],
+    "visualStyle": "",
+    "keyProducts": [
+      "Fashion marketplace",
+      "sets"
+    ],
+    "productCategories": {
+      "primary": "Fashion marketplace",
+      "secondary": []
+    },
+    "inferredFields": [
+      "customerPainPoints",
+      "valueProposition"
+    ],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 1,
+      "overall": 1
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Us",
+        "website": "https://us.shein.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for fashion (Fashion marketplace).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Myntra",
+        "website": "https://www.myntra.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for fashion (Fashion marketplace).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Boohoo",
+        "website": "https://www.boohoo.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for fashion (Fashion marketplace).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Ounass",
+        "website": "https://www.ounass.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "6Thstreet",
+        "website": "https://www.6thstreet.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Centrepointstores",
+        "website": "https://www.centrepointstores.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Us",
+        "website": "https://us.shein.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for fashion (Fashion marketplace).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Myntra",
+        "website": "https://www.myntra.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for fashion (Fashion marketplace).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Boohoo",
+        "website": "https://www.boohoo.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for fashion (Fashion marketplace).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Ounass",
+        "website": "https://www.ounass.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "6Thstreet",
+        "website": "https://www.6thstreet.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Centrepointstores",
+        "website": "https://www.centrepointstores.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors primarily use Instagram and Facebook for their ad campaigns, with a strong emphasis on Instagram. A common ad format observed is \"Promotional,\" often featuring \"Offer-led opener\" hook styles, such as discounts. Additionally, ads frequently introduce new products or drive engagement by directing users to links in bios for more content or support.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Feature new arrivals or collections with a clear introductory statement, highlighting unique aspects.",
+        "Promote special offers or discounts using direct, benefit-driven language to encourage immediate action.",
+        "Create engaging content that directs users to a profile link for extended videos, behind-the-scenes content, or curated collections.",
+        "Develop aspirational messaging that connects the brand's offerings to a desired lifestyle or personal growth, encouraging deeper engagement."
+      ],
+      "creativeIntelligenceSummary": "Competitors in the fashion industry, including Namshi's rivals, heavily leverage Instagram for their advertising efforts. Their ad strategies often include promotional content with explicit offer-led hooks to attract immediate attention. Beyond direct sales, they also focus on driving traffic to their profiles or external links for more detailed content, suggesting a blend of direct promotion and content-driven engagement. This indicates a need for both strong promotional offers and compelling content that encourages further exploration.",
+      "hookStyles": [
+        "Offer-led opener",
+        "Product Introduction",
+        "Discount/Offer",
+        "Call to Action for content/profile",
+        "Aspirational/Lifestyle"
+      ],
+      "adFormats": [
+        "Promotional"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Us",
+      "adTitle": "Introducing Apex Custom Fit Dashboard Mat Cover!",
+      "adLink": "https://www.facebook.com/ads/library/?id=1562148262174524",
+      "views": "",
+      "duration": "",
+      "hook": "Introducing Apex Custom Fit Dashboard Mat Cover!",
+      "cta": "",
+      "adType": "",
+      "platform": "facebook",
+      "summary": "Us ran an ad on Facebook",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1562148262174524",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/464473012_1294077198425449_118921479080838710_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=1&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=EcuJY_PGjCwQ7kNvwHwBuKG&_nc_oc=AdrlY42V_pZ3HYMagZjeHooEAuIhTeY0WIIEPtnOY2FiaDYFajLUMoAWxayQjhV7AOQ&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7e289&oh=00_AQDK2OLTEgTXcU-yz54SoSFEdVkDN018p0PyXWHvstRelQ&oe=6A5495CB",
+      "previewVideoUrl": "https://video.fnag4-2.fna.fbcdn.net/o1/v/t2/f2/m69/AQMuxfHYcjmR2T4BRmlfNEpmLYnabPG1o0NWvDWWfPn_BHwPoSuyLQStaAXUtkHo4k0foMx36KLcyOyUg7F4QtMC.mp4?strext=1&_nc_cat=101&_nc_oc=AdoF-qGSk10lGlF0-Hd72gisABWDv-4wLRcpFpzTdQ0LcXjJKDD2JlMbRU-yLECI0WM&_nc_sid=ef5aa3&_nc_ht=video.fnag4-2.fna.fbcdn.net&_nc_ohc=5C9fIHlhdSEQ7kNvwEV1slw&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTU5MzY5NzQ3MTMxMzQ5MywiYXNzZXRfYWdlX2RheXMiOjUwOSwidmlfdXNlY2FzZV9pZCI6MTA3OTksImR1cmF0aW9uX3MiOjEwLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=d8NdjkbIpolS6C1xHOax7g&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQCeSjv1oZ5iVnBYPhWC_Bm0DOYsJx5cORvaWP3moWWWig&oe=6A549765",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    },
+    {
+      "competitorName": "Myntra",
+      "adTitle": "Link in bio,or check (Highlights for \u201cLINK\u201d)\nFollow for Best Meesho Finds\u2764\ufe0f\n\n@gethypd @hypdsquad @lehlah.app @meeshoapp @connect.wishlink  @shop.wishlink @amazondotin \n\n#meesho #meeshofinds #meeshohau",
+      "adLink": "https://www.facebook.com/ads/library/?id=1357081409632053",
+      "views": "",
+      "duration": "",
+      "hook": "Link in bio,or check (Highlights for \u201cLINK\u201d)\nFollow for Best Meesho Finds\u2764\ufe0f\n\n@gethypd @hypdsquad @lehlah.app @meeshoapp @connect.wishlink  @shop.wishlink @amazondotin \n\n#meesho #meeshofinds #meeshohau",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Myntra was discovered running",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1357081409632053",
+      "previewImageUrl": "https://scontent.fnag4-3.fna.fbcdn.net/v/t39.30808-1/464185187_122125623344392691_3284261685621258661_n.jpg?stp=dst-jpg_p148x148_tt6&_nc_cat=1&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=QvN2Ni-kLjMQ7kNvwHhLM11&_nc_oc=Adp_pPwYzhSveFjs7m2ZGGdeTSaDXxLH7uOjOz3t12KRdByxhC2eSGCpe9huHFuhq0Y&_nc_zt=24&_nc_ht=scontent.fnag4-3.fna&_nc_gid=GURxGpl8eXDgsuSY-hFzWQ&_nc_ss=7e289&oh=00_AQDSgXwBSuEYyEzxm6nPDfKK7OCk-oN7OlmOgA2GKisgKw&oe=6A548F51",
+      "previewVideoUrl": "https://video.fnag4-3.fna.fbcdn.net/o1/v/t2/f2/m86/AQMImfuqY0do2OWfaTN4m276ck1IxjbGyx_0buqgB7dK5KTi28vaM8WlkJ4PxGrfWe3pXMcfm9nJK869sqa5snYruTSsK8RVZiMX4i0.mp4?_nc_cat=1&_nc_oc=AdoJwaVt_8vfm8X8ZiorBouibtAkvBwLCVXtdjsbJK2ayxxw05_ES75TXRK4nHvPmQM&_nc_sid=b66105&_nc_ht=video.fnag4-3.fna.fbcdn.net&_nc_ohc=IowpUyIC4RgQ7kNvwElRAQy&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLmRhc2hfYmFzZWxpbmVfM192MSIsInhwdl9hc3NldF9pZCI6Mjg3Njg5MTc5NTk0MzQyMCwiYXNzZXRfYWdlX2RheXMiOjYzMSwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjQ4LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=79eb29da3d40a2b6&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9DQTQ3OTA5RjEzRkFEQ0ZEN0MyMTZFMUYyNDA4MDE4Ql92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYR2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8xMDg5MjE0NDg2MDgyODM5XzMxOTA4MDEyOTAwOTA2NjgyNTkubXA0FQICyAESACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJvi_75iSoZwKFQIoAkMzLBdASEpeNT987hgSZGFzaF9iYXNlbGluZV8zX3YxEQB1AGXmnQEA&_nc_gid=GURxGpl8eXDgsuSY-hFzWQ&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQCSoTUQdBsl8vNS_GGR_NWYf8FDhUR5mcsEJfcLivn8YA&oe=6A50A26E",
+      "displayReady": true,
+      "relevanceScore": 0.9
+    },
+    {
+      "competitorName": "Boohoo",
+      "adTitle": "Lets normalise building a life you dont want to leave \u2708\ufe0f \n\nJoin @georgiawood__x, @amaa__official & @kenniebukky as they unpack building healthier financial habits, understanding investing and taking c",
+      "adLink": "https://www.instagram.com/p/DaVYD88FDk0/",
+      "views": "",
+      "duration": "",
+      "hook": "Lets normalise building a life you dont want to leave \u2708\ufe0f \n\nJoin @georgiawood__x, @amaa__official & @kenniebukky as they unpack building healthier financial habits, understanding investing and taking c",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Boohoo ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/731588866_18615071680053986_4354214016790307575_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gERenhz8jyKxEGfmT853xsHl7aF9124oShgA_2PQ4d0g-Ppm54svjn4FACK6OOprko&_nc_ohc=WwsOpIoEckUQ7kNvwGnEnfR&_nc_gid=1egJoa9EcXLYJZ3E61wgiQ&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQDtgBfTtZ2v_cx55OhIwFzyq2mt8bWyA00pJh11DPbfUA&oe=6A54A9C6&_nc_sid=c6f216",
+      "previewVideoUrl": "https://scontent-bos5-1.cdninstagram.com/o1/v/t2/f2/m86/AQPcr_X0A8nNBr73HAgNRf-X5V1IPDjMXvYmmIv2KkACt6ndrELljiJm7cA-JbOeyMfEE36oN5EmLvoi4az1CFej6DB3Gieg6eFvbOM.mp4?_nc_cat=101&_nc_sid=5e9851&_nc_ht=scontent-bos5-1.cdninstagram.com&_nc_ohc=nRiKgAOmTrYQ7kNvwEPzvy9&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzE2LmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTg2MTUwNzE0NzAwNTM5ODYsImFzc2V0X2FnZV9kYXlzIjo1LCJ2aV91c2VjYXNlX2lkIjoxMDA5OSwiZHVyYXRpb25fcyI6NDUsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&vs=15e42c1dbb48b436&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8yQTRGRUU1ODMyRTA5MUUzMzBBQ0I5MUU2NDZDRTc5M192aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyL0FCNEU3NjE5Q0ZBRTg4RDM1MUI3RUU4MTM2Q0I5RUE4X2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACbEqYen4pORQhUCKAJDMywXQEbCj1wo9cMYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&_nc_gid=P22nQcovYb3-8iabn360WQ&_nc_ss=72689&_nc_zt=28&oh=00_AQD8HySl_cQYqXJXBe923aXD1voMuz9oho-iRlvNP-GawA&oe=6A509A72",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Ounass",
+      "adTitle": "Get 50% off on Homaq New Collection",
+      "adLink": "https://www.facebook.com/ads/library/?id=2237626186775436",
+      "views": "",
+      "duration": "",
+      "hook": "Get 50% off on Homaq New Collection",
+      "cta": "",
+      "adType": "Promotional",
+      "platform": "instagram",
+      "summary": "Ounass ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "2237626186775436",
+      "previewImageUrl": "https://scontent.fnag4-3.fna.fbcdn.net/v/t39.30808-1/277350494_5246852858700677_9109985878734518400_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=DW4T08ABKJgQ7kNvwHdTNI7&_nc_oc=AdoFy_7_gImHH2y41p-9gTcJprnhtocKqLQ--_Ba3bGv3sdquCa_f8AgHyv6sFJ4OIA&_nc_zt=24&_nc_ht=scontent.fnag4-3.fna&_nc_gid=EBix8gQgOghWosYVfKMGfQ&_nc_ss=7e289&oh=00_AQBB4sU1jtWL195Zkvq-Y-G_m-f4qo76uEIkyTwUeYl4Ig&oe=6A548063",
+      "previewVideoUrl": "https://video.fnag4-2.fna.fbcdn.net/o1/v/t2/f2/m412/AQMchuSeD82PK2_s7F_WXUJ5ha68ULXdkPkWaeoM1TjDMM5TDo0-v-Z48EFrjNLUuzV4XytSNEPEAygEmhDRnr41r4qVfegWq0I21XrYsw.mp4?_nc_cat=111&_nc_oc=Adqb-3hpyW4O6ZS3HpRRAriGgWdDOrj5ihutJxDYS_5F_P0pNBo6naSHzpTOlhRdDDE&_nc_sid=ef5aa3&_nc_ht=video.fnag4-2.fna.fbcdn.net&_nc_ohc=q8SsoFSukHIQ7kNvwGnyfx0&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MjkzMzExOTYxMDM4NDY3MiwiYXNzZXRfYWdlX2RheXMiOjIzLCJ2aV91c2VjYXNlX2lkIjoxMDc5OSwiZHVyYXRpb25fcyI6OSwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=EBix8gQgOghWosYVfKMGfQ&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQDmgHnMPWLmVRtxP3kl1Wjaskpflmu9U3H1TrcJw9hKMg&oe=6A54A4EF",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    },
+    {
+      "competitorName": "6Thstreet",
+      "adTitle": "Click the link in @vennamisss bio for the full video! Drop a \ud83d\udc9c in the comments below to show love and support! This is her first solo track ever and we\u2019re proud to have her under the @namastesouls umb",
+      "adLink": "https://www.facebook.com/ads/library/?id=896272539878173",
+      "views": "",
+      "duration": "",
+      "hook": "Click the link in @vennamisss bio for the full video! Drop a \ud83d\udc9c in the comments below to show love and support! This is her first solo track ever and we\u2019re proud to have her under the @namastesouls umb",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "6Thstreet ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "896272539878173",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.82787-19/686411829_18577991254055040_6538544881856952477_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=111&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=JunGBQ9RY18Q7kNvwEa7LrZ&_nc_oc=AdoeOVgwRlfFiCHZaLlmiTtSO0lXZRUq_XUYKlXVQUKKXmbUHEaPVmCuwhRouoxgEfM&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=QIPA7J48-tKrgLs31irH2Q&_nc_ss=7e289&oh=00_AQAt7eo7eJtaKDvtXKRdkSUjYtnNPRcLNsFY3Fk4VvPBrA&oe=6A54948E",
+      "previewVideoUrl": "https://video.fnag4-1.fna.fbcdn.net/o1/v/t2/f2/m86/AQPfXZlRUjmNDTzmBaa2z3Ey07E94TP2YXdnVW0GBoJlc_sC1_wyw2JjdimsHLlm5YuHGimyNbHszEMSSm7hAiZr.mp4?_nc_cat=102&_nc_oc=AdrRMXECb5B8zrfD92ugDSrgztrUAPsr34oH5OCBGpmRer3ousvtXec21ET7r1tEqE0&_nc_sid=b66105&_nc_ht=video.fnag4-1.fna.fbcdn.net&_nc_ohc=wpjPLXLdcH4Q7kNvwFBDOd3&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLmRhc2hfYmFzZWxpbmVfM192MSIsInhwdl9hc3NldF9pZCI6MTg1NjE0MzYzNjYwNTUwNDAsImFzc2V0X2FnZV9kYXlzIjoxMjQsInZpX3VzZWNhc2VfaWQiOjEwMDk5LCJkdXJhdGlvbl9zIjo4OCwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=d2520c0d4dd76b12&_nc_vs=HBksFQIYR2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8xNTkwNjE1MjU1NDIxODI4XzY3MzU4Mzg4ODA1MTY5NzI2ODgubXA0FQACyAESABUCGFFpZ194cHZfcGxhY2VtZW50X3Blcm1hbmVudF92Mi9GNzQ4QjIwODZEQkJENkRFQTNDRTZCRDAwOTg3QzNCN19hdWRpb19kYXNoaW5pdC5tcDQVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAmgJr10eXh-EEVAigCQzMsF0BWAhysCDEnGBJkYXNoX2Jhc2VsaW5lXzNfdjERAHUAZeadAQA&_nc_gid=QIPA7J48-tKrgLs31irH2Q&_nc_ss=7e289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQDQgDf8VWARu_oToSa5YtxEioiSJJ-Y_fPQwF9vnvyRBA&oe=6A50A754",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    },
+    {
+      "competitorName": "Centrepointstores",
+      "adTitle": "Instagram post",
+      "adLink": "https://www.instagram.com/centrepoint/",
+      "views": "",
+      "duration": "",
+      "hook": "Instagram post",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Centrepointstores ran an Instagram post on",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "The Fashion-Forward Explorer",
+      "avatarLabel": "Primary",
+      "summary": "This avatar is a fashion-forward individual who is also a health & fitness and travel enthusiast. They are constantly seeking new brands and diverse styles, motivated by the desire to get fashion looks for less and access cashback offers.",
+      "age": "",
+      "gender": "",
+      "incomeLevel": "",
+      "painPoints": [
+        "High prices for fashion",
+        "Limited access to new brands",
+        "Difficulty styling outfits"
+      ],
+      "psychographics": [
+        "Health & Fitness",
+        "Travel enthusiast",
+        "Fashion-forward"
+      ],
+      "buyingMotivations": [
+        "Getting fashion looks for less",
+        "Access to new brands",
+        "Cashback opportunities"
+      ],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Namshi, as a fashion marketplace, directly addresses this avatar's desire for new brands and diverse styles, offering solutions to get fashion looks for less with cashback.",
+      "recommendedAdAngles": [
+        "Get these looks for less: Discover affordable fashion without compromising on style.",
+        "A new brand just landed: Explore exclusive new arrivals and expand your wardrobe.",
+        "Different day, different vibe, same obsession: Find diverse styles to easily create outfits for any occasion."
+      ],
+      "recommendedAvatarStyle": "UGC Creator",
+      "recommendedVoiceStyle": "Enthusiastic, stylish, and engaging, reflecting a vibrant and fashion-conscious lifestyle.",
+      "recommendedMusicStyle": "Upbeat, trendy, and modern pop or electronic music that complements a fashion-forward and active lifestyle.",
+      "resolvedAvatarProperties": {
+        "ethnicity": "Middle Eastern",
+        "skinTone": "warm tan skin tone",
+        "clothingColor": "sophisticated neutrals like beige, sand, white, or navy blue",
+        "backgroundScene": "set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting"
+      },
+      "heygenPrompt": "Photorealistic health & fitness travel enthusiast Middle Eastern person with warm tan skin tone, authentic UGC-style content creator, casual and relatable, representing Namshi, styled for Namshi, as a fashion marketplace, directly addresses this avatar's desire for new brands and diverse styles, offering solutions to get fashion looks for less with cashback., wearing stylish clothing in sophisticated neutrals like beige, sand, white, or navy blue, This avatar is a fashion-forward individual who is also a health & fitness and travel enthusiast. They are constantly seeking new brands and, Namshi offers customers the opportunity to get fashion looks for less with cashback., appealing to shoppers in United States, United Kingdom, United Arab Emirates, set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "The audience is fashion-forward, health & fitness, and travel enthusiasts. Messaging should be engaging and emphasize new brands, diverse styles, and the opportunity to get fashion looks for less with cashback. The communication should be vibrant and styled, encouraging shopping with phrases like 'Get in, we\u2019re going shopping' and highlighting new arrivals.",
+  "researchId": "6a4ec87f189efd069de1a549",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 6,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "failed",
+    "scraperMode": "none",
+    "pagesScraped": [
+      "homepage",
+      "contact",
+      "legal",
+      "privacy"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 0,
+    "websiteContentNote": "Website returned limited text (often JS-heavy pages). Use SCRAPER_MODE=auto or firecrawl, and enrich product_info / additional_notes.",
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

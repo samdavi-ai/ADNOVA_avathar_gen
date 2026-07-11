@@ -1,0 +1,71 @@
+{
+  "description": "Sample schema demonstrating how brand location and colors map to HeyGen avatar generation properties.",
+  "examples": [
+    {
+      "brandIdentity": {
+        "brandName": "Khaadi",
+        "industry": "fashion",
+        "geography": {
+          "country": "Pakistan",
+          "primaryMarkets": ["United States", "United Kingdom"]
+        },
+        "brandColors": [
+          "#f7643b"
+        ],
+        "messagingPillars": [
+          "Kurta pyjama",
+          "Printed ethnic wear"
+        ]
+      },
+      "idealClientProfiles": [
+        {
+          "name": "Fashion Enthusiast",
+          "gender": "female",
+          "age": "25-34",
+          "recommendedAvatarStyle": "UGC Creator",
+          "summary": "Interested in ready-to-wear printed kurtas and contemporary designs."
+        }
+      ],
+      "resolvedAvatarProperties": {
+        "ethnicity": "South Asian",
+        "skinTone": "warm olive skin tone",
+        "inferredLocation": "India/Pakistan (based on ethnic wear indicators: kurta, pyjama)",
+        "clothingColor": "shades of orange (matching the brand hex #f7643b)",
+        "backgroundScene": "set against a contemporary Pakistani home living room with elegant cultural details and soft lighting",
+        "industrySetting": "stylish minimal studio with soft fashion-editorial lighting"
+      },
+      "heygenPromptOutput": "Photorealistic South Asian woman with warm olive skin tone, authentic UGC-style content creator, casual and relatable, representing Khaadi, styled for Printed kurta and unstitched fabric collection, wearing stylish clothing in shades of orange (matching the brand palette), set against a contemporary Pakistani home living room with elegant cultural details and soft lighting, stylish minimal studio with soft fashion-editorial lighting..."
+    },
+    {
+      "brandIdentity": {
+        "brandName": "Arabian Oasis",
+        "industry": "skincare",
+        "geography": {
+          "country": "United Arab Emirates",
+          "primaryMarkets": ["United Arab Emirates", "Saudi Arabia"]
+        },
+        "brandColors": [
+          "#1b7c83"
+        ]
+      },
+      "idealClientProfiles": [
+        {
+          "name": "Premium Skincare Shopper",
+          "gender": "female",
+          "age": "30-45",
+          "recommendedAvatarStyle": "Premium Presenter",
+          "summary": "Prefers premium natural beauty products."
+        }
+      ],
+      "resolvedAvatarProperties": {
+        "ethnicity": "Middle Eastern",
+        "skinTone": "warm tan skin tone",
+        "inferredLocation": "United Arab Emirates (based on geography.country)",
+        "clothingColor": "shades of teal/cyan (matching the brand hex #1b7c83)",
+        "backgroundScene": "set in a clean modern bathroom of a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline",
+        "industrySetting": "soft natural light, clean minimal bathroom vanity setting"
+      },
+      "heygenPromptOutput": "Photorealistic premium presenter Middle Eastern woman with warm tan skin tone representing Arabian Oasis, wearing clothing in shades of teal/cyan (matching the brand palette), set in a clean modern bathroom of a luxury Dubai high-rise penthouse overlooking a sun-drenched skyline..."
+    }
+  ]
+}

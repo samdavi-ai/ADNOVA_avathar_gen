@@ -1,0 +1,157 @@
+================================================================================
+          ADNOVA CUSTOMER PERSONA BOARD GENERATOR — PROJECT DETAILS (A TO Z)
+================================================================================
+
+1. PROJECT OVERVIEW
+────────────────────────────────────────────────────────────────────────────────
+ADNOVA Customer Persona Board Generator is an enterprise-grade AI-powered marketing 
+studio. The application reads highly structured market research JSON files for 
+particular e-commerce and lifestyle brands (e.g., Allbirds, Glossier, ASOS), parses 
+their visual design tokens and ideal client profiles, and utilizes multi-agent LLM 
+and image generation techniques via Google Gemini API to produce premium, agency-quality 
+"Customer Persona Boards."
+
+Rather than generating simple customer portraits, ADNOVA generates split-screen 
+infographic layouts featuring an editorial portrait of the target consumer on one side 
+and detailed, beautifully styled cards (demographics, psychographics, pain points, etc.) 
+on the other side, looking as if they were designed manually in Figma or Adobe Illustrator.
+
+
+2. PROJECT STRUCTURE & DIRECTORY MAP
+────────────────────────────────────────────────────────────────────────────────
+NEW_ADNOVA/
+├── .env                         # Environment variables containing Gemini API keys
+├── Allbirds.json                # Brand and customer profiling JSON files
+├── Glossier.json                #   "
+├── asos.json                    #   "
+├── colourpop.json               #   "
+├── huba.json                    #   "
+├── khaadi.json                  #   "
+├── mumzworld.json               #   "
+├── namshi.json                  #   "
+├── notonthehighstreet.json      #   "
+├── thegivingmovement.json       #   "
+├── cc.txt                       # Brand guidelines & master prompt template
+├── enhancement.txt              # Guidelines to enhance visual boards to Behance-quality
+├── project_details.txt          # [THIS FILE] Project documentation A to Z
+│
+├── adnova_main_backend/         # References to other backend code repos
+│   └── mm.txt                   # Git repository reference links
+│
+├── backend/                     # Python-FastAPI backend server
+│   ├── main.py                  # Core backend APIs, routing, and Gemini invocation
+│   ├── requirements.txt         # Backend Python dependencies
+│   └── generated/               # Directory where generated images & metadata are persisted
+│       ├── [uuid].png           # Generated persona board images
+│       └── [uuid].json          # Generated image metadata (timestamps, profiles, etc.)
+│
+└── frontend/                    # Vite + React client application
+    ├── index.html               # Main HTML entry point
+    ├── package.json             # Frontend JavaScript dependencies and scripts
+    ├── vite.config.js           # Vite dev server configuration (proxies /api -> backend)
+    └── src/
+        ├── main.jsx             # React rendering root
+        ├── index.css            # Custom CSS styling with dark mode, animations, & variables
+        └── App.jsx              # Main UI workflow, navigation, state management & API integration
+
+
+3. THE GENERATION PIPELINE (A TO Z)
+────────────────────────────────────────────────────────────────────────────────
+The persona board generation is a two-stage process orchestrated in backend/main.py:
+
+STAGE 1: THE CREATIVE DIRECTOR (gemini-2.5-flash)
+1. The backend receives brand data JSON and a selected persona index.
+2. It calls gemini-2.5-flash acting as an Enterprise Creative Director.
+3. The LLM analyzes the industry, products, and brand identity to produce a unique 
+   Creative Brief in JSON format containing descriptive design properties:
+   - Layout concept (e.g., Swiss Design, Minimal Scandinavian, Modern Dashboard)
+   - Photography style, Camera lens, Camera angle, Lighting style
+   - Color mood, Background environment, Portrait style, Poses
+   - UI Card styling, Shadow styling, Typography mood, and Brand inspiration.
+4. This ensures that every generated brand board feels unique and custom-built 
+   rather than reusing a repetitive static template.
+
+STAGE 2: IMAGE GENERATION ENGINE (gemini-3-pro-image)
+1. The backend compiles a mega-prompt by merging:
+   - Structured brand research parameters (Positioning, value proposition, voice, fonts)
+   - Selected persona details (Demographics, psychographics, motivations, platforms)
+   - Creative intelligence suggestions (Ad angles, hook styles)
+   - Clean color mappings (Primary and secondary brand accent colors extracted from JSON)
+   - Stage 1 Creative Brief design guidelines (Layout, camera parameters, environment)
+2. This massive unified prompt is sent to gemini-3-pro-image.
+3. The model returns the binary image content of the generated customer board.
+4. The backend saves the generated image as a PNG/JPG along with a metadata JSON file 
+   containing details of the target persona, brand name, and timestamp.
+5. The base64-encoded image and history ID are sent back to the frontend client.
+
+
+4. DETAILED COMPONENT SPECIFICATIONS
+────────────────────────────────────────────────────────────────────────────────
+
+BACKEND (backend/main.py)
+--------------------------------------------------------------------------------
+- Framework: FastAPI + Uvicorn
+- APIs exposed:
+  * POST `/api/generate-persona-board` — Initiates the multi-stage generation.
+  * GET `/api/history` — Scans the `generated/` directory for metadata and returns 
+    all boards sorted newest first.
+  * GET `/api/history/{entry_id}/image` — Streams the saved board image to the client.
+  * DELETE `/api/history/{entry_id}` — Deletes the saved image and metadata files.
+  * GET `/api/health` — Returns backend health and API configuration status.
+
+FRONTEND (frontend/src/App.jsx & index.css)
+--------------------------------------------------------------------------------
+- Framework: React (using Vite) + Lucide React (icons)
+- Screens / Workflow States:
+  1. 'upload': Drag-and-drop zone to load a brand JSON file. Direct link to History view.
+  2. 'personas': Parses the JSON structure dynamically and lists all available ideal 
+     customer profiles as visual interactive cards. Displays basic brand metrics.
+  3. 'loading': Shows a premium glassmorphic screen with custom rotating circular 
+     orbs and step-by-step progress checkmarks for the backend generation phases.
+  4. 'result': Displays the finalized persona board inside a premium preview frame 
+     with actions to Download PNG, Regenerate (Stage 1 and 2), or switch personas. 
+     Shows a detailed read-only side panel summarizing demographics and psychographics.
+  5. 'history': Grid layout displaying all previously generated boards with delete, 
+     view, and download controls.
+  6. 'historyView': Deep view of a single historical generated persona board.
+- Dynamic Accent Styling:
+  The client reads the brand color array from the uploaded JSON file and uses the 
+  first valid non-white hex code to dynamically color the UI accent borders, 
+  buttons, and indicators, matching the app's visual style directly to the active brand.
+
+
+5. TECH STACK & DEPENDENCIES
+────────────────────────────────────────────────────────────────────────────────
+Frontend:
+  - React 19
+  - Vite 8 (Dev server, assets bundling)
+  - Lucide React (Minimal outline iconography matching the clean design language)
+  - Custom Vanilla CSS (featuring glassmorphism, responsive grid systems, and animations)
+
+Backend:
+  - Python 3.12+
+  - fastapi (Async web framework)
+  - uvicorn (ASGI server implementation)
+  - google-genai (Official SDK to interface with Gemini models)
+  - python-dotenv (To parse environment variables)
+
+
+6. HOW TO RUN THE PROJECT LOCAL
+────────────────────────────────────────────────────────────────────────────────
+Step 1: Set up Environment Variables
+Create a `.env` file in the root workspace directory containing your API keys:
+  GEMINI_API_KEY=your_gemini_api_key_here
+
+Step 2: Start the Backend Server
+  cd backend
+  pip install -r requirements.txt
+  python main.py
+  (Runs backend on http://localhost:8000)
+
+Step 3: Start the Frontend Client
+  cd frontend
+  npm install
+  npm run dev
+  (Runs frontend client on http://localhost:5173 with proxy configuration pointing 
+   to the backend server for all /api endpoints)
+================================================================================

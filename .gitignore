@@ -1,0 +1,10 @@
+.DS_Store
+.env
+backend.zip
+node_modules/
+frontend/node_modules/
+frontend/dist/
+backend/__pycache__/
+*.pyc
+.gemini/
+.agents/

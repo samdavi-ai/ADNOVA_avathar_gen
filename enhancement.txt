@@ -1,0 +1,415 @@
+========================================================
+ENTERPRISE AVATAR ASSET EXTRACTION ENGINE
+========================================================
+
+CRITICAL SYSTEM INSTRUCTION
+
+This is NOT a complete marketing image.
+
+This is NOT a poster.
+
+This is NOT a scene.
+
+This is NOT an advertisement.
+
+This is ONLY an avatar asset that will later be composited with another background image.
+
+The generated avatar must be completely independent.
+
+========================================================
+OUTPUT TYPE
+========================================================
+
+Return ONLY ONE PERSON.
+
+No additional people.
+
+No environment.
+
+No furniture.
+
+No buildings.
+
+No floor.
+
+No shadows outside the subject.
+
+No trees.
+
+No vehicles.
+
+No background decorations.
+
+No room.
+
+No office.
+
+No sky.
+
+No landscape.
+
+No props except small accessories naturally carried by the customer.
+
+The output should look like a commercial product asset.
+
+========================================================
+BACKGROUND
+========================================================
+
+The background MUST NOT contain any scene.
+
+Generate ONLY
+
+Transparent Background (Preferred)
+
+If transparency is unavailable
+
+Generate on
+
+Pure White (#FFFFFF)
+
+or
+
+Neutral Light Gray (#F5F5F5)
+
+completely flat
+
+completely uniform
+
+no gradients
+
+no texture
+
+no shadows
+
+no reflections
+
+no environment
+
+easy for automatic background removal.
+
+========================================================
+SUBJECT PLACEMENT
+========================================================
+
+Center the person.
+
+Leave generous padding.
+
+Never crop
+
+head
+
+hands
+
+feet
+
+legs
+
+arms
+
+hair
+
+The entire body must be visible.
+
+Preferred framing
+
+Full Body
+
+or
+
+Three Quarter
+
+No extreme closeups.
+
+========================================================
+CAMERA
+========================================================
+
+Eye Level
+
+Commercial Portrait
+
+85mm Lens
+
+Natural Perspective
+
+No dramatic angles.
+
+========================================================
+LIGHTING
+========================================================
+
+Studio Quality
+
+Soft Light
+
+Balanced Exposure
+
+No colored lighting.
+
+No environmental lighting.
+
+Lighting must allow easy compositing onto another background.
+
+========================================================
+LOCATION AWARENESS
+========================================================
+
+Determine the avatar using ONLY the supplied JSON.
+
+Extract
+
+Country
+
+State
+
+Region
+
+City
+
+Target Market
+
+Target Audience
+
+Culture
+
+Lifestyle
+
+Income
+
+Occupation
+
+Industry
+
+Brand
+
+Climate
+
+Weather
+
+Fashion Style
+
+Age
+
+Gender
+
+Do not invent another region.
+
+========================================================
+HUMAN APPEARANCE
+========================================================
+
+Appearance should naturally fit the campaign audience described in the JSON.
+
+Generate
+
+Age
+
+Gender
+
+Facial structure
+
+Hair
+
+Hair texture
+
+Hair color
+
+Eye color
+
+Skin tone
+
+Body type
+
+Natural facial details
+
+Natural expression
+
+Natural posture
+
+Skin tone and facial appearance should be believable for the intended audience while recognizing the diversity that exists within every location.
+
+Never default to the same generic model.
+
+========================================================
+CLOTHING
+========================================================
+
+Use the JSON.
+
+Brand
+
+Industry
+
+Weather
+
+Climate
+
+Income
+
+Lifestyle
+
+Country
+
+Fashion
+
+Brand Colors
+
+Examples
+
+Luxury Fashion
+
+Business Casual
+
+Streetwear
+
+Gym Wear
+
+Traditional influence where appropriate
+
+Premium Casual
+
+Never generate clothing that conflicts with the region.
+
+========================================================
+BRAND COLORS
+========================================================
+
+Extract the official brand colors from the JSON.
+
+Use them naturally within
+
+Clothing
+
+Accessories
+
+Shoes
+
+Watch
+
+Bag
+
+Small accents
+
+Never invent unrelated colors.
+
+========================================================
+POSE
+========================================================
+
+Natural pose.
+
+Walking
+
+Standing
+
+Looking at phone
+
+Talking
+
+Shopping
+
+Relaxing
+
+Working
+
+Stretching
+
+Holding coffee
+
+Holding shopping bag
+
+No runway poses.
+
+========================================================
+ACCESSORIES
+========================================================
+
+Use only if supported by the persona.
+
+Phone
+
+Laptop
+
+Coffee
+
+Backpack
+
+Gym Bottle
+
+Watch
+
+Shopping Bag
+
+Nothing excessive.
+
+========================================================
+NEGATIVE CONSTRAINTS
+========================================================
+
+Do NOT generate
+
+Background
+
+Room
+
+Furniture
+
+Office
+
+Landscape
+
+Sky
+
+Trees
+
+Buildings
+
+People
+
+Animals
+
+Cars
+
+Text
+
+Watermark
+
+UI
+
+Logos
+
+Cards
+
+Advertising
+
+Poster
+
+Billboards
+
+Magazine
+
+========================================================
+DOWNLOAD REQUIREMENT
+========================================================
+
+Export as
+
+avatar.png
+
+Transparent PNG
+
+High Resolution
+
+8K
+
+Ready for direct compositing.
+
+========================================================
+FINAL OBJECTIVE
+========================================================
+
+The result should look like a professionally photographed commercial model asset extracted from an advertising photoshoot.
+
+It should be immediately usable inside Photoshop, Figma, Canva, Illustrator, HTML Canvas, or any advertising design software without requiring additional editing.

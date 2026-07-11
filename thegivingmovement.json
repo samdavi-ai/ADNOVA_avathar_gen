@@ -1,0 +1,568 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Thegivingmovement",
+    "brandPositioningSummary": "Thegivingmovement offers sustainable activewear and streetwear clothing, including gym and",
+    "productInfo": {
+      "primary": "Activewear / streetwear collection",
+      "secondary": [],
+      "source": "user"
+    },
+    "industry": "activewear",
+    "geography": {
+      "country": "United Arab Emirates",
+      "primaryMarkets": [
+        "United Arab Emirates"
+      ]
+    },
+    "targetAudience": {
+      "summary": "Description: Shop women's new arrivals & get the latest fashion for women",
+      "demographics": {
+        "age": "25-44",
+        "gender": "All genders",
+        "incomeLevel": "Budget"
+      },
+      "psychographics": [
+        "Eco-conscious",
+        "Health & Fitness",
+        "Travel enthusiast",
+        "Family-oriented",
+        "Fashion-forward",
+        "Business-minded",
+        "Minimalist"
+      ]
+    },
+    "customerPainPoints": [
+      "Depending on the product you have acquired, it may be necessary to keep a record of the transaction for business purposes or to enable us to respond to your concerns",
+      "Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party",
+      "GIVEAWAYS#TheGivingMovement GiveawayWe are calling on our conscious followers to help us continue to grow our movement, so we can keep creating a positive impact on the planet & humanity, together",
+      "These third parties will only have limited access to your personal information in order to help complete transactions",
+      "CONTACT USWe welcome your questions, comments, and concerns about this Privacy Policy and Site"
+    ],
+    "messagingPillars": [
+      "Sustainable Activewear & Streetwear Clothing | Born in Dubai | Gym Clothing & Workout Clothes"
+    ],
+    "valueProposition": "Sustainable Activewear & Streetwear Clothing | Born in Dubai | Gym Clothing & Workout Clothes",
+    "offerSummary": "25% off",
+    "ctaPreference": "Learn More",
+    "communicationStyle": "Friendly, Effortless",
+    "tone": "Friendly",
+    "voice": "Shop new drops, get inspired, track orders, and stay in the know - all on our app",
+    "brandColors": [
+      "rgb(52,58,64)",
+      "#000000",
+      "rgb(255,255,255)",
+      "#343a40",
+      "rgb(34,34,34)",
+      "#ff0000",
+      "rgb(31,31,31)"
+    ],
+    "fonts": [],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Activewear / streetwear collection"
+    ],
+    "productCategories": {
+      "primary": "Activewear / streetwear collection",
+      "secondary": []
+    },
+    "inferredFields": [],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 0,
+      "overall": 0.83
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Nike",
+        "website": "https://www.nike.com/ae/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Adidas",
+        "website": "https://www.adidas.ae/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Thepangaia",
+        "website": "https://thepangaia.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Girlfriend",
+        "website": "https://www.girlfriend.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Lcouture",
+        "website": "https://lcouture.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Squatwolf",
+        "website": "https://squatwolf.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Nike",
+        "website": "https://www.nike.com/ae/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Adidas",
+        "website": "https://www.adidas.ae/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Thepangaia",
+        "website": "https://thepangaia.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Girlfriend",
+        "website": "https://www.girlfriend.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Lcouture",
+        "website": "https://lcouture.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Squatwolf",
+        "website": "https://squatwolf.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for activewear (Activewear / streetwear collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Namshi",
+        "website": "https://www.namshi.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for activewear.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Ounass",
+        "website": "https://www.ounass.ae",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for activewear.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "6Thstreet",
+        "website": "https://www.6thstreet.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for activewear.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Centrepointstores",
+        "website": "https://www.centrepointstores.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for activewear.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors primarily use Instagram for their advertising efforts. A common ad format observed is \"Promotional,\" often featuring \"Offer-led opener\" hook styles. Ad titles vary, including direct product names, campaign slogans, sale announcements, and celebrity endorsements.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Develop visually engaging Instagram campaigns that highlight specific activewear collections.",
+        "Create ad creatives that lead with clear promotional offers or new product launches.",
+        "Craft ad titles that either directly name a product or collection, or convey a broader brand message.",
+        "Design ads that clearly communicate seasonal sales or special discounts on activewear items."
+      ],
+      "creativeIntelligenceSummary": "Competitors in the activewear industry show a strong preference for Instagram as their primary advertising platform. Their ad strategies frequently involve \"Promotional\" formats, often initiated with \"Offer-led opener\" hooks. Ad titles are diverse, ranging from specific product callouts and collection names to broader brand messaging and celebrity-focused content. This indicates a multi-faceted approach to engaging audiences on a highly visual platform.",
+      "hookStyles": [
+        "Offer-led opener",
+        "Slogan/Brand message",
+        "Brand/Collection name",
+        "Sale/Collection focus",
+        "Product name",
+        "Celebrity/Endorsement"
+      ],
+      "adFormats": [
+        "Promotional"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Nike",
+      "adTitle": "Time to go off script.",
+      "adLink": "https://www.instagram.com/p/DYm02w4FPJR/",
+      "views": "",
+      "duration": "",
+      "hook": "Time to go off script.",
+      "cta": "",
+      "adType": "Promotional",
+      "platform": "instagram",
+      "summary": "Nike ran an ad on Instagram titled \"",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-phx1-1.cdninstagram.com/v/t51.82787-15/703890878_18627854473020081_733186660433410109_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzkwMjAzNTI3ODM2OTY5ODY2NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=1valJcN1-t8Q7kNvwG1a3W2&_nc_oc=AdowZHSaSpQRO4TzKbN5HNRuuhnR-w6J_knIf93tDsTxb_uvgQ25nmQFRpRBuvkXcMQ&_nc_zt=23&_nc_ht=scontent-phx1-1.cdninstagram.com&_nc_gid=fCTmimXkgWZshK7Tq7yzCQ&_nc_ss=7c689&oh=00_AQAGCiawGpmwapS4FkVcu3qjl2tcgYAj5D-GL9Eo4YY_Hg&oe=6A548F06",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Adidas",
+      "adTitle": "Haus of GODMACHINE | Official Godmachine Art & Apparel",
+      "adLink": "https://www.facebook.com/ads/library/?id=2230701257681079",
+      "views": "",
+      "duration": "",
+      "hook": "Haus of GODMACHINE | Official Godmachine Art & Apparel",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Adidas ran an ad on Instagram titled",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "2230701257681079",
+      "previewImageUrl": "https://scontent.fnag4-5.fna.fbcdn.net/v/t39.35426-6/712430766_1769233614235364_7809449224724159459_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c53f8f&_nc_ohc=i1HUCdISN1UQ7kNvwHV6RvJ&_nc_oc=AdqjERhIGS-UsnvbBk9_tMbQefQ6HKetlbckC1rF-Xl5z8mcTyp0QNHVTZYZRCH1pm4&_nc_zt=14&_nc_ht=scontent.fnag4-5.fna&_nc_gid=g9fyYcSh8RRgZS6SYrdwPw&_nc_ss=7f289&oh=00_AQCVQq5xKAqnw5HzQsavYMdjI6ahAnUQqeHIgKbKHssshA&oe=6A54B132",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    },
+    {
+      "competitorName": "Thepangaia",
+      "adTitle": "On court, off duty. \n\nShop the Courtside collection in our end of season sale.",
+      "adLink": "https://www.instagram.com/p/DZzh941jIy9/",
+      "views": "",
+      "duration": "",
+      "hook": "On court, off duty. \n\nShop the Courtside collection in our end of season sale.",
+      "cta": "",
+      "adType": "Promotional",
+      "platform": "instagram",
+      "summary": "Thepangaia ran an",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-phl2-1.cdninstagram.com/v/t51.82787-15/728093684_18535082641074591_5170016014708464650_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzkyMzYyODg1MDQzNTY3MzY1MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=tlmgr9kCmFcQ7kNvwFSfq9f&_nc_oc=AdrJtMajR0yl-1Frhvd4ocVVPJlQcKEK_yPXb6Qh3lOmMQpOSP73-jDdvYkMIJzUtoU&_nc_zt=23&_nc_ht=scontent-phl2-1.cdninstagram.com&_nc_gid=UrDHyE1HvvHPropnYEWevg&_nc_ss=7c289&oh=00_AQDGwncmYYDB9jX1Y-EYkUy70xKIjMp249FO4JWTRH-tiQ&oe=6A5494DC",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Lcouture",
+      "adTitle": "Instagram post",
+      "adLink": "https://www.instagram.com/lcouture/",
+      "views": "",
+      "duration": "",
+      "hook": "Instagram post",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Lcouture has an",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Squatwolf",
+      "adTitle": "Core Mesh Tee - Onyx",
+      "adLink": "https://www.facebook.com/ads/library/?id=1193882765970727",
+      "views": "",
+      "duration": "",
+      "hook": "Core Mesh Tee - Onyx",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Squatwolf is running an",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1193882765970727",
+      "previewImageUrl": "https://scontent.fnag4-1.fna.fbcdn.net/v/t39.35426-6/582002476_870431309000531_8307593151378435951_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c53f8f&_nc_aid=0&_nc_ohc=cPNjJPIP7wQQ7kNvwFIUsCK&_nc_oc=Adp74iRpAbuyJdueKfJ1xzDPqSfjEXU-0nsXwC3EXsFc7pvXzEJhKkuZkfrK3USmWn8&_nc_zt=14&_nc_ht=scontent.fnag4-1.fna&_nc_gid=FhYJ4s0ZT2LS1uynyd0QZw&_nc_ss=7f289&oh=00_AQCDxX5gCo_X--ocZz7zXz0-LnSKYJOQebjcLVNg5j6Lcg&oe=6A54AF87",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.9
+    },
+    {
+      "competitorName": "Nike",
+      "adTitle": "There\u2019s only one @cristiano.\n\nGoals on the biggest stage in \u201806, \u201810, \u201814, \u201818, \u201822 and now \u201826.",
+      "adLink": "https://www.instagram.com/p/DZ76oS7m4G0/",
+      "views": "",
+      "duration": "",
+      "hook": "There\u2019s only one @cristiano.\n\nGoals on the biggest stage in \u201806, \u201810, \u201814, \u201818, \u201822 and now \u201826.",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Nike ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-phl2-1.cdninstagram.com/v/t51.82787-15/729579071_18637675378020081_7514457875554935701_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=1&ig_cache_key=MzkyNTk4OTEyNzkzNzgyODA1NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTYyMC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=i2QZH7JVoJkQ7kNvwEUthXb&_nc_oc=AdrdlivJsTSmcyxFuUkwwotyQsf39TZ5QxNWjsMvBMw_91PTdF0m5l38SrNmFdzatJo&_nc_zt=23&_nc_ht=scontent-phl2-1.cdninstagram.com&_nc_gid=NiaF_6dV5rym3Spddxt2kg&_nc_ss=72a8c&oh=00_AQCTLGauPRYULqqIHIAIXkpWQLeAZt6LfKM4Vbaqr4JAQg&oe=6A54B634",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "Primary ideal client",
+      "avatarLabel": "Primary",
+      "summary": "Description: Shop women's new arrivals & get the latest fashion for women Interested in Activewear / streetwear collection",
+      "age": "25-44",
+      "gender": "All genders",
+      "incomeLevel": "Budget",
+      "painPoints": [
+        "Depending on the product you have acquired, it may be necessary to keep a record of the transaction for business purposes or to enable us to respond to your concerns",
+        "Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party",
+        "GIVEAWAYS#TheGivingMovement GiveawayWe are calling on our conscious followers to help us continue to grow our movement, so we can keep creating a positive impact on the planet & humanity, together",
+        "These third parties will only have limited access to your personal information in order to help complete transactions"
+      ],
+      "psychographics": [
+        "Eco-conscious",
+        "Health & Fitness",
+        "Travel enthusiast",
+        "Family-oriented"
+      ],
+      "buyingMotivations": [
+        "Sustainable Activewear & Streetwear Clothing | Born in Dubai | Gym Clothing & Workout Clothes"
+      ],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Activewear / streetwear collection",
+      "recommendedAdAngles": [
+        "Solve Depending on the product you have acquired, it may be necess",
+        "Lead with: Sustainable Activewear & Streetwear Clothing | Born in Dubai | Gym Clothing & Wo",
+        "Show Activewear / streetwear collection results in a short routine"
+      ],
+      "recommendedAvatarStyle": "UGC Creator",
+      "recommendedVoiceStyle": "Friendly, Shop new drops, get inspired, track orders, and stay in the know - all on our app, medium pace",
+      "recommendedMusicStyle": "Neutral background, low-key",
+      "resolvedAvatarProperties": {
+        "ethnicity": "Middle Eastern",
+        "skinTone": "warm tan skin tone",
+        "clothingColor": "shades of charcoal/black (matching the brand palette)",
+        "backgroundScene": "set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting"
+      },
+      "heygenPrompt": "Photorealistic eco-conscious health & fitness 25-44 Middle Eastern person with warm tan skin tone, authentic UGC-style content creator, casual and relatable, representing Thegivingmovement, styled for Activewear / streetwear collection, wearing stylish clothing in shades of charcoal/black (matching the brand palette), Description: Shop women's new arrivals & get the latest fashion for women Interested in Activewear / streetwear collection, friendly brand tone, modern ecommerce, Sustainable Activewear & Streetwear Clothing | Born in Dubai | Gym Clothing & Workout Clothes, appealing to shoppers in United Arab Emirates, set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "Speak to Description: Shop women's new arrivals & get the latest fashion for women Interested in Activewear / streetwear collection. Emphasize Sustainable Activewear & Streetwear Clothing | Born in Dubai | Gym Clothing & Workout Clothes. Address pain: Depending on the product you have acquired, it may be necessary to keep a record of the transaction for business purposes or to enable us to respond to your concerns.",
+  "researchId": "6a4eca13189efd069de1a54a",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 10,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "about",
+      "privacy",
+      "products",
+      "contact",
+      "legal"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 17782,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

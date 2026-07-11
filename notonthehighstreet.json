@@ -1,0 +1,545 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Not on The High Street",
+    "brandPositioningSummary": "Not on The High Street is a UK-based marketplace specializing in gifts and",
+    "productInfo": {
+      "primary": "Marketplace / gifts",
+      "secondary": [
+        "Jewellery",
+        "Home",
+        "Accessories",
+        "Baby & kids",
+        "Beauty & wellness",
+        "Cards & wrap",
+        "Clothing",
+        "Experiences",
+        "Food & drink",
+        "Garden",
+        "Hobbies & leisure",
+        "Pets",
+        "Prints & art",
+        "Stationery",
+        "Toys & games"
+      ],
+      "source": "both"
+    },
+    "industry": "Marketplace",
+    "geography": {
+      "country": "UK",
+      "primaryMarkets": [
+        "UK",
+        "United Kingdom"
+      ]
+    },
+    "targetAudience": {
+      "summary": "The brand's customers are individuals seeking unique and personalized gifts for a wide array of recipients and occasions.",
+      "demographics": {
+        "age": "25-44",
+        "gender": "All genders",
+        "incomeLevel": "Budget"
+      },
+      "psychographics": []
+    },
+    "customerPainPoints": [
+      "uk/your-data-matters/raising-concerns/",
+      "We would, however, appreciate the chance to deal with your concerns before you approach the ICO or any other supervisory authority so please do contact us in the first instance",
+      "You will be able to contact the Seller directly through our website with any questions or concerns;"
+    ],
+    "messagingPillars": [
+      "unique finds",
+      "made or sourced by the UK\u2019s best small businesses"
+    ],
+    "valueProposition": "Discover thousands of unique finds at Not on The High Street. From gifts to homeware, they\u2019re all made or sourced by the UK\u2019s best small businesses.",
+    "offerSummary": "50% off",
+    "ctaPreference": "Learn More",
+    "communicationStyle": "Luxury, Friendly, Corporate",
+    "tone": "Luxury",
+    "voice": "Seeds, bulbs & grow your own",
+    "brandColors": [
+      "#51285f",
+      "#3b3b41",
+      "#31153c",
+      "#ffffff",
+      "#fefbf7",
+      "rgba(0,0,0,0.2)",
+      "#17830f",
+      "#b01518"
+    ],
+    "fonts": [
+      "NOTHS Sans No3",
+      "Lato",
+      "NOTHS Suisse Neue"
+    ],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Marketplace / gifts",
+      "Gifts",
+      "Jewellery",
+      "Home",
+      "Homeware"
+    ],
+    "productCategories": {
+      "primary": "Gifts",
+      "secondary": [
+        "Jewellery",
+        "Home",
+        "Accessories",
+        "Baby & kids",
+        "Beauty & wellness",
+        "Cards & wrap",
+        "Clothing",
+        "Experiences",
+        "Food & drink",
+        "Garden",
+        "Hobbies & leisure",
+        "Pets",
+        "Prints & art",
+        "Stationery",
+        "Toys & games"
+      ]
+    },
+    "inferredFields": [
+      "targetAudience.summary"
+    ],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 1,
+      "overall": 1
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Folksy",
+        "website": "https://folksy.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Trouva",
+        "website": "https://www.trouva.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Thepresentfinder",
+        "website": "https://www.thepresentfinder.co.uk",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Oliverbonas",
+        "website": "https://www.oliverbonas.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Thortful",
+        "website": "https://www.thortful.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Moonpig",
+        "website": "https://www.moonpig.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Folksy",
+        "website": "https://folksy.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Trouva",
+        "website": "https://www.trouva.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Thepresentfinder",
+        "website": "https://www.thepresentfinder.co.uk",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Oliverbonas",
+        "website": "https://www.oliverbonas.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Thortful",
+        "website": "https://www.thortful.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Moonpig",
+        "website": "https://www.moonpig.com",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for Marketplace (Marketplace / gifts).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors primarily utilize Instagram for their ad campaigns. Recurring patterns include direct promotional offers, detailed descriptions of unique products, and emotionally resonant messages tied to occasions or the human element of creation. A notable theme is the emphasis on craftsmanship and the real people behind handmade items.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Create ads that highlight the unique craftsmanship and human effort behind your products, emphasizing the story of their creation.",
+        "Develop ad content that vividly describes quirky or distinctive products, focusing on their unique features and appeal.",
+        "Design occasion-based ads that connect your products to specific life events, celebrations, or moments of gratitude, fostering emotional resonance.",
+        "Implement clear, offer-led promotional ads for sales or special discounts, ensuring the value proposition is immediately apparent."
+      ],
+      "creativeIntelligenceSummary": "Competitors in the marketplace industry predominantly use Instagram for advertising. Their ad strategies encompass a range from direct promotional offers and detailed product showcases to emotionally driven content. A significant insight is the value placed on highlighting the human touch and craftsmanship, as well as leveraging specific occasions to connect with the audience.",
+      "hookStyles": [
+        "Craftsmanship/Human Touch Emphasis",
+        "Event/Cultural Reference",
+        "Quirky Product Description",
+        "Offer-led Opener",
+        "Playful Suggestion",
+        "Occasion-based/Emotional Appeal"
+      ],
+      "adFormats": [
+        "Promotional"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Folksy",
+      "adTitle": "Handmade isn\u2019t instant. It isn\u2019t automated. And it definitely isn't made with robots or AI!\u2060\n\u2060\nEvery handmade piece is designed, shaped, stitched, drawn, printed and packed by real people. Someone wit",
+      "adLink": "https://www.instagram.com/p/DWN8DTpoGHI/",
+      "views": "",
+      "duration": "",
+      "hook": "Handmade isn\u2019t instant. It isn\u2019t automated. And it definitely isn't made with robots or AI!\u2060\n\u2060\nEvery handmade piece is designed, shaped, stitched, drawn, printed and packed by real people. Someone wit",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Folksy ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-ord5-3.cdninstagram.com/v/t51.82787-15/655772027_18578681380025230_2017465205036283811_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzg1OTAwNDQ3MTM1MjI5OTUxMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=6bB3H7JmoAEQ7kNvwHDg0fU&_nc_oc=AdoVMejG0hQYHOt6V22lPXSiIku5FrlwDL7PsUMzIpP9rvLmN7wSPrRz2R5b0NaPnXw&_nc_zt=23&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_gid=yUnbKfy2o5nF_lgwIAZ7aA&_nc_ss=7c289&oh=00_AQCN7z5r5YPMZVJxEiwqsaRWfwrrWnwgsV56Yk75SO7tyw&oe=6A54BB4E",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Trouva",
+      "adTitle": "Mais uma juntos! \n.\n21:45 na @tvglobo \ud83e\udea9  #MadonnaCelebrationTour",
+      "adLink": "https://www.instagram.com/p/C6kEEYVL79J/",
+      "views": "",
+      "duration": "",
+      "hook": "Mais uma juntos! \n.\n21:45 na @tvglobo \ud83e\udea9  #MadonnaCelebrationTour",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Trouva ran an ad on",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-lga3-2.cdninstagram.com/v/t39.30808-6/439965727_18438120898015128_4745339990114998657_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MzM2MDgyOTEwMzE2MDQ5MDU3NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=s-GBeFBUcTMQ7kNvwEjVLf5&_nc_oc=Adrz9ZFKc2-KNa6Xy9chTgByqUCJfUYjcbkvLZQdemho-m4ZqTp35EK3yY6ubNeJ1Ds&_nc_zt=23&_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_gid=imqkiuVUdGGhUwqCDTTmjw&_nc_ss=7c289&oh=00_AQB1_45X2DldvQEPGTnci28yTAbBT6V4hKMtRAwqUgIesQ&oe=6A54AD6B",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Thepresentfinder",
+      "adTitle": "Chocolate coal, that's right, chocolate coal, and it is absolutely delicious!\n\nThis quirky chocolate coal is milk chocolate and cinder toffee coated in a purple sherbert dust to give it an authentic l",
+      "adLink": "https://www.instagram.com/p/CllyCzTINh4/",
+      "views": "",
+      "duration": "",
+      "hook": "Chocolate coal, that's right, chocolate coal, and it is absolutely delicious!\n\nThis quirky chocolate coal is milk chocolate and cinder toffee coated in a purple sherbert dust to give it an authentic l",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Thepresentfinder ran an Instagram ad featuring",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-lga3-3.cdninstagram.com/v/t51.82787-15/629073118_18390523114144120_8551934831237864004_n.jpg?stp=dst-jpg_e15_fr_s1080x1080_tt6&_nc_ht=scontent-lga3-3.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gEZ9LIDdJ3uUgAKLJJGFCZFNC772V8Egr5jUizKmtUVxz3TCvA2D0pOx_uwGVatKto&_nc_ohc=n4cK8yoebCwQ7kNvwGW5bee&_nc_gid=K1oHeH9j9qnfKSUnekGeSg&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQDMEBpnAG8oFVWJS7bPBQfKk_987wbYHaGD5WHmdUkdMQ&oe=6A54B296&_nc_sid=c6f216",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Oliverbonas",
+      "adTitle": "Summer sale is here, enjoy 50% off selected styles. Shop the link in bio.",
+      "adLink": "https://www.instagram.com/p/DaQZWGAmihe/",
+      "views": "",
+      "duration": "",
+      "hook": "Summer sale is here, enjoy 50% off selected styles. Shop the link in bio.",
+      "cta": "",
+      "adType": "Promotional",
+      "platform": "instagram",
+      "summary": "Oliverbonas is running a summer sale",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://instagram.ffar1-2.fna.fbcdn.net/v/t51.82787-15/729050281_18609495034058166_632255565654696161_n.jpg?stp=dst-jpg_e15_fr_p1080x1080_tt6&_nc_ht=instagram.ffar1-2.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gELLKNps13tur0tfKNn9LMIuDR4PegflsJohNoh-nJm6gNnaNzpx-1xICKsM3_xp88&_nc_ohc=I1Bi83J44B4Q7kNvwGT4pSW&_nc_gid=mKSiZYHh9kI0jqf8MRhoZg&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQBM7Zild3nURUmWygjq5gdLuL0ss3a-jid2idq3v2GKgg&oe=6A548CB0&_nc_sid=c6f216",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Thortful",
+      "adTitle": "It\u2019s your call, but all roads seem to lead to yes \ud83e\udd37\u200d\u2640\ufe0f",
+      "adLink": "https://www.instagram.com/p/DZ5OufSKdpB/",
+      "views": "",
+      "duration": "",
+      "hook": "It\u2019s your call, but all roads seem to lead to yes \ud83e\udd37\u200d\u2640\ufe0f",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Thortful has an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/726380753_18538478431078072_6558138717603192415_n.jpg?stp=dst-jpg_e35_p1080x1080_sh2.08_tt6&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2gHq0gvRAIHWX7bJQum9rkgcP1XnJi0lGmenvk2_BRqHgXzDrAootcdT3hadwiBwiKs&_nc_ohc=EjNeZcn01bEQ7kNvwGNczln&_nc_gid=6vTgv-OshI_FgZxifyiaZA&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQCZrvBVQ8JSqi_fCo42B47hmwztiwCKo8Zi_eUibllXAQ&oe=6A5492F2&_nc_sid=c6f216",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Moonpig",
+      "adTitle": "#ad As another school year comes to an end, I've been thinking about all the things we forget to thank teachers for.\n\nNot just the reading, writing and maths. But the confidence they build. The encour",
+      "adLink": "https://www.instagram.com/p/DaLXbMqs4TP/",
+      "views": "",
+      "duration": "",
+      "hook": "#ad As another school year comes to an end, I've been thinking about all the things we forget to thank teachers for.\n\nNot just the reading, writing and maths. But the confidence they build. The encour",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Moonpig ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/730226349_954707274264242_6171945731867814285_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_cat=102&_nc_oc=Q6cZ2gGWOmjZPJu5omi-7fIZmqHgT1wkOYdWAWiMr89fJrLIHrvMASVkP-OQCm3yK7f5gck&_nc_ohc=KbuR6sxCubYQ7kNvwEGo5aZ&_nc_gid=eYWaLt88XcpcC2zjFWDc1w&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQBkGgwqDiGs1d-lQ6ewbEsKSL6RZIwC--ewqfPsGXRqgQ&oe=6A5498CE&_nc_sid=c6f216",
+      "previewVideoUrl": "https://scontent-mia3-2.cdninstagram.com/o1/v/t2/f2/m86/AQMAvqA4Yb8lioTvb5KLJ4ITVBWZbtu7EfBJLsrXUyw-8lI5AW8tEY4i2AE4Vs-oqr5vHq_eFrLxJ1nc-bYqvdTBoSOTesrSQigZlpo.mp4?_nc_cat=107&_nc_sid=5e9851&_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_ohc=0iyHmwqWVd8Q7kNvwE3fiKd&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTU3NDczMjE5NzQxOTE5OSwiYXNzZXRfYWdlX2RheXMiOjksInZpX3VzZWNhc2VfaWQiOjEwMDk5LCJkdXJhdGlvbl9zIjo0MiwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=ec97c0478715419d&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC81MTQ0QTdGOUY5OTFBNzlDQzRGODc5ODU1OTUxRTJCNV92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzgzNDE4N0EwNEVCRUIwRDk3NkM3RUY3NEVCNTlCNThFX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACb-4vKTvY3MBRUCKAJDMywXQEUu2RaHKwIYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&_nc_gid=0UT8vauqjuKKMr2AKrz0rg&_nc_ss=72a8c&_nc_zt=28&oh=00_AQDZDOK7Aw6PrkHJj2RfQg4DVGD1snvQH7r2_BUgaR8teA&oe=6A50AE74",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "Unique Gift Seeker",
+      "avatarLabel": "Primary",
+      "summary": "This individual is seeking unique and personalized gifts for various recipients and occasions. They are looking to discover thousands of unique finds, knowing they are made or sourced by the UK\u2019s best small businesses.",
+      "age": "25-44",
+      "gender": "All genders",
+      "incomeLevel": "Budget",
+      "painPoints": [
+        "uk/your-data-matters/raising-concerns/",
+        "We would, however, appreciate the chance to deal with your concerns before you approach the ICO or any other supervisory authority so please do contact us in the first instance",
+        "You will be able to contact the Seller directly through our website with any questions or concerns;"
+      ],
+      "psychographics": [],
+      "buyingMotivations": [
+        "Seeking unique and personalized gifts",
+        "Desire for items made or sourced by the UK\u2019s best small businesses",
+        "Discovering thousands of unique finds"
+      ],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Marketplace / gifts, Gifts, Jewellery, Home, Homeware",
+      "recommendedAdAngles": [
+        "Highlighting unique finds for every occasion and recipient.",
+        "Emphasizing support for UK\u2019s best small businesses and the quality of their made or sourced items.",
+        "Showcasing personalized gift options to make every present special."
+      ],
+      "recommendedAvatarStyle": "Premium Presenter",
+      "recommendedVoiceStyle": "A luxurious, calm, and sophisticated tone, delivered with the specific 'Seeds, bulbs & grow your own' voice, emphasizing unique and curated finds.",
+      "recommendedMusicStyle": "Elegant, calm instrumental music that complements a luxury shopping experience.",
+      "resolvedAvatarProperties": {
+        "ethnicity": "diverse representative",
+        "skinTone": "natural warm skin tone",
+        "clothingColor": "shades of purple/violet and slate grey (matching the brand palette)",
+        "backgroundScene": "clean studio background"
+      },
+      "heygenPrompt": "Photorealistic 25-44 person, elegant premium brand spokesperson, poised and refined, representing Not on The High Street, styled for Marketplace / gifts, Gifts, Jewellery, Home, Homeware, wearing stylish clothing in shades of purple/violet and slate grey (matching the brand palette), This individual is seeking unique and personalized gifts for various recipients and occasions. They are looking to discover thousands of uni, luxury brand tone, modern ecommerce, Discover thousands of unique finds at Not on The High Street. From gifts to homeware, they\u2019re all ma, appealing to shoppers in UK, United Kingdom, clean studio background with soft natural lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "Speak to individuals seeking unique and personalized gifts for a wide array of recipients and occasions. Emphasize the discovery of thousands of unique finds, all made or sourced by the UK\u2019s best small businesses. The messaging should convey a luxury tone, reflecting the curated nature of the products, while embodying the specific 'Seeds, bulbs & grow your own' voice.",
+  "researchId": "6a4ed4a0189efd069de1a54f",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 6,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "products",
+      "blog",
+      "about",
+      "legal",
+      "privacy",
+      "contact"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 17995,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": false,
+        "errorCode": 100,
+        "errorMessage": "(#100) Param ad_reached_countries[0] must be one of {ALL, BR, IN, GB, US, CA, AR, AU, AT, BE, CL, CN, CO, HR, DK, DO, EG, FI, FR, DE, GR, HK, ID, IE, IL, IT, JP, JO, KW, LB, MY, MX, NL, NZ, NG, NO, PK, PA, PE, PH, PL, RU, SA, RS, SG, ZA, KR",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "Meta Ad Library request failed \u2014 check token permissions and Ad Library API access.",
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

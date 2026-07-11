@@ -1,0 +1,616 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Huda Beauty",
+    "brandPositioningSummary": "Huda Beauty is an official cosmetics brand offering a full collection of makeup, skincare, and fragrance must-haves. The brand provides free International shipping on all orders over $75, encouraging customers to shop its extensive beauty collection.",
+    "productInfo": {
+      "primary": "Beauty / cosmetics collection",
+      "secondary": [
+        "Skincare",
+        "Fragrance",
+        "Gifts & Sets",
+        "MINIS",
+        "Brushes & Accessories"
+      ],
+      "source": "both"
+    },
+    "industry": "cosmetics",
+    "geography": {
+      "country": "United Arab Emirates",
+      "primaryMarkets": [
+        "United Arab Emirates",
+        "Australia",
+        "Canada",
+        "France",
+        "Germany",
+        "Saudi Arabia",
+        "Singapore",
+        "United Kingdom"
+      ]
+    },
+    "targetAudience": {
+      "summary": "Description: Shop the full Huda Beauty makeup collection and get free International shipping on all orders over $75",
+      "demographics": {
+        "age": "42-11",
+        "gender": "Female",
+        "incomeLevel": "Budget"
+      },
+      "psychographics": [
+        "Eco-conscious",
+        "Travel enthusiast",
+        "Tech-savvy",
+        "Business-minded",
+        "Minimalist"
+      ]
+    },
+    "customerPainPoints": [
+      "We also may provide you with additional information when we collect personal data, where we feel it would be helpful, more relevant and timely"
+    ],
+    "messagingPillars": [
+      "SIGN UP TO SHOP LIQUID MATTE MOUSSE EARLY",
+      "FREE BLUSH WITH ORDERS $100+",
+      "FREE SHIPPING ON ORDERS $50+",
+      "free International shipping on all orders over $75",
+      "JOIN HUDA'S VIPS"
+    ],
+    "valueProposition": "Shop the full Huda Beauty makeup collection and get free International shipping on all orders over $75.",
+    "offerSummary": "free shipping",
+    "ctaPreference": "Learn More",
+    "communicationStyle": "",
+    "tone": "",
+    "voice": "Trending in Contour & Highlight",
+    "brandColors": [
+      "#ffffff",
+      "#000000",
+      "#eb3986",
+      "#666666",
+      "#dddddd",
+      "#b8b8b8",
+      "#0038ff",
+      "#f8f6f3"
+    ],
+    "fonts": [
+      "Review Condensed Web",
+      "Assistant",
+      "Review Poster Web"
+    ],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Beauty / cosmetics collection",
+      "LIQUID MATTE MOUSSE",
+      "Summer's Hottest Look Kit",
+      "Easy Blur Natural Airbrush Foundation with Niacinamide",
+      "#FauxFilter Luminous Matte Concealer",
+      "Blush Filter Blurring Blushlighters Palette",
+      "Blush Filter Liquid Blush",
+      "#FAUXFILTER Under Eye Color Corrector",
+      "The Prime, Blur & Press Kit",
+      "Easy Blur Base Brush",
+      "Mini Easy Blur Natural Airbrush Foundation with Niacinamide",
+      "#FauxFilter Luminous Matte Foundation",
+      "#FauxFilter Luminous Matte Foundation Mini",
+      "Easy Bake Pressed Powder",
+      "Easy Bake Loose Baking & Setting Powder",
+      "Easy Bake Duo Loose Powder",
+      "Prime, Blur, Bake & Set Kit",
+      "The Ultimate Under Eye Routine",
+      "Easy Blur Silicone-Free Smoothing & Pore-Minimizing Primer",
+      "Mini Easy Blur Silicone-Free Smoothing Primer Bronze Fudge",
+      "Mini Easy Blur Silicone-Free Smoothing & Pore Minimizing Primer",
+      "Mini Blur & Set Duo",
+      "Mini #FauxFilter Luminous Matte Liquid Concealer",
+      "Mini #FauxFilter Color Corrector",
+      "The Undereye Buff Brush Kit",
+      "Icy Nude PH Face Gloss",
+      "Mini Glow Obsessions Highlighter Face Palette"
+    ],
+    "productCategories": {
+      "primary": "Makeup",
+      "secondary": [
+        "Skincare",
+        "Fragrance",
+        "Gifts & Sets",
+        "MINIS",
+        "Brushes & Accessories"
+      ]
+    },
+    "inferredFields": [],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 1,
+      "overall": 1
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Fentybeauty",
+        "website": "https://fentybeauty.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Charlottetilbury",
+        "website": "https://www.charlottetilbury.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Kyliecosmetics",
+        "website": "https://kyliecosmetics.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Maccosmetics",
+        "website": "https://www.maccosmetics.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Narscosmetics",
+        "website": "https://www.narscosmetics.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Anastasiabeverlyhills",
+        "website": "https://www.anastasiabeverlyhills.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Fentybeauty",
+        "website": "https://fentybeauty.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Charlottetilbury",
+        "website": "https://www.charlottetilbury.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Kyliecosmetics",
+        "website": "https://kyliecosmetics.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Maccosmetics",
+        "website": "https://www.maccosmetics.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Narscosmetics",
+        "website": "https://www.narscosmetics.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Anastasiabeverlyhills",
+        "website": "https://www.anastasiabeverlyhills.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Rarebeauty",
+        "website": "https://www.rarebeauty.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Dior",
+        "website": "https://www.dior.com/en_us/beauty",
+        "reason": "Search query: peer_brand_fallback | Snippet: Peer brand suggested for cosmetics (Beauty / cosmetics collection).",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Coptis",
+        "website": "https://www.coptis.com/resources/influencer-beauty-brand/",
+        "reason": "Search query: Huda Beauty competitors | Snippet: These included Selena Gomez's Rare Beauty, Kylie Jenner's brand Kylie Cosmetics, Fenty Beauty from Rihanna, and Huda Beauty from Huda Kattan, ...",
+        "type": "direct",
+        "relevanceScore": 1,
+        "matchFactors": {
+          "productMatch": 1,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "web_search"
+      },
+      {
+        "name": "Cosmeticsbusiness",
+        "website": "https://cosmeticsbusiness.com/huda-beauty-crowned-most-popular-brand-for-first-quarter-of-2025",
+        "reason": "Search query: Huda Beauty cosmetics competitors | Snippet: Huda Beauty's \u00b7 NYX \u00b7 Charlotte Tilbury \u00b7 Rhode \u00b7 Drunk Elephant \u00b7 Phlur and Rhode crowned 2024's biggest brands by search growth \u00b7 Huda Beauty opens ...",
+        "type": "direct",
+        "relevanceScore": 0.675,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "web_search"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors frequently feature professional makeup artists and bridal makeovers, often including booking information. New product announcements are also a common ad theme, highlighting product benefits and availability. Additionally, some ads engage the audience with direct questions about specific looks, followed by a list of products used. All observed ads are run on Instagram.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Create ads featuring Huda Beauty products used by professional makeup artists for stunning transformations, showcasing artistry for special events or high-glamour styles.",
+        "Develop ad campaigns centered around the launch of new Huda Beauty products, emphasizing their unique benefits (e.g., 'blurring,' 'brightening') and clearly stating where they can be purchased.",
+        "Design ads that pose an engaging question about a popular makeup trend or look (e.g., 'Do you love a bold lip?') and then explicitly list the Huda Beauty products used to achieve that look."
+      ],
+      "creativeIntelligenceSummary": "Competitors in the cosmetics industry leverage Instagram to showcase professional artistry, particularly for bridal and special occasion makeup, often featuring specific MUAs. They also effectively announce new product launches by highlighting benefits and purchase points. Engaging the audience with direct questions about popular looks and then detailing the products used is another successful strategy.",
+      "hookStyles": [
+        "MUA/Bridal Makeover Showcase",
+        "New Product Announcement",
+        "Direct Engagement Question"
+      ],
+      "adFormats": [],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Fentybeauty",
+      "adTitle": "MadihakhanMua Bharat Bride \ud83d\udd25\ud83d\udd25\nMakeup/Hair @madihakhanmua \nFor booking Internationally Contact via WhatsApp 07702272011\nOr Pakistan 00923089506304\nPakistan \ud83c\uddf5\ud83c\uddf0 \n@madihakhanbridalstudioo\nMy Team in Lahor",
+      "adLink": "https://www.facebook.com/ads/library/?id=899347162572941",
+      "views": "",
+      "duration": "",
+      "hook": "MadihakhanMua Bharat Bride \ud83d\udd25\ud83d\udd25\nMakeup/Hair @madihakhanmua \nFor booking Internationally Contact via WhatsApp 07702272011\nOr Pakistan 00923089506304\nPakistan \ud83c\uddf5\ud83c\uddf0 \n@madihakhanbridalstudioo\nMy Team in Lahor",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Fentybeauty ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "899347162572941",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/405257852_883681570129488_8747726314589930511_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=1&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43NDUuQzMifQ%3D%3D&_nc_ohc=P9VyJro4n2wQ7kNvwE-u-YE&_nc_oc=Adp3B3abE8AAGRElFpce7QmlfceCgtR9V_3vL7saMK1BmcYqMidA2yTsPjmJGpUrv4E&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7e289&oh=00_AQBB-601YMc49Hp-vzOgmFOL-cqMRjotvkMS6GVws_HWWw&oe=6A543BDB",
+      "previewVideoUrl": "https://video.fpnq7-8.fna.fbcdn.net/o1/v/t2/f2/m412/AQONDKqZp5DyuVQwWtEsKl2Tid8KK3BMa27UC7_eYuRSQN837-GCm20kk241roS3bfsb9PqybPMpHUk8bMPRyBdEALZM6VoKpVYrWa-Q1Q.mp4?_nc_cat=100&_nc_oc=Adoo525iHs5mHGUKlyfSRFur-edhxHFovwm1iQxj6Qk88XHQu5yK_GcYkEYPfkNSRns&_nc_sid=ef5aa3&_nc_ht=video.fpnq7-8.fna.fbcdn.net&_nc_ohc=BeQzyPF-hRoQ7kNvwEix620&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6Mjc1NjQ4NTkzNDcwMzg3NSwiYXNzZXRfYWdlX2RheXMiOjk0LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6NiwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_gid=K5yUQ7q2xTBg79dzS_9urQ&_nc_ss=7e289&_nc_zt=28&oh=00_AQB9b1wlZ8XZN4StL5H6jHVSW6JEf6I7y2x_WH3CxsU5JQ&oe=6A5431B6",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Charlottetilbury",
+      "adTitle": "\ud83d\udd25 Signature Walima Bridal Makeover by @madihakhanmua \nLove her Outfit,Jewellery simply love the whole look .. She looks stunning on her Walima \u2764\ufe0f\u200d\ud83d\udd25\n\nFor booking In UK or Internationally Contact via Wh",
+      "adLink": "https://www.facebook.com/ads/library/?id=1386287633367458",
+      "views": "",
+      "duration": "",
+      "hook": "\ud83d\udd25 Signature Walima Bridal Makeover by @madihakhanmua \nLove her Outfit,Jewellery simply love the whole look .. She looks stunning on her Walima \u2764\ufe0f\u200d\ud83d\udd25\n\nFor booking In UK or Internationally Contact via Wh",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "This Instagram ad, discovered via the",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1386287633367458",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/405257852_883681570129488_8747726314589930511_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=1&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43NDUuQzMifQ%3D%3D&_nc_ohc=P9VyJro4n2wQ7kNvwE-u-YE&_nc_oc=Adp3B3abE8AAGRElFpce7QmlfceCgtR9V_3vL7saMK1BmcYqMidA2yTsPjmJGpUrv4E&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7e289&oh=00_AQBB-601YMc49Hp-vzOgmFOL-cqMRjotvkMS6GVws_HWWw&oe=6A543BDB",
+      "previewVideoUrl": "https://video.fpnq7-6.fna.fbcdn.net/o1/v/t2/f2/m412/AQOSTlfiBmA-AxXfDUCPnb71LaWa7gemjcZyIyeICU1bt2JAFp-Wv8ZWHVNkVrDUoEaNserlZero2YuIGqwIK1h5n114VgqEap_HImdULg.mp4?_nc_cat=111&_nc_oc=AdoIKxv57mnBMSLgMlKhE0eL-W-Vcvc0g6AqkYP_vcB7T-JzHMpIc2GWGuVON_ch2Uw&_nc_sid=ef5aa3&_nc_ht=video.fpnq7-6.fna.fbcdn.net&_nc_ohc=-PwMaI6uC_IQ7kNvwH8e19_&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyMzcxNTgwNjg3NzM0MCwiYXNzZXRfYWdlX2RheXMiOjI4LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=gNR-sUkVGI-yCZvumSUIOQ&_nc_ss=7e289&_nc_zt=28&oh=00_AQAuBJ5VNUjU5tDJAoFIkE_-7iW2FkR2qTMM-ZGRu3BLRw&oe=6A545367",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Kyliecosmetics",
+      "adTitle": "all the love for our NEW natural blur brightening powders \ud83e\udd0d\n\nnow available at kyliecosmetics.com and @ultabeauty!",
+      "adLink": "https://www.instagram.com/p/DaYYaGkCfwX/",
+      "views": "",
+      "duration": "",
+      "hook": "all the love for our NEW natural blur brightening powders \ud83e\udd0d\n\nnow available at kyliecosmetics.com and @ultabeauty!",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Kyliecosmetics ran an Instagram ad",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-phl2-1.cdninstagram.com/v/t51.82787-15/730373459_18545518129072786_6356691358477555783_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzkzMzk5OTc2NTA1NjMzMjkxNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTMyMC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Fq-EVwdwFJ0Q7kNvwHEUZb6&_nc_oc=AdosyjQbvVZaQgCNei7y6HqauIBZU6GU39atXIqXKBcfHajrjgraWv-0a6JIeBYQVis&_nc_zt=23&_nc_ht=scontent-phl2-1.cdninstagram.com&_nc_gid=r8WidxzezqZ5t6oLO2hNjA&_nc_ss=72689&oh=00_AQCpa4mQCfTvvqt9BHGKSnXcgNQYJ_jUwGDwZNnfDbQipQ&oe=6A541FAB",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Maccosmetics",
+      "adTitle": "\ud83d\udd25 Signature Walima Bridal Makeover by @madihakhanmua \nLove her Outfit,Jewellery simply love the whole look .. She looks stunning on her Walima \u2764\ufe0f\u200d\ud83d\udd25\n\nFor booking In UK or Internationally Contact via Wh",
+      "adLink": "https://www.facebook.com/ads/library/?id=1386287633367458",
+      "views": "",
+      "duration": "",
+      "hook": "\ud83d\udd25 Signature Walima Bridal Makeover by @madihakhanmua \nLove her Outfit,Jewellery simply love the whole look .. She looks stunning on her Walima \u2764\ufe0f\u200d\ud83d\udd25\n\nFor booking In UK or Internationally Contact via Wh",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Maccosmetics ran",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1386287633367458",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/405257852_883681570129488_8747726314589930511_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=1&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43NDUuQzMifQ%3D%3D&_nc_ohc=P9VyJro4n2wQ7kNvwE-u-YE&_nc_oc=Adp3B3abE8AAGRElFpce7QmlfceCgtR9V_3vL7saMK1BmcYqMidA2yTsPjmJGpUrv4E&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7e289&oh=00_AQBB-601YMc49Hp-vzOgmFOL-cqMRjotvkMS6GVws_HWWw&oe=6A543BDB",
+      "previewVideoUrl": "https://video.fpnq7-6.fna.fbcdn.net/o1/v/t2/f2/m412/AQOSTlfiBmA-AxXfDUCPnb71LaWa7gemjcZyIyeICU1bt2JAFp-Wv8ZWHVNkVrDUoEaNserlZero2YuIGqwIK1h5n114VgqEap_HImdULg.mp4?_nc_cat=111&_nc_oc=AdoIKxv57mnBMSLgMlKhE0eL-W-Vcvc0g6AqkYP_vcB7T-JzHMpIc2GWGuVON_ch2Uw&_nc_sid=ef5aa3&_nc_ht=video.fpnq7-6.fna.fbcdn.net&_nc_ohc=-PwMaI6uC_IQ7kNvwH8e19_&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyMzcxNTgwNjg3NzM0MCwiYXNzZXRfYWdlX2RheXMiOjI4LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=gNR-sUkVGI-yCZvumSUIOQ&_nc_ss=7e289&_nc_zt=28&oh=00_AQAuBJ5VNUjU5tDJAoFIkE_-7iW2FkR2qTMM-ZGRu3BLRw&oe=6A545367",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Narscosmetics",
+      "adTitle": "Who else loves a Red Lip? \ud83d\udc8b\n\nProducts used \n@nyxcosmetics Line Loud Lip Pencil in shade On A Mission \n@narsissist Air Matte Lip Color Dragon Girl \n@lacolorscosmetics Press Ons\n\n#lipcombo #redlip #nyxc",
+      "adLink": "https://www.facebook.com/ads/library/?id=1863442121004129",
+      "views": "",
+      "duration": "",
+      "hook": "Who else loves a Red Lip? \ud83d\udc8b\n\nProducts used \n@nyxcosmetics Line Loud Lip Pencil in shade On A Mission \n@narsissist Air Matte Lip Color Dragon Girl \n@lacolorscosmetics Press Ons\n\n#lipcombo #redlip #nyxc",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Narscosmetics ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1863442121004129",
+      "previewImageUrl": "https://static.xx.fbcdn.net/rsrc.php/y-/r/dbVoeRXDvTG.webp",
+      "previewVideoUrl": "https://video.fpnq7-4.fna.fbcdn.net/o1/v/t2/f2/m412/AQMPAetFOciQZKsOisPEsZiFeOvQcQEhiyFW3mF3IJzkT-_s7H9Xm36kZPLlYASZNxif3wzKFPNVjgiI19tDvYK5xpiExbHU8PT3xiZRrA.mp4?_nc_cat=110&_nc_oc=AdolHFvr0zsjAu67ZNbb7liACxgMDn5YUycsn71ePILeT5VJ-yaVWlKKkNyLrd7Gwto&_nc_sid=ef5aa3&_nc_ht=video.fpnq7-4.fna.fbcdn.net&_nc_ohc=Taq8DjfAUzwQ7kNvwE6wKoE&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTQ1NTQxNzI1Mjc4OTY5MiwiYXNzZXRfYWdlX2RheXMiOjk1LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MjEsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ\\u00253D\\u00253D&ccb=17-1&_nc_gid=MtQf7bKKY7XsWg6ozsoXtQ&_nc_ss=7e289&_nc_zt=28&oh=00_AQB6NBHfkDvPSbUnNksR0oggNMU8pC1BB612qwM9tM6NHA&oe=6A541D9C",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Anastasiabeverlyhills",
+      "adTitle": "\ud83d\udd25 Signature Walima Bridal Makeover by @madihakhanmua \nLove her Outfit,Jewellery simply love the whole look .. She looks stunning on her Walima \u2764\ufe0f\u200d\ud83d\udd25\n\nFor booking In UK or Internationally Contact via Wh",
+      "adLink": "https://www.facebook.com/ads/library/?id=1386287633367458",
+      "views": "",
+      "duration": "",
+      "hook": "\ud83d\udd25 Signature Walima Bridal Makeover by @madihakhanmua \nLove her Outfit,Jewellery simply love the whole look .. She looks stunning on her Walima \u2764\ufe0f\u200d\ud83d\udd25\n\nFor booking In UK or Internationally Contact via Wh",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "This Instagram ad from Anastasiab",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1386287633367458",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/405257852_883681570129488_8747726314589930511_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=1&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43NDUuQzMifQ%3D%3D&_nc_ohc=P9VyJro4n2wQ7kNvwE-u-YE&_nc_oc=Adp3B3abE8AAGRElFpce7QmlfceCgtR9V_3vL7saMK1BmcYqMidA2yTsPjmJGpUrv4E&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7e289&oh=00_AQBB-601YMc49Hp-vzOgmFOL-cqMRjotvkMS6GVws_HWWw&oe=6A543BDB",
+      "previewVideoUrl": "https://video.fpnq7-6.fna.fbcdn.net/o1/v/t2/f2/m412/AQOSTlfiBmA-AxXfDUCPnb71LaWa7gemjcZyIyeICU1bt2JAFp-Wv8ZWHVNkVrDUoEaNserlZero2YuIGqwIK1h5n114VgqEap_HImdULg.mp4?_nc_cat=111&_nc_oc=AdoIKxv57mnBMSLgMlKhE0eL-W-Vcvc0g6AqkYP_vcB7T-JzHMpIc2GWGuVON_ch2Uw&_nc_sid=ef5aa3&_nc_ht=video.fpnq7-6.fna.fbcdn.net&_nc_ohc=-PwMaI6uC_IQ7kNvwH8e19_&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTAyMzcxNTgwNjg3NzM0MCwiYXNzZXRfYWdlX2RheXMiOjI4LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTIsInVybGdlbl9zb3VyY2UiOiJ3d3cifQ%3D%3D&ccb=17-1&_nc_gid=gNR-sUkVGI-yCZvumSUIOQ&_nc_ss=7e289&_nc_zt=28&oh=00_AQAuBJ5VNUjU5tDJAoFIkE_-7iW2FkR2qTMM-ZGRu3BLRw&oe=6A545367",
+      "displayReady": true,
+      "relevanceScore": 1
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "Savvy Beauty Shopper",
+      "avatarLabel": "Primary",
+      "summary": "This individual shops the full Huda Beauty makeup collection, motivated by free International shipping on all orders over $75. They are interested in a wide range of beauty and cosmetics products and are responsive to special offers and early access.",
+      "age": "42-11",
+      "gender": "Female",
+      "incomeLevel": "Budget",
+      "painPoints": [
+        "We also may provide you with additional information when we collect personal data, where we feel it would be helpful, more relevant and timely"
+      ],
+      "psychographics": [
+        "Eco-conscious",
+        "Travel enthusiast",
+        "Tech-savvy",
+        "Business-minded",
+        "Minimalist"
+      ],
+      "buyingMotivations": [
+        "Free shipping",
+        "Exclusive early access to products",
+        "Bonus gifts with purchase",
+        "VIP membership benefits"
+      ],
+      "preferredChannels": [
+        "instagram",
+        "facebook",
+        "tiktok",
+        "youtube_shorts"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook",
+        "tiktok",
+        "youtube_shorts"
+      ],
+      "productFit": "The full Huda Beauty makeup collection, including foundations, concealers, blushes, and setting powders, with a focus on new releases like LIQUID MATTE MOUSSE and kits such as 'Summer's Hottest Look Kit'.",
+      "recommendedAdAngles": [
+        "Highlight the value of 'free International shipping on all orders over $75' to appeal to budget-conscious shoppers.",
+        "Promote 'SIGN UP TO SHOP LIQUID MATTE MOUSSE EARLY' to attract tech-savvy individuals seeking exclusive access to trending products.",
+        "Showcase 'FREE BLUSH WITH ORDERS $100+' and 'FREE SHIPPING ON ORDERS $50+' to incentivize purchases and offer immediate value."
+      ],
+      "recommendedAvatarStyle": "Product Demonstrator",
+      "recommendedVoiceStyle": "Energetic, informative, and aligned with current beauty trends, reflecting the 'Trending in Contour & Highlight' voice.",
+      "recommendedMusicStyle": "Upbeat, modern pop or electronic music, commonly found in beauty tutorials and product showcases.",
+      "resolvedAvatarProperties": {
+        "ethnicity": "Middle Eastern",
+        "skinTone": "warm tan skin tone",
+        "clothingColor": "shades of off-white and charcoal/black (matching the brand palette)",
+        "backgroundScene": "set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting"
+      },
+      "heygenPrompt": "Photorealistic eco-conscious travel enthusiast 42-11 Middle Eastern woman with warm tan skin tone, friendly presenter demonstrating a product, hands-on, representing Huda Beauty, styled for The full Huda Beauty makeup collection, including foundations, concealers, blushes, and setting powders, with a focus on new releases like LIQUID MATTE MOUSSE and kits such as 'Summer's Hottest Look Kit'., wearing stylish clothing in shades of off-white and charcoal/black (matching the brand palette), This individual shops the full Huda Beauty makeup collection, motivated by free International shipping on all orders over $75. They are inte, modern ecommerce, Shop the full Huda Beauty makeup collection and get free International shipping on all orders over $, appealing to shoppers in United Arab Emirates, Australia, Canada, set against a luxury Dubai high-rise office or penthouse with floor-to-ceiling windows overlooking a sun-drenched skyline, with soft professional lighting, natural lighting, looki"
+    }
+  ],
+  "audienceMessagingGuide": "To engage this audience, emphasize exclusive early access to new products like LIQUID MATTE MOUSSE and attractive offers such as free blush with orders over $100 or free shipping on orders over $50. Highlight the convenience of free International shipping for orders over $75. Encourage joining Huda's VIPs for special benefits and a connection to trending beauty topics.",
+  "researchId": "6a4e649aa035ae33b2e07e59",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 10,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "products",
+      "about",
+      "legal",
+      "privacy",
+      "blog",
+      "contact"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 17839,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}

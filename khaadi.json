@@ -1,0 +1,599 @@
+{
+  "brandIdentity": {
+    "dataMode": "extract_with_grounded_summaries",
+    "summaryMode": "grounded_llm",
+    "brandName": "Khaadi",
+    "brandPositioningSummary": "Khaadi, a fashion and lifestyle brand, believes that the clothes you choose should let you wear your individuality. They offer an unparalleled selection of ever-changing patterns and colours, continually pushing the boundaries of Pakistan's",
+    "productInfo": {
+      "primary": "Fashion / lifestyle collection",
+      "secondary": [
+        "Ready To Wear",
+        "Unstitched Fabrics",
+        "Fabrics",
+        "Tailored",
+        "Essentials",
+        "Fragrances"
+      ],
+      "source": "both"
+    },
+    "industry": "fashion",
+    "geography": {
+      "country": "Pakistan",
+      "primaryMarkets": [
+        "Pakistan",
+        "United States",
+        "United Kingdom",
+        "United Arab Emirates",
+        "India",
+        "Australia",
+        "Canada"
+      ]
+    },
+    "targetAudience": {
+      "summary": "women",
+      "demographics": {
+        "age": "",
+        "gender": "All genders",
+        "incomeLevel": "Budget"
+      },
+      "psychographics": [
+        "wear your individuality",
+        "dress in an inspiring and vibrant way",
+        "celebrating their uniqueness",
+        "greater freedom of choice in their everyday wardrobe",
+        "effortlessly reveal the layers of their kaleidoscopic personality"
+      ]
+    },
+    "customerPainPoints": [
+      "For the purpose of this Agreement, the term \"Substantial Change\" means a change to the terms of this Agreement that materially reduces your rights or increases your responsibilities",
+      "If you have any questions or concerns about this Privacy Policy or our privacy practices, feel free to email us at"
+    ],
+    "messagingPillars": [
+      "wear your individuality",
+      "inspiring and vibrant way",
+      "value for money",
+      "celebrating their uniqueness",
+      "unparalleled selection of ever-changing patterns and colours",
+      "pushes the boundaries of Pakistan's fashion culture",
+      "greater freedom of choice",
+      "effortlessly reveal the layers of their kaleidoscopic personality"
+    ],
+    "valueProposition": "providing value for money while celebrating their uniqueness with every style, stitch and weave.",
+    "offerSummary": "",
+    "ctaPreference": "Sign Up",
+    "communicationStyle": "",
+    "tone": "",
+    "voice": "Description: Shop at Khaadi Pakistan and buy Ready to Wear, Unstitched Fabrics, and explore our new collections on our online store",
+    "brandColors": [
+      "#ffffff",
+      "#000000",
+      "#ff5c35",
+      "#dcdbdb",
+      "#2d2b2a",
+      "#404040",
+      "#fd6500",
+      "#8f8f8f"
+    ],
+    "fonts": [
+      "Khaadi"
+    ],
+    "visualStyle": "modern ecommerce",
+    "keyProducts": [
+      "Fashion / lifestyle collection",
+      "1 Piece",
+      "2 Piece",
+      "3 Piece",
+      "Kurta",
+      "Pants",
+      "Shalwar",
+      "Dupatta",
+      "Shawl",
+      "Shirt",
+      "T-Shirt",
+      "Blouse",
+      "Tunic",
+      "Sweater",
+      "Sweatshirt",
+      "Trousers",
+      "Stole",
+      "Cape",
+      "Body Mist",
+      "Eau De Parfum",
+      "Gift Set"
+    ],
+    "productCategories": {
+      "primary": "Clothing and Accessories",
+      "secondary": [
+        "Ready To Wear",
+        "Unstitched Fabrics",
+        "Fabrics",
+        "Tailored",
+        "Essentials",
+        "Fragrances"
+      ]
+    },
+    "inferredFields": [],
+    "confidence": {
+      "industry": 1,
+      "audience": 1,
+      "products": 1,
+      "geography": 1,
+      "overall": 1
+    }
+  },
+  "competitorResearch": {
+    "topCompetitors": [
+      {
+        "name": "Pk",
+        "website": "https://pk.sapphireonline.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Limelight",
+        "website": "https://www.limelight.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Junaidjamshed",
+        "website": "https://www.junaidjamshed.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Nishatlinen",
+        "website": "https://nishatlinen.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Alkaramstudio",
+        "website": "https://www.alkaramstudio.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Mariab",
+        "website": "https://www.mariab.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      }
+    ],
+    "allCompetitors": [
+      {
+        "name": "Pk",
+        "website": "https://pk.sapphireonline.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Limelight",
+        "website": "https://www.limelight.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Junaidjamshed",
+        "website": "https://www.junaidjamshed.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Nishatlinen",
+        "website": "https://nishatlinen.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Alkaramstudio",
+        "website": "https://www.alkaramstudio.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Mariab",
+        "website": "https://www.mariab.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Gulahmed",
+        "website": "https://www.gulahmed.com/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Outfitters",
+        "website": "https://www.outfitters.com.pk/",
+        "reason": "Search query: peer_brand_fallback | Snippet: Industry seed peer for fashion.",
+        "type": "direct",
+        "relevanceScore": 0.85,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "peer_brand_fallback"
+      },
+      {
+        "name": "Lifestyle Collection",
+        "website": "https://www.lifestyle-collection.com.pk/about-us/?srsltid=AfmBOooNMH9Twx-6-x-G2uDn5K9dd_GvON6DdACGmR4Q_5pOyNCTw8tl",
+        "reason": "Search query: Fashion / lifestyle collection fashion Pakistan | Snippet: LifeStyle Collection offers and extensive selection of branded watches, eyewear, writing instruments as well as accessories such as belts, cufflinks and ...",
+        "type": "direct",
+        "relevanceScore": 0.675,
+        "matchFactors": {
+          "productMatch": 0.5,
+          "audienceMatch": 0,
+          "geographyMatch": 0,
+          "positioningMatch": 0
+        },
+        "dataSource": "web_search"
+      }
+    ],
+    "creativeIntelligence": {
+      "patternSummary": "Competitors in the fashion industry primarily utilize Instagram and Facebook for their advertising efforts. A common pattern involves promotional ad formats, often featuring offer-led openers and detailed product descriptions. Many ads also incorporate elements of urgency or highlight specific product features like fabric and embroidery details, sometimes alongside aspirational lifestyle messaging or additional services like stitching.",
+      "copyProtectionNote": "Competitor ads are used for pattern inspiration only. Do not copy hooks, scripts, or visuals verbatim.",
+      "recommendedAdDirections": [
+        "Develop ad campaigns that showcase Khaadi's unique fabric textures and intricate embroidery details, emphasizing the craftsmanship and quality of each piece.",
+        "Create engaging content around seasonal collections, using offer-led hooks to drive immediate interest and highlight limited-time availability.",
+        "Design ads that connect Khaadi's fashion with aspirational lifestyle moments, illustrating how the clothing enhances personal style and confidence for various occasions.",
+        "Implement ads that clearly outline product packages and available services, such as stitching, to provide comprehensive information and encourage direct inquiries or purchases."
+      ],
+      "creativeIntelligenceSummary": "Competitors in the fashion sector predominantly use Instagram and Facebook for promotional advertising. Their ad content frequently combines direct sales offers with comprehensive product specifications, including fabric types and embroidery details. Recurring strategies involve creating a sense of urgency, showcasing aspirational lifestyle elements, and highlighting value-added services like stitching. This approach aims to inform potential customers about product specifics while simultaneously enticing them with offers and aspirational messaging.",
+      "hookStyles": [
+        "Before/after transformation",
+        "Offer-led opener",
+        "Product detail/feature listing",
+        "Urgency/Scarcity",
+        "Lifestyle/Aspirational",
+        "Service offering"
+      ],
+      "adFormats": [
+        "Promotional"
+      ],
+      "visualStylePatterns": []
+    }
+  },
+  "topPerformingAds": [
+    {
+      "competitorName": "Pk",
+      "adTitle": "A green state of mind, featuring @glambyayra \n\nAvailable Online & In-stores\n\n(Sapphire Pakistan, Unstitched, Lawn\u201926, Summer , Fashion)",
+      "adLink": "https://www.instagram.com/p/Daa3krECnhM/",
+      "views": "",
+      "duration": "",
+      "hook": "A green state of mind, featuring @glambyayra \n\nAvailable Online & In-stores\n\n(Sapphire Pakistan, Unstitched, Lawn\u201926, Summer , Fashion)",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Pk ran an Instagram ad",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-lga3-3.cdninstagram.com/v/t51.82787-15/735128796_18597154288060412_4471151386791677500_n.jpg?stp=dst-jpg_e15_tt6&_nc_ht=scontent-lga3-3.cdninstagram.com&_nc_cat=108&_nc_oc=Q6cZ2gFp1kmzObSYdkSKqEbY0CpuAD4Qa7zayZtmHcf8xJIriC0Np9--ffo9HuLSajx0xbc&_nc_ohc=WfT_lwYl660Q7kNvwGpGvWf&_nc_gid=u1DiAbCgRnIyAGK0dd6aOQ&edm=ADp7STQBAAAA&ccb=7-5&oh=00_AQCDn0wqq19N6vh8ImB6olGh78o8F9iKDjHREUHUpDWzmQ&oe=6A54842A&_nc_sid=c6f216",
+      "previewVideoUrl": "https://scontent-ord5-3.cdninstagram.com/o1/v/t2/f2/m86/AQOTsGMQlgaIFzVyJJWoBqrca_e9KcfBy7Ap-thqI88YMUQvdCB45KZITtMEPGqNCG0FwcVxlWGq4pxfeKM1M_5AQB35TundwyO_JFQ.mp4?_nc_cat=110&_nc_sid=5e9851&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_ohc=tY-78OJwVJEQ7kNvwH1THiF&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5JTlNUQUdSQU0uQ0xJUFMuQzMuNzIwLmRhc2hfYmFzZWxpbmVfMV92MSIsInhwdl9hc3NldF9pZCI6MTMyMzIwNDczNjY1NTQxOCwiYXNzZXRfYWdlX2RheXMiOjMsInZpX3VzZWNhc2VfaWQiOjEwMDk5LCJkdXJhdGlvbl9zIjoyMiwidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&vs=f87f3a111be781b4&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8xODQ2RUEyMEYzNTg4MkQ5MzQ1MkY0NzlCQTYyOThBMl92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYUWlnX3hwdl9wbGFjZW1lbnRfcGVybWFuZW50X3YyLzg2NDgxRTI5NkE3MDg4N0UxRDAxRTI4NDc4NEYwNEIzX2F1ZGlvX2Rhc2hpbml0Lm1wNBUCAsgBEgAoABgAGwKIB3VzZV9vaWwBMRJwcm9ncmVzc2l2ZV9yZWNpcGUBMRUAACb0gNnE09zZBBUCKAJDMywXQDbu2RaHKwIYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HZeadAQA&_nc_gid=Cbn0iEA7HWSMmQIpesefzA&_nc_ss=72689&_nc_zt=28&oh=00_AQB7dr_1leNajGncXDtSqI6gfg76admuEYjuPo6mjIXEUQ&oe=6A50A0C3",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    },
+    {
+      "competitorName": "Limelight",
+      "adTitle": "The summer sale is ON. \n\nReady to wear favorites, up to 30% OFF.\n\nShop now before it's gone. \ud83d\udecd\ufe0f\n\n#limelightedit #limelightpret #limelightsummer #limelightofficial",
+      "adLink": "https://www.instagram.com/p/DZflQDMj7kA/",
+      "views": "",
+      "duration": "",
+      "hook": "The summer sale is ON. \n\nReady to wear favorites, up to 30% OFF.\n\nShop now before it's gone. \ud83d\udecd\ufe0f\n\n#limelightedit #limelightpret #limelightsummer #limelightofficial",
+      "cta": "",
+      "adType": "Promotional",
+      "platform": "instagram",
+      "summary": "Limelight ran an ad on Instagram",
+      "adLinkVerified": true,
+      "adLinkSource": "apify",
+      "dataSource": "apify",
+      "metaAdArchiveId": "",
+      "previewImageUrl": "https://scontent-sea5-1.cdninstagram.com/v/t39.30808-6/721575128_1447810027379010_4808492122573458123_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzkxODAxNDAxMjc2ODM2MzkxNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=moX1dXyS__EQ7kNvwGSbiyJ&_nc_oc=AdoKLbKB6ZUajEvAr27jljg8mvIe3v5NVhFQeSnTkaNfvYEWMd8e4toW4py0odeVtAc&_nc_zt=23&_nc_ht=scontent-sea5-1.cdninstagram.com&_nc_gid=nCs7CdAxLZ9vVyGer15lNQ&_nc_ss=7c689&oh=00_AQAZsfHL3G4-VGkUJUYQYHE7hTRX590hgLlWDG71wDXYpA&oe=6A54A22E",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 0.5
+    },
+    {
+      "competitorName": "Junaidjamshed",
+      "adTitle": "786 \n#eidcollection mix brand #salesalesale.. \n\ud83d\udcaf #original #sanasafinaz,, #sapphire,, #sobianazir,, #JunaidJamshed J. #gulahmed \n #unstitchedcollection #LawnEmbroidered #printed #chiffonembroidery #3p",
+      "adLink": "https://www.facebook.com/ads/library/?id=1541509197124249",
+      "views": "",
+      "duration": "",
+      "hook": "786 \n#eidcollection mix brand #salesalesale.. \n\ud83d\udcaf #original #sanasafinaz,, #sapphire,, #sobianazir,, #JunaidJamshed J. #gulahmed \n #unstitchedcollection #LawnEmbroidered #printed #chiffonembroidery #3p",
+      "cta": "",
+      "adType": "",
+      "platform": "facebook",
+      "summary": "Junaidjamshed",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1541509197124249",
+      "previewImageUrl": "https://scontent.fnag4-4.fna.fbcdn.net/v/t39.30808-1/376481212_691125536386485_2622901410525693371_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=oi4z6YDbr3sQ7kNvwE4dMyX&_nc_oc=Adoo-g_2uZ-RWJoDuzq5kFFDQ5asRXvRnakPZGc0zfkYTrkYzNxUSkPrXLBJiC0YKrc&_nc_zt=24&_nc_ht=scontent.fnag4-4.fna&_nc_gid=C1JjYOI-QTcaIj5JU2Jaiw&_nc_ss=7e289&oh=00_AQBTDZ2J89sSnlY5XW8JrSutNxLH5Uh7s2Oy5npSCDqEHw&oe=6A54A383",
+      "previewVideoUrl": "",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Nishatlinen",
+      "adTitle": "Sunflower\n\nGL-203 \n\nPackage include : \n* Shirt \n* Trouser\n* Duppta\nFabric : Lawn\nPackage details : \n3 Pc lawn Tilla Seq  Emb Dress Front Fully Emb Trouser emb Duppta Emb\n\nDm us for inquiries & orderin",
+      "adLink": "https://www.facebook.com/ads/library/?id=4135513793404426",
+      "views": "",
+      "duration": "",
+      "hook": "Sunflower\n\nGL-203 \n\nPackage include : \n* Shirt \n* Trouser\n* Duppta\nFabric : Lawn\nPackage details : \n3 Pc lawn Tilla Seq  Emb Dress Front Fully Emb Trouser emb Duppta Emb\n\nDm us for inquiries & orderin",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Nishatlinen ran an Instagram ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "4135513793404426",
+      "previewImageUrl": "https://scontent.fnag4-5.fna.fbcdn.net/v/t39.30808-1/281411550_421998089756147_571867217925178560_n.jpg?stp=dst-jpg_s148x148_tt6&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=418b77&_nc_ohc=2D9zAxS_Wc4Q7kNvwFDObZG&_nc_oc=AdoSgp2Ud5PXhwHAKJ39xxh7UT7Im5-zon0fEZfvNNNthoygzhw_O63f0SOagcNkPr8&_nc_zt=24&_nc_ht=scontent.fnag4-5.fna&_nc_gid=NqQyBHmmRYodHeYCbHn8Rw&_nc_ss=7f289&oh=00_AQAkKPoVW0pgz2Yb2Oinmx_RmrKGCXyQfLC0MpepWM8izQ&oe=6A5489BD",
+      "previewVideoUrl": "https://video.fnag4-3.fna.fbcdn.net/o1/v/t2/f2/m86/AQOGQa-lyum5XLsKdKlN-8d5juZ9mxRsvHQcYY0sdEKEQBUGp3wTBerVVc-QmqBHgBCuZZNtTwsW4tLDd1NP9oZciuecfLh84jqibqk.mp4?_nc_cat=111&_nc_oc=AdpN8QJ_i4oGslrb17f0OoeVM3XmkX9TqRd_gppUUek_9a6e3XgrJKJj4If_yvIiRMo&_nc_sid=b66105&_nc_ht=video.fnag4-3.fna.fbcdn.net&_nc_ohc=St8zIIcT_hUQ7kNvwGVpbim&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLmRhc2hfYmFzZWxpbmVfM192MSIsInhwdl9hc3NldF9pZCI6OTM2NzcxODYxNjY2NTEwNCwiYXNzZXRfYWdlX2RheXMiOjM2MiwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjEwLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=2da24ecbc350f4ad&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8wMTQ4QzA5NDczNEY5MDA4RDFGODRDNzZENUQ1NkRBMl92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYR2lnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8xMjYzMDE2ODk1MTc5NjA1XzMzODU4NjA1ODE4NjQzNjAyNzkubXA0FQICyAESACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJqCwhMj--KMhFQIoAkMzLBdAJFT987ZFohgSZGFzaF9iYXNlbGluZV8zX3YxEQB1AGXmnQEA&_nc_gid=NqQyBHmmRYodHeYCbHn8Rw&_nc_ss=7f289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQAPTBaGVDd7AWw8ffyfcvmt1Z2CruVuimEeur5tGNY6eA&oe=6A50B840",
+      "displayReady": true,
+      "relevanceScore": 0.7
+    },
+    {
+      "competitorName": "Alkaramstudio",
+      "adTitle": "*Chickenkari Cutwork Dresses With Medium chiffon embroidered Duppata and plain pure cotton bottom\n\n Limited Stock*\n\nStitching Facility Also Available\ud83d\ude0d\ud83d\ude0d\n\nFor Order and Details Please Inbox, Whatsapp or",
+      "adLink": "https://www.facebook.com/ads/library/?id=1135455911746888",
+      "views": "",
+      "duration": "",
+      "hook": "*Chickenkari Cutwork Dresses With Medium chiffon embroidered Duppata and plain pure cotton bottom\n\n Limited Stock*\n\nStitching Facility Also Available\ud83d\ude0d\ud83d\ude0d\n\nFor Order and Details Please Inbox, Whatsapp or",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Alkaramstudio ran an ad",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "1135455911746888",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.82787-19/670308650_18112374403697135_4206215585845638763_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=111&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=WSAspQoFeHMQ7kNvwG5gbTT&_nc_oc=AdrqFECLQrq4nIuMtaxPWivRDejKf74pBVLPH_ZwOEj4CLjgrnF2GTbLnfIctzX4Vt4&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=rOZUM3xussbP5vTT9gXHlA&_nc_ss=7f289&oh=00_AQDET2NX9ZEZ2UCvGyHdsKoC9B6sefy0K0fxUHfEc1KxXA&oe=6A549840",
+      "previewVideoUrl": "https://video.fnag4-3.fna.fbcdn.net/o1/v/t2/f2/m86/AQMSCVpIOgwBWMMkQOjiKVSEkHpryWY3u7ISmLrhLqhFJQTeB2IKCETmMTskBGKcY6BG4zUsTUWX-6SfiK1hSXmPx-eLcmU3LoLhIKU.mp4?_nc_cat=103&_nc_oc=AdpjOy94gb29yam4UnK24pmAwcuToPNks7Jd6qj-g7ZdCQ6FWXTAYNK9uCU2Q1fxTzo&_nc_sid=b66105&_nc_ht=video.fnag4-3.fna.fbcdn.net&_nc_ohc=PMxX-Ef5HOEQ7kNvwExXm0i&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLmRhc2hfYmFzZWxpbmVfM192MSIsInhwdl9hc3NldF9pZCI6MTQ5NTc1MzA5ODUzNTIxNSwiYXNzZXRfYWdlX2RheXMiOjMzNiwidmlfdXNlY2FzZV9pZCI6MTAwOTksImR1cmF0aW9uX3MiOjI1LCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=6fedab62cfde6968&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9FQjQ5MEEzQzI2NjgyQ0YzQTBENkQ0NUNBQTNDNkM4Ql92aWRlb19kYXNoaW5pdC5tcDQVAALIARIAFQIYRmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC83ODI2MjE0MzEwMDM5ODBfMjcxNjI3MDgxNzk0NTgwOTc4Ny5tcDQVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAm3oThgaWYqAUVAigCQzMsF0A5szMzMzMzGBJkYXNoX2Jhc2VsaW5lXzNfdjERAHUAZeadAQA&_nc_gid=rOZUM3xussbP5vTT9gXHlA&_nc_ss=7f289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQBURaTmgKxUe2-gJJlyfPTLfglnkq8nWrsevij7EKJY8w&oe=6A50B374",
+      "displayReady": true,
+      "relevanceScore": 1
+    },
+    {
+      "competitorName": "Mariab",
+      "adTitle": "Maria.B Couture Ice Blue MC-041 3 Pieces Unstitched",
+      "adLink": "https://www.facebook.com/ads/library/?id=2225121284970284",
+      "views": "",
+      "duration": "",
+      "hook": "Maria.B Couture Ice Blue MC-041 3 Pieces Unstitched",
+      "cta": "",
+      "adType": "",
+      "platform": "instagram",
+      "summary": "Mariab is running an",
+      "adLinkVerified": true,
+      "adLinkSource": "meta_ad_library",
+      "dataSource": "meta_ad_library",
+      "metaAdArchiveId": "2225121284970284",
+      "previewImageUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/464473012_1294077198425449_118921479080838710_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=1&ccb=7-5&_nc_sid=525117&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=EcuJY_PGjCwQ7kNvwHwBuKG&_nc_oc=AdrlY42V_pZ3HYMagZjeHooEAuIhTeY0WIIEPtnOY2FiaDYFajLUMoAWxayQjhV7AOQ&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7f289&oh=00_AQBtkdHeFAt_wmDFEAdIZKbAcIjgDhM3GMfEM4czmfeZEA&oe=6A5495CB",
+      "previewVideoUrl": "https://video.fnag4-2.fna.fbcdn.net/o1/v/t2/f2/m69/AQMuxfHYcjmR2T4BRmlfNEpmLYnabPG1o0NWvDWWfPn_BHwPoSuyLQStaAXUtkHo4k0foMx36KLcyOyUg7F4QtMC.mp4?strext=1&_nc_cat=101&_nc_oc=AdoF-qGSk10lGlF0-Hd72gisABWDv-4wLRcpFpzTdQ0LcXjJKDD2JlMbRU-yLECI0WM&_nc_sid=ef5aa3&_nc_ht=video.fnag4-2.fna.fbcdn.net&_nc_ohc=5C9fIHlhdSEQ7kNvwEV1slw&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5WSV9VU0VDQVNFX1BST0RVQ1RfVFlQRS4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTU5MzY5NzQ3MTMxMzQ5MywiYXNzZXRfYWdlX2RheXMiOjUwOSwidmlfdXNlY2FzZV9pZCI6MTA3OTksImR1cmF0aW9uX3MiOjEwLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&_nc_gid=NCf49ccxoAn1s3v4sUmuBw&_nc_ss=7f289&_nc_map=urlgen_bucketless&_nc_zt=28&oh=00_AQCgHrRjh67iGOGlrEK79cuZsSZCUPpw2H2DK_TZ-eMC_A&oe=6A549765",
+      "displayReady": true,
+      "relevanceScore": 0.55
+    }
+  ],
+  "idealClientProfiles": [
+    {
+      "name": "Primary ideal client",
+      "avatarLabel": "Primary",
+      "summary": "women Interested in Fashion / lifestyle collection",
+      "age": "",
+      "gender": "All genders",
+      "incomeLevel": "Budget",
+      "painPoints": [
+        "For the purpose of this Agreement, the term \"Substantial Change\" means a change to the terms of this Agreement that materially reduces your rights or increases your responsibilities",
+        "If you have any questions or concerns about this Privacy Policy or our privacy practices, feel free to email us at"
+      ],
+      "psychographics": [
+        "wear your individuality",
+        "dress in an inspiring and vibrant way",
+        "celebrating their uniqueness",
+        "greater freedom of choice in their everyday wardrobe"
+      ],
+      "buyingMotivations": [
+        "wear your individuality",
+        "inspiring and vibrant way",
+        "value for money"
+      ],
+      "preferredChannels": [
+        "instagram",
+        "facebook"
+      ],
+      "platformPreference": [
+        "instagram",
+        "facebook"
+      ],
+      "productFit": "Fashion / lifestyle collection",
+      "recommendedAdAngles": [
+        "Solve For the purpose of this Agreement, the term \"Substantial Cha",
+        "Lead with: wear your individuality",
+        "Show Fashion / lifestyle collection results in a short routine"
+      ],
+      "recommendedAvatarStyle": "UGC Creator",
+      "recommendedVoiceStyle": "Description: Shop at Khaadi Pakistan and buy Ready to Wear, Unstitched Fabrics, and explore our new collections on our online store, medium pace",
+      "recommendedMusicStyle": "Neutral background, low-key",
+      "resolvedAvatarProperties": {
+        "ethnicity": "South Asian",
+        "skinTone": "warm olive skin tone",
+        "clothingColor": "shades of off-white and charcoal/black (matching the brand palette)",
+        "backgroundScene": "set against a contemporary Pakistani home living room with elegant cultural details and soft lighting, with soft professional lighting"
+      },
+      "heygenPrompt": "Photorealistic wear your individuality dress in an inspiring and vibrant way South Asian person with warm olive skin tone, authentic UGC-style content creator, casual and relatable, representing Khaadi, styled for Fashion / lifestyle collection, wearing stylish clothing in shades of off-white and charcoal/black (matching the brand palette), women Interested in Fashion / lifestyle collection, modern ecommerce, providing value for money while celebrating their uniqueness with every style, stitch and weave., appealing to shoppers in Pakistan, United States, United Kingdom, set against an elegant modern Indian apartment interior with warm lighting and subtle traditional chic decor, with soft professional lighting, natural lighting, looking directly at camera, vertical video framing"
+    }
+  ],
+  "audienceMessagingGuide": "Speak to women Interested in Fashion / lifestyle collection. Emphasize wear your individuality. Address pain: For the purpose of this Agreement, the term \"Substantial Change\" means a change to the terms of this Agreement that materially reduces your rights or increases your responsibilities.",
+  "researchId": "6a4ec6ac189efd069de1a548",
+  "status": "completed",
+  "researchPhaseStatus": {
+    "brand": "completed",
+    "competitors": "completed",
+    "personas": "completed",
+    "ads": "completed"
+  },
+  "adDiscoveryStatus": {
+    "status": "completed",
+    "validatedCount": 6,
+    "competitorCount": 9,
+    "message": null
+  },
+  "dataMode": "extract_with_grounded_summaries",
+  "scrapeStatus": {
+    "website": "success",
+    "scraperMode": "basic",
+    "pagesScraped": [
+      "homepage",
+      "legal",
+      "about",
+      "privacy",
+      "contact",
+      "products"
+    ],
+    "structuredProductCount": 0,
+    "social": {
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "note": "Instagram/Facebook use httpx only; Firecrawl does not support social sites. Full social data requires Phyllo/Apify APIs."
+    },
+    "competitorSearch": "success",
+    "competitorSearchNote": null,
+    "websiteContentLength": 17564,
+    "websiteContentNote": null,
+    "adDiscovery": {
+      "priority": [
+        "facebook",
+        "instagram",
+        "youtube"
+      ],
+      "sources": [
+        "meta_page_id",
+        "meta_ad_library",
+        "instaloader",
+        "competitor_website_links"
+      ],
+      "metaAdLibraryConfigured": true,
+      "metaAdLibraryStatus": {
+        "ok": true,
+        "errorCode": null,
+        "errorMessage": "",
+        "tokenExpired": false
+      },
+      "instagramSessionConfigured": true,
+      "youtubeFallbackEnabled": false,
+      "notes": [
+        "YouTube ad fallback is disabled (set ENABLE_YOUTUBE_AD_FALLBACK=true to enable)."
+      ]
+    }
+  }
+}
