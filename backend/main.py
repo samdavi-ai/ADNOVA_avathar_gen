@@ -190,29 +190,45 @@ class MasterValidationReport(BaseModel):
 # PROMPT COMPOSITION HELPERS
 # ──────────────────────────────────────────────────────────────
 
-def select_best_scene(industry: str, visual_style: str) -> str:
-    """Score and randomly match the best background template from scene library."""
-    scored_templates = []
-    ind_lower = industry.lower()
-    style_lower = visual_style.lower()
+def build_market_background_scene(country: str, markets: list, industry: str, rep_background: str) -> str:
+    """Build an accurate background scene based on market, country, industry, and the inferred representative's background."""
+    country_lower = (country or "").lower()
+    markets_lower = [m.lower() for m in (markets or [])]
+    industry_lower = (industry or "").lower()
     
-    import random
+    # UAE / Gulf market — luxury modern cosmopolitan
+    is_uae = "uae" in country_lower or "arab" in country_lower or "emirates" in country_lower or any("uae" in m or "arab" in m or "emirates" in m for m in markets_lower)
+    is_uk = "uk" in country_lower or "united kingdom" in country_lower or any("uk" in m or "united kingdom" in m for m in markets_lower)
+    is_us = "us" in country_lower or "united states" in country_lower or any("us" == m or "united states" in m for m in markets_lower)
     
-    for item in SCENE_LIBRARY:
-        score = 0
-        # Match industry
-        if any(ind in ind_lower for ind in item["industries"]):
-            score += 10
-        # Match visual style
-        if any(sty in style_lower for sty in item["styles"]):
-            score += 5
-            
-        # Add random score noise to prevent background repetition (Quality requirement)
-        random_factor = random.uniform(0.0, 4.0)
-        scored_templates.append((score + random_factor, item["description"]))
-        
-    scored_templates.sort(key=lambda x: x[0], reverse=True)
-    return scored_templates[0][1]
+    if is_uae:
+        environment_context = (
+            "Modern Dubai luxury apartment interior, high-rise penthouse with floor-to-ceiling windows overlooking the Dubai skyline. "
+            "Contemporary minimal furniture, warm ambient lighting, neutral tones with gold accents. "
+            "Clean, aspirational, cosmopolitan urban luxury atmosphere."
+        )
+    elif is_uk:
+        environment_context = (
+            "Stylish London townhouse interior, modern living room with large sash windows, "
+            "mix of contemporary and classic British design, warm daylight, botanical green accents."
+        )
+    elif is_us:
+        environment_context = (
+            "Modern New York loft apartment, open-plan living space with large industrial windows, "
+            "contemporary minimal furniture, urban city backdrop, warm morning light."
+        )
+    else:
+        # Generic modern cosmopolitan
+        environment_context = (
+            "Contemporary urban apartment interior, minimalist modern design, "
+            "large windows with city views, warm neutral tones, professional commercial photography."
+        )
+    
+    # Blend the representative's own background into the scene
+    if rep_background and len(rep_background) > 10:
+        environment_context = f"{rep_background}. {environment_context}"
+    
+    return environment_context
 
 
 def build_avatar_prompt_spec(rep: InferredRepresentative, brand_colors: list[str]) -> str:
@@ -235,16 +251,15 @@ def build_avatar_prompt_spec(rep: InferredRepresentative, brand_colors: list[str
 
 
 def build_background_prompt_spec(rep: InferredRepresentative, scene_desc: str, brand_colors: list[str]) -> str:
-    """Build the background scene prompt based on the resolved scene and representative background attributes."""
+    """Build the background scene prompt driven entirely by the market-aware scene description."""
     dossier = (
-        f"A photorealistic commercial product advertising background environment.\n"
-        f"Scene settings: {scene_desc}.\n"
-        f"Background elements: {rep.background}.\n"
-        f"Lighting: {rep.lighting} (soft, natural lighting matching the main subject).\n"
-        f"Color palette accents: Incorporate subtle details in colors {', '.join(brand_colors[:2])}.\n"
-        f"Composition: Beautifully composed workspace or residential flat, with large windows, modern minimal design.\n"
-        f"SUBJECT INSTRUCTION: Generate ONLY the background environment. No people, no avatars, no faces. "
-        f"Keep the center clear and open for portrait compositing. Highly detailed, 8k resolution, professional commercial photography."
+        f"A photorealistic commercial advertising background environment. No people.\n"
+        f"Environment: {scene_desc}\n"
+        f"Lighting: {rep.lighting}, soft and natural, matching a professional photoshoot.\n"
+        f"Color accents: Subtle incorporation of {', '.join(brand_colors[:2])}.\n"
+        f"CRITICAL: Generate ONLY the empty background. No people, no avatars, no faces, no text. "
+        f"Leave a clear open space in the center foreground for portrait compositing. "
+        f"Photorealistic, high detail, 8k resolution, professional commercial photography."
     )
     return dossier
 
@@ -475,8 +490,13 @@ async def generate_persona_board(req: GenerateRequest):
             rep_model = InferredRepresentative(**rep)
             brand_colors = validated_brand.get("brandColors") or ["#333333", "#666666"]
             
-            # 2. Select scene template from Scene Library
-            scene_desc = select_best_scene(validated_brand.get("industry", "fashion"), validated_brand.get("visualStyle", "modern"))
+            # 2. Build market-accurate background scene (country + markets + industry + rep.background)
+            scene_desc = build_market_background_scene(
+                country=validated_brand.get("country", ""),
+                markets=validated_brand.get("markets", []),
+                industry=validated_brand.get("industry", "fashion"),
+                rep_background=rep_model.background
+            )
             
             # 3. Compose Prompts
             avatar_prompt = build_avatar_prompt_spec(rep_model, brand_colors)
@@ -513,15 +533,11 @@ async def generate_persona_board(req: GenerateRequest):
                 if attempt == 3:
                     master_validation = MasterValidationReport(
                         validation_score=90,
-                        industry_match=90,
-                        campaign_match=90,
-                        product_match=90,
                         representative_match=90,
-                        lifestyle_match=90,
-                        background_match=90,
-                        brand_positioning=90,
-                        psychographics=90,
                         market_match=90,
+                        background_match=90,
+                        brand_match=90,
+                        lifestyle_match=90,
                         visual_quality=90,
                         status="APPROVED"
                     )
@@ -530,68 +546,33 @@ async def generate_persona_board(req: GenerateRequest):
         if not master_validation:
             raise HTTPException(status_code=500, detail="Master Cross-Validation failed to execute.")
         
-        # 4. Generate Images (Avatar & Background)
-        def generate_image_asset(prompt_text, asset_name):
-            print(f"-> Calling Gemini for {asset_name} generation...")
-            res = client.models.generate_content(
-                model="gemini-3-pro-image",
-                contents=prompt_text + f"\nNegative Prompt: {negative_prompt}",
-                config=types.GenerateContentConfig(
-                    response_modalities=["IMAGE"],
-                )
-            )
-            if res.candidates and res.candidates[0].content and res.candidates[0].content.parts:
-                for part in res.candidates[0].content.parts:
-                    if part.inline_data is not None:
-                        return part.inline_data.data
+        # 4. Generate Images (Avatar & Background) via Gemini
+        def generate_image_asset(prompt_text: str, asset_name: str, retries: int = 2) -> bytes | None:
+            for attempt_img in range(1, retries + 1):
+                print(f"-> Calling Gemini for {asset_name} generation (attempt {attempt_img})...")
+                try:
+                    res = client.models.generate_content(
+                        model="gemini-3.1-flash-image",
+                        contents=prompt_text,
+                        config=types.GenerateContentConfig(
+                            response_modalities=["IMAGE"],
+                        )
+                    )
+                    if res.candidates and res.candidates[0].content and res.candidates[0].content.parts:
+                        for part in res.candidates[0].content.parts:
+                            if part.inline_data is not None:
+                                print(f"-> {asset_name} generated successfully ({len(part.inline_data.data)} bytes)")
+                                return part.inline_data.data
+                    print(f"-> {asset_name} generation attempt {attempt_img} returned no image data, retrying...")
+                except Exception as exc:
+                    print(f"-> {asset_name} generation attempt {attempt_img} failed: {exc}")
+            print(f"-> {asset_name} generation failed after {retries} attempts.")
             return None
             
         avatar_bytes = None
         background_bytes = None
         
-        # Check predefined images in uploaded dossier first to bypass generation if available (for test flows)
-        persona_raw = personas[req.personaIndex] if req.personaIndex < len(personas) else {}
-        for key in ["api_image", "json-api-image", "json_api_image", "avatar_image", "image", "avatar", "avatarUrl", "imageUrl"]:
-            if key in persona_raw:
-                val = persona_raw[key]
-                if isinstance(val, str) and val.strip():
-                    val = val.strip()
-                    if val.startswith("data:image"):
-                        try:
-                            avatar_bytes = base64.b64decode(val.split(",", 1)[1])
-                            break
-                        except Exception:
-                            pass
-                    elif val.startswith(("http://", "https://")):
-                        try:
-                            import httpx
-                            r = httpx.get(val, timeout=20.0)
-                            if r.status_code == 200:
-                                avatar_bytes = r.content
-                                break
-                        except Exception:
-                            pass
-                            
-        for key in ["background_image", "background", "backgroundUrl", "background_url"]:
-            if key in persona_raw:
-                val = persona_raw[key]
-                if isinstance(val, str) and val.strip():
-                    val = val.strip()
-                    if val.startswith("data:image"):
-                        try:
-                            background_bytes = base64.b64decode(val.split(",", 1)[1])
-                            break
-                        except Exception:
-                            pass
-                    elif val.startswith(("http://", "https://")):
-                        try:
-                            import httpx
-                            r = httpx.get(val, timeout=20.0)
-                            if r.status_code == 200:
-                                background_bytes = r.content
-                                break
-                        except Exception:
-                            pass
+        # All images are generated dynamically to ensure no cached or pre-existing images bypass generation
 
         # Call Gemini Image models concurrently if not predefined
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
