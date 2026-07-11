@@ -177,16 +177,12 @@ class ValidationInferenceResult(BaseModel):
 
 class MasterValidationReport(BaseModel):
     validation_score: int = Field(description="Overall validation score (0-100) computed as the sum of all weighted scores")
-    industry_match: int = Field(description="Score for industry alignment (0-100), weighted 20%")
-    campaign_match: int = Field(description="Score for campaign/mood alignment (0-100), weighted 15%")
-    product_match: int = Field(description="Score for product features visibility and alignment (0-100), weighted 15%")
-    representative_match: int = Field(description="Score for representative model demographics and features suitability (0-100), weighted 15%")
+    representative_match: int = Field(description="Score for representative model suitability (0-100), weighted 25%")
+    market_match: int = Field(description="Score for market authenticity without stereotyping (0-100), weighted 20%")
+    background_match: int = Field(description="Score for background environment context suitability (0-100), weighted 20%")
+    brand_match: int = Field(description="Score for brand match (0-100), weighted 15%")
     lifestyle_match: int = Field(description="Score for brand lifestyle context suitability (0-100), weighted 10%")
-    background_match: int = Field(description="Score for background environment context suitability (0-100), weighted 10%")
-    brand_positioning: int = Field(description="Score for brand positioning alignment (0-100), weighted 5%")
-    psychographics: int = Field(description="Score for psychographics and buying motivation match (0-100), weighted 5%")
-    market_match: int = Field(description="Score for market authenticity without national stereotyping (0-100), weighted 5%")
-    visual_quality: int = Field(description="Score for image realism and absence of AI anomalies (0-100), weighted 5%")
+    visual_quality: int = Field(description="Score for image realism and absence of AI anomalies (0-100), weighted 10%")
     status: str = Field(description="APPROVED if validation_score >= 90 else REJECTED")
 
 
@@ -220,26 +216,9 @@ def select_best_scene(industry: str, visual_style: str) -> str:
 
 
 def build_avatar_prompt_spec(rep: InferredRepresentative, brand_colors: list[str]) -> str:
-    """Build the photorealistic avatar prompt incorporating enhancement.txt guidelines."""
-    # Try reading enhancement.txt
-    enhancement_path = Path(__file__).parent.parent / "enhancement.txt"
-    enhancement_content = ""
-    if enhancement_path.exists():
-        try:
-            enhancement_content = enhancement_path.read_text(encoding="utf-8")
-        except Exception:
-            pass
-            
-    if not enhancement_content:
-        enhancement_content = (
-            "ENTERPRISE AVATAR ASSET EXTRACTION ENGINE\n"
-            "ROLE: Generate ONLY one person. No background. Center the subject. No scenery."
-        )
-        
+    """Build the photorealistic avatar prompt incorporating clean visual properties."""
     dossier = (
-        f"\n\n========================================================\n"
-        f"CURRENT SPECIFICATION (ASSET 1 : PORTRAIT AVATAR ONLY)\n"
-        f"========================================================\n"
+        f"A photorealistic commercial portrait of a person, studio photography.\n"
         f"Subject Details:\n"
         f"- Portrait: Photorealistic {rep.ethnicity} {rep.gender}, age {rep.age}\n"
         f"- Skin Tone & Features: {rep.skinTone}, {rep.hair}, facial features: {rep.facialFeatures}\n"
@@ -250,39 +229,24 @@ def build_avatar_prompt_spec(rep: InferredRepresentative, brand_colors: list[str
         f"- Accessories: {rep.accessories}\n"
         f"- Camera & Lighting: {rep.camera}, {rep.lighting}\n"
         f"BACKGROUND INSTRUCTION: Pure flat uniform solid white #FFFFFF background. "
-        f"No shadows outside subject. Easy for automatic background extraction."
+        f"No shadows outside subject. Easy for automatic background extraction. High-end e-commerce photoshoot."
     )
-    return enhancement_content + dossier
+    return dossier
 
 
 def build_background_prompt_spec(rep: InferredRepresentative, scene_desc: str, brand_colors: list[str]) -> str:
-    """Build the background scene prompt incorporating cc.txt guidelines."""
-    cc_path = Path(__file__).parent.parent / "cc.txt"
-    cc_content = ""
-    if cc_path.exists():
-        try:
-            cc_content = cc_path.read_text(encoding="utf-8")
-        except Exception:
-            pass
-            
-    if not cc_content:
-        cc_content = (
-            "ENTERPRISE ASSET GENERATION ENGINE\n"
-            "ROLE: Generate ONLY the background environment. Empty center. No people."
-        )
-        
+    """Build the background scene prompt based on the resolved scene and representative background attributes."""
     dossier = (
-        f"\n\n========================================================\n"
-        f"CURRENT SPECIFICATION (ASSET 2 : ENVIRONMENT BACKGROUND SCENE)\n"
-        f"========================================================\n"
-        f"Scene Details:\n"
-        f"- Environment: {scene_desc} ({rep.background})\n"
-        f"- Lighting & Harmony: {rep.lighting} (MUST match the avatar's lighting direction)\n"
-        f"- Color Accents: Incorporate colors {', '.join(brand_colors[:2])} into background accents.\n"
+        f"A photorealistic commercial product advertising background environment.\n"
+        f"Scene settings: {scene_desc}.\n"
+        f"Background elements: {rep.background}.\n"
+        f"Lighting: {rep.lighting} (soft, natural lighting matching the main subject).\n"
+        f"Color palette accents: Incorporate subtle details in colors {', '.join(brand_colors[:2])}.\n"
+        f"Composition: Beautifully composed workspace or residential flat, with large windows, modern minimal design.\n"
         f"SUBJECT INSTRUCTION: Generate ONLY the background environment. No people, no avatars, no faces. "
-        f"Keep the center clear and open for portrait compositing."
+        f"Keep the center clear and open for portrait compositing. Highly detailed, 8k resolution, professional commercial photography."
     )
-    return cc_content + dossier
+    return dossier
 
 
 # ──────────────────────────────────────────────────────────────
@@ -362,16 +326,12 @@ def run_master_cross_validation(
         "Your mission is to perform a complete semantic cross-validation of the generated representative specification, "
         "avatar prompt, and background prompt against the brand research and target audience profile.\n"
         "EVALUATION CRITERIA & WEIGHTS:\n"
-        "- Industry Match (20%): Does the avatar and scene reflect the industry context?\n"
-        "- Campaign Match (15%): Does it match the campaign mood and target goals?\n"
-        "- Product Match (15%): Does it specify correct product categories and attributes?\n"
-        "- Representative Match (15%): Demographics and features (e.g. South Asian female age 32 for UAE/UK/US diversity casting) must suit the brand without national/regional stereotyping.\n"
-        "- Lifestyle Match (10%): Suitable lifestyle alignment (comfort, sustainability, travel, tech, etc.).\n"
-        "- Background Match (10%): Background matches industry setting. (e.g. London flat for lifestyle, NOT hospital/beach unless required).\n"
-        "- Brand Positioning (5%): Alignment with brand tone and communication style.\n"
-        "- Psychographics (5%): Alignment with pain points and buying motivations.\n"
-        "- Market Authenticity (5%): UAE target must NOT default to camels/deserts/traditional dress. UK target must be multicultural. Correct architectural and interior design elements.\n"
-        "- Visual Quality (5%): Proactive check for AI prompt artifacts, shadows, realism, background bleed avoidance.\n\n"
+        "- Representative Match (25%): Does the representative demographics, facialFeatures, skinTone, hair, wardrobe, and pose suit the brand positioning and campaign target? Mismatches must be rejected.\n"
+        "- Market Authenticity (20%): Does the representative look related to the region/location (e.g. UAE)? UAE must reflect modern urban cosmopolitan/Gulf resident, NOT generic western blazers and NOT traditional dress clichés (no abayas/camels/deserts unless required). Must be professional and young.\n"
+        "- Background Match (20%): Background setting must suit the industry, region, and lifestyle. Accept modern penthouses, luxury flats, minimal offices, or suites for UAE; NOT white seamless studio, plain wall, or empty room.\n"
+        "- Brand Match (15%): Conformance to brand name, colors, visual style, products, and campaign constraints.\n"
+        "- Lifestyle Match (10%): Match target audience lifestyle, psychographics, buying motivations, and pain points.\n"
+        "- Visual Quality (10%): Ensure prompts prevent AI artifacts, floating, clipping, white halos, wrong anatomy, wrong shadows, and merged background-wardrobe bleeding.\n\n"
         "Scoring math: Sum all weighted scores. If the overall validation_score is < 90, status is REJECTED. Otherwise APPROVED."
     )
     
@@ -455,6 +415,7 @@ async def generate_persona_board(req: GenerateRequest):
             "  * Country: 4%\n"
             "  * Communication Style: 3%\n"
             "  * Facebook/Instagram/TikTok/Competitor Ads: 0% (DO NOT use social media ads or competitive marketing stereotypes to infer appearance).\n"
+            "- UAE SPECIFIC RULES: When location is United Arab Emirates, resolve representative as a modern, cosmopolitan Gulf resident. Ethnicity: 'Middle Eastern / Gulf resident / UAE cosmopolitan', skinTone: 'Warm Olive', facialFeatures: 'Modern urban Gulf resident features'. Wardrobe: modern chic/casual designer fashion matching brandColors, avoiding generic corporate blazers for fashion brands, and strictly avoiding traditional or orientalist clichés (no abayas/hijabs/camels/deserts unless campaign explicitly requests them).\n"
             "- MARKET DIVERSITY CASTING:\n"
             "  * For UAE (United Arab Emirates) market: casting must be International, Global Fashion, Very High Diversity.\n"
             "  * For UK (United Kingdom) market: casting must be Multicultural, International.\n"
@@ -672,7 +633,7 @@ async def generate_persona_board(req: GenerateRequest):
         (GENERATED_DIR / f"{entry_id}_validated_brand.json").write_text(json.dumps(validated_brand, indent=2))
         (GENERATED_DIR / f"{entry_id}_validated_target_audience.json").write_text(json.dumps(validated_target_audience, indent=2))
         (GENERATED_DIR / f"{entry_id}_representative.json").write_text(json.dumps(rep, indent=2))
-        (GENERATED_DIR / f"{entry_id}_validation_report.json").write_text(json.dumps(master_validation.model_dump(), indent=2))
+        (GENERATED_DIR / f"{entry_id}_validation.json").write_text(json.dumps(master_validation.model_dump(), indent=2))
         (GENERATED_DIR / f"{entry_id}_confidence_report.json").write_text(json.dumps(confidence_report, indent=2))
         
         (GENERATED_DIR / f"{entry_id}_avatar_prompt.txt").write_text(avatar_prompt)
@@ -680,9 +641,9 @@ async def generate_persona_board(req: GenerateRequest):
         (GENERATED_DIR / f"{entry_id}_negative_prompt.txt").write_text(negative_prompt)
         (GENERATED_DIR / f"{entry_id}_heygen_prompt.txt").write_text(heygen_prompt)
         
-        (GENERATED_DIR / f"{entry_id}_avatar.png").write_bytes(avatar_bytes)
+        (GENERATED_DIR / f"{entry_id}_transparent_avatar.png").write_bytes(avatar_bytes)
         (GENERATED_DIR / f"{entry_id}_background.png").write_bytes(background_bytes)
-        (GENERATED_DIR / f"{entry_id}_composite.png").write_bytes(composite_bytes)
+        (GENERATED_DIR / f"{entry_id}_composited_board.png").write_bytes(composite_bytes)
         
         # Map validation report and creative brief for frontend compatibility
         frontend_validation_report = []
@@ -714,7 +675,7 @@ async def generate_persona_board(req: GenerateRequest):
             "status": "approved" if master_validation.status == "APPROVED" else "rejected",
             "raw": "-",
             "validated": f"{master_validation.validation_score}%",
-            "reason": f"Semantic validation: Industry Match ({master_validation.industry_match}%), Campaign Match ({master_validation.campaign_match}%), Market Authenticity ({master_validation.market_match}%), Representative Suitability ({master_validation.representative_match}%), Background ({master_validation.background_match}%), Visual Quality ({master_validation.visual_quality}%)",
+            "reason": f"Semantic validation: Representative Match ({master_validation.representative_match}%), Market Authenticity ({master_validation.market_match}%), Background ({master_validation.background_match}%), Brand ({master_validation.brand_match}%), Lifestyle ({master_validation.lifestyle_match}%), Visual Quality ({master_validation.visual_quality}%)",
             "confidence": master_validation.validation_score
         })
 
@@ -750,9 +711,9 @@ async def generate_persona_board(req: GenerateRequest):
             "negative_prompt": negative_prompt,
             "heygen_prompt": heygen_prompt,
             "creativeBrief": creative_brief_mapped,
-            "avatarFileName": f"{entry_id}_avatar.png",
+            "avatarFileName": f"{entry_id}_transparent_avatar.png",
             "backgroundFileName": f"{entry_id}_background.png",
-            "compositeFileName": f"{entry_id}_composite.png"
+            "compositeFileName": f"{entry_id}_composited_board.png"
         }
         (GENERATED_DIR / f"{entry_id}.json").write_text(json.dumps(meta, indent=2))
         
@@ -795,7 +756,7 @@ async def list_history():
     """Return all previously generated persona boards, newest first."""
     items = []
     for meta_file in GENERATED_DIR.glob("*.json"):
-        if meta_file.name.endswith(("_validated_brand.json", "_validated_persona.json", "_validated_target_audience.json", "_representative.json", "_validation_report.json", "_confidence_report.json")):
+        if meta_file.name.endswith(("_validated_brand.json", "_validated_persona.json", "_validated_target_audience.json", "_representative.json", "_validation_report.json", "_validation.json", "_confidence_report.json")):
             continue
         try:
             meta = json.loads(meta_file.read_text())
@@ -809,13 +770,24 @@ async def list_history():
 @app.get("/api/history/{entry_id}/image")
 async def get_history_image(entry_id: str, type: str = "board"):
     """Serve individual generated or composited assets."""
-    # Map legacy board requested by UI to composite.png
-    suffix = "_composite.png" if type in ("board", "composite") else f"_{type}.png"
+    # Map requested types to new suffix names
+    if type in ("board", "composite"):
+        suffix = "_composited_board.png"
+    elif type == "avatar":
+        suffix = "_transparent_avatar.png"
+    else:
+        suffix = f"_{type}.png"
+        
     img_path = GENERATED_DIR / f"{entry_id}{suffix}"
-    
     if img_path.exists():
         return FileResponse(img_path, media_type="image/png", filename=img_path.name)
         
+    # Check older/fallback formats
+    for old_suffix in ("_composite.png", "_avatar.png", f"_{type}.png"):
+        old_path = GENERATED_DIR / f"{entry_id}{old_suffix}"
+        if old_path.exists():
+            return FileResponse(old_path, media_type="image/png", filename=old_path.name)
+            
     # Check older/fallback formats
     fallback_path = GENERATED_DIR / f"{entry_id}_avatar.png"
     if fallback_path.exists():
