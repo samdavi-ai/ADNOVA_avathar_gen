@@ -32,9 +32,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-HEYGEN_API_KEY = os.getenv("HEYGEN_API_KEY")
-if not HEYGEN_API_KEY:
-    print("WARNING: HEYGEN_API_KEY not found in .env file")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    print("WARNING: GEMINI_API_KEY not found in .env file")
 
 # Directory to persist generated persona boards
 GENERATED_DIR = Path(__file__).parent / "generated"
@@ -725,404 +725,6 @@ def extract_persona_fields(persona: dict) -> dict:
     }
 
 
-def validate_and_infer_persona(brand_data: dict, persona: dict) -> dict:
-    """Validate, detect conflicts, and infer realistic values for demographics."""
-    brand_info = extract_brand_fields(brand_data)
-    
-    validated_persona = persona.copy()
-    validation_report = []
-    
-    # 1. AGE VALIDATION
-    raw_age = persona.get("age", "25-45")
-    validated_age = raw_age
-    age_status = "accepted"
-    age_reason = "Consistent with brand industry and target demographic profiles."
-    age_consistency = 95
-    age_confidence = 98
-    
-    import re
-    nums = [int(n) for n in re.findall(r'\d+', str(raw_age))]
-    is_conflicted = False
-    
-    if len(nums) == 2:
-        start_age, end_age = nums[0], nums[1]
-        if start_age > end_age:
-            is_conflicted = True
-        elif start_age > 75 or end_age > 75:
-            is_conflicted = True
-    elif len(nums) == 1:
-        age_val = nums[0]
-        if age_val > 75:
-            is_conflicted = True
-    else:
-        is_conflicted = True
-        
-    if "88-96" in str(raw_age) or "42-11" in str(raw_age) or is_conflicted:
-        age_status = "corrected"
-        age_consistency = 15
-        age_confidence = 97
-        
-        industry = brand_info.get("industry", "").lower()
-        if "skincare" in industry or "makeup" in industry or "cosmetics" in industry:
-            validated_age = "30"
-            age_reason = "Original age value conflicts with cosmetics/skincare target audience, active online presence, and lifestyle psychographics."
-        elif "footwear" in industry or "fashion" in industry:
-            validated_age = "32"
-            age_reason = "Original age value conflicts with footwear lifestyle audience, fashion-forward profile, and active/travel psychographics."
-        else:
-            validated_age = "28-38"
-            age_reason = "Original age value conflicts with brand's digital demographic positioning and online purchase behavior."
-            
-    validated_persona["age"] = validated_age
-    validation_report.append({
-        "field": "Age",
-        "raw": str(raw_age),
-        "validated": str(validated_age),
-        "status": age_status,
-        "reason": age_reason,
-        "consistency": age_consistency,
-        "confidence": age_confidence
-    })
-    
-    # 2. GENDER VALIDATION & REPRESENTATIVE RESOLUTION
-    raw_gender = persona.get("gender", "All genders")
-    validated_gender = raw_gender  # Keep raw audience gender
-    gender_status = "accepted"
-    gender_reason = "Target audience accepts all genders for general campaign engagement."
-    gender_consistency = 100
-    gender_confidence = 100
-    
-    # Separate concept: Representative Gender for Avatar generation
-    representative_gender = "Female" # Default fallback
-    
-    # Check if there is a user-override from API request (stored in _representativeGender)
-    override_gender = brand_data.get("_representativeGender")
-    
-    if override_gender:
-        representative_gender = override_gender
-        gender_status = "accepted"
-        gender_reason = f"Audience targeting is gender-neutral. User explicitly chose '{representative_gender}' representative for visual generation."
-        gender_consistency = 100
-        gender_confidence = 100
-    else:
-        industry = brand_info.get("industry", "").lower()
-        brand_name = brand_info.get("brand_name", "").lower()
-        
-        if "skincare" in industry or "makeup" in industry or "cosmetics" in industry or "beauty" in industry or "hudabeauty" in brand_name or "glossier" in brand_name:
-            representative_gender = "Female"
-            gender_status = "resolved"
-            gender_reason = "Audience targeting is gender-neutral. Resolved to 'Female' representative based on skincare/beauty campaign category evidence."
-            gender_consistency = 90
-            gender_confidence = 95
-        elif "footwear" in industry or "travel" in industry:
-            representative_gender = "Female"  # Default
-            gender_status = "resolved"
-            gender_reason = "Audience targeting is gender-neutral. Defaulted to 'Female' representative. (Alternative 'Male' option available for generation)."
-            gender_consistency = 50
-            gender_confidence = 50
-        else:
-            representative_gender = "Female"
-            gender_status = "resolved"
-            gender_reason = "Audience targeting is gender-neutral. Defaulted to 'Female' representative by default."
-            gender_consistency = 50
-            gender_confidence = 50
-
-    # If the raw gender is already specific, match it
-    raw_gender_lower = str(raw_gender).strip().lower()
-    if "female" in raw_gender_lower or "woman" in raw_gender_lower or "girl" in raw_gender_lower:
-        representative_gender = "Female"
-        validated_gender = "Female"
-        gender_status = "accepted"
-        gender_reason = "Audience gender is specific. Resolved matching 'Female' representative."
-        gender_consistency = 100
-        gender_confidence = 100
-    elif "male" in raw_gender_lower or "man" in raw_gender_lower or "boy" in raw_gender_lower:
-        representative_gender = "Male"
-        validated_gender = "Male"
-        gender_status = "accepted"
-        gender_reason = "Audience gender is specific. Resolved matching 'Male' representative."
-        gender_consistency = 100
-        gender_confidence = 100
-        
-    validated_persona["gender"] = validated_gender
-    validated_persona["representativeGender"] = representative_gender
-    
-    validation_report.append({
-        "field": "Gender",
-        "raw": str(raw_gender),
-        "validated": str(validated_gender),
-        "representative": representative_gender,
-        "status": gender_status,
-        "reason": gender_reason,
-        "consistency": gender_consistency,
-        "confidence": gender_confidence
-    })
-
-    # 3. INCOME LEVEL VALIDATION
-    raw_income = persona.get("incomeLevel", "Middle")
-    validated_income = raw_income
-    income_status = "accepted"
-    income_reason = "Income level matches brand pricing tier and product categories."
-    income_consistency = 92
-    income_confidence = 95
-    
-    positioning = brand_info.get("brand_positioning", "").lower()
-    industry = brand_info.get("industry", "").lower()
-    
-    if "luxury" in positioning or "premium" in positioning:
-        if str(raw_income).strip().lower() in ["budget", "low"]:
-            income_status = "corrected"
-            income_consistency = 30
-            income_confidence = 88
-            validated_income = "Upper Middle" if "skincare" in industry else "Luxury"
-            income_reason = f"Original value '{raw_income}' corrected to '{validated_income}' to align with brand's premium/luxury positioning and high-end competitor pricing."
-            
-    validated_persona["incomeLevel"] = validated_income
-    validation_report.append({
-        "field": "Income Level",
-        "raw": str(raw_income),
-        "validated": str(validated_income),
-        "status": income_status,
-        "reason": income_reason,
-        "consistency": income_consistency,
-        "confidence": income_confidence
-    })
-    
-    # 4. COUNTRY / GEOGRAPHY VALIDATION
-    raw_country = brand_data.get("brandIdentity", {}).get("geography", {}).get("country", "Global")
-    validated_country = raw_country
-    country_status = "accepted"
-    country_reason = "Geographic targeting is consistent with primary markets and shipping regions."
-    country_consistency = 98
-    country_confidence = 99
-    
-    validation_report.append({
-        "field": "Country",
-        "raw": str(raw_country),
-        "validated": str(validated_country),
-        "status": country_status,
-        "reason": country_reason,
-        "consistency": country_consistency,
-        "confidence": country_confidence
-    })
-    
-    return {
-        "validatedPersona": validated_persona,
-        "validationReport": validation_report
-    }
-
-
-def generate_heuristic_creative_brief(brand_data: dict, persona: dict) -> dict:
-    """Generate a rich, brand-aligned creative brief programmatically."""
-    brand_info = extract_brand_fields(brand_data)
-    persona_info = extract_persona_fields(persona)
-    
-    bi = brand_data.get("brandIdentity", {})
-    colors = bi.get("brandColors", [])
-    primary_color = colors[0] if colors else "#6366f1"
-    secondary_color = colors[1] if len(colors) > 1 else "#06b6d4"
-    
-    gender_word = persona_info.get("gender", "universal").lower()
-    
-    return {
-        "layout": "Balanced split dashboard with focus on customer demographic details and lifestyle.",
-        "photography_style": f"Professional commercial advertising photography featuring a natural {gender_word} subject.",
-        "camera_lens": "85mm prime lens for flattering portrait compression",
-        "camera_angle": "Eye-level candid shot",
-        "lighting_style": "Soft natural window light with subtle rim lighting",
-        "color_mood": f"Clean and premium with accents of {primary_color} and {secondary_color}",
-        "background_style": "Minimalist modern interior with clean lines and soft bokeh",
-        "environment": f"A modern setting matching the {brand_info.get('industry', 'lifestyle')} category",
-        "portrait_style": "Authentic, high-detail editorial portrait",
-        "pose": "Warm, confident smile looking slightly off-camera",
-        "card_style": "Glassmorphism with rounded corners and subtle border highlight",
-        "shadow_style": "Soft, ambient occlusion drop shadows",
-        "typography_mood": "Clean sans-serif with strong hierarchy (Apple/Stripe aesthetic)",
-        "editorial_style": "Premium minimalist design showcase",
-        "visual_story": f"Capturing the daily routine of a modern consumer in their natural environment.",
-        "brand_inspiration": f"Inspired by the core positioning: {brand_info.get('brand_positioning', 'Premium design')}.",
-        "local_cultural_context": f"Authentic representation tailored for {brand_info.get('country', 'Global')} market.",
-        "climate_wardrobe_direction": f"Stylish, category-appropriate attire for a {persona_info.get('age', '30')}-year-old."
-    }
-
-
-def create_heygen_prompt_avatar(prompt: str, name: str, api_key: str) -> str:
-    """Create a prompt-based avatar on HeyGen."""
-    import requests
-    
-    url = "https://api.heygen.com/v3/avatars"
-    headers = {
-        "x-api-key": api_key,
-        "content-type": "application/json",
-        "accept": "application/json"
-    }
-    payload = {
-        "type": "prompt",
-        "name": name,
-        "prompt": prompt
-    }
-    try:
-        response = requests.post(url, json=payload, headers=headers, timeout=15)
-        response.raise_for_status()
-        res_data = response.json()
-        data = res_data.get("data", {})
-        avatar_item = data.get("avatar_item", {})
-        return avatar_item.get("id")
-    except Exception as e:
-        print(f"Error creating HeyGen prompt avatar: {e}")
-        return None
-
-
-def check_heygen_avatar_status(avatar_id: str, api_key: str) -> dict:
-    """Retrieve details and status for a prompt-based avatar look."""
-    import requests
-    
-    url = f"https://api.heygen.com/v3/avatars/looks/{avatar_id}"
-    headers = {
-        "x-api-key": api_key,
-        "accept": "application/json"
-    }
-    try:
-        response = requests.get(url, headers=headers, timeout=15)
-        response.raise_for_status()
-        res_data = response.json()
-        data = res_data.get("data", {})
-        return {
-            "status": data.get("status"),
-            "preview_image_url": data.get("preview_image_url"),
-            "error": data.get("error", {}).get("message") if data.get("error") else None
-        }
-    except Exception as e:
-        print(f"Error checking HeyGen avatar status: {e}")
-        return {"status": "error", "error": str(e)}
-
-
-def select_heygen_avatar(gender: str, api_key: str) -> dict:
-    """Fetch public avatars from HeyGen API and match by gender."""
-    import requests
-    import random
-    
-    url = "https://api.heygen.com/v3/avatars?ownership=public&limit=100"
-    headers = {
-        "x-api-key": api_key,
-        "accept": "application/json"
-    }
-    try:
-        response = requests.get(url, headers=headers, timeout=15)
-        response.raise_for_status()
-        res_data = response.json()
-        avatars = res_data.get("data", [])
-        if not avatars:
-            print("WARNING: HeyGen returned an empty public avatar list.")
-            return None
-        
-        # Filter by gender
-        target_gender = gender.strip().lower() if gender else "universal"
-        matched_avatars = []
-        for av in avatars:
-            av_gender = av.get("gender", "").strip().lower()
-            if "female" in target_gender or "woman" in target_gender or "girl" in target_gender:
-                if av_gender in ["female", "woman", "girl"]:
-                    matched_avatars.append(av)
-            elif "male" in target_gender or "man" in target_gender or "boy" in target_gender:
-                if av_gender in ["male", "man", "boy"]:
-                    matched_avatars.append(av)
-        
-        # Fallback to all if no matches
-        if not matched_avatars:
-            matched_avatars = avatars
-            
-        # Select randomly
-        return random.choice(matched_avatars)
-    except Exception as e:
-        print(f"Error fetching/selecting HeyGen avatar: {e}")
-        return None
-
-
-def download_avatar_image(preview_url: str) -> bytes:
-    """Download preview image of avatar and convert to PNG bytes using PIL."""
-    import requests
-    from PIL import Image
-    import io
-    
-    image_bytes = None
-    try:
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        res = requests.get(preview_url, headers=headers, timeout=15)
-        res.raise_for_status()
-        image_bytes = res.content
-        
-        # Convert to PNG using PIL for consistency
-        img = Image.open(io.BytesIO(image_bytes))
-        out_buf = io.BytesIO()
-        img.save(out_buf, format="PNG")
-        return out_buf.getvalue()
-    except Exception as e:
-        print(f"Error downloading or converting avatar image: {e}")
-        if image_bytes:
-            return image_bytes
-        return None
-
-
-def create_heygen_video(avatar_id: str, voice_id: str, script: str, api_key: str) -> str:
-    """Request talking avatar video generation from HeyGen."""
-    import requests
-    
-    url = "https://api.heygen.com/v3/videos"
-    headers = {
-        "x-api-key": api_key,
-        "content-type": "application/json",
-        "accept": "application/json"
-    }
-    payload = {
-        "type": "avatar",
-        "avatar_id": avatar_id,
-        "voice_id": voice_id or "26b20464607c42738914b43486cdd0c6", # standard fallback voice
-        "script": script or "Welcome to Adnova Studio.",
-        "aspect_ratio": "1:1",
-        "engine": {
-            "type": "avatar_v"
-        }
-    }
-    try:
-        response = requests.post(url, json=payload, headers=headers, timeout=15)
-        if not response.ok:
-            print(f"Error Response from HeyGen video API: {response.status_code} - {response.text}")
-        response.raise_for_status()
-        res_data = response.json()
-        data = res_data.get("data", {})
-        return data.get("video_id")
-    except Exception as e:
-        print(f"Error creating HeyGen video: {e}")
-        return None
-
-
-def check_heygen_video_status(video_id: str, api_key: str) -> dict:
-    """Query the status and video URL from HeyGen API."""
-    import requests
-    
-    url = f"https://api.heygen.com/v3/videos/{video_id}"
-    headers = {
-        "x-api-key": api_key,
-        "accept": "application/json"
-    }
-    try:
-        response = requests.get(url, headers=headers, timeout=15)
-        response.raise_for_status()
-        res_data = response.json()
-        data = res_data.get("data", {})
-        return {
-            "status": data.get("status"),
-            "video_url": data.get("video_url"),
-            "error": data.get("error") or data.get("failure_message")
-        }
-    except Exception as e:
-        print(f"Error checking HeyGen video status: {e}")
-        return {"status": "error", "error": str(e)}
-
-
-
-
 def extract_creative_fields(data: dict) -> dict:
     """Extract creative intelligence template variables."""
     cr = data.get("competitorResearch", {}).get("creativeIntelligence", {})
@@ -1316,246 +918,172 @@ def build_background_prompt(data: dict, creative_brief: dict, persona_index: int
 # API ENDPOINTS
 # ──────────────────────────────────────────────────────────────
 
-def get_local_fallback_avatar(gender: str) -> bytes:
-    """Read a gender-appropriate local fallback avatar image."""
-    import base64
-    from pathlib import Path
-    
-    search_dirs = [
-        Path("/Users/samdavi/projects/NEW_ADNOVA/generated_avatars"),
-        Path("/Users/samdavi/.gemini/antigravity-ide/brain/f86a0051-24a4-45ba-b442-d69e02046f10")
-    ]
-    
-    gender_lower = gender.lower() if gender else "female"
-    is_male = "male" in gender_lower or "man" in gender_lower or "boy" in gender_lower
-    
-    # First pass: try gender-matched files
-    for d in search_dirs:
-        if d.exists():
-            for f in d.iterdir():
-                if f.is_file() and f.suffix in [".webp", ".png", ".jpg", ".jpeg"]:
-                    fn = f.name.lower()
-                    if is_male and ("male" in fn or "vittorio" in fn):
-                        print(f"-> Using local fallback male avatar: {f}")
-                        try:
-                            return f.read_bytes()
-                        except Exception:
-                            pass
-                    elif not is_male and ("female" in fn or "khaadi" in fn):
-                        print(f"-> Using local fallback female avatar: {f}")
-                        try:
-                            return f.read_bytes()
-                        except Exception:
-                            pass
-                            
-    # Second pass: accept any image
-    for d in search_dirs:
-        if d.exists():
-            for f in d.iterdir():
-                if f.is_file() and f.suffix in [".webp", ".png", ".jpg", ".jpeg"]:
-                    print(f"-> Using fallback avatar: {f}")
-                    try:
-                        return f.read_bytes()
-                    except Exception:
-                        pass
-                        
-    # Last resort: 1x1 transparent PNG
-    transparent_png_b64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-    return base64.b64decode(transparent_png_b64)
-
-
-def get_brand_background_bytes(industry: str) -> bytes:
-    """Read a brand/industry-appropriate local background environment image."""
-    import json
-    import random
-    import base64
-    from pathlib import Path
-    
-    generated_dir = Path("/Users/samdavi/projects/NEW_ADNOVA/backend/generated")
-    background_files = []
-    
-    if generated_dir.exists():
-        background_files = list(generated_dir.glob("*_background.png"))
-        
-    if background_files:
-        industry_matched = []
-        for bg_file in background_files:
-            meta_id = bg_file.name.replace("_background.png", "")
-            meta_path = generated_dir / f"{meta_id}.json"
-            if meta_path.exists():
-                try:
-                    meta_data = json.loads(meta_path.read_text())
-                    bg_industry = meta_data.get("industry", "").lower()
-                    ind_lower = industry.lower() if industry else ""
-                    if ind_lower and (ind_lower in bg_industry or bg_industry in ind_lower):
-                        industry_matched.append(bg_file)
-                except Exception:
-                    continue
-                    
-        target_file = random.choice(industry_matched) if industry_matched else random.choice(background_files)
-        print(f"-> Selected local fallback background: {target_file}")
-        try:
-            return target_file.read_bytes()
-        except Exception:
-            pass
-            
-    # Last resort: 1x1 transparent PNG
-    transparent_png_b64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-    return base64.b64decode(transparent_png_b64)
-
 class GenerateRequest(BaseModel):
     brandData: dict
     personaIndex: int = 0
-    representativeGender: Optional[str] = None
 
 
 @app.post("/api/generate-persona-board")
 async def generate_persona_board(req: GenerateRequest):
-    """Generate modular customer persona assets with fallback support."""
-    try:
-        import json
-        import base64
+    """Generate modular customer persona assets using Gemini."""
+    if not GEMINI_API_KEY:
+        raise HTTPException(status_code=500, detail="GEMINI_API_KEY not configured. Please set it in .env file.")
 
-        # STAGE 1: PERSONA VALIDATION & INFERENCE
+    try:
+        from google import genai
+        from google.genai import types
+        import concurrent.futures
+        import json
+
+        client = genai.Client(api_key=GEMINI_API_KEY)
+
+        # STAGE 1: CREATIVE DIRECTOR (Text LLM)
         brand_info = extract_brand_fields(req.brandData)
         personas = req.brandData.get("idealClientProfiles", [])
-        persona = personas[req.personaIndex] if req.personaIndex < len(personas) else {}
-        
-        # Inject representative gender override if provided
-        if req.representativeGender:
-            req.brandData["_representativeGender"] = req.representativeGender
-            
-        print("-> Running Validation and Conflict Detection Engine...")
-        validation_res = validate_and_infer_persona(req.brandData, persona)
-        validated_persona = validation_res["validatedPersona"]
-        validation_report = validation_res["validationReport"]
-        
-        print("-> Generating Creative Brief via Heuristics...")
-        creative_brief = generate_heuristic_creative_brief(req.brandData, validated_persona)
+        persona_info = {}
+        if personas and req.personaIndex < len(personas):
+            persona_info = extract_persona_fields(personas[req.personaIndex])
 
-        # STAGE 2: AVATAR & BACKGROUND GENERATION / FALLBACK PIPELINE
+        creative_director_input = (
+            f"{CREATIVE_DIRECTOR_PROMPT}\n\n"
+            f"========================================================\n"
+            f"BRAND & TARGET CUSTOMER DOSSIER\n"
+            f"========================================================\n"
+            f"Brand Name: {brand_info['brand_name']}\n"
+            f"Brand Industry: {brand_info['industry']}\n"
+            f"Primary Product: {brand_info['primary_product']}\n"
+            f"Secondary Products: {brand_info['secondary_products']}\n"
+            f"Brand Positioning: {brand_info['brand_positioning']}\n"
+            f"Target Geography: {brand_info['country']}\n"
+            f"Target Markets: {brand_info['markets']}\n"
+            f"Visual Style Preference: {brand_info['visual_style']}\n\n"
+            f"Persona Name: {persona_info.get('persona_name', 'Unknown')}\n"
+            f"Persona Age: {persona_info.get('age', 'Unknown')}\n"
+            f"Persona Gender: {persona_info.get('gender', 'Unknown')}\n"
+            f"Persona Summary: {persona_info.get('summary', '')}\n"
+            f"Persona Pain Points: {persona_info.get('pain_points', '')}\n"
+            f"Persona Buying Motivations: {persona_info.get('buying_motivations', '')}\n\n"
+            f"OUTPUT A JSON OBJECT with the following keys exactly:\n"
+            f"- layout\n"
+            f"- photography_style\n"
+            f"- camera_lens\n"
+            f"- camera_angle\n"
+            f"- lighting_style\n"
+            f"- color_mood\n"
+            f"- background_style\n"
+            f"- environment\n"
+            f"- portrait_style\n"
+            f"- pose\n"
+            f"- card_style\n"
+            f"- shadow_style\n"
+            f"- typography_mood\n"
+            f"- editorial_style\n"
+            f"- visual_story\n"
+            f"- brand_inspiration\n"
+            f"- local_cultural_context\n"
+            f"- climate_wardrobe_direction\n"
+            f"Ensure values are highly descriptive phrases (e.g., 'Luxury vanity with soft pink lighting' for environment)."
+        )
+
+        print("-> Calling Creative Director (Stage 1)...")
+        cd_response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=creative_director_input,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                temperature=0.7,
+            )
+        )
+        
+        try:
+            creative_brief = json.loads(cd_response.text)
+            print("-> Creative Brief Generated:", list(creative_brief.keys()))
+        except Exception as e:
+            print("-> Failed to parse Creative Brief:", e)
+            creative_brief = {}
+
+        # STAGE 2: MULTI-ASSET GENERATION
+        # Build individual prompts
+        avatar_prompt = build_avatar_prompt(req.brandData, creative_brief, req.personaIndex)
+        background_prompt = build_background_prompt(req.brandData, creative_brief, req.personaIndex)
+
+        print(f"\n{'='*60}")
+        print(f"Generating modular assets for persona index: {req.personaIndex}")
+        print(f"Avatar prompt length: {len(avatar_prompt)} characters")
+        print(f"Background prompt length: {len(background_prompt)} characters")
+        print(f"{'='*60}\n")
+
+        # Worker function for parallel image generation
+        def generate_asset_image(prompt_text, asset_name):
+            print(f"-> Call Gemini for {asset_name} image...")
+            res = client.models.generate_content(
+                model="gemini-3-pro-image",
+                contents=prompt_text,
+                config=types.GenerateContentConfig(
+                    response_modalities=["IMAGE"],
+                )
+            )
+            # Find and return image bytes
+            if res.candidates and res.candidates[0].content and res.candidates[0].content.parts:
+                for part in res.candidates[0].content.parts:
+                    if part.inline_data is not None:
+                        return part.inline_data.data
+            return None
+
         avatar_bytes = None
-        avatar_id = None
-        avatar_name = validated_persona.get("name", "Avatar")
-        video_id = None
-        
-        # Try HeyGen generation if API Key is configured
-        if HEYGEN_API_KEY:
+        background_bytes = None
+
+        # Execute concurrent requests
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+            future_avatar = executor.submit(generate_asset_image, avatar_prompt, "Avatar")
+            future_background = executor.submit(generate_asset_image, background_prompt, "Background")
+
             try:
-                heygen_prompt = validated_persona.get("heygenPrompt", "")
-                representative_gender = validated_persona.get("representativeGender", "Female")
-                
-                # Replace corrected values in prompt to satisfy strict rules
-                for rep in validation_report:
-                    if rep["status"] == "corrected":
-                        raw_val = rep["raw"]
-                        val_val = rep["validated"]
-                        import re
-                        heygen_prompt = re.sub(re.escape(raw_val), val_val, heygen_prompt, flags=re.IGNORECASE)
-                
-                # Replace gender neutrality in prompt with representative gender directive
-                import re
-                heygen_prompt = re.sub(r'\b(all genders|both genders|universal)\b', representative_gender, heygen_prompt, flags=re.IGNORECASE)
-                        
-                if not heygen_prompt:
-                    gender_word = representative_gender.lower()
-                    industry = brand_info.get("industry", "lifestyle")
-                    brand_name = brand_info.get("brand_name", "the brand")
-                    heygen_prompt = (
-                        f"Photorealistic sophisticated {gender_word} representing {brand_name}, "
-                        f"styled for {industry} collection. Wearing stylish clothing, set in a clean modern interior "
-                        f"matching the brand personality, warm natural lighting, looking directly at camera, "
-                        f"vertical video framing."
-                    )
-                
-                print(f"-> Attempting HeyGen prompt avatar generation for '{avatar_name}'...")
-                avatar_id = create_heygen_prompt_avatar(heygen_prompt, avatar_name, HEYGEN_API_KEY)
-                
-                if avatar_id:
-                    print(f"-> Created prompt avatar ID: {avatar_id}. Polling for completion...")
-                    import time
-                    preview_image_url = None
-                    for i in range(15):  # 15 * 3 = 45 seconds max poll
-                        status_res = check_heygen_avatar_status(avatar_id, HEYGEN_API_KEY)
-                        status = status_res.get("status")
-                        print(f"   [Poll {i+1}/15] Avatar status: {status}")
-                        if status == "completed":
-                            preview_image_url = status_res.get("preview_image_url")
-                            break
-                        elif status == "failed":
-                            print(f"-> HeyGen prompt avatar creation failed: {status_res.get('error')}")
-                            break
-                        time.sleep(3)
-                        
-                    if preview_image_url:
-                        print(f"-> HeyGen avatar is ready! Preview image: {preview_image_url}")
-                        avatar_bytes = download_avatar_image(preview_image_url)
-                        
-                        if avatar_bytes:
-                            # Determine voice ID based on representative gender
-                            gender_lower = representative_gender.lower()
-                            if "male" in gender_lower or "man" in gender_lower or "boy" in gender_lower:
-                                voice_id = "70969ea512d0428a9737d0739105a843"  # Conrad (Male)
-                            else:
-                                voice_id = "330290724a1b470fb63153f34d4c0183"  # Annie (Female)
-
-                            # TALKING AVATAR VIDEO GENERATION
-                            script = validated_persona.get("productFit")
-                            if not script:
-                                script = f"{brand_info.get('brand_name', 'This brand')} fits my daily lifestyle and aesthetic requirements perfectly."
-                                
-                            print(f"-> Submitting HeyGen video generation request...")
-                            video_id = create_heygen_video(avatar_id, voice_id, script, HEYGEN_API_KEY)
-                            if video_id:
-                                print(f"-> HeyGen Video Created successfully. Video ID: {video_id}")
+                avatar_bytes = future_avatar.result()
             except Exception as e:
-                print(f"-> Warning: HeyGen pipeline failed, using local fallback assets. Error: {e}")
+                print(f"❌ Avatar generation failed: {e}")
 
-        # If HeyGen generation failed/timed out, fall back to local assets
+            try:
+                background_bytes = future_background.result()
+            except Exception as e:
+                print(f"❌ Background generation failed: {e}")
+
+        # Check critical asset
         if not avatar_bytes:
-            print("-> Loading local fallback avatar...")
-            rep_gender = validated_persona.get("representativeGender", "Female")
-            avatar_bytes = get_local_fallback_avatar(rep_gender)
-        print("-> Loading local industry-appropriate background...")
-        industry = brand_info.get("industry", "fashion")
-        background_bytes = get_brand_background_bytes(industry)
+            raise HTTPException(status_code=500, detail="Gemini failed to generate the customer avatar asset.")
 
-        # Save generated/fallback assets to disk
+        # Persist to disk
         entry_id = uuid.uuid4().hex[:12]
-        
         avatar_path = GENERATED_DIR / f"{entry_id}_avatar.png"
         avatar_path.write_bytes(avatar_bytes)
-        
-        background_path = GENERATED_DIR / f"{entry_id}_background.png"
-        background_path.write_bytes(background_bytes)
+
+        if background_bytes:
+            background_path = GENERATED_DIR / f"{entry_id}_background.png"
+            background_path.write_bytes(background_bytes)
 
         # Build complete reconstruction metadata JSON
         bi = req.brandData.get("brandIdentity", {})
-        
+        personas = req.brandData.get("idealClientProfiles", [])
+        persona = personas[req.personaIndex] if req.personaIndex < len(personas) else {}
+
         meta = {
             "id": entry_id,
             "brandName": bi.get("brandName", "Unknown"),
             "industry": bi.get("industry", ""),
-            "personaName": validated_persona.get("name", "Persona"),
-            "personaLabel": validated_persona.get("avatarLabel", ""),
-            "age": str(validated_persona.get("age", "")),
-            "gender": validated_persona.get("gender", ""),
+            "personaName": persona.get("name", "Persona"),
+            "personaLabel": persona.get("avatarLabel", ""),
+            "age": str(persona.get("age", "")),
+            "gender": persona.get("gender", ""),
             "mimeType": "image/png",
             "avatarFileName": f"{entry_id}_avatar.png",
-            "backgroundFileName": f"{entry_id}_background.png",
-            "hasBackground": True,
-            "sizeBytes": len(avatar_bytes) + len(background_bytes),
+            "backgroundFileName": f"{entry_id}_background.png" if background_bytes else None,
+            "hasBackground": bool(background_bytes),
+            "sizeBytes": len(avatar_bytes) + (len(background_bytes) if background_bytes else 0),
             "createdAt": datetime.now(timezone.utc).isoformat(),
+            # Save raw data for dynamic frontend HTML/CSS board reconstruction
             "brandData": req.brandData,
             "personaIndex": req.personaIndex,
             "creativeBrief": creative_brief,
-            "validatedPersona": validated_persona,
-            "validationReport": validation_report,
-            "heygenAvatarId": avatar_id,
-            "heygenAvatarName": avatar_name,
-            "videoId": video_id,
-            "videoStatus": "processing" if video_id else "none",
-            "videoUrl": None
         }
 
         meta_path = GENERATED_DIR / f"{entry_id}.json"
@@ -1563,21 +1091,16 @@ async def generate_persona_board(req: GenerateRequest):
         print(f"💾 Saved modular history files for ID: {entry_id}")
 
         avatar_b64 = base64.b64encode(avatar_bytes).decode("utf-8")
-        background_b64 = base64.b64encode(background_bytes).decode("utf-8")
+        background_b64 = base64.b64encode(background_bytes).decode("utf-8") if background_bytes else None
 
         return {
             "avatar": avatar_b64,
             "background": background_b64,
-            "hasBackground": True,
+            "hasBackground": bool(background_bytes),
             "historyId": entry_id,
             "brandData": req.brandData,
             "personaIndex": req.personaIndex,
             "creativeBrief": creative_brief,
-            "validatedPersona": validated_persona,
-            "validationReport": validation_report,
-            "videoId": video_id,
-            "videoStatus": "processing" if video_id else "none",
-            "videoUrl": None
         }
 
     except HTTPException:
@@ -1649,54 +1172,12 @@ async def delete_history_entry(entry_id: str):
     return {"status": "deleted", "id": entry_id}
 
 
-@app.get("/api/history/{entry_id}/video-status")
-async def get_video_status(entry_id: str):
-    """Retrieve video generation status from HeyGen and update metadata."""
-    meta_path = GENERATED_DIR / f"{entry_id}.json"
-    if not meta_path.exists():
-        raise HTTPException(status_code=404, detail="Entry not found")
-        
-    try:
-        meta = json.loads(meta_path.read_text())
-    except Exception:
-        raise HTTPException(status_code=500, detail="Failed to read metadata")
-        
-    video_id = meta.get("videoId")
-    video_status = meta.get("videoStatus", "none")
-    video_url = meta.get("videoUrl")
-    
-    if video_id and video_status == "processing":
-        res = check_heygen_video_status(video_id, HEYGEN_API_KEY)
-        status = res.get("status")
-        
-        if status == "completed":
-            meta["videoStatus"] = "completed"
-            meta["videoUrl"] = res.get("video_url")
-            meta_path.write_text(json.dumps(meta, indent=2))
-            video_status = "completed"
-            video_url = res.get("video_url")
-        elif status == "failed":
-            meta["videoStatus"] = "failed"
-            meta["videoError"] = res.get("error")
-            meta_path.write_text(json.dumps(meta, indent=2))
-            video_status = "failed"
-            
-    return {
-        "videoId": video_id,
-        "videoStatus": video_status,
-        "videoUrl": video_url,
-        "videoError": meta.get("videoError")
-    }
-
-
-
-
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint."""
     return {
         "status": "ok",
-        "api_key_configured": bool(HEYGEN_API_KEY),
+        "api_key_configured": bool(GEMINI_API_KEY),
     }
 
 

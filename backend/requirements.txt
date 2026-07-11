@@ -2,5 +2,3 @@ fastapi
 uvicorn[standard]
 google-genai
 python-dotenv
-requests
-pillow
