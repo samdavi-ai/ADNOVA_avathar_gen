@@ -133,7 +133,7 @@ class ValidatedBrand(BaseModel):
     communicationStyle: str = Field(description="Normalized communications style")
     tone: str = Field(description="Tone of brand message")
 
-class ValidatedPersona(BaseModel):
+class ValidatedTargetAudience(BaseModel):
     name: str = Field(description="Name of the customer profile")
     age: str = Field(description="Validated age range, corrected if original contains anomalies")
     gender: str = Field(description="Raw audience target gender (e.g. All Genders, Female, Male)")
@@ -147,7 +147,9 @@ class InferredRepresentative(BaseModel):
     gender: str = Field(description="Specific representative gender resolved for campaign portrait (e.g. female, male)")
     ethnicity: str = Field(description="Resolved representative ethnicity based on target geographies")
     skinTone: str = Field(description="Specific skin tone of representative model")
+    facialFeatures: str = Field(description="Facial features of representative model, avoiding national/regional stereotyping")
     hair: str = Field(description="Hair color and style for model")
+    bodyType: str = Field(description="Body type of representative model")
     expression: str = Field(description="Facial expression of representative model")
     wardrobe: str = Field(description="Wardrobe colors and materials based on brandColors and industry requirements")
     accessories: str = Field(description="Accessories resolved for the representative model")
@@ -168,7 +170,7 @@ class ConfidenceReport(BaseModel):
 
 class ValidationInferenceResult(BaseModel):
     validated_brand: ValidatedBrand
-    validated_persona: ValidatedPersona
+    validated_target_audience: ValidatedTargetAudience
     representative: InferredRepresentative
     validation_report: list[ValidationDiff]
     confidence_report: ConfidenceReport
@@ -226,7 +228,8 @@ def build_avatar_prompt_spec(rep: InferredRepresentative, brand_colors: list[str
         f"========================================================\n"
         f"Subject Details:\n"
         f"- Portrait: Photorealistic {rep.ethnicity} {rep.gender}, age {rep.age}\n"
-        f"- Skin Tone & Features: {rep.skinTone}, {rep.hair}\n"
+        f"- Skin Tone & Features: {rep.skinTone}, {rep.hair}, facial features: {rep.facialFeatures}\n"
+        f"- Body Type: {rep.bodyType}\n"
         f"- Facial Expression: {rep.expression}\n"
         f"- Pose: {rep.pose}\n"
         f"- Clothing: {rep.wardrobe} matching accent colors {', '.join(brand_colors[:2])}\n"
@@ -368,8 +371,25 @@ async def generate_persona_board(req: GenerateRequest):
             "- Target Audience Preservation: Keep raw target audience values unchanged (e.g. if raw gender "
             "is 'All genders', validated gender remains 'All genders'), but infer a specific binary gender "
             "('female' or 'male') for the photo model.\n"
-            "- Deduce representative properties: age, gender, ethnicity, skin tone, hair, expression, "
-            "pose, camera, lighting, wardrobe matching the brandColors palette, and background scene.\n"
+            "- DO NOT INFER APPEARANCE FROM COUNTRY: Country is NOT ethnicity, country is NOT skin tone, country is NOT facial features, country is NOT hair. Country is ONLY the target market geography. NEVER generate appearance using only country.\n"
+            "- WEIGHTED EVIDENCE INFERENCE: You must infer the representative using weighted contributions of variables:\n"
+            "  * Industry: 20%\n"
+            "  * Products: 18%\n"
+            "  * Brand Positioning: 15%\n"
+            "  * Psychographics: 15%\n"
+            "  * Campaign Objective: 10%\n"
+            "  * Visual Style: 8%\n"
+            "  * Lifestyle: 5%\n"
+            "  * Primary Market: 5%\n"
+            "  * Country: 4%\n"
+            "  * Communication Style: 3%\n"
+            "  * Facebook/Instagram/TikTok/Competitor Ads: 0% (DO NOT use social media ads or competitive marketing stereotypes to infer appearance).\n"
+            "- MARKET DIVERSITY CASTING:\n"
+            "  * For UAE (United Arab Emirates) market: casting must be International, Global Fashion, Very High Diversity.\n"
+            "  * For UK (United Kingdom) market: casting must be Multicultural, International.\n"
+            "  * For US (United States) market: casting must be Highly Diverse.\n"
+            "  * Avoid clichés or assumptions.\n"
+            "- Deduce representative properties: age, gender, ethnicity, skin tone, facialFeatures (specific features avoiding clichés), hair, bodyType, expression, pose, camera, lighting, wardrobe matching the brandColors, and background scene.\n"
             "- Provide confidence score and detailed logical justification."
         )
         
@@ -396,7 +416,8 @@ async def generate_persona_board(req: GenerateRequest):
         
         # Extract validated elements
         validated_brand = val_data.get("validated_brand", {})
-        validated_persona = val_data.get("validated_persona", {})
+        validated_target_audience = val_data.get("validated_target_audience", {})
+        validated_persona = validated_target_audience  # Map back for legacy/frontend compatibility
         rep = val_data.get("representative", {})
         validation_report = val_data.get("validation_report", [])
         confidence_report = val_data.get("confidence_report", {})
@@ -525,7 +546,7 @@ async def generate_persona_board(req: GenerateRequest):
         entry_id = uuid.uuid4().hex[:12]
         
         (GENERATED_DIR / f"{entry_id}_validated_brand.json").write_text(json.dumps(validated_brand, indent=2))
-        (GENERATED_DIR / f"{entry_id}_validated_persona.json").write_text(json.dumps(validated_persona, indent=2))
+        (GENERATED_DIR / f"{entry_id}_validated_target_audience.json").write_text(json.dumps(validated_target_audience, indent=2))
         (GENERATED_DIR / f"{entry_id}_representative.json").write_text(json.dumps(rep, indent=2))
         (GENERATED_DIR / f"{entry_id}_validation_report.json").write_text(json.dumps(validation_report, indent=2))
         (GENERATED_DIR / f"{entry_id}_confidence_report.json").write_text(json.dumps(confidence_report, indent=2))
@@ -584,6 +605,7 @@ async def generate_persona_board(req: GenerateRequest):
             "createdAt": datetime.now(timezone.utc).isoformat(),
             "validated_brand": validated_brand,
             "validated_persona": validated_persona,
+            "validated_target_audience": validated_target_audience,
             "representative": rep,
             "validation_report": validation_report,
             "validationReport": frontend_validation_report,
@@ -611,6 +633,7 @@ async def generate_persona_board(req: GenerateRequest):
             "historyId": entry_id,
             "validated_brand": validated_brand,
             "validated_persona": validated_persona,
+            "validated_target_audience": validated_target_audience,
             "representative": rep,
             "validation_report": validation_report,
             "validationReport": frontend_validation_report,
@@ -638,7 +661,7 @@ async def list_history():
     """Return all previously generated persona boards, newest first."""
     items = []
     for meta_file in GENERATED_DIR.glob("*.json"):
-        if meta_file.name.endswith(("_validated_brand.json", "_validated_persona.json", "_representative.json", "_validation_report.json", "_confidence_report.json")):
+        if meta_file.name.endswith(("_validated_brand.json", "_validated_persona.json", "_validated_target_audience.json", "_representative.json", "_validation_report.json", "_confidence_report.json")):
             continue
         try:
             meta = json.loads(meta_file.read_text())

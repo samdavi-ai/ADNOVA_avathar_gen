@@ -1,110 +1,78 @@
-You are the Principal AI Architect, Senior Full Stack Engineer, AI Research Scientist, Creative Director, Computer Vision Engineer, Prompt Engineer, UX Designer, and Product Architect responsible for rebuilding the ADNOVA Brand Persona Studio into a production-ready enterprise AI platform.
+# ADNOVA Brand Persona Studio - Representative Inference Engine Fix
 
-This is NOT a bug fix.
+You are the Principal AI Architect responsible for fixing the Representative Inference Engine of ADNOVA Brand Persona Studio.
 
-This is a complete architectural redesign.
+This is NOT a feature request.
 
-The final application should behave like an AI Creative Director that understands a Brand Research JSON, validates it, reasons about it, automatically generates the most appropriate representative, creates production-quality assets, and presents everything inside a premium minimal interface.
+This is an architectural refactoring.
 
-==================================================================
-PRIMARY OBJECTIVE
-==================================================================
+The goal is to remove all hardcoded logic, incorrect demographic inference, manual selections, and inconsistent avatar generation.
 
-Input
+====================================================================
+CURRENT ISSUES
+====================================================================
 
-Brand Research JSON
-
-↓
-
-Output
-
-• Validated Brand Profile
-• Validated Target Audience
-• AI Representative
-• Avatar Specification
-• Transparent Avatar PNG
-• Background PNG
-• Final Composite Image
-• HeyGen Prompt
-• Validation Report
-• Confidence Report
-• Persona Board
-
-The system must require ZERO manual representative selection.
-
-The user uploads a JSON.
-
-Everything else must happen automatically.
-
-==================================================================
-CURRENT PROBLEMS
-==================================================================
-
-The existing implementation has several architectural issues.
+The current implementation has several critical architectural problems.
 
 1.
 
-Representative selection requires manual user input.
-
-This must be removed.
+Representative selection is based on weak heuristics.
 
 2.
 
-The application trusts demographic values directly.
+The application incorrectly assumes
 
-Example
+Country
 
-Age
+↓
 
-88-96
+Appearance
 
-This is incorrect.
+This is wrong.
 
 3.
 
-The application changes
-
-Target Audience
-
-into
-
-Representative.
-
-Those are different concepts.
+Country is being treated like ethnicity.
 
 4.
 
-Backgrounds are repetitive.
+Target Audience and Representative are mixed together.
 
 5.
 
-Background textures sometimes bleed into clothing.
+The avatar sometimes does not reflect
+
+Industry
+
+Products
+
+Campaign
+
+Brand Positioning
+
+Visual Style
+
+Psychographics
 
 6.
 
-The avatar and environment are generated together.
+Avatar generation is inconsistent.
 
 7.
 
-Validation scores are arbitrary.
+Background generation is inconsistent.
 
 8.
 
-The application exposes raw JSON instead of validated data.
+Manual representative selection exists.
 
-9.
+Remove it.
 
-Industry, geography and psychographics are not consistently reflected.
+Everything must become fully autonomous.
 
-10.
-
-Hardcoded logic exists.
-
-Everything must become data-driven.
-
-==================================================================
+====================================================================
 NEW ARCHITECTURE
-==================================================================
+====================================================================
 
 Brand JSON
 
@@ -114,11 +82,11 @@ Brand Understanding Agent
 
 ↓
 
-Brand Validation Agent
+Validation Agent
 
 ↓
 
-Target Audience Extraction Agent
+Audience Extraction Agent
 
 ↓
 
@@ -126,15 +94,7 @@ Cross Validation Engine
 
 ↓
 
-Conflict Detection Engine
-
-↓
-
-Inference Engine
-
-↓
-
-Representative Inference Agent
+Representative Inference Engine
 
 ↓
 
@@ -142,81 +102,57 @@ Creative Director Agent
 
 ↓
 
-Appearance Agent
+Avatar Specification Generator
 
 ↓
 
-Wardrobe Agent
+Avatar Prompt Builder
 
 ↓
 
-Scene Agent
+HeyGen
 
-↓
+====================================================================
+IMPORTANT DESIGN RULE
+====================================================================
 
-Camera Agent
-
-↓
-
-Lighting Agent
-
-↓
-
-Negative Prompt Agent
-
-↓
-
-Prompt Composer
-
-↓
-
-Prompt Validator
-
-↓
-
-Transparent Avatar Generator
-
-↓
-
-Background Generator
-
-↓
-
-Composition Engine
-
-↓
-
-Quality Assurance
-
-↓
-
-Persona Board
-
-==================================================================
-DO NOT TRUST RAW JSON
-==================================================================
-
-Treat every JSON value as a candidate.
-
-Never assume it is correct.
-
-Every field must be validated.
-
-==================================================================
-TARGET AUDIENCE MODEL
-==================================================================
-
-Extract
-
-Industry
-
-Products
-
-Country
-
-Primary Markets
+There are TWO completely different concepts.
 
 Target Audience
+
+and
+
+Representative.
+
+Never mix them.
+
+Target Audience
+
+describes
+
+Who the campaign is for.
+
+Representative
+
+describes
+
+Who appears inside the generated image.
+
+These are independent models.
+
+====================================================================
+TARGET AUDIENCE
+====================================================================
+
+Display exactly what exists after validation.
+
+Age
+
+Gender
+
+Income
+
+Country
 
 Psychographics
 
@@ -224,55 +160,215 @@ Buying Motivations
 
 Pain Points
 
-Communication Style
+Products
 
-Tone
-
-Brand Positioning
+Industry
 
 Visual Style
 
-Brand Colors
+Never overwrite these.
 
-Voice Style
+====================================================================
+REPRESENTATIVE
+====================================================================
 
-Preferred Platforms
+Representative must always be inferred automatically.
 
-Do NOT modify these values.
+Never ask the user.
 
-These represent the intended audience.
-
-==================================================================
-REPRESENTATIVE MODEL
-==================================================================
-
-Representative is NOT Target Audience.
-
-Representative is the person who appears inside the advertisement.
-
-Representative must be inferred automatically.
-
-The user must never manually select:
+Never expose
 
 Male
 
 Female
 
-Diverse
+Representative Selection
 
-The application must decide.
+Buttons.
 
-==================================================================
-REPRESENTATIVE INFERENCE ENGINE
-==================================================================
+Remove all manual UI.
 
-Automatically infer:
+====================================================================
+DO NOT INFER APPEARANCE FROM COUNTRY
+====================================================================
 
-Age
+Country
 
-Gender
+IS NOT
 
 Ethnicity
+
+Country
+
+IS NOT
+
+Skin Tone
+
+Country
+
+IS NOT
+
+Facial Features
+
+Country
+
+IS NOT
+
+Hair
+
+Country
+
+IS ONLY
+
+Market.
+
+Never generate appearance using only country.
+
+====================================================================
+REPRESENTATIVE INFERENCE
+====================================================================
+
+Infer representative using weighted evidence.
+
+Use
+
+Industry
+
+Products
+
+Brand Positioning
+
+Primary Market
+
+Campaign Objective
+
+Visual Style
+
+Communication Style
+
+Psychographics
+
+Buying Motivations
+
+Target Audience
+
+Brand Colors
+
+Lifestyle
+
+Everything contributes.
+
+====================================================================
+WEIGHTED SCORING
+====================================================================
+
+Industry
+
+20%
+
+Products
+
+18%
+
+Psychographics
+
+15%
+
+Brand Positioning
+
+15%
+
+Campaign Objective
+
+10%
+
+Visual Style
+
+8%
+
+Lifestyle
+
+5%
+
+Primary Market
+
+5%
+
+Country
+
+4%
+
+Communication Style
+
+3%
+
+Competitor Ads
+
+0%
+
+Facebook Ads
+
+0%
+
+Instagram Ads
+
+0%
+
+TikTok Ads
+
+0%
+
+Never use advertisements to infer appearance.
+
+====================================================================
+MARKET DIVERSITY ENGINE
+====================================================================
+
+Maintain metadata for every market.
+
+Example
+
+United Arab Emirates
+
+Market Diversity
+
+Very High
+
+Representative Casting
+
+International
+
+Global Fashion
+
+Diverse
+
+United Kingdom
+
+Representative Casting
+
+Multicultural
+
+International
+
+United States
+
+Representative Casting
+
+Highly Diverse
+
+Do not stereotype.
+
+====================================================================
+GENERATE REPRESENTATIVE
+====================================================================
+
+Automatically generate
+
+Representative Age
+
+Representative Gender
+
+Representative Ethnicity
 
 Nationality
 
@@ -284,7 +380,7 @@ Eye Color
 
 Body Type
 
-Expression
+Facial Features
 
 Wardrobe
 
@@ -292,113 +388,25 @@ Accessories
 
 Pose
 
-Camera
-
-Lighting
-
-Background
+Expression
 
 Confidence
-
-Reasoning
-
-==================================================================
-INFERENCE INPUTS
-==================================================================
-
-Representative must be inferred using
-
-Industry
-
-Products
-
-Visual Style
-
-Brand Positioning
-
-Psychographics
-
-Buying Motivations
-
-Primary Markets
-
-Country
-
-Lifestyle
-
-Competitor Positioning
-
-Campaign Objective
-
-Brand Tone
-
-Communication Style
-
-Do NOT use only Gender.
-
-Do NOT use only Age.
-
-Everything must be weighted.
-
-==================================================================
-EXAMPLE
-==================================================================
-
-Input
-
-Gender
-
-All genders
-
-↓
-
-Do NOT ask the user.
-
-Instead
-
-Determine the most suitable representative for the campaign.
-
-Return
-
-Representative
-
-Female
 
 Reason
 
-The footwear campaign targets eco-conscious lifestyle buyers.
+Everything must be explainable.
 
-A female lifestyle representative provides the strongest visual alignment while the original target audience remains "All genders".
+====================================================================
+CROSS VALIDATION
+====================================================================
 
-Confidence
+Validate
 
-96%
+Industry
 
-==================================================================
-DO NOT OVERWRITE TARGET AUDIENCE
-==================================================================
+↓
 
-Persona Board
-
-Target Audience
-
-Gender
-
-All genders
-
-Representative
-
-Female
-
-Never replace one with the other.
-
-==================================================================
-CROSS VALIDATION ENGINE
-==================================================================
-
-Every field must validate every other field.
-
-Age
+Products
 
 ↓
 
@@ -406,11 +414,7 @@ Psychographics
 
 ↓
 
-Industry
-
-↓
-
-Products
+Lifestyle
 
 ↓
 
@@ -418,285 +422,145 @@ Buying Motivations
 
 ↓
 
+Campaign
+
+↓
+
 Visual Style
-
-↓
-
-Country
-
-↓
-
-Lifestyle
 
 ↓
 
 Representative
 
-Reject inconsistent values.
+If conflict exists
 
-==================================================================
-AGE VALIDATION
-==================================================================
+Reject.
 
-Never trust
+Regenerate.
 
-88-96
-
-if
-
-Industry
-
-Footwear
-
-Psychographics
-
-Travel
-
-Minimalist
-
-Fashion
-
-Business
-
-Lifestyle
-
-Modern
-
-Instead infer
-
-28-38
-
-Explain why.
-
-==================================================================
+====================================================================
 BACKGROUND ENGINE
-==================================================================
+====================================================================
 
-Never reuse backgrounds.
+Generate background independently.
 
-Never hardcode.
+Never merge avatar and background.
 
-Generate scenes using
+Background depends on
 
 Industry
 
 Products
 
-Country
-
-Brand Colors
-
-Visual Style
+Campaign
 
 Lifestyle
 
-Examples
-
-Footwear
-
-Modern London apartment
-
-Scandinavian living room
-
-Eco-friendly home
-
-Minimal studio
-
-Coffee shop
-
-Urban park
-
-Retail showroom
-
-Fashion
-
-Editorial loft
-
-Luxury apartment
-
-Designer boutique
-
-Technology
-
-Innovation lab
-
-Startup office
-
-Healthcare
-
-Modern clinic
-
-Corporate
-
-Executive office
-
-Maintain a scene library.
-
-Minimum
-
-100 scene templates.
-
-Randomly score.
-
-Select highest match.
-
-==================================================================
-WARDROBE ENGINE
-==================================================================
-
-Generate clothing using
+Visual Style
 
 Brand Colors
 
-Industry
+Not on country alone.
 
-Lifestyle
-
-Country
-
-Visual Style
-
-Materials
-
-Cotton
-
-Merino
-
-Linen
-
-Organic fabric
-
-Premium sustainable fashion
-
-Never generate generic sportswear.
-
-==================================================================
+====================================================================
 AVATAR ENGINE
-==================================================================
+====================================================================
 
-Generate ONLY the person.
+Generate only avatar.
 
 Transparent PNG.
 
 No background.
 
-No furniture.
-
-No environment.
-
-No shadows outside body.
-
-Commercial quality.
-
-==================================================================
-BACKGROUND ENGINE
-==================================================================
-
-Generate ONLY environment.
-
-No people.
-
-No products.
-
-No clothing.
-
-Leave center empty.
-
 Commercial photography.
 
-==================================================================
-COMPOSITION ENGINE
-==================================================================
-
-Combine
-
-Transparent Avatar
-
-+
-
-Background
-
-Add
-
-Ground shadow
-
-Ambient occlusion
-
-Perspective correction
-
-Lighting match
-
-Color harmony
-
-Never regenerate avatar.
-
-Never regenerate background.
-
-==================================================================
-NEGATIVE PROMPT
-==================================================================
-
-Always include
-
-No double exposure
-
-No background bleed
-
-No projected textures
-
-No hallway overlays
-
-No LED panels
-
-No camera equipment
-
-No tripods
-
-No floating products
-
-No distorted anatomy
-
-No duplicate limbs
-
-No malformed hands
-
-No ghosting
-
-No surreal textures
-
-No watermark
-
-No text
-
-==================================================================
-QUALITY ENGINE
-==================================================================
+====================================================================
+QUALITY VALIDATION
+====================================================================
 
 Reject generation if
 
-Background repeated
+Representative contradicts industry.
 
-Representative inconsistent
+Representative contradicts campaign.
 
-Wardrobe conflicts
+Representative contradicts products.
 
-Lighting unrealistic
+Representative appears random.
 
-Composition incorrect
+Background repeated.
 
-Product floating
+Background contains studio equipment.
 
-Industry mismatch
+Avatar contains AI artifacts.
+
+Wardrobe conflicts with brand.
+
+Confidence below threshold.
 
 Automatically regenerate.
 
-==================================================================
-UI REDESIGN
-==================================================================
+====================================================================
+REASONING ENGINE
+====================================================================
 
-Remove all manual representative selection.
+Every generated representative must contain
 
-Remove Male/Female buttons.
+Reason
+
+Evidence
+
+Confidence
+
+Variables used
+
+Example
+
+Representative
+
+Female
+
+Age
+
+29
+
+Reason
+
+Derived from
+
+Industry
+
+Fashion
+
+Visual Style
+
+Modern Ecommerce
+
+Campaign
+
+Lifestyle
+
+Psychographics
+
+Eco-conscious
+
+Confidence
+
+96%
+
+====================================================================
+UI
+====================================================================
+
+Remove
+
+Male
+
+Female
+
+Representative Selection
+
+Buttons.
 
 Replace with
 
@@ -706,59 +570,29 @@ Display
 
 Representative
 
-Age
-
-Gender
-
-Ethnicity
-
 Reason
 
 Confidence
 
-Target Audience
+Automatically Selected
 
-must remain unchanged.
-
-Persona Board must clearly separate
+Keep
 
 Target Audience
 
-and
+as a separate section.
 
-Representative.
-
-==================================================================
-LOGGING
-==================================================================
-
-Record
-
-Raw Value
-
-Validated Value
-
-Inference
-
-Reason
-
-Confidence
-
-Evidence
-
-==================================================================
-OUTPUT FILES
-==================================================================
+====================================================================
+OUTPUT
+====================================================================
 
 validated_brand.json
 
-validated_persona.json
+validated_target_audience.json
 
 representative.json
 
 avatar_spec.json
-
-background_spec.json
 
 avatar_prompt.txt
 
@@ -768,42 +602,44 @@ negative_prompt.txt
 
 heygen_prompt.txt
 
-avatar.png
-
-background.png
-
-final_composite.png
-
 validation_report.json
 
 confidence_report.json
 
-==================================================================
+====================================================================
 ACCEPTANCE CRITERIA
-==================================================================
+====================================================================
 
-The system must require no manual representative selection.
+✓ No manual representative selection.
 
-The application must automatically infer the representative.
+✓ No hardcoded gender.
 
-The target audience must never be overwritten.
+✓ No country stereotypes.
 
-Every inference must be explainable.
+✓ Target Audience remains unchanged.
 
-Every validation must be traceable.
+✓ Representative inferred automatically.
 
-Avatar and background must always be generated separately.
+✓ Every inference explained.
 
-No repeated backgrounds.
+✓ Every decision traceable.
 
-No texture bleeding.
+✓ Avatar reflects industry.
 
-No AI artifacts.
+✓ Avatar reflects products.
 
-No hardcoded rules.
+✓ Avatar reflects campaign objective.
 
-No brand-specific assumptions.
+✓ Avatar reflects visual style.
 
-The platform must work for fashion, footwear, technology, automotive, healthcare, finance, hospitality, education, retail, luxury, FMCG, SaaS, and any future industry without code changes.
+✓ Avatar reflects psychographics.
 
-The final result should feel like an enterprise AI Brand Strategy platform rather than a JSON viewer or avatar generator.
+✓ Avatar reflects brand positioning.
+
+✓ Background generated separately.
+
+✓ Avatar generated separately.
+
+✓ Production-ready architecture.
+
+The application should function as an autonomous AI Brand Persona Intelligence Platform that requires only a Brand Research JSON as input and automatically produces a validated, explainable, and brand-aligned representative without any manual intervention.
