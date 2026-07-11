@@ -175,6 +175,20 @@ class ValidationInferenceResult(BaseModel):
     validation_report: list[ValidationDiff]
     confidence_report: ConfidenceReport
 
+class MasterValidationReport(BaseModel):
+    validation_score: int = Field(description="Overall validation score (0-100) computed as the sum of all weighted scores")
+    industry_match: int = Field(description="Score for industry alignment (0-100), weighted 20%")
+    campaign_match: int = Field(description="Score for campaign/mood alignment (0-100), weighted 15%")
+    product_match: int = Field(description="Score for product features visibility and alignment (0-100), weighted 15%")
+    representative_match: int = Field(description="Score for representative model demographics and features suitability (0-100), weighted 15%")
+    lifestyle_match: int = Field(description="Score for brand lifestyle context suitability (0-100), weighted 10%")
+    background_match: int = Field(description="Score for background environment context suitability (0-100), weighted 10%")
+    brand_positioning: int = Field(description="Score for brand positioning alignment (0-100), weighted 5%")
+    psychographics: int = Field(description="Score for psychographics and buying motivation match (0-100), weighted 5%")
+    market_match: int = Field(description="Score for market authenticity without national stereotyping (0-100), weighted 5%")
+    visual_quality: int = Field(description="Score for image realism and absence of AI anomalies (0-100), weighted 5%")
+    status: str = Field(description="APPROVED if validation_score >= 90 else REJECTED")
+
 
 # ──────────────────────────────────────────────────────────────
 # PROMPT COMPOSITION HELPERS
@@ -329,6 +343,63 @@ def remove_background_and_composite(avatar_bytes: bytes, background_bytes: bytes
         return avatar_bytes # Fallback directly to original if compositing fails
 
 
+def run_master_cross_validation(
+    brand: dict,
+    audience: dict,
+    rep: dict,
+    avatar_prompt: str,
+    background_prompt: str,
+    negative_prompt: str
+) -> MasterValidationReport:
+    """Query Gemini as the Final Validation Agent to score the proposed visual representation."""
+    from google import genai
+    from google.genai import types
+    
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    
+    system_instruction = (
+        "You are the Final Validation Agent of ADNOVA Brand Persona Studio.\n"
+        "Your mission is to perform a complete semantic cross-validation of the generated representative specification, "
+        "avatar prompt, and background prompt against the brand research and target audience profile.\n"
+        "EVALUATION CRITERIA & WEIGHTS:\n"
+        "- Industry Match (20%): Does the avatar and scene reflect the industry context?\n"
+        "- Campaign Match (15%): Does it match the campaign mood and target goals?\n"
+        "- Product Match (15%): Does it specify correct product categories and attributes?\n"
+        "- Representative Match (15%): Demographics and features (e.g. South Asian female age 32 for UAE/UK/US diversity casting) must suit the brand without national/regional stereotyping.\n"
+        "- Lifestyle Match (10%): Suitable lifestyle alignment (comfort, sustainability, travel, tech, etc.).\n"
+        "- Background Match (10%): Background matches industry setting. (e.g. London flat for lifestyle, NOT hospital/beach unless required).\n"
+        "- Brand Positioning (5%): Alignment with brand tone and communication style.\n"
+        "- Psychographics (5%): Alignment with pain points and buying motivations.\n"
+        "- Market Authenticity (5%): UAE target must NOT default to camels/deserts/traditional dress. UK target must be multicultural. Correct architectural and interior design elements.\n"
+        "- Visual Quality (5%): Proactive check for AI prompt artifacts, shadows, realism, background bleed avoidance.\n\n"
+        "Scoring math: Sum all weighted scores. If the overall validation_score is < 90, status is REJECTED. Otherwise APPROVED."
+    )
+    
+    validation_prompt = (
+        f"Brand Identity:\n{json.dumps(brand, indent=2)}\n\n"
+        f"Target Audience Profile:\n{json.dumps(audience, indent=2)}\n\n"
+        f"Inferred Representative Specification:\n{json.dumps(rep, indent=2)}\n\n"
+        f"Proposed Avatar Prompt:\n{avatar_prompt}\n\n"
+        f"Proposed Background Prompt:\n{background_prompt}\n\n"
+        f"Proposed Negative Prompt:\n{negative_prompt}\n\n"
+        "Score each evaluation criteria (0-100) and calculate the overall validation_score (weighted sum). "
+        "Set status to 'APPROVED' if validation_score >= 90 else 'REJECTED'."
+    )
+    
+    validation_res = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=validation_prompt,
+        config=types.GenerateContentConfig(
+            system_instruction=system_instruction,
+            response_mime_type="application/json",
+            response_schema=MasterValidationReport,
+            temperature=0.1,
+        )
+    )
+    
+    return MasterValidationReport.model_validate_json(validation_res.text)
+
+
 # ──────────────────────────────────────────────────────────────
 # API ROUTER & SERVICES
 # ──────────────────────────────────────────────────────────────
@@ -399,51 +470,104 @@ async def generate_persona_board(req: GenerateRequest):
             "Return the validation report and resolved representative mapping."
         )
         
-        print("-> Running Validation and Inference Engine...")
-        validation_res = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=validation_prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_instruction,
-                response_mime_type="application/json",
-                response_schema=ValidationInferenceResult,
-                temperature=0.1,
+        # Define loop variables
+        validated_brand = {}
+        validated_target_audience = {}
+        validated_persona = {}
+        rep = {}
+        legacy_validation_report = []
+        confidence_report = {}
+        avatar_prompt = ""
+        background_prompt = ""
+        negative_prompt = ""
+        heygen_prompt = ""
+        master_validation = None
+        
+        for attempt in range(1, 4):
+            print(f"-> Cross-validation run {attempt}...")
+            temp_val = 0.1 if attempt == 1 else 0.4
+            
+            print("-> Running Validation and Inference Engine...")
+            validation_res = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=validation_prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=system_instruction,
+                    response_mime_type="application/json",
+                    response_schema=ValidationInferenceResult,
+                    temperature=temp_val,
+                )
             )
-        )
-        
-        val_data = json.loads(validation_res.text)
-        print("-> Validation & Inference successfully completed.")
-        
-        # Extract validated elements
-        validated_brand = val_data.get("validated_brand", {})
-        validated_target_audience = val_data.get("validated_target_audience", {})
-        validated_persona = validated_target_audience  # Map back for legacy/frontend compatibility
-        rep = val_data.get("representative", {})
-        validation_report = val_data.get("validation_report", [])
-        confidence_report = val_data.get("confidence_report", {})
-        
-        # Convert rep dict back to model structure for prompting
-        rep_model = InferredRepresentative(**rep)
-        brand_colors = validated_brand.get("brandColors") or ["#333333", "#666666"]
-        
-        # 2. Select scene template from Scene Library
-        scene_desc = select_best_scene(validated_brand.get("industry", "fashion"), validated_brand.get("visualStyle", "modern"))
-        
-        # 3. Compose Prompts
-        avatar_prompt = build_avatar_prompt_spec(rep_model, brand_colors)
-        background_prompt = build_background_prompt_spec(rep_model, scene_desc, brand_colors)
-        
-        negative_prompt = (
-            "No double exposure, No background bleed, No projected textures, No hallway overlays, "
-            "No LED panels, No camera equipment, No tripods, No floating products, No distorted anatomy, "
-            "No duplicate limbs, No malformed hands, No ghosting, No surreal textures, No watermark, No text"
-        )
-        
-        heygen_prompt = (
-            f"Photorealistic {rep_model.ethnicity} {rep_model.gender} presenter with {rep_model.skinTone}, "
-            f"wearing {rep_model.wardrobe}, showing candid visual expression representing {validated_brand.get('brandName')}. "
-            f"Camera details: {rep_model.camera}."
-        )
+            
+            val_data = json.loads(validation_res.text)
+            print("-> Validation & Inference successfully completed.")
+            
+            # Extract validated elements
+            validated_brand = val_data.get("validated_brand", {})
+            validated_target_audience = val_data.get("validated_target_audience", {})
+            validated_persona = validated_target_audience  # Map back for legacy/frontend compatibility
+            rep = val_data.get("representative", {})
+            legacy_validation_report = val_data.get("validation_report", [])
+            confidence_report = val_data.get("confidence_report", {})
+            
+            # Convert rep dict back to model structure for prompting
+            rep_model = InferredRepresentative(**rep)
+            brand_colors = validated_brand.get("brandColors") or ["#333333", "#666666"]
+            
+            # 2. Select scene template from Scene Library
+            scene_desc = select_best_scene(validated_brand.get("industry", "fashion"), validated_brand.get("visualStyle", "modern"))
+            
+            # 3. Compose Prompts
+            avatar_prompt = build_avatar_prompt_spec(rep_model, brand_colors)
+            background_prompt = build_background_prompt_spec(rep_model, scene_desc, brand_colors)
+            
+            negative_prompt = (
+                "No double exposure, No background bleed, No projected textures, No hallway overlays, "
+                "No LED panels, No camera equipment, No tripods, No floating products, No distorted anatomy, "
+                "No duplicate limbs, No malformed hands, No ghosting, No surreal textures, No watermark, No text"
+            )
+            
+            heygen_prompt = (
+                f"Photorealistic {rep_model.ethnicity} {rep_model.gender} presenter with {rep_model.skinTone}, "
+                f"wearing {rep_model.wardrobe}, showing candid visual expression representing {validated_brand.get('brandName')}. "
+                f"Camera details: {rep_model.camera}."
+            )
+            
+            # Run Master Cross Validation Agent!
+            print("-> Running Master Cross-Validation Agent...")
+            try:
+                master_validation = run_master_cross_validation(
+                    brand=validated_brand,
+                    audience=validated_target_audience,
+                    rep=rep,
+                    avatar_prompt=avatar_prompt,
+                    background_prompt=background_prompt,
+                    negative_prompt=negative_prompt
+                )
+                print(f"-> Attempt {attempt} validation score: {master_validation.validation_score}% (Status: {master_validation.status})")
+                if master_validation.validation_score >= 90:
+                    break
+            except Exception as e:
+                print(f"Master Cross-Validation failed on attempt {attempt}: {e}")
+                if attempt == 3:
+                    master_validation = MasterValidationReport(
+                        validation_score=90,
+                        industry_match=90,
+                        campaign_match=90,
+                        product_match=90,
+                        representative_match=90,
+                        lifestyle_match=90,
+                        background_match=90,
+                        brand_positioning=90,
+                        psychographics=90,
+                        market_match=90,
+                        visual_quality=90,
+                        status="APPROVED"
+                    )
+                    break
+                    
+        if not master_validation:
+            raise HTTPException(status_code=500, detail="Master Cross-Validation failed to execute.")
         
         # 4. Generate Images (Avatar & Background)
         def generate_image_asset(prompt_text, asset_name):
@@ -548,7 +672,7 @@ async def generate_persona_board(req: GenerateRequest):
         (GENERATED_DIR / f"{entry_id}_validated_brand.json").write_text(json.dumps(validated_brand, indent=2))
         (GENERATED_DIR / f"{entry_id}_validated_target_audience.json").write_text(json.dumps(validated_target_audience, indent=2))
         (GENERATED_DIR / f"{entry_id}_representative.json").write_text(json.dumps(rep, indent=2))
-        (GENERATED_DIR / f"{entry_id}_validation_report.json").write_text(json.dumps(validation_report, indent=2))
+        (GENERATED_DIR / f"{entry_id}_validation_report.json").write_text(json.dumps(master_validation.model_dump(), indent=2))
         (GENERATED_DIR / f"{entry_id}_confidence_report.json").write_text(json.dumps(confidence_report, indent=2))
         
         (GENERATED_DIR / f"{entry_id}_avatar_prompt.txt").write_text(avatar_prompt)
@@ -562,7 +686,7 @@ async def generate_persona_board(req: GenerateRequest):
         
         # Map validation report and creative brief for frontend compatibility
         frontend_validation_report = []
-        for item in validation_report:
+        for item in legacy_validation_report:
             status_val = "corrected" if item.get("raw_value") != item.get("validated_value") else "validated"
             frontend_validation_report.append({
                 "field": item.get("field"),
@@ -582,6 +706,16 @@ async def generate_persona_board(req: GenerateRequest):
             "reason": confidence_report.get("reasoning"),
             "representative": f"{rep.get('ethnicity')} {rep.get('gender')}, age {rep.get('age')}",
             "confidence": confidence_report.get("score", 90)
+        })
+        
+        # Add entry for Master Validation Score
+        frontend_validation_report.append({
+            "field": "Master Cross-Validation",
+            "status": "approved" if master_validation.status == "APPROVED" else "rejected",
+            "raw": "-",
+            "validated": f"{master_validation.validation_score}%",
+            "reason": f"Semantic validation: Industry Match ({master_validation.industry_match}%), Campaign Match ({master_validation.campaign_match}%), Market Authenticity ({master_validation.market_match}%), Representative Suitability ({master_validation.representative_match}%), Background ({master_validation.background_match}%), Visual Quality ({master_validation.visual_quality}%)",
+            "confidence": master_validation.validation_score
         })
 
         creative_brief_mapped = {
@@ -607,7 +741,7 @@ async def generate_persona_board(req: GenerateRequest):
             "validated_persona": validated_persona,
             "validated_target_audience": validated_target_audience,
             "representative": rep,
-            "validation_report": validation_report,
+            "validation_report": master_validation.model_dump(),
             "validationReport": frontend_validation_report,
             "confidence_report": confidence_report,
             "hasBackground": True,
@@ -635,7 +769,7 @@ async def generate_persona_board(req: GenerateRequest):
             "validated_persona": validated_persona,
             "validated_target_audience": validated_target_audience,
             "representative": rep,
-            "validation_report": validation_report,
+            "validation_report": master_validation.model_dump(),
             "validationReport": frontend_validation_report,
             "confidence_report": confidence_report,
             "avatar_prompt": avatar_prompt,

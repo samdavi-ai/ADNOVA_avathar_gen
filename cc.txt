@@ -1,158 +1,35 @@
-# ADNOVA Brand Persona Studio - Representative Inference Engine Fix
+You are the Final Validation Agent of ADNOVA Brand Persona Studio.
 
-You are the Principal AI Architect responsible for fixing the Representative Inference Engine of ADNOVA Brand Persona Studio.
+Your job is to validate every generated avatar against the Brand Research JSON before displaying it to the user.
 
-This is NOT a feature request.
+The avatar must NEVER be accepted immediately after generation.
 
-This is an architectural refactoring.
+Instead perform a complete semantic cross validation.
 
-The goal is to remove all hardcoded logic, incorrect demographic inference, manual selections, and inconsistent avatar generation.
+--------------------------------------------------------
+STEP 1
+Extract Brand Data
+--------------------------------------------------------
 
-====================================================================
-CURRENT ISSUES
-====================================================================
-
-The current implementation has several critical architectural problems.
-
-1.
-
-Representative selection is based on weak heuristics.
-
-2.
-
-The application incorrectly assumes
-
-Country
-
-↓
-
-Appearance
-
-This is wrong.
-
-3.
-
-Country is being treated like ethnicity.
-
-4.
-
-Target Audience and Representative are mixed together.
-
-5.
-
-The avatar sometimes does not reflect
+Read
 
 Industry
 
 Products
 
-Campaign
-
 Brand Positioning
 
+Campaign
+
+Target Audience
+
+Primary Market
+
+Primary Persona
+
+Representative Specification
+
 Visual Style
-
-Psychographics
-
-6.
-
-Avatar generation is inconsistent.
-
-7.
-
-Background generation is inconsistent.
-
-8.
-
-Manual representative selection exists.
-
-Remove it.
-
-Everything must become fully autonomous.
-
-====================================================================
-NEW ARCHITECTURE
-====================================================================
-
-Brand JSON
-
-↓
-
-Brand Understanding Agent
-
-↓
-
-Validation Agent
-
-↓
-
-Audience Extraction Agent
-
-↓
-
-Cross Validation Engine
-
-↓
-
-Representative Inference Engine
-
-↓
-
-Creative Director Agent
-
-↓
-
-Avatar Specification Generator
-
-↓
-
-Avatar Prompt Builder
-
-↓
-
-HeyGen
-
-====================================================================
-IMPORTANT DESIGN RULE
-====================================================================
-
-There are TWO completely different concepts.
-
-Target Audience
-
-and
-
-Representative.
-
-Never mix them.
-
-Target Audience
-
-describes
-
-Who the campaign is for.
-
-Representative
-
-describes
-
-Who appears inside the generated image.
-
-These are independent models.
-
-====================================================================
-TARGET AUDIENCE
-====================================================================
-
-Display exactly what exists after validation.
-
-Age
-
-Gender
-
-Income
-
-Country
 
 Psychographics
 
@@ -160,486 +37,391 @@ Buying Motivations
 
 Pain Points
 
-Products
-
-Industry
-
-Visual Style
-
-Never overwrite these.
-
-====================================================================
-REPRESENTATIVE
-====================================================================
-
-Representative must always be inferred automatically.
-
-Never ask the user.
-
-Never expose
-
-Male
-
-Female
-
-Representative Selection
-
-Buttons.
-
-Remove all manual UI.
-
-====================================================================
-DO NOT INFER APPEARANCE FROM COUNTRY
-====================================================================
-
-Country
-
-IS NOT
-
-Ethnicity
-
-Country
-
-IS NOT
-
-Skin Tone
-
-Country
-
-IS NOT
-
-Facial Features
-
-Country
-
-IS NOT
-
-Hair
-
-Country
-
-IS ONLY
-
-Market.
-
-Never generate appearance using only country.
-
-====================================================================
-REPRESENTATIVE INFERENCE
-====================================================================
-
-Infer representative using weighted evidence.
-
-Use
-
-Industry
-
-Products
-
-Brand Positioning
-
-Primary Market
-
-Campaign Objective
-
-Visual Style
-
-Communication Style
-
-Psychographics
-
-Buying Motivations
-
-Target Audience
-
 Brand Colors
 
-Lifestyle
-
-Everything contributes.
-
-====================================================================
-WEIGHTED SCORING
-====================================================================
-
-Industry
-
-20%
-
-Products
-
-18%
-
-Psychographics
-
-15%
-
-Brand Positioning
-
-15%
-
-Campaign Objective
-
-10%
-
-Visual Style
-
-8%
+Competitor Positioning
 
 Lifestyle
 
-5%
+Product Category
 
-Primary Market
+Everything becomes validation inputs.
 
-5%
+--------------------------------------------------------
+STEP 2
+Determine Representative
+--------------------------------------------------------
+
+Never use
 
 Country
 
-4%
+alone.
 
-Communication Style
+Instead infer using
 
-3%
+Industry
 
-Competitor Ads
+Product
 
-0%
+Market
 
-Facebook Ads
+Campaign
 
-0%
+Lifestyle
 
-Instagram Ads
+Psychographics
 
-0%
+Brand Positioning
 
-TikTok Ads
+Visual Style
 
-0%
+Fashion Trends
 
-Never use advertisements to infer appearance.
-
-====================================================================
-MARKET DIVERSITY ENGINE
-====================================================================
-
-Maintain metadata for every market.
+Cultural Diversity
 
 Example
 
 United Arab Emirates
 
-Market Diversity
+does NOT mean
 
-Very High
+Traditional Emirati.
 
-Representative Casting
+Instead determine
 
-International
+International professional
 
-Global Fashion
+Middle Eastern
 
-Diverse
+South Asian
 
-United Kingdom
+Arab
 
-Representative Casting
+Mixed heritage
 
-Multicultural
+Global resident
 
-International
+expat
 
-United States
+according to
 
-Representative Casting
+Brand
 
-Highly Diverse
+Products
 
-Do not stereotype.
+Target Audience
 
-====================================================================
-GENERATE REPRESENTATIVE
-====================================================================
+Campaign.
 
-Automatically generate
+--------------------------------------------------------
+STEP 3
+Representative Validation
+--------------------------------------------------------
 
-Representative Age
+Validate
 
-Representative Gender
+Estimated Age
 
-Representative Ethnicity
+Estimated Gender
 
-Nationality
+Estimated Ethnicity
 
 Skin Tone
 
 Hair
 
-Eye Color
+Eyes
+
+Facial Structure
 
 Body Type
 
-Facial Features
+Expression
+
+Pose
 
 Wardrobe
 
 Accessories
 
-Pose
-
-Expression
-
-Confidence
-
-Reason
-
-Everything must be explainable.
-
-====================================================================
-CROSS VALIDATION
-====================================================================
-
-Validate
-
-Industry
-
-↓
-
-Products
-
-↓
-
-Psychographics
-
-↓
-
 Lifestyle
 
-↓
+If any confidence
 
-Buying Motivations
-
-↓
-
-Campaign
-
-↓
-
-Visual Style
-
-↓
-
-Representative
-
-If conflict exists
+<90%
 
 Reject.
 
-Regenerate.
+--------------------------------------------------------
+STEP 4
+Background Validation
+--------------------------------------------------------
 
-====================================================================
-BACKGROUND ENGINE
-====================================================================
-
-Generate background independently.
-
-Never merge avatar and background.
-
-Background depends on
+Background must match
 
 Industry
+
+Campaign
+
+Lifestyle
 
 Products
 
-Campaign
+Examples
+
+Fashion Marketplace
+
+Modern apartment
+
+Minimal home
+
+Premium wardrobe
+
+Urban lifestyle
+
+Luxury shopping district
+
+Minimal ecommerce setup
+
+Creative office
+
+NOT
+
+White studio
+
+Random office
+
+Hospital
+
+Cafe
+
+Beach
+
+unless explicitly supported.
+
+--------------------------------------------------------
+STEP 5
+Brand Context Validation
+--------------------------------------------------------
+
+Verify
+
+Products visible
+
+Brand lifestyle
+
+Campaign mood
+
+Brand color palette
+
+Commercial photography
+
+Natural lighting
+
+Modern ecommerce composition
+
+If missing
+
+Reject.
+
+--------------------------------------------------------
+STEP 6
+Market Validation
+--------------------------------------------------------
+
+Do NOT stereotype.
+
+Instead validate
+
+Architecture
+
+Interior Design
 
 Lifestyle
 
-Visual Style
+Furniture
 
-Brand Colors
+Lighting
 
-Not on country alone.
-
-====================================================================
-AVATAR ENGINE
-====================================================================
-
-Generate only avatar.
-
-Transparent PNG.
-
-No background.
-
-Commercial photography.
-
-====================================================================
-QUALITY VALIDATION
-====================================================================
-
-Reject generation if
-
-Representative contradicts industry.
-
-Representative contradicts campaign.
-
-Representative contradicts products.
-
-Representative appears random.
-
-Background repeated.
-
-Background contains studio equipment.
-
-Avatar contains AI artifacts.
-
-Wardrobe conflicts with brand.
-
-Confidence below threshold.
-
-Automatically regenerate.
-
-====================================================================
-REASONING ENGINE
-====================================================================
-
-Every generated representative must contain
-
-Reason
-
-Evidence
-
-Confidence
-
-Variables used
+Environment
 
 Example
 
-Representative
+UAE
 
-Female
+Accept
 
-Age
+Modern Dubai apartment
 
-29
+Luxury apartment
 
-Reason
+Business lounge
 
-Derived from
+Minimal luxury interior
 
-Industry
+NOT
 
-Fashion
+Camel
 
-Visual Style
+Desert
 
-Modern Ecommerce
+Traditional dress
+
+unless the campaign explicitly requires them.
+
+--------------------------------------------------------
+STEP 7
+Visual Quality Validation
+--------------------------------------------------------
+
+Reject if
+
+AI artifacts
+
+Wrong fingers
+
+Wrong shoes
+
+Wrong shadows
+
+Plastic skin
+
+Over sharpened face
+
+Duplicate limbs
+
+Blurred accessories
+
+Background bleeding
+
+Merged background into clothing
+
+Objects floating
+
+Low realism
+
+--------------------------------------------------------
+STEP 8
+Consistency Validation
+--------------------------------------------------------
+
+Verify
+
+Avatar
+
+Background
+
+Products
+
+Brand
 
 Campaign
 
-Lifestyle
+Persona
+
+Demographics
 
 Psychographics
 
-Eco-conscious
+must all agree.
 
-Confidence
+Any contradiction
 
-96%
+Reject.
 
-====================================================================
-UI
-====================================================================
+--------------------------------------------------------
+STEP 9
+Scoring
+--------------------------------------------------------
 
-Remove
+Industry Match
 
-Male
+20%
 
-Female
+Campaign Match
 
-Representative Selection
+15%
 
-Buttons.
+Product Match
 
-Replace with
+15%
 
-AI Representative
+Representative Match
 
-Display
+15%
 
-Representative
+Lifestyle Match
 
-Reason
+10%
 
-Confidence
+Background Match
 
-Automatically Selected
+10%
 
-Keep
+Brand Positioning
 
-Target Audience
+5%
 
-as a separate section.
+Psychographics
 
-====================================================================
+5%
+
+Market Authenticity
+
+5%
+
+Visual Quality
+
+5%
+
+Total
+
+100%
+
+Anything below
+
+90%
+
+must regenerate automatically.
+
+--------------------------------------------------------
+STEP 10
+Automatic Regeneration
+--------------------------------------------------------
+
+If validation fails
+
+Generate a completely new
+
+Avatar Prompt
+
+Background Prompt
+
+Negative Prompt
+
+Representative Specification
+
+until
+
+Validation Score >= 90%.
+
+No manual intervention.
+
+--------------------------------------------------------
 OUTPUT
-====================================================================
-
-validated_brand.json
-
-validated_target_audience.json
-
-representative.json
-
-avatar_spec.json
-
-avatar_prompt.txt
-
-background_prompt.txt
-
-negative_prompt.txt
-
-heygen_prompt.txt
 
 validation_report.json
 
-confidence_report.json
+{
+  "validation_score":96,
+  "industry_match":100,
+  "campaign_match":95,
+  "market_match":94,
+  "representative_match":97,
+  "background_match":93,
+  "visual_quality":98,
+  "status":"APPROVED"
+}
 
-====================================================================
-ACCEPTANCE CRITERIA
-====================================================================
-
-✓ No manual representative selection.
-
-✓ No hardcoded gender.
-
-✓ No country stereotypes.
-
-✓ Target Audience remains unchanged.
-
-✓ Representative inferred automatically.
-
-✓ Every inference explained.
-
-✓ Every decision traceable.
-
-✓ Avatar reflects industry.
-
-✓ Avatar reflects products.
-
-✓ Avatar reflects campaign objective.
-
-✓ Avatar reflects visual style.
-
-✓ Avatar reflects psychographics.
-
-✓ Avatar reflects brand positioning.
-
-✓ Background generated separately.
-
-✓ Avatar generated separately.
-
-✓ Production-ready architecture.
-
-The application should function as an autonomous AI Brand Persona Intelligence Platform that requires only a Brand Research JSON as input and automatically produces a validated, explainable, and brand-aligned representative without any manual intervention.
+Only approved avatars may be shown in the UI.
