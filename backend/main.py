@@ -1033,20 +1033,101 @@ async def generate_persona_board(req: GenerateRequest):
         avatar_bytes = None
         background_bytes = None
 
-        # Execute concurrent requests
-        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-            future_avatar = executor.submit(generate_asset_image, avatar_prompt, "Avatar")
-            future_background = executor.submit(generate_asset_image, background_prompt, "Background")
+        persona_raw = personas[req.personaIndex] if personas and req.personaIndex < len(personas) else {}
 
-            try:
-                avatar_bytes = future_avatar.result()
-            except Exception as e:
-                print(f"❌ Avatar generation failed: {e}")
+        # 1. Try to load predefined avatar from JSON
+        for img_key in ["api_image", "json-api-image", "json_api_image", "avatar_image", "image", "avatar", "avatarUrl", "imageUrl"]:
+            if img_key in persona_raw:
+                val = persona_raw[img_key]
+                if isinstance(val, str) and val.strip():
+                    val = val.strip()
+                    if val.startswith("data:image"):
+                        try:
+                            header, encoded = val.split(",", 1)
+                            import base64
+                            avatar_bytes = base64.b64decode(encoded)
+                            print(f"-> Loaded avatar image from base64 data URL in key '{img_key}'")
+                            break
+                        except Exception as e:
+                            print(f"Failed to decode base64 avatar: {e}")
+                    elif val.startswith(("http://", "https://")):
+                        try:
+                            import httpx
+                            print(f"-> Fetching avatar image from URL in key '{img_key}': {val}")
+                            r = httpx.get(val, timeout=30.0)
+                            if r.status_code == 200:
+                                avatar_bytes = r.content
+                                break
+                        except Exception as e:
+                            print(f"Failed to fetch avatar from URL: {e}")
+                    else:
+                        try:
+                            import os
+                            if os.path.exists(val):
+                                avatar_bytes = Path(val).read_bytes()
+                                print(f"-> Loaded avatar image from local path in key '{img_key}': {val}")
+                                break
+                        except Exception as e:
+                            print(f"Failed to read local avatar file: {e}")
 
-            try:
-                background_bytes = future_background.result()
-            except Exception as e:
-                print(f"❌ Background generation failed: {e}")
+        # 2. Try to load predefined background from JSON
+        for bg_key in ["background_image", "background", "backgroundUrl", "background_url"]:
+            if bg_key in persona_raw:
+                val = persona_raw[bg_key]
+                if isinstance(val, str) and val.strip():
+                    val = val.strip()
+                    if val.startswith("data:image"):
+                        try:
+                            header, encoded = val.split(",", 1)
+                            import base64
+                            background_bytes = base64.b64decode(encoded)
+                            print(f"-> Loaded background image from base64 data URL in key '{bg_key}'")
+                            break
+                        except Exception as e:
+                            print(f"Failed to decode base64 background: {e}")
+                    elif val.startswith(("http://", "https://")):
+                        try:
+                            import httpx
+                            print(f"-> Fetching background image from URL in key '{bg_key}': {val}")
+                            r = httpx.get(val, timeout=30.0)
+                            if r.status_code == 200:
+                                background_bytes = r.content
+                                break
+                        except Exception as e:
+                            print(f"Failed to fetch background from URL: {e}")
+                    else:
+                        try:
+                            import os
+                            if os.path.exists(val):
+                                background_bytes = Path(val).read_bytes()
+                                print(f"-> Loaded background image from local path in key '{bg_key}': {val}")
+                                break
+                        except Exception as e:
+                            print(f"Failed to read local background file: {e}")
+
+        # 3. Fallback to Gemini Image Generation if not provided in JSON
+        if not avatar_bytes or not background_bytes:
+            # Prepare prompts for whichever is missing
+            avatar_future = None
+            background_future = None
+            
+            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+                if not avatar_bytes:
+                    avatar_future = executor.submit(generate_asset_image, avatar_prompt, "Avatar")
+                if not background_bytes:
+                    background_future = executor.submit(generate_asset_image, background_prompt, "Background")
+
+                if avatar_future:
+                    try:
+                        avatar_bytes = avatar_future.result()
+                    except Exception as e:
+                        print(f"❌ Avatar generation failed: {e}")
+
+                if background_future:
+                    try:
+                        background_bytes = background_future.result()
+                    except Exception as e:
+                        print(f"❌ Background generation failed: {e}")
 
         # Check critical asset
         if not avatar_bytes:

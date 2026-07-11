@@ -588,7 +588,17 @@ export default function App() {
 
             {/* Representative Gender Selection for Unisex/All Genders profiles */}
             {personas[selectedPersona] && 
-             (personas[selectedPersona].gender || '').toLowerCase().includes('all') && (
+             (personas[selectedPersona].gender || '').toLowerCase().includes('all') && 
+             !(
+               personas[selectedPersona].api_image ||
+               personas[selectedPersona]['json-api-image'] ||
+               personas[selectedPersona].json_api_image ||
+               personas[selectedPersona].avatar_image ||
+               personas[selectedPersona].image ||
+               personas[selectedPersona].avatar ||
+               personas[selectedPersona].avatarUrl ||
+               personas[selectedPersona].imageUrl
+             ) && (
               <div className="glass-card" style={{ padding: '16px', marginBottom: '24px', background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '12px' }}>
                 <div style={{ fontSize: '11px', fontWeight: '700', marginBottom: '8px', color: '#818cf8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Representative Avatar Selection
