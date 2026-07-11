@@ -571,42 +571,50 @@ async def generate_persona_board(req: GenerateRequest):
             
         avatar_bytes = None
         background_bytes = None
-        
-        # All images are generated dynamically to ensure no cached or pre-existing images bypass generation
 
-        # Call Gemini Image models concurrently if not predefined
+        # ──────────────────────────────────────────────────────────────
+        # PIPELINE:
+        #   JSON input data
+        #     → LLM builds avatar_prompt  (person only, white background)
+        #     → LLM builds background_prompt  (scene only, no person)
+        #     → Gemini Image API (gemini-3.1-flash-image) called SEPARATELY
+        #         → transparent_avatar.png  (avatar image)
+        #         → background.png          (background image)
+        #     → PIL composites them → composited_board.png
+        # Both Gemini calls run concurrently for speed.
+        # ──────────────────────────────────────────────────────────────
+
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-            avatar_future = None
-            background_future = None
-            
-            if not avatar_bytes:
-                avatar_future = executor.submit(generate_image_asset, avatar_prompt, "Avatar")
-            if not background_bytes:
-                background_future = executor.submit(generate_image_asset, background_prompt, "Background")
-                
-            if avatar_future:
-                try:
-                    avatar_bytes = avatar_future.result()
-                except Exception as exc:
-                    print(f"Avatar generation task failed: {exc}")
-            if background_future:
-                try:
-                    background_bytes = background_future.result()
-                except Exception as exc:
-                    print(f"Background generation task failed: {exc}")
-                    
+            # Submit both image generation calls at the same time
+            avatar_future = executor.submit(generate_image_asset, avatar_prompt, "Avatar")
+            background_future = executor.submit(generate_image_asset, background_prompt, "Background")
+
+            # Collect avatar result
+            try:
+                avatar_bytes = avatar_future.result()
+            except Exception as exc:
+                print(f"Avatar generation task failed: {exc}")
+
+            # Collect background result separately
+            try:
+                background_bytes = background_future.result()
+            except Exception as exc:
+                print(f"Background generation task failed: {exc}")
+
         if not avatar_bytes:
-            raise HTTPException(status_code=500, detail="Gemini failed to generate visual avatar asset.")
-            
+            raise HTTPException(status_code=500, detail="Gemini failed to generate the avatar image.")
+
         if not background_bytes:
-            # Fallback placeholder background (plain gray)
+            # Fallback: plain neutral background if Gemini background generation fails
+            print("-> Background generation failed, using fallback neutral background.")
             bg_img = Image.new("RGBA", (1080, 1350), (245, 245, 245, 255))
             bg_bytes = io.BytesIO()
             bg_img.save(bg_bytes, format="PNG")
             background_bytes = bg_bytes.getvalue()
-            
-        # 5. Composite Layers using PIL
+
+        # 5. PIL composites avatar (transparent) onto background → composited_board
         composite_bytes = remove_background_and_composite(avatar_bytes, background_bytes)
+
         
         # 6. Save strategic outputs & validation logs to history archive (Acceptance Criteria)
         entry_id = uuid.uuid4().hex[:12]
